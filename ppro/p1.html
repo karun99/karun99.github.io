@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom styling goes here */
+
+    /* Dark Mode */
+    .dark-mode {
+      background-color: #1F2937;
+      color: #FFFFFF;
+    }
+
+    .dark-mode .header {
+      background: linear-gradient(to right, #000000, #000000);
+    }
+
+    .dark-mode .header h1 {
+      color: #FFFFFF;
+    }
+
+    .dark-mode .header p {
+      color: #D1D5DB;
+    }
+
+    .dark-mode .navbar {
+      background-color: #1F2937;
+    }
+
+    .dark-mode .navbar a {
+      color: #FFFFFF;
+    }
+
+    .dark-mode .statement {
+      background-color: #1F2937;
+    }
+
+    .dark-mode .statement h2 {
+      color: #FFFFFF;
+    }
+   .dark-mode .statement h3 {
+      color: #FFFFFF;
+    }
+
+    .dark-mode .statement p {
+      color: #D1D5DB;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 dark-mode:bg-gray-900 dark-mode:text-white">
+  <!-- Header Section -->
+  <header class="bg-gray-200 dark-mode:bg-gray-800 py-4 header">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-semibold">Python Project -1</h1>
+      <p class="text-gray-600 dark-mode:text-gray-400">Arithmentic Table Printer</p>
+    </div>
+  </header>
+
+  <!-- Navbar Section -->
+  <nav class="bg-gray-100 dark-mode:bg-gray-900 py-4 navbar">
+    <div class="container mx-auto px-4 flex justify-center">
+      <a href="index.html" class="mr-4 text-gray-600 dark-mode:text-white">Home</a>
+      <a href="ppro.html" class="mr-4 text-gray-600 dark-mode:text-white">Python Projects</a>
+      <a href="#hero" class="mr-4 text-gray-600 dark-mode:text-white">About</a>
+      <a href="#statement" class="mr-4 text-gray-600 dark-mode:text-white">Algorithm</a>
+      <a href="#project" class="text-gray-600 dark-mode:text-white">Code and Output</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="bg-blue-500 dark-mode:bg-gray-700 py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-white">Arithmetic Table Printer in Python</h2>
+      
+    </div>
+  </section>
+
+  <!-- Statement Section -->
+  <section id="statement" class="bg-gray-200 dark-mode:bg-gray-800 py-16 statement">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-gray-800 dark-mode:text-gray-200"><b>Statement:</b><br>The program takes user inputs for an arithmetic operation, the type of arithmetic table (normal or reversal), and the size of the table. It then generates and prints the arithmetic table based on the inputs.
+<br>
+<b>Algorithm:</b><br>
+
+
+1. Prompt the user to enter the value of 'a'.<br>
+2. Prompt the user to enter the starting value 'i'.<br>
+3. Prompt the user to enter the limit of the table 'n'.<br>
+4. Prompt the user to select the arithmetic operation ('1' for addition, '2' for subtraction, '3' for multiplication, '4' for division).<br>
+5. Prompt the user to select the table type ('1' for normal, '2' for reverse).<br>
+6. Based on the selected operation and table type, perform the following steps:<br>
+   - If the operation is addition and the table type is normal:<br>
+     - Print the addition table of 'a' from 'i' to 'n'.<br>
+     - Increment 'i' by 1 in each iteration.<br>
+   - If the operation is addition and the table type is reverse:<br>
+     - Print the addition table of 'a' from 'n' to 'i'.<br>
+     - Decrement 'n' by 1 in each iteration.<br>
+   - If the operation is subtraction and the table type is normal:<br>
+     - Print the subtraction table of 'a' from 'i' to 'n'.<br>
+     - Increment 'i' by 1 in each iteration.<br>
+   - If the operation is subtraction and the table type is reverse:<br>
+     - Print the subtraction table of 'a' from 'n' to 'i'.<br>
+     - Decrement 'n' by 1 in each iteration.<br>
+   - If the operation is multiplication and the table type is normal:<br>
+     - Print the multiplication table of 'a' from 'i' to 'n'.<br>
+     - Increment 'i' by 1 in each iteration.<br>
+   - If the operation is multiplication and the table type is reverse:<br>
+     - Print the multiplication table of 'a' from 'n' to 'i'.<br>
+     - Decrement 'n' by 1 in each iteration.<br>
+   - If the operation is division and the table type is normal:<br>
+     - Print the division table of 'a' from 'i' to 'n'.<br>
+     - Increment 'i' by 1 in each iteration.<br>
+   - If the operation is division and the table type is reverse:<br>
+     - Print the division table of 'a' from 'n' to 'i'.<br>
+     - Decrement 'n' by 1 in each iteration.<br>
+7. End of the program.<br>
+
+</h2>
+      
+    </div>
+  </section>
+
+  <!-- Project Section -->
+  <section id="project" class="bg-gray-100 dark-mode:bg-gray-900 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-gray-800 dark-mode:text-gray-200">Code and Output</h2>
+      <h3 class="text-4xl font-semibold text-gray-800 dark-mode:text-gray-200">
+a = int(input("\tEnter a:")) <br>
+i = int(input("\tEnter starting value:")) <br>
+n = int(input("\tEnter limit of table:")) <br>
+c1 = int(input("\t1.Addition\n\t2.Subtraction\n\t3.Multiplication\n\t4.Division\n\tSelect your Choice:")) <br>
+c2 = int(input("\t1.Normal\n\t2.Reverse\n\tSelect Your Choice:")) <br>
+if c1 == 1 and c2 == 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t Addition Table of ", a, "from", i, "to", n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while i <= n: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "+", i, "=", a + i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1 <br>
+elif c1 == 1 and c2 == 2: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t Addition Table of ", a, "from", n, "to", i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while n >= i: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "+", n, "=", a + n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n -= 1 <br>
+elif c1 == 2 and c2 == 1: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t Subtraction Table of ", a, "from", i, "to", n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while i <= n: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "-", i, "=", a - i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1 <br>
+elif c1 == 2 and c2 == 2: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t SubtractionTable of ", a, "from", n, "to", i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while n >= i: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "-", n, "=", a - n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n -= 1 <br>
+elif c1 == 3 and c2 == 1: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t Multiplication Table of ", a, "from", i, "to", n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while i <= n: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "X", i, "=", a * i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1 <br>
+elif c1 == 3 and c2 == 2: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t Multiplication Table of ", a, "from", n, "to", i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while n >= i: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "X", n, "=", a * n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n -= 1 <br>
+elif c1 == 4 and c2 == 1: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t Division Table of ", a, "from", i, "to", n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while i <= n: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "/", i, "=", a / i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1 <br>
+elif c1 == 4 and c2 == 2: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t DivisionTable of ", a, "from", n, "to", i) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("\t---------------------------------------") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;while n >= i: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\t", a, "/", n, "=", a / n) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n -= 1
+</h3>
+    </div>
+  </section>
+
+  <!-- Dark Mode Toggle Button -->
+  <button id="toggle-dark-mode" class="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+    Toggle Dark Mode
+  </button>
+
+  <!-- JavaScript to toggle dark mode -->
+  <script>
+    const toggleButton = document.getElementById('toggle-dark-mode');
+    const body = document.body;
+    const sections = document.querySelectorAll('section');
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      sections.forEach((section) => {
+        section.classList.toggle('dark-mode:bg-gray-700');
+      });
+    });
+  </script>
+</body>
+
+</html>
 
