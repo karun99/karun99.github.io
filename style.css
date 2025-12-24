@@ -1,0 +1,237 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header & Footer */
+.header {
+    background: linear-gradient(to right, #007BFF, #00B4FF);
+}
+
+.dark-mode .header {
+    background: linear-gradient(to right, #000000, #000000);
+}
+
+.footer {
+    background: linear-gradient(to right, #007BFF, #00B4FF);
+}
+
+.dark-mode .footer {
+    background: linear-gradient(to right, #000000, #000000);
+}
+
+/* Dark Mode Text Colors */
+.dark-mode .text-primary {
+    color: #fff !important;
+}
+
+.dark-mode .text-secondary {
+    color: #D1D5DB !important;
+}
+
+.dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode strong {
+    color: #fff !important;
+}
+
+.dark-mode p, .dark-mode li {
+    color: #D1D5DB;
+}
+
+.dark-mode .header h1,
+.dark-mode .header p {
+    color: #FFFFFF !important; /* Ensure header text is white in dark mode */
+}
+
+/* Section Backgrounds in Dark Mode */
+.dark-mode #hero,
+.dark-mode #projects,
+.dark-mode #experience,
+.dark-mode #education,
+.dark-mode #patents,
+.dark-mode #memberships,
+.dark-mode #publications {
+    background-color: #1F2937 !important;
+}
+
+.dark-mode #skills,
+.dark-mode #contact,
+.dark-mode #honours-awards {
+    background-color: #374151 !important;
+}
+
+
+/* Progress Bar (index.html) */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #E5E7EB;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #6366F1;
+}
+
+.dark-mode .progress-bar-inner {
+    background-color: #7C3AED;
+}
+
+.skill-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #6366F1;
+}
+
+.dark-mode .skill-percentage {
+    color: #7C3AED;
+}
+
+/* Cards (index.html custom cards) */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+}
+
+.card p {
+    margin: 10px 0 0;
+    color: #666;
+}
+
+/* Honours and Awards (index.html) */
+#honours-awards {
+    padding: 2rem 0;
+}
+
+#honours-awards h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2563EB;
+    margin-bottom: 1rem;
+}
+
+#honours-awards .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+#honours-awards .card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#honours-awards .card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+#honours-awards .card p {
+    margin: 1rem 0 0;
+    color: #666;
+}
+
+/* Dark mode for cards in specific sections */
+.dark-mode #honours-awards .card,
+.dark-mode #education .bg-white,
+.dark-mode #patents .bg-white,
+.dark-mode #memberships .bg-white,
+.dark-mode #projects .bg-white {
+    background-color: #4B5563 !important; /* Gray-600 ish */
+    color: #fff !important;
+    border-color: #374151;
+}
+
+.dark-mode #honours-awards .card h3,
+.dark-mode #honours-awards .card p,
+.dark-mode #education h3,
+.dark-mode #education p,
+.dark-mode #patents h3,
+.dark-mode #patents p,
+.dark-mode #memberships h4,
+.dark-mode #memberships p,
+.dark-mode #projects h3,
+.dark-mode #projects p {
+    color: #fff !important;
+}
+
+/* Publications Summary Cards */
+.dark-mode #publications .bg-gray-100 {
+    background-color: #374151 !important;
+    color: white !important;
+}
+.dark-mode #publications span {
+    color: white !important;
+}
+.dark-mode #publications .text-blue-600 {
+    color: #60A5FA !important; /* Light blue */
+}
+
+
+/* Project Cards (apro.html, etc.) */
+.project-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ppro/p1.html specific styles */
+.dark-mode {
+    background-color: #1F2937; /* Body bg in dark mode for p1 */
+    color: #FFFFFF;
+}
+
+.dark-mode .navbar {
+    background-color: #1F2937;
+}
+
+.dark-mode .navbar a {
+    color: #FFFFFF;
+}
+
+.dark-mode .statement {
+    background-color: #1F2937;
+}
+
+.dark-mode .statement h2,
+.dark-mode .statement h3 {
+    color: #FFFFFF;
+}
+
+.dark-mode .statement p {
+    color: #D1D5DB;
+}
