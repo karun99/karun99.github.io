@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
@@ -7,338 +7,354 @@
   <title>Mr Sai Karun Nandipati - Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body class="bg-gray-100 dark-mode:bg-gray-900 dark-mode:text-white">
-  <!-- Header -->
-  <header class="header shadow">
-    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-      <div class="header-pattern h-10 w-10"></div>
-      <div>
-        <h1 class="text-3xl font-semibold text-primary">Mr Sai Karun Nandipati</h1>
-        <p class="text-secondary">Assistant Professor, Department of Computer Science and Applications, KBN College</p>
-      </div>
-      <button id="toggle-dark-mode" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Toggle Dark Mode
-      </button>
-    </div>
-  </header>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
 
   <!-- Navbar -->
-  <nav class="bg-gray-900 text-white">
-    <div class="container mx-auto px-4 py-4">
-      <ul class="flex items-center justify-between overflow-x-auto">
-        <li class="mr-4"><a href="#hero" class="text-lg font-medium">Home</a></li>
-        <li class="mr-4"><a href="#experience" class="text-lg font-medium">Experience</a></li>
-        <li class="mr-4"><a href="#education" class="text-lg font-medium">Education</a></li>
-        <li class="mr-4"><a href="#skills" class="text-lg font-medium">Skills</a></li>
-        <li class="mr-4"><a href="#patents" class="text-lg font-medium">Patents</a></li>
-        <li class="mr-4"><a href="#honours-awards" class="text-lg font-medium">Awards</a></li>
-        <li class="mr-4"><a href="#memberships" class="text-lg font-medium">Memberships</a></li>
-        <li class="mr-4"><a href="#projects" class="text-lg font-medium">Projects</a></li>
-        <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
-      </ul>
+  <nav class="glass-nav fixed w-full top-0 z-50 transition-colors duration-300">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-600 dark-mode:text-blue-400">NSK</a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#hero" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
+        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
+        <a href="#skills" class="text-gray-700 hover:text-blue-600 font-medium transition">Skills</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition">Projects</a>
+        <a href="#experience" class="text-gray-700 hover:text-blue-600 font-medium transition">Experience</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact</a>
+        
+        <button id="toggle-dark-mode" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full hover:bg-gray-300 transition focus:outline-none">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-gray-700 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section id="hero" class="bg-gray-200 dark-mode:bg-gray-900 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-4">Welcome to My Portfolio</h2>
-      <p class="text-lg text-secondary mb-4">
-        I am <strong>Mr Sai Karun Nandipati</strong>, a passionate Computer Science faculty at KBN College, Vijayawada. 
-        I empower students with cutting-edge knowledge in Machine Learning, crafting intelligent algorithms. 
-        I guide learners through Advanced Angular frameworks, Generative AI, C Programming, and Digital Logic Design.
-      </p>
-      <div class="flex flex-wrap gap-4 mt-6">
-        <a href="https://nskp.carrd.co/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Website</a>
-        <a href="https://vidwan.inflibnet.ac.in/profile/394004" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Vidwan Profile</a>
-        <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">ORCID</a>
-        <a href="http://scholar.google.co.in/citations?user=qD-LRh4AAAAJ" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Google Scholar</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="bg-white dark-mode:bg-gray-800 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Experience</h2>
-      <div class="border-l-4 border-blue-500 pl-6 ml-4">
-        <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Assistant Professor</h3>
-        <p class="text-lg text-gray-600 dark:text-gray-300">Department of Computer Science and Applications, KBN College</p>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2023 - Present</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Qualification</h2>
-      <div class="space-y-6">
-        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">M.Tech (CSE)</h3>
-          <p class="text-gray-600 dark:text-gray-300">RK College of Engineering</p>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2025</p>
+  <!-- Hero Section -->
+  <section id="hero" class="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
+    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+      <div class="flex-1 text-center md:text-left fade-in-section">
+        <h2 class="text-blue-600 font-semibold tracking-wide uppercase mb-2">Computer Faculty & Researcher</h2>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          Hi, I'm <span class="text-gray-900 dark-mode:text-white">Sai Karun</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Passionate Assistant Professor at KBN College, specializing in <strong>Machine Learning</strong>, <strong>Generative AI</strong>, and <strong>Web Development</strong>. I bridge the gap between complex theory and practical application.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <a href="#contact" class="px-8 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1">Get in Touch</a>
+          <a href="#projects" class="px-8 py-3 bg-white text-gray-800 border border-gray-300 rounded-lg shadow hover:bg-gray-50 transition transform hover:-translate-y-1">View Projects</a>
         </div>
-        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">M.Sc</h3>
-          <p class="text-gray-600 dark:text-gray-300">SRR & CVR PG College</p>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2018</p>
-        </div>
-        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">B.Sc</h3>
-          <p class="text-gray-600 dark:text-gray-300">SRR & CVR PG College</p>
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2015</p>
+        
+        <div class="flex gap-6 mt-8 justify-center md:justify-start">
+          <a href="https://vidwan.inflibnet.ac.in/profile/394004" target="_blank" class="text-gray-500 hover:text-blue-600 text-2xl transition"><i class="fas fa-university"></i></a>
+          <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" class="text-gray-500 hover:text-green-600 text-2xl transition"><i class="fab fa-orcid"></i></a>
+          <a href="http://scholar.google.co.in/citations?user=qD-LRh4AAAAJ" target="_blank" class="text-gray-500 hover:text-blue-500 text-2xl transition"><i class="fas fa-graduation-cap"></i></a>
+          <a href="mailto:saikarun085@gmail.com" class="text-gray-500 hover:text-red-500 text-2xl transition"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="bg-white dark-mode:bg-gray-800 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Skills</h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Machine Learning</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 85%;"></div></div>
-          <p class="skill-percentage">85%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Generative AI</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
-          <p class="skill-percentage">80%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Angular</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 75%;"></div></div>
-          <p class="skill-percentage">75%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Python</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 90%;"></div></div>
-          <p class="skill-percentage">90%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">C Programming</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 85%;"></div></div>
-          <p class="skill-percentage">85%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Digital Logic Design</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
-          <p class="skill-percentage">80%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Java</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
-          <p class="skill-percentage">80%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Power BI</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 75%;"></div></div>
-          <p class="skill-percentage">75%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Tableau</h3>
-          <div class="progress-bar"><div class="progress-bar-inner" style="width: 70%;"></div></div>
-          <p class="skill-percentage">70%</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Patents -->
-  <section id="patents" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Patents</h2>
-      <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">AI-POWERED DEVICE FOR NETWORK THREAT DETECTION</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-2"><strong>Patent No:</strong> 430790-001</p>
-        <p class="text-gray-600 dark:text-gray-300 mb-2"><strong>Status:</strong> Granted</p>
-        <p class="text-gray-600 dark:text-gray-300 mb-2"><strong>Filed:</strong> 2024-09-18 | <strong>Published:</strong> 2024-10-29</p>
-        <p class="text-gray-500 dark:text-gray-400 text-sm">Inventors: Dr. K. V. N. R. Sai Krishna, P.L. Ramesh, Dr V. T.Ram Pavan Kumar. M, P. Ravindra, Shamim, N. S. Sai Karun</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Honours and Awards -->
-  <section id="honours-awards" class="bg-white dark:bg-gray-800 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Honours and Awards</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">FDP on Data analysis using Power BI and Tableau - 2023</h3>
-          <p>ExcelR in Association with APSkill</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Introduction to IT & Cyber Security - 2022</h3>
-          <p>Cybrary</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Google Cloud Google Professional Workspace Administrator Professional Certificate - 2022</h3>
-          <p>Google Cloud</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Best Practices for Biomedical Research Data Management (HE) - 2021</h3>
-          <p>Harvard Medical School</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Information Security Fundamentals - 2020</h3>
-          <p>Cybrary</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">21st Century Teaching & Learning - 2019</h3>
-          <p>Stanford University</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">The Art and Craft of Remote Teaching (HE) - 2019</h3>
-          <p>UC Riverside</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Computer Hacking & Forensics - 2017</h3>
-          <p>Cybrary</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Cryptography - 2017</h3>
-          <p>Cybrary</p>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
-          <h3 class="text-lg font-medium mb-2">Intro to Python - 2017</h3>
-          <p>Cybrary</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Professional Bodies & Memberships -->
-  <section id="memberships" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Professional Memberships</h2>
       
-      <div class="mb-8">
-        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Professional Bodies</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">IFREP (Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">IAENG (Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">IIRCR (Asst.Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">IIIIER (Asst.Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">NITTSD (Member)</h4>
-            <p class="text-sm">2022</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Committees</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">IARS (Asst.Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">NSPE (Asst.Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">ISTE (Asst.Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">IETE (Asst.Professor)</h4>
-            <p class="text-sm">2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
-            <h4 class="font-bold">NCCRP (Cyber Volunteer)</h4>
-            <p class="text-sm">2021</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  
-  <!-- Publications Summary -->
-  <section id="publications" class="bg-white dark-mode:bg-gray-800 py-16">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl font-semibold text-primary mb-8">Publications</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">1</span>
-          <span class="text-gray-600 dark:text-gray-300">Journal Articles</span>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">2</span>
-          <span class="text-gray-600 dark:text-gray-300">Book Chapters</span>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">30</span>
-          <span class="text-gray-600 dark:text-gray-300">Books</span>
-        </div>
-        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
-          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">7</span>
-          <span class="text-gray-600 dark:text-gray-300">Conference Proceedings</span>
+      <div class="flex-1 flex justify-center fade-in-section">
+        <div class="relative w-64 h-64 md:w-96 md:h-96">
+          <div class="absolute inset-0 bg-blue-200 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+          <img src="https://ui-avatars.com/api/?name=Sai+Karun&background=0D8ABC&color=fff&size=512" alt="Sai Karun" class="relative w-full h-full object-cover rounded-full shadow-2xl border-4 border-white dark-mode:border-gray-800">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-4">Projects</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-          <img src="project1.jpg" alt="Python Projects" class="w-full mb-4 object-cover h-40 rounded">
-          <h3 class="text-lg font-medium mb-2">Python Projects </h3>
-          <p class="text-gray-600 dark:text-gray-300">My Python Console Projects </p>
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">My Services</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Leveraging academic and practical expertise to deliver high-quality solutions.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="p-8 bg-gray-50 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 fade-in-section">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">AI & ML Consulting</h3>
+          <p class="text-gray-600">Expert guidance on Machine Learning models, Generative AI applications, and data-driven decision making.</p>
         </div>
-        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-          <img src="project2.jpg" alt="Web Projects" class="w-full mb-4 object-cover h-40 rounded">
-          <h3 class="text-lg font-medium mb-2">Web Projects </h3>
-          <p class="text-gray-600 dark:text-gray-300">My Web Projects</p>
+
+        <!-- Service 2 -->
+        <div class="p-8 bg-gray-50 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 fade-in-section">
+          <div class="w-14 h-14 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Technical Training</h3>
+          <p class="text-gray-600">Comprehensive training in C, Java, Python, and Web Technologies for students and professionals.</p>
         </div>
-        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
-          <img src="project3.jpg" alt="AI Projects" class="w-full mb-4 object-cover h-40 rounded">
-          <h3 class="text-lg font-medium mb-2">My AI Projects</h3>
-          <p class="text-gray-600 dark:text-gray-300">My AI Projects using Python Libraries</p>
+
+        <!-- Service 3 -->
+        <div class="p-8 bg-gray-50 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 fade-in-section">
+          <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Web Development</h3>
+          <p class="text-gray-600">Building responsive and modern web applications using the latest frameworks like Angular and Tailwind.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-white dark-mode:bg-gray-800 py-16">
-    <div class="container mx-auto px-4 flex flex-col lg:flex-row">
-      <div class="w-full lg:w-1/2 mx-auto lg:mx-0 mb-10 lg:mb-0">
-        <h2 class="text-4xl font-semibold text-primary mb-4">Contact Me</h2>
-        <p class="text-lg text-secondary mb-2">For any inquiries or collaborations, feel free to reach out:</p>
-        <p class="mb-2"><strong class="text-gray-700 dark:text-gray-300">Location:</strong> Satyanarayanapuram, Vijayawada, Andhra Pradesh, India - 520001</p>
-        <a href="mailto:saikarun085@gmail.com" class="text-xl font-medium text-blue-500 block mb-4">saikarun085@gmail.com</a>
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Proficiency</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">A collection of tools and technologies I use to build and teach.</p>
       </div>
-      <div class="w-full lg:w-1/2 h-64 lg:h-auto">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.503247261233!2d80.62055531431617!3d16.50616328860895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3699e094bea97d%3A0xd96df81b08d5aeaf!2sVijayawada%2C%20Andhra%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1629995167282!5m2!1sen!2sus" frameborder="0" style="border:0; width:100%; height:100%;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+      <div class="flex flex-wrap justify-center gap-4 fade-in-section">
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-blue-500 transition">
+          <i class="fab fa-python text-blue-500"></i> Python
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-yellow-500 transition">
+          <i class="fas fa-brain text-yellow-500"></i> Machine Learning
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-red-500 transition">
+          <i class="fab fa-angular text-red-600"></i> Angular
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-blue-700 transition">
+          <i class="fab fa-cuttlefish text-blue-700"></i> C Programming
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-orange-500 transition">
+          <i class="fab fa-java text-orange-500"></i> Java
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-yellow-600 transition">
+          <i class="fas fa-chart-bar text-yellow-600"></i> Power BI
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-blue-400 transition">
+          <i class="fas fa-table text-blue-400"></i> Tableau
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-purple-500 transition">
+          <i class="fas fa-robot text-purple-500"></i> Generative AI
+        </span>
+        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-gray-800 transition">
+          <i class="fas fa-microchip text-gray-800"></i> Digital Logic Design
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Highlights of my technical work and research.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg fade-in-section">
+          <img src="https://placehold.co/600x400/2563eb/ffffff?text=Python+Projects" alt="Python Projects" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="text-xl font-bold text-white mb-1">Python Console Projects</h3>
+            <p class="text-gray-200 text-sm mb-4">Automation scripts and CLI tools.</p>
+            <span class="text-white text-xs font-semibold px-2 py-1 bg-blue-600 rounded">Python</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg fade-in-section">
+          <img src="https://placehold.co/600x400/10b981/ffffff?text=Web+Projects" alt="Web Projects" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="text-xl font-bold text-white mb-1">Web Applications</h3>
+            <p class="text-gray-200 text-sm mb-4">Responsive websites using modern frameworks.</p>
+            <span class="text-white text-xs font-semibold px-2 py-1 bg-green-600 rounded">HTML/CSS/JS</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group relative overflow-hidden rounded-xl shadow-lg fade-in-section">
+          <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=AI+Projects" alt="AI Projects" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <h3 class="text-xl font-bold text-white mb-1">AI Research</h3>
+            <p class="text-gray-200 text-sm mb-4">Implementations of ML algorithms and GenAI.</p>
+            <span class="text-white text-xs font-semibold px-2 py-1 bg-purple-600 rounded">TensorFlow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education -->
+  <section id="experience" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <!-- Experience -->
+        <div class="fade-in-section">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <i class="fas fa-briefcase text-blue-600"></i> Experience
+          </h2>
+          <div class="relative border-l-4 border-blue-600 ml-3 space-y-10 pl-8">
+            <div class="relative">
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-blue-600 rounded-full border-4 border-white"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">Assistant Professor</h3>
+              <p class="text-blue-600 font-medium">KBN College</p>
+              <p class="text-sm text-gray-500 mt-1">2023 - Present</p>
+              <p class="text-gray-600 mt-2">Department of Computer Science and Applications. Teaching and mentoring students in advanced CS topics.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="fade-in-section">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <i class="fas fa-graduation-cap text-green-600"></i> Education
+          </h2>
+          <div class="relative border-l-4 border-green-600 ml-3 space-y-10 pl-8">
+            <div class="relative">
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">M.Tech (CSE)</h3>
+              <p class="text-green-600 font-medium">RK College of Engineering</p>
+              <p class="text-sm text-gray-500 mt-1">2025</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">M.Sc</h3>
+              <p class="text-green-600 font-medium">SRR & CVR PG College</p>
+              <p class="text-sm text-gray-500 mt-1">2018</p>
+            </div>
+             <div class="relative">
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">B.Sc</h3>
+              <p class="text-green-600 font-medium">SRR & CVR PG College</p>
+              <p class="text-sm text-gray-500 mt-1">2015</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Patents & Awards -->
+  <section id="honours-awards" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+       <!-- Patent -->
+       <div class="mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Patents</h2>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark-mode:from-gray-700 dark-mode:to-gray-800 p-8 rounded-2xl border border-blue-100 shadow-sm max-w-4xl mx-auto">
+          <div class="flex items-start gap-4">
+             <div class="text-4xl text-blue-500"><i class="fas fa-certificate"></i></div>
+             <div>
+                <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white mb-2">AI-POWERED DEVICE FOR NETWORK THREAT DETECTION</h3>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                  <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium">Granted</span>
+                  <span><strong>No:</strong> 430790-001</span>
+                  <span><strong>Published:</strong> 2024-10-29</span>
+                </div>
+                <p class="text-gray-600 dark-mode:text-gray-300">Inventors: Dr. K. V. N. R. Sai Krishna, P.L. Ramesh, Dr V. T.Ram Pavan Kumar. M, P. Ravindra, Shamim, N. S. Sai Karun</p>
+             </div>
+          </div>
+        </div>
+       </div>
+
+       <!-- Awards Grid -->
+       <div class="fade-in-section">
+         <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Honours & Awards</h2>
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           <div class="p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition border border-gray-100">
+             <div class="text-yellow-500 text-3xl mb-4"><i class="fas fa-trophy"></i></div>
+             <h3 class="font-bold mb-2">FDP on Data analysis</h3>
+             <p class="text-sm text-gray-500 mb-1">2023</p>
+             <p class="text-gray-600 text-sm">ExcelR in Association with APSkill</p>
+           </div>
+           <div class="p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition border border-gray-100">
+             <div class="text-yellow-500 text-3xl mb-4"><i class="fas fa-award"></i></div>
+             <h3 class="font-bold mb-2">IT & Cyber Security</h3>
+             <p class="text-sm text-gray-500 mb-1">2022</p>
+             <p class="text-gray-600 text-sm">Cybrary</p>
+           </div>
+           <div class="p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition border border-gray-100">
+             <div class="text-yellow-500 text-3xl mb-4"><i class="fas fa-certificate"></i></div>
+             <h3 class="font-bold mb-2">Google Cloud Admin</h3>
+             <p class="text-sm text-gray-500 mb-1">2022</p>
+             <p class="text-gray-600 text-sm">Google Cloud</p>
+           </div>
+           <!-- Add more items as needed, keeping layout clean -->
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-900 text-white">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="flex-1 space-y-6 fade-in-section">
+          <h2 class="text-4xl font-bold">Let's Work Together</h2>
+          <p class="text-gray-400 text-lg">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+          
+          <div class="space-y-4 pt-4">
+             <div class="flex items-center gap-4">
+               <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-map-marker-alt"></i></div>
+               <div>
+                 <h4 class="font-bold text-gray-200">Address</h4>
+                 <p class="text-gray-400">Satyanarayanapuram, Vijayawada, AP, India</p>
+               </div>
+             </div>
+             
+             <div class="flex items-center gap-4">
+               <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-envelope"></i></div>
+               <div>
+                 <h4 class="font-bold text-gray-200">Email</h4>
+                 <a href="mailto:saikarun085@gmail.com" class="text-gray-400 hover:text-white transition">saikarun085@gmail.com</a>
+               </div>
+             </div>
+          </div>
+          
+          <div class="flex gap-4 mt-8">
+             <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
+             <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-600 transition"><i class="fab fa-github"></i></a>
+             <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="flex-1 w-full fade-in-section">
+          <form class="bg-gray-800 p-8 rounded-xl shadow-2xl space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+              <input type="text" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Your Name">
+            </div>
+             <div>
+              <label class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+              <input type="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Your Email">
+            </div>
+             <div>
+              <label class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+              <textarea class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition h-32" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition">Send Message</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer bg-gray-900 dark-mode:bg-black text-white">
-    <div class="container mx-auto px-4 py-6 text-center">
+  <footer class="bg-black text-gray-500 py-8 text-center border-t border-gray-800">
+    <div class="container mx-auto px-6">
       <p>&copy; 2025 Mr Sai Karun Nandipati. All rights reserved.</p>
     </div>
   </footer>
