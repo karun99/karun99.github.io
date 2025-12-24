@@ -4,158 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N.S. Sai Karun - Portfolio</title>
+  <title>Mr Sai Karun Nandipati - Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    .header {
-      background: linear-gradient(to right, #007BFF, #00B4FF);
-    }
-
-    .dark-mode .header {
-      background: linear-gradient(to right, #000000, #000000);
-    }
-
-    .footer {
-      background: linear-gradient(to right, #007BFF, #00B4FF);
-    }
-
-    .dark-mode .footer {
-      background: linear-gradient(to right, #000000, #000000);
-    }
-
-    .dark-mode .text-primary {
-      color: #fff;
-    }
-
-    .dark-mode .text-secondary {
-      color: #D1D5DB;
-    }
-
-    .dark-mode #hero {
-      background-color: #1F2937;
-    }
-
-    .dark-mode #skills {
-      background-color: #374151;
-    }
-
-    .dark-mode #projects {
-      background-color: #1F2937;
-    }
-
-    .dark-mode #contact {
-      background-color: #374151;
-    }
-
-    .progress-bar {
-      position: relative;
-      width: 100%;
-      height: 10px;
-      background-color: #E5E7EB;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    .progress-bar-inner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background-color: #6366F1;
-    }
-
-    .dark-mode .progress-bar-inner {
-      background-color: #7C3AED;
-    }
-
-    .skill-percentage {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: #6366F1;
-    }
-
-    .dark-mode .skill-percentage {
-      color: #7C3AED;
-    }
-  /* Style for the cards container */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Style for individual cards */
-.card {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Card title style */
-.card h3 {
-    font-size: 1.2em;
-    margin: 0;
-    color: #333;
-}
-
-/* Card content style */
-.card p {
-    margin: 10px 0 0;
-    color: #666;
-}
-/* Custom CSS for the "Honours and Awards" section */
-#honours-awards {
-  padding: 2rem 0;
-}
-
-#honours-awards h2 {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #2563EB; /* Adjust the color to your preference */
-  margin-bottom: 1rem;
-}
-
-/* Card styles */
-#honours-awards .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-#honours-awards .card {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#honours-awards .card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
-  color: #333; /* Text color */
-}
-
-#honours-awards .card p {
-  margin: 1rem 0 0;
-  color: #666; /* Text color */
-}
-
-  </style>
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100 dark-mode:bg-gray-900 dark-mode:text-white">
@@ -163,8 +14,10 @@
   <header class="header shadow">
     <div class="container mx-auto px-4 py-6 flex justify-between items-center">
       <div class="header-pattern h-10 w-10"></div>
-      <h1 class="text-3xl font-semibold text-primary">N.S. Sai Karun</h1>
-      <p class="text-secondary">Computer Faculty</p>
+      <div>
+        <h1 class="text-3xl font-semibold text-primary">Mr Sai Karun Nandipati</h1>
+        <p class="text-secondary">Assistant Professor, Department of Computer Science and Applications, KBN College</p>
+      </div>
       <button id="toggle-dark-mode" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Toggle Dark Mode
       </button>
@@ -174,10 +27,15 @@
   <!-- Navbar -->
   <nav class="bg-gray-900 text-white">
     <div class="container mx-auto px-4 py-4">
-      <ul class="flex items-center justify-between">
-        <li><a href="#hero" class="text-lg font-medium">Home</a></li>
-        <li><a href="#skills" class="text-lg font-medium">Skills</a></li>
-        <li><a href="#projects" class="text-lg font-medium">Projects</a></li>
+      <ul class="flex items-center justify-between overflow-x-auto">
+        <li class="mr-4"><a href="#hero" class="text-lg font-medium">Home</a></li>
+        <li class="mr-4"><a href="#experience" class="text-lg font-medium">Experience</a></li>
+        <li class="mr-4"><a href="#education" class="text-lg font-medium">Education</a></li>
+        <li class="mr-4"><a href="#skills" class="text-lg font-medium">Skills</a></li>
+        <li class="mr-4"><a href="#patents" class="text-lg font-medium">Patents</a></li>
+        <li class="mr-4"><a href="#honours-awards" class="text-lg font-medium">Awards</a></li>
+        <li class="mr-4"><a href="#memberships" class="text-lg font-medium">Memberships</a></li>
+        <li class="mr-4"><a href="#projects" class="text-lg font-medium">Projects</a></li>
         <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
       </ul>
     </div>
@@ -187,191 +45,290 @@
   <section id="hero" class="bg-gray-200 dark-mode:bg-gray-900 py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-semibold text-primary mb-4">Welcome to My Portfolio</h2>
-      <p class="text-lg text-secondary">I am N.S. Sai Karun, a computer faculty with proficiency in C, Java, Python, HTML, CSS, JavaScript, AI, R, PowerBI, and Tableau.</p>
+      <p class="text-lg text-secondary mb-4">
+        I am <strong>Mr Sai Karun Nandipati</strong>, a passionate Computer Science faculty at KBN College, Vijayawada. 
+        I empower students with cutting-edge knowledge in Machine Learning, crafting intelligent algorithms. 
+        I guide learners through Advanced Angular frameworks, Generative AI, C Programming, and Digital Logic Design.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-6">
+        <a href="https://nskp.carrd.co/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Website</a>
+        <a href="https://vidwan.inflibnet.ac.in/profile/394004" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Vidwan Profile</a>
+        <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">ORCID</a>
+        <a href="http://scholar.google.co.in/citations?user=qD-LRh4AAAAJ" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Google Scholar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="bg-white dark-mode:bg-gray-800 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-primary mb-8">Experience</h2>
+      <div class="border-l-4 border-blue-500 pl-6 ml-4">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Assistant Professor</h3>
+        <p class="text-lg text-gray-600 dark:text-gray-300">Department of Computer Science and Applications, KBN College</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2023 - Present</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-primary mb-8">Qualification</h2>
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">M.Tech (CSE)</h3>
+          <p class="text-gray-600 dark:text-gray-300">RK College of Engineering</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2025</p>
+        </div>
+        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">M.Sc</h3>
+          <p class="text-gray-600 dark:text-gray-300">SRR & CVR PG College</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2018</p>
+        </div>
+        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">B.Sc</h3>
+          <p class="text-gray-600 dark:text-gray-300">SRR & CVR PG College</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2015</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="bg-white dark-mode:bg-gray-700 py-16">
+  <section id="skills" class="bg-white dark-mode:bg-gray-800 py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-primary mb-4">Skills</h2>
+      <h2 class="text-4xl font-semibold text-primary mb-8">Skills</h2>
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">C</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 80%;"></div>
-          </div>
+          <h3 class="text-lg font-medium mb-2">Machine Learning</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 85%;"></div></div>
+          <p class="skill-percentage">85%</p>
+        </li>
+        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
+          <h3 class="text-lg font-medium mb-2">Generative AI</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
+          <p class="skill-percentage">80%</p>
+        </li>
+        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
+          <h3 class="text-lg font-medium mb-2">Angular</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 75%;"></div></div>
+          <p class="skill-percentage">75%</p>
+        </li>
+        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
+          <h3 class="text-lg font-medium mb-2">Python</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 90%;"></div></div>
+          <p class="skill-percentage">90%</p>
+        </li>
+        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
+          <h3 class="text-lg font-medium mb-2">C Programming</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 85%;"></div></div>
+          <p class="skill-percentage">85%</p>
+        </li>
+        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
+          <h3 class="text-lg font-medium mb-2">Digital Logic Design</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
           <p class="skill-percentage">80%</p>
         </li>
         <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
           <h3 class="text-lg font-medium mb-2">Java</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 90%;"></div>
-          </div>
-          <p class="skill-percentage">90%</p>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 80%;"></div></div>
+          <p class="skill-percentage">80%</p>
         </li>
         <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">Python</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 85%;"></div>
-          </div>
-          <p class="skill-percentage">85%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">HTML/CSS</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 70%;"></div>
-          </div>
-          <p class="skill-percentage">70%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">JavaScript</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 75%;"></div>
-          </div>
+          <h3 class="text-lg font-medium mb-2">Power BI</h3>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 75%;"></div></div>
           <p class="skill-percentage">75%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">AI</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 80%;"></div>
-          </div>
-          <p class="skill-percentage">80%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">R</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 85%;"></div>
-          </div>
-          <p class="skill-percentage">85%</p>
-        </li>
-        <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
-          <h3 class="text-lg font-medium mb-2">PowerBI</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 80%;"></div>
-          </div>
-          <p class="skill-percentage">80%</p>
         </li>
         <li class="bg-gray-100 dark-mode:bg-gray-600 rounded-lg shadow-md p-6 relative">
           <h3 class="text-lg font-medium mb-2">Tableau</h3>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 75%;"></div>
-          </div>
-          <p class="skill-percentage">75%</p>
+          <div class="progress-bar"><div class="progress-bar-inner" style="width: 70%;"></div></div>
+          <p class="skill-percentage">70%</p>
         </li>
       </ul>
     </div>
   </section>
-<!-- Honours and Awards -->
-<section id="honours-awards" class="bg-gray-200 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-semibold text-primary mb-4">Honours and Awards</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card 1 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">1. FDP on Data analysis using Power BI and Tableau - 2023</h3>
-        <p>ExcelR in Association with APSkill</p>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">2. Introduction to IT & Cyber Security - 2022</h3>
-        <p>Cybrary</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">3. Google Cloud Google Professional Workspace Administrator Professional Certificate - 2022</h3>
-        <p>Google Cloud</p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">4. Best Practices for Biomedical Research Data Management (HE) - 2021</h3>
-        <p>Harvard Medical School</p>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">5. Information Security Fundamentals - 2020</h3>
-        <p>Cybrary</p>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">6. 21st Century Teaching & Learning - 2019</h3>
-        <p>Stanford University</p>
-      </div>
-
-      <!-- Card 7 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">7. The Art and Craft of Remote Teaching (HE) - 2019</h3>
-        <p>UC Riverside</p>
-      </div>
-
-      <!-- Card 8 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">8. Computer Hacking & Forensics - 2017</h3>
-        <p>Cybrary</p>
-      </div>
-
-      <!-- Card 9 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">9. Cryptography - 2017</h3>
-        <p>Cybrary</p>
-      </div>
-
-      <!-- Card 10 -->
-      <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium mb-2">10. Intro to Python - 2017</h3>
-        <p>Cybrary</p>
+  <!-- Patents -->
+  <section id="patents" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-primary mb-8">Patents</h2>
+      <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">AI-POWERED DEVICE FOR NETWORK THREAT DETECTION</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-2"><strong>Patent No:</strong> 430790-001</p>
+        <p class="text-gray-600 dark:text-gray-300 mb-2"><strong>Status:</strong> Granted</p>
+        <p class="text-gray-600 dark:text-gray-300 mb-2"><strong>Filed:</strong> 2024-09-18 | <strong>Published:</strong> 2024-10-29</p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Inventors: Dr. K. V. N. R. Sai Krishna, P.L. Ramesh, Dr V. T.Ram Pavan Kumar. M, P. Ravindra, Shamim, N. S. Sai Karun</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Honours and Awards -->
+  <section id="honours-awards" class="bg-white dark:bg-gray-800 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-primary mb-8">Honours and Awards</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">FDP on Data analysis using Power BI and Tableau - 2023</h3>
+          <p>ExcelR in Association with APSkill</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Introduction to IT & Cyber Security - 2022</h3>
+          <p>Cybrary</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Google Cloud Google Professional Workspace Administrator Professional Certificate - 2022</h3>
+          <p>Google Cloud</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Best Practices for Biomedical Research Data Management (HE) - 2021</h3>
+          <p>Harvard Medical School</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Information Security Fundamentals - 2020</h3>
+          <p>Cybrary</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">21st Century Teaching & Learning - 2019</h3>
+          <p>Stanford University</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">The Art and Craft of Remote Teaching (HE) - 2019</h3>
+          <p>UC Riverside</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Computer Hacking & Forensics - 2017</h3>
+          <p>Cybrary</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Cryptography - 2017</h3>
+          <p>Cybrary</p>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-medium mb-2">Intro to Python - 2017</h3>
+          <p>Cybrary</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Bodies & Memberships -->
+  <section id="memberships" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-primary mb-8">Professional Memberships</h2>
+      
+      <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Professional Bodies</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">IFREP (Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">IAENG (Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">IIRCR (Asst.Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">IIIIER (Asst.Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">NITTSD (Member)</h4>
+            <p class="text-sm">2022</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Committees</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">IARS (Asst.Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">NSPE (Asst.Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">ISTE (Asst.Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">IETE (Asst.Professor)</h4>
+            <p class="text-sm">2023</p>
+          </div>
+          <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-4">
+            <h4 class="font-bold">NCCRP (Cyber Volunteer)</h4>
+            <p class="text-sm">2021</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <!-- Publications Summary -->
+  <section id="publications" class="bg-white dark-mode:bg-gray-800 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-semibold text-primary mb-8">Publications</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">1</span>
+          <span class="text-gray-600 dark:text-gray-300">Journal Articles</span>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">2</span>
+          <span class="text-gray-600 dark:text-gray-300">Book Chapters</span>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">30</span>
+          <span class="text-gray-600 dark:text-gray-300">Books</span>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6">
+          <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">7</span>
+          <span class="text-gray-600 dark:text-gray-300">Conference Proceedings</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Projects -->
-  <section id="projects" class="bg-gray-200 dark-mode:bg-gray-900 py-16">
+  <section id="projects" class="bg-gray-100 dark-mode:bg-gray-700 py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-semibold text-primary mb-4">Projects</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-gray-100 dark-mode:bg-gray-700 rounded-lg shadow-md p-6">
-          <img src="project1.jpg" alt="Project 1" class="w-full mb-4">
+        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+          <img src="project1.jpg" alt="Python Projects" class="w-full mb-4 object-cover h-40 rounded">
           <h3 class="text-lg font-medium mb-2">Python Projects </h3>
-          <p class="text-secondary">My Python Console Projects </p>
-          <div class="mt-4">
-            <a href="https://karun99.github.io/ppro.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Visit</a>
-           
-          </div>
+          <p class="text-gray-600 dark:text-gray-300">My Python Console Projects </p>
         </div>
-        <div class="bg-gray-100 dark-mode:bg-gray-700 rounded-lg shadow-md p-6">
-          <img src="project2.jpg" alt="Project 2" class="w-full mb-4">
+        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+          <img src="project2.jpg" alt="Web Projects" class="w-full mb-4 object-cover h-40 rounded">
           <h3 class="text-lg font-medium mb-2">Web Projects </h3>
-          <p class="text-secondary">My Web Projects</p>
-          <div class="mt-4">
-            <a href="https://karun99.github.io/wpro.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Visit</a>
-           
-          </div>
+          <p class="text-gray-600 dark:text-gray-300">My Web Projects</p>
         </div>
-        <div class="bg-gray-100 dark-mode:bg-gray-700 rounded-lg shadow-md p-6">
-          <img src="project3.jpg" alt="Project 3" class="w-full mb-4">
+        <div class="bg-white dark:bg-gray-600 rounded-lg shadow-md p-6">
+          <img src="project3.jpg" alt="AI Projects" class="w-full mb-4 object-cover h-40 rounded">
           <h3 class="text-lg font-medium mb-2">My AI Projects</h3>
-          <p class="text-secondary">My AI Projects using Python Libraries</p>
-          <div class="mt-4">
-            <a href="https://karun99.github.io/apro.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Visit</a>
-           
-          </div>
+          <p class="text-gray-600 dark:text-gray-300">My AI Projects using Python Libraries</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-white dark-mode:bg-gray-700 py-16">
+  <section id="contact" class="bg-white dark-mode:bg-gray-800 py-16">
     <div class="container mx-auto px-4 flex flex-col lg:flex-row">
       <div class="w-full lg:w-1/2 mx-auto lg:mx-0 mb-10 lg:mb-0">
         <h2 class="text-4xl font-semibold text-primary mb-4">Contact Me</h2>
-        <p class="text-lg text-secondary">For any inquiries or collaborations, feel free to reach out to me via email:</p>
-        <a href="mailto:saikarun085@gmail.com" class="text-xl font-medium text-blue-500">saikarun085@gmail.com</a>
+        <p class="text-lg text-secondary mb-2">For any inquiries or collaborations, feel free to reach out:</p>
+        <p class="mb-2"><strong class="text-gray-700 dark:text-gray-300">Location:</strong> Satyanarayanapuram, Vijayawada, Andhra Pradesh, India - 520001</p>
+        <a href="mailto:saikarun085@gmail.com" class="text-xl font-medium text-blue-500 block mb-4">saikarun085@gmail.com</a>
       </div>
       <div class="w-full lg:w-1/2 h-64 lg:h-auto">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.503247261233!2d80.62055531431617!3d16.50616328860895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3699e094bea97d%3A0xd96df81b08d5aeaf!2sVijayawada%2C%20Andhra%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1629995167282!5m2!1sen!2sus" frameborder="0" style="border:0; width:100%; height:100%;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -382,23 +339,11 @@
   <!-- Footer -->
   <footer class="footer bg-gray-900 dark-mode:bg-black text-white">
     <div class="container mx-auto px-4 py-6 text-center">
-      <p>&copy; 2023 N.S. Sai Karun. All rights reserved.</p>
+      <p>&copy; 2025 Mr Sai Karun Nandipati. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
-    const toggleButton = document.getElementById('toggle-dark-mode');
-    const body = document.body;
-    const sections = document.querySelectorAll('section');
-
-    toggleButton.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      sections.forEach((section) => {
-        section.classList.toggle('dark-mode:bg-gray-900');
-        section.classList.toggle('dark-mode:bg-gray-700');
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 
