@@ -200,38 +200,8 @@ body {
 }
 
 
-/* Project Cards (apro.html, etc.) */
-.project-card {
-    transition: transform 0.2s ease-in-out;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-/* ppro/p1.html specific styles */
+/* Body Dark Mode */
 .dark-mode {
-    background-color: #1F2937; /* Body bg in dark mode for p1 */
-    color: #FFFFFF;
-}
-
-.dark-mode .navbar {
-    background-color: #1F2937;
-}
-
-.dark-mode .navbar a {
-    color: #FFFFFF;
-}
-
-.dark-mode .statement {
-    background-color: #1F2937;
-}
-
-.dark-mode .statement h2,
-.dark-mode .statement h3 {
-    color: #FFFFFF;
-}
-
-.dark-mode .statement p {
-    color: #D1D5DB;
+    background-color: #1F2937 !important;
+    color: #FFFFFF !important;
 }
