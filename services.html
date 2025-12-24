@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - N.S. Sai Karun</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .header { background: linear-gradient(to right, #007BFF, #00B4FF); }
+    .dark-mode .header { background: linear-gradient(to right, #000000, #000000); }
+    .footer { background: linear-gradient(to right, #007BFF, #00B4FF); }
+    .dark-mode .footer { background: linear-gradient(to right, #000000, #000000); }
+    .dark-mode .text-primary { color: #fff; }
+    .dark-mode .text-secondary { color: #D1D5DB; }
+    .dark-mode #services { background-color: #1F2937; }
+  </style>
+</head>
+<body class="bg-gray-100 dark-mode:bg-gray-900 dark-mode:text-white">
+  <!-- Header -->
+  <header class="header shadow">
+    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+      <h1 class="text-3xl font-semibold text-primary">N.S. Sai Karun</h1>
+      <p class="text-secondary">Computer Faculty</p>
+      <button id="toggle-dark-mode" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Toggle Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-4">
+      <ul class="flex items-center justify-between">
+        <li><a href="index.html" class="text-lg font-medium">Home</a></li>
+        <li><a href="services.html" class="text-lg font-medium">Services</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-gray-200 dark-mode:bg-gray-900 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-primary mb-4">My Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white dark-mode:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold mb-2">Web Development</h3>
+          <p class="text-secondary">Custom website development using modern technologies.</p>
+        </div>
+        <div class="bg-white dark-mode:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold mb-2">Technical Training</h3>
+          <p class="text-secondary">Training sessions on C, Java, Python, and AI.</p>
+        </div>
+        <div class="bg-white dark-mode:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-bold mb-2">Consulting</h3>
+          <p class="text-secondary">Expert advice on software projects and career guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-gray-900 dark-mode:bg-black text-white">
+    <div class="container mx-auto px-4 py-6 text-center">
+      <p>&copy; 2023 N.S. Sai Karun. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggleButton = document.getElementById('toggle-dark-mode');
+    const body = document.body;
+    const sections = document.querySelectorAll('section');
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      sections.forEach((section) => {
+        section.classList.toggle('dark-mode:bg-gray-900');
+        section.classList.toggle('dark-mode:bg-gray-700');
+      });
+    });
+  </script>
+</body>
+</html>
