@@ -9,33 +9,50 @@
   <link href="style.css" rel="stylesheet">
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
 </head>
 
-<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
 
   <!-- Navbar -->
   <nav class="glass-nav fixed w-full top-0 z-50 transition-colors duration-300">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-blue-600 dark-mode:text-blue-400">NSK</a>
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+      <a href="#" class="text-2xl font-bold text-blue-600 dark:text-blue-400">NSK</a>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#hero" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
-        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
-        <a href="#skills" class="text-gray-700 hover:text-blue-600 font-medium transition">Skills</a>
-        <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition">Projects</a>
-        <a href="#experience" class="text-gray-700 hover:text-blue-600 font-medium transition">Experience</a>
-        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact</a>
+        <a href="#hero" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Home</a>
+        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Services</a>
+        <a href="#skills" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Skills</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Projects</a>
+        <a href="#experience" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Experience</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Contact</a>
 
-        <button id="toggle-dark-mode" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full hover:bg-gray-300 transition focus:outline-none">
+        <button id="toggle-dark-mode" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition focus:outline-none">
           <i class="fas fa-moon"></i>
         </button>
       </div>
 
       <!-- Mobile Menu Button -->
-      <button class="md:hidden text-gray-700 focus:outline-none">
+      <button id="mobile-menu-btn" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
         <i class="fas fa-bars text-2xl"></i>
       </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-gray-800">
+      <div class="flex flex-col px-6 py-4 space-y-4">
+        <a href="#hero" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Home</a>
+        <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Services</a>
+        <a href="#skills" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Skills</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Projects</a>
+        <a href="#experience" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Experience</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition dark:text-gray-300 dark:hover:text-blue-400">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -45,9 +62,9 @@
       <div class="flex-1 text-center md:text-left fade-in-section">
         <h2 class="text-blue-600 font-semibold tracking-wide uppercase mb-2">Computer Faculty & Researcher</h2>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Hi, I'm <span class="text-gray-900 dark-mode:text-white">Sai Karun</span>
+          Hi, I'm <span class="text-gray-900 dark:text-white">Sai Karun</span>
         </h1>
-        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
           Passionate Assistant Professor at KBN College, specializing in <strong>Machine Learning</strong>, <strong>Generative AI</strong>, and <strong>Web Development</strong>. I bridge the gap between complex theory and practical application.
         </p>
         <div class="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -66,7 +83,7 @@
       <div class="flex-1 flex justify-center fade-in-section">
         <div class="relative w-64 h-64 md:w-96 md:h-96">
           <div class="absolute inset-0 bg-blue-200 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-          <img src="https://ui-avatars.com/api/?name=Sai+Karun&background=0D8ABC&color=fff&size=512" alt="Sai Karun" class="relative w-full h-full object-cover rounded-full shadow-2xl border-4 border-white dark-mode:border-gray-800">
+          <img src="profile.jpg" alt="Sai Karun" class="relative w-full h-full object-cover rounded-full shadow-2xl border-4 border-white dark:border-gray-800">
         </div>
       </div>
     </div>
@@ -82,69 +99,69 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Service 1 -->
-        <div class="p-8 bg-gray-50 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 fade-in-section">
-          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+        <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700 fade-in-section">
+          <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-lg flex items-center justify-center text-2xl mb-6">
             <i class="fas fa-brain"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">AI & ML Consulting</h3>
-          <p class="text-gray-600">Expert guidance on Machine Learning models, Generative AI applications, and data-driven decision making.</p>
+          <h3 class="text-xl font-bold mb-3 dark:text-white">AI & ML Consulting</h3>
+          <p class="text-gray-600 dark:text-gray-400">Expert guidance on Machine Learning models, Generative AI applications, and data-driven decision making.</p>
         </div>
 
         <!-- Service 2 -->
-        <div class="p-8 bg-gray-50 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 fade-in-section">
-          <div class="w-14 h-14 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+        <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700 fade-in-section">
+          <div class="w-14 h-14 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-lg flex items-center justify-center text-2xl mb-6">
             <i class="fas fa-chalkboard-teacher"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Technical Training</h3>
-          <p class="text-gray-600">Comprehensive training in C, Java, Python, and Web Technologies for students and professionals.</p>
+          <h3 class="text-xl font-bold mb-3 dark:text-white">Technical Training</h3>
+          <p class="text-gray-600 dark:text-gray-400">Comprehensive training in C, Java, Python, and Web Technologies for students and professionals.</p>
         </div>
 
         <!-- Service 3 -->
-        <div class="p-8 bg-gray-50 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 fade-in-section">
-          <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+        <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700 fade-in-section">
+          <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-lg flex items-center justify-center text-2xl mb-6">
             <i class="fas fa-code"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Web Development</h3>
-          <p class="text-gray-600">Building responsive and modern web applications using the latest frameworks like Angular and Tailwind.</p>
+          <h3 class="text-xl font-bold mb-3 dark:text-white">Web Development</h3>
+          <p class="text-gray-600 dark:text-gray-400">Building responsive and modern web applications using the latest frameworks like Angular and Tailwind.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-gray-50">
+  <section id="skills" class="py-20 bg-gray-50 dark:bg-slate-900">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 fade-in-section">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Proficiency</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">A collection of tools and technologies I use to build and teach.</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Technical Proficiency</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">A collection of tools and technologies I use to build and teach.</p>
       </div>
 
       <div class="flex flex-wrap justify-center gap-4 fade-in-section">
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-blue-500 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-blue-500 transition">
           <i class="fab fa-python text-blue-500"></i> Python
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-yellow-500 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-yellow-500 transition">
           <i class="fas fa-brain text-yellow-500"></i> Machine Learning
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-red-500 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-red-500 transition">
           <i class="fab fa-angular text-red-600"></i> Angular
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-blue-700 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-blue-700 transition">
           <i class="fab fa-cuttlefish text-blue-700"></i> C Programming
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-orange-500 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-orange-500 transition">
           <i class="fab fa-java text-orange-500"></i> Java
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-yellow-600 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-yellow-600 transition">
           <i class="fas fa-chart-bar text-yellow-600"></i> Power BI
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-blue-400 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-blue-400 transition">
           <i class="fas fa-table text-blue-400"></i> Tableau
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-purple-500 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-purple-500 transition">
           <i class="fas fa-robot text-purple-500"></i> Generative AI
         </span>
-        <span class="px-6 py-3 bg-white rounded-full shadow text-gray-700 font-medium flex items-center gap-2 border hover:border-gray-800 transition">
+        <span class="px-6 py-3 bg-white dark:bg-slate-800 rounded-full shadow text-gray-700 dark:text-gray-200 font-medium flex items-center gap-2 border dark:border-gray-700 hover:border-gray-800 transition">
           <i class="fas fa-microchip text-gray-800"></i> Digital Logic Design
         </span>
       </div>
@@ -152,11 +169,11 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-white">
+  <section id="projects" class="py-20 bg-white dark:bg-slate-800">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 fade-in-section">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Highlights of my technical work and research.</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Featured Projects</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Highlights of my technical work and research.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -197,49 +214,49 @@
   </section>
 
   <!-- Experience & Education -->
-  <section id="experience" class="py-20 bg-gray-50">
+  <section id="experience" class="py-20 bg-gray-50 dark:bg-slate-900">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
         <!-- Experience -->
         <div class="fade-in-section">
-          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
             <i class="fas fa-briefcase text-blue-600"></i> Experience
           </h2>
           <div class="relative border-l-4 border-blue-600 ml-3 space-y-10 pl-8">
             <div class="relative">
-              <span class="absolute -left-11 top-1 w-6 h-6 bg-blue-600 rounded-full border-4 border-white"></span>
-              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">Assistant Professor</h3>
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-blue-600 rounded-full border-4 border-white dark:border-slate-800"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white">Assistant Professor</h3>
               <p class="text-blue-600 font-medium">KBN College</p>
-              <p class="text-sm text-gray-500 mt-1">2023 - Present</p>
-              <p class="text-gray-600 mt-2">Department of Computer Science and Applications. Teaching and mentoring students in advanced CS topics.</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2023 - Present</p>
+              <p class="text-gray-600 dark:text-gray-400 mt-2">Department of Computer Science and Applications. Teaching and mentoring students in advanced CS topics.</p>
             </div>
           </div>
         </div>
 
         <!-- Education -->
         <div class="fade-in-section">
-          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
             <i class="fas fa-graduation-cap text-green-600"></i> Education
           </h2>
           <div class="relative border-l-4 border-green-600 ml-3 space-y-10 pl-8">
             <div class="relative">
-              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></span>
-              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">M.Tech (CSE)</h3>
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white dark:border-slate-800"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white">M.Tech (CSE)</h3>
               <p class="text-green-600 font-medium">RK College of Engineering</p>
-              <p class="text-sm text-gray-500 mt-1">2025</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2025</p>
             </div>
             <div class="relative">
-              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></span>
-              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">M.Sc</h3>
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white dark:border-slate-800"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white">M.Sc</h3>
               <p class="text-green-600 font-medium">SRR & CVR PG College</p>
-              <p class="text-sm text-gray-500 mt-1">2018</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2018</p>
             </div>
              <div class="relative">
-              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white"></span>
-              <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white">B.Sc</h3>
+              <span class="absolute -left-11 top-1 w-6 h-6 bg-green-600 rounded-full border-4 border-white dark:border-slate-800"></span>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white">B.Sc</h3>
               <p class="text-green-600 font-medium">SRR & CVR PG College</p>
-              <p class="text-sm text-gray-500 mt-1">2015</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">2015</p>
             </div>
           </div>
         </div>
@@ -249,22 +266,22 @@
   </section>
 
   <!-- Patents & Awards -->
-  <section id="honours-awards" class="py-20 bg-white">
+  <section id="honours-awards" class="py-20 bg-white dark:bg-slate-800">
     <div class="container mx-auto px-6">
        <!-- Patent -->
        <div class="mb-16 fade-in-section">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Patents</h2>
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark-mode:from-gray-700 dark-mode:to-gray-800 p-8 rounded-2xl border border-blue-100 shadow-sm max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center dark:text-white">Patents</h2>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-800 p-8 rounded-2xl border border-blue-100 dark:border-slate-600 shadow-sm max-w-4xl mx-auto">
           <div class="flex items-start gap-4">
              <div class="text-4xl text-blue-500"><i class="fas fa-certificate"></i></div>
              <div>
-                <h3 class="text-xl font-bold text-gray-800 dark-mode:text-white mb-2">AI-POWERED DEVICE FOR NETWORK THREAT DETECTION</h3>
-                <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">AI-POWERED DEVICE FOR NETWORK THREAT DETECTION</h3>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-4">
                   <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium">Granted</span>
                   <span><strong>No:</strong> 430790-001</span>
                   <span><strong>Published:</strong> 2024-10-29</span>
                 </div>
-                <p class="text-gray-600 dark-mode:text-gray-300">Inventors: Dr. K. V. N. R. Sai Krishna, P.L. Ramesh, Dr V. T.Ram Pavan Kumar. M, P. Ravindra, Shamim, N. S. Sai Karun</p>
+                <p class="text-gray-600 dark:text-gray-300">Inventors: Dr. K. V. N. R. Sai Krishna, P.L. Ramesh, Dr V. T.Ram Pavan Kumar. M, P. Ravindra, Shamim, N. S. Sai Karun</p>
              </div>
           </div>
         </div>
@@ -272,25 +289,25 @@
 
        <!-- Awards Grid -->
        <div class="fade-in-section">
-         <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Honours & Awards</h2>
+         <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center dark:text-white">Honours & Awards</h2>
          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-           <div class="p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition border border-gray-100">
+           <div class="p-6 bg-gray-50 dark:bg-slate-700 rounded-xl hover:bg-white dark:hover:bg-slate-600 hover:shadow-lg transition border border-gray-100 dark:border-slate-600">
              <div class="text-yellow-500 text-3xl mb-4"><i class="fas fa-trophy"></i></div>
-             <h3 class="font-bold mb-2">FDP on Data analysis</h3>
-             <p class="text-sm text-gray-500 mb-1">2023</p>
-             <p class="text-gray-600 text-sm">ExcelR in Association with APSkill</p>
+             <h3 class="font-bold mb-2 dark:text-white">FDP on Data analysis</h3>
+             <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">2023</p>
+             <p class="text-gray-600 dark:text-gray-300 text-sm">ExcelR in Association with APSkill</p>
            </div>
-           <div class="p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition border border-gray-100">
+           <div class="p-6 bg-gray-50 dark:bg-slate-700 rounded-xl hover:bg-white dark:hover:bg-slate-600 hover:shadow-lg transition border border-gray-100 dark:border-slate-600">
              <div class="text-yellow-500 text-3xl mb-4"><i class="fas fa-award"></i></div>
-             <h3 class="font-bold mb-2">IT & Cyber Security</h3>
-             <p class="text-sm text-gray-500 mb-1">2022</p>
-             <p class="text-gray-600 text-sm">Cybrary</p>
+             <h3 class="font-bold mb-2 dark:text-white">IT & Cyber Security</h3>
+             <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">2022</p>
+             <p class="text-gray-600 dark:text-gray-300 text-sm">Cybrary</p>
            </div>
-           <div class="p-6 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition border border-gray-100">
+           <div class="p-6 bg-gray-50 dark:bg-slate-700 rounded-xl hover:bg-white dark:hover:bg-slate-600 hover:shadow-lg transition border border-gray-100 dark:border-slate-600">
              <div class="text-yellow-500 text-3xl mb-4"><i class="fas fa-certificate"></i></div>
-             <h3 class="font-bold mb-2">Google Cloud Admin</h3>
-             <p class="text-sm text-gray-500 mb-1">2022</p>
-             <p class="text-gray-600 text-sm">Google Cloud</p>
+             <h3 class="font-bold mb-2 dark:text-white">Google Cloud Admin</h3>
+             <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">2022</p>
+             <p class="text-gray-600 dark:text-gray-300 text-sm">Google Cloud</p>
            </div>
            <!-- Add more items as needed, keeping layout clean -->
          </div>
