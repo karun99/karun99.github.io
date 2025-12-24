@@ -1,207 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* Header & Footer */
-.header {
-    background: linear-gradient(to right, #007BFF, #00B4FF);
+/* Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, visibility;
 }
 
-.dark-mode .header {
-    background: linear-gradient(to right, #000000, #000000);
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
 }
 
-.footer {
-    background: linear-gradient(to right, #007BFF, #00B4FF);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.dark-mode .footer {
-    background: linear-gradient(to right, #000000, #000000);
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-/* Dark Mode Text Colors */
-.dark-mode .text-primary {
-    color: #fff !important;
+.dark-mode ::-webkit-scrollbar-track {
+    background: #1f2937;
 }
 
-.dark-mode .text-secondary {
-    color: #D1D5DB !important;
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
 }
 
-.dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode strong {
-    color: #fff !important;
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #4b5563;
 }
 
-.dark-mode p, .dark-mode li {
-    color: #D1D5DB;
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
-.dark-mode .header h1,
-.dark-mode .header p {
-    color: #FFFFFF !important; /* Ensure header text is white in dark mode */
-}
-
-/* Section Backgrounds in Dark Mode */
-.dark-mode #hero,
-.dark-mode #projects,
-.dark-mode #experience,
-.dark-mode #education,
-.dark-mode #patents,
-.dark-mode #memberships,
-.dark-mode #publications {
-    background-color: #1F2937 !important;
-}
-
-.dark-mode #skills,
-.dark-mode #contact,
-.dark-mode #honours-awards {
-    background-color: #374151 !important;
-}
-
-
-/* Progress Bar (index.html) */
-.progress-bar {
-    position: relative;
-    width: 100%;
-    height: 10px;
-    background-color: #E5E7EB;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress-bar-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: #6366F1;
-}
-
-.dark-mode .progress-bar-inner {
-    background-color: #7C3AED;
-}
-
-.skill-percentage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #6366F1;
-}
-
-.dark-mode .skill-percentage {
-    color: #7C3AED;
-}
-
-/* Cards (index.html custom cards) */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.card {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-    font-size: 1.2em;
-    margin: 0;
-    color: #333;
-}
-
-.card p {
-    margin: 10px 0 0;
-    color: #666;
-}
-
-/* Honours and Awards (index.html) */
-#honours-awards {
-    padding: 2rem 0;
-}
-
-#honours-awards h2 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #2563EB;
-    margin-bottom: 1rem;
-}
-
-#honours-awards .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-#honours-awards .card {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#honours-awards .card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-    color: #333;
-}
-
-#honours-awards .card p {
-    margin: 1rem 0 0;
-    color: #666;
-}
-
-/* Dark mode for cards in specific sections */
-.dark-mode #honours-awards .card,
-.dark-mode #education .bg-white,
-.dark-mode #patents .bg-white,
-.dark-mode #memberships .bg-white,
-.dark-mode #projects .bg-white {
-    background-color: #4B5563 !important; /* Gray-600 ish */
-    color: #fff !important;
-    border-color: #374151;
-}
-
-.dark-mode #honours-awards .card h3,
-.dark-mode #honours-awards .card p,
-.dark-mode #education h3,
-.dark-mode #education p,
-.dark-mode #patents h3,
-.dark-mode #patents p,
-.dark-mode #memberships h4,
-.dark-mode #memberships p,
-.dark-mode #projects h3,
-.dark-mode #projects p {
-    color: #fff !important;
-}
-
-/* Publications Summary Cards */
-.dark-mode #publications .bg-gray-100 {
-    background-color: #374151 !important;
-    color: white !important;
-}
-.dark-mode #publications span {
-    color: white !important;
-}
-.dark-mode #publications .text-blue-600 {
-    color: #60A5FA !important; /* Light blue */
-}
-
-
-/* Body Dark Mode */
+/* Dark Mode Overrides for Tailwind classes that are not purely utility based in HTML */
 .dark-mode {
-    background-color: #1F2937 !important;
-    color: #FFFFFF !important;
+    background-color: #0f172a !important; /* Slate 900 */
+    color: #f3f4f6 !important; /* Gray 100 */
+}
+
+/* Ensure sections inherit dark mode bg properly if not overridden */
+.dark-mode section {
+    background-color: #0f172a;
+    border-color: #1e293b; /* Slate 800 */
+}
+
+.dark-mode .bg-white {
+    background-color: #1e293b !important; /* Slate 800 */
+    color: #f3f4f6 !important;
+}
+
+.dark-mode .bg-gray-100 {
+    background-color: #334155 !important; /* Slate 700 */
+    color: #f3f4f6 !important;
+}
+
+.dark-mode .bg-gray-200 {
+    background-color: #0f172a !important; /* Slate 900 */
+}
+
+.dark-mode .text-gray-600,
+.dark-mode .text-gray-700,
+.dark-mode .text-gray-500,
+.dark-mode .text-secondary {
+    color: #94a3b8 !important; /* Slate 400 */
+}
+
+.dark-mode .text-gray-800,
+.dark-mode .text-primary {
+    color: #f8fafc !important; /* Slate 50 */
+}
+
+.dark-mode .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar specific */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dark-mode .glass-nav {
+    background: rgba(15, 23, 42, 0.8); /* Slate 900 with opacity */
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
