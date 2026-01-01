@@ -257,4 +257,356 @@
             // CREDENTIALS CHECK
             if(u === 'nsk' && p === 'nsk') {
                 isAdmin = true;
-                toggleA
+                toggleAdminUI(true);
+                closeModal('login');
+                alert("Welcome Admin. Editing Mode Enabled.");
+            } else {
+                alert("Invalid Credentials. Try 'nsk' / 'nsk'");
+            }
+        };
+
+        // LOGOUT
+        window.doLogout = () => {
+            isAdmin = false;
+            toggleAdminUI(false);
+            closeDetail();
+            alert("Logged Out. Guest Mode.");
+        };
+
+        function toggleAdminUI(enable) {
+            document.getElementById('btn-login').style.display = enable ? 'none' : 'inline-block';
+            document.getElementById('btn-add').style.display = enable ? 'inline-block' : 'none';
+            document.getElementById('btn-logout').style.display = enable ? 'inline-block' : 'none';
+            document.getElementById('admin-actions').style.display = enable ? 'flex' : 'none';
+        }
+
+        // ADD / EDIT
+        window.openItemModal = (isEdit=false) => {
+            if(!isAdmin) return alert("Please Login First");
+            openModal('item');
+            document.getElementById('modal-title').innerText = isEdit ? "Edit Existing Item" : "Add New Item";
+            
+            if(!isEdit) {
+                // Clear fields for new item
+                document.getElementById('inp-id').value = "";
+                document.getElementById('inp-title').value = "";
+                document.getElementById('inp-spine').value = "";
+                document.getElementById('inp-auth').value = "";
+                document.getElementById('inp-year').value = "";
+                document.getElementById('inp-link').value = "";
+                document.getElementById('inp-color').value = "#5d4037";
+            }
+        };
+
+        window.saveItem = (e) => {
+            e.preventDefault();
+            const idVal = document.getElementById('inp-id').value;
+            const newObj = {
+                id: idVal ? parseInt(idVal) : Date.now(),
+                category: document.getElementById('inp-cat').value,
+                title: document.getElementById('inp-title').value,
+                spine: document.getElementById('inp-spine').value,
+                author: document.getElementById('inp-auth').value,
+                year: document.getElementById('inp-year').value,
+                color: document.getElementById('inp-color').value,
+                link: document.getElementById('inp-link').value
+            };
+
+            if(idVal) {
+                // UPDATE
+                const idx = libraryData.findIndex(x => x.id == idVal);
+                if(idx > -1) libraryData[idx] = newObj;
+            } else {
+                // CREATE
+                libraryData.push(newObj);
+            }
+            saveDB();
+            closeModal('item');
+            if(idVal) showDetail(newObj); // Refresh detail panel
+        };
+
+        window.editCurrentItem = () => {
+            if(!selectedItem) return;
+            openItemModal(true);
+            document.getElementById('inp-id').value = selectedItem.id;
+            document.getElementById('inp-cat').value = selectedItem.category;
+            document.getElementById('inp-title').value = selectedItem.title;
+            document.getElementById('inp-spine').value = selectedItem.spine;
+            document.getElementById('inp-auth').value = selectedItem.author;
+            document.getElementById('inp-year').value = selectedItem.year;
+            document.getElementById('inp-color').value = selectedItem.color;
+            document.getElementById('inp-link').value = selectedItem.link;
+        };
+
+        window.deleteCurrentItem = () => {
+            if(!isAdmin) return;
+            if(confirm("Are you sure you want to permanently delete this item?")) {
+                libraryData = libraryData.filter(i => i.id !== selectedItem.id);
+                saveDB();
+                closeDetail();
+            }
+        };
+
+        // --- 3. THREE.JS SCENE SETUP ---
+        const scene = new THREE.Scene();
+        // Camera setup
+        const camera = new THREE.PerspectiveCamera(40, window.innerWidth/window.innerHeight, 0.1, 100);
+        const defaultCamPos = { x: 0, y: 0, z: 18 };
+        camera.position.set(defaultCamPos.x, defaultCamPos.y, defaultCamPos.z);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Lighting
+        const ambLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambLight);
+        
+        const dirLight = new THREE.DirectionalLight(0xfff8e1, 1.2);
+        dirLight.position.set(5, 10, 10);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        scene.add(dirLight);
+
+        // --- 4. BUILDER FUNCTIONS ---
+        // Spine Texture Generator
+        function getTexture(color, text, cat) {
+            const cvs = document.createElement('canvas');
+            cvs.width = 128; cvs.height = 512;
+            const ctx = cvs.getContext('2d');
+            
+            // Base
+            ctx.fillStyle = color; ctx.fillRect(0,0,128,512);
+            
+            // Gradient Shading
+            const g = ctx.createLinearGradient(0,0,128,0);
+            g.addColorStop(0, "rgba(0,0,0,0.3)");
+            g.addColorStop(0.2, "rgba(255,255,255,0.1)");
+            g.addColorStop(0.5, "rgba(255,255,255,0)");
+            g.addColorStop(0.8, "rgba(0,0,0,0.1)");
+            g.addColorStop(1, "rgba(0,0,0,0.4)");
+            ctx.fillStyle=g; ctx.fillRect(0,0,128,512);
+
+            // Decorations
+            if(cat.includes('Book')) {
+                ctx.fillStyle="#FFD700"; // Gold bands
+                ctx.fillRect(0,60,128,6);
+                ctx.fillRect(0,450,128,6);
+            }
+            
+            // Text
+            ctx.save();
+            ctx.translate(64, 256); 
+            ctx.rotate(-Math.PI/2);
+            ctx.font = "bold 24px Georgia"; 
+            ctx.textAlign="center"; 
+            ctx.textBaseline="middle";
+            
+            if(cat === 'Research') {
+                ctx.fillStyle="#222"; 
+            } else {
+                ctx.fillStyle="#fff"; 
+                ctx.shadowColor="rgba(0,0,0,0.8)"; 
+                ctx.shadowBlur=4;
+            }
+            
+            ctx.fillText(text.toUpperCase().substring(0,16), 0, 0);
+            ctx.restore();
+
+            return new THREE.CanvasTexture(cvs);
+        }
+
+        const woodMat = new THREE.MeshStandardMaterial({color: 0x5d4037, roughness: 0.6});
+
+        function buildLibrary() {
+            // Cleanup
+            meshes.forEach(m => { scene.remove(m); if(m.geometry) m.geometry.dispose(); });
+            meshes = [];
+            document.getElementById('labels-container').innerHTML = '';
+
+            const RACKS = [
+                {id:'Research', name:'Rack 1: Research Papers', y: 5.5},
+                {id:'Book1', name:'Rack 2: Books (A-H)', y: 2.0},
+                {id:'Book2', name:'Rack 3: Books (I-P)', y: -1.5},
+                {id:'Book3', name:'Rack 4: Books (Q-Z) & Innovation', y: -5.0}
+            ];
+
+            RACKS.forEach(rack => {
+                // Shelf
+                const shelf = new THREE.Mesh(new THREE.BoxGeometry(11, 0.2, 1.5), woodMat);
+                shelf.position.set(0, rack.y, 0);
+                shelf.receiveShadow = true;
+                scene.add(shelf); meshes.push(shelf);
+
+                // HTML Label
+                const lb = document.createElement('div');
+                lb.className = 'shelf-label';
+                lb.innerText = rack.name;
+                document.getElementById('labels-container').appendChild(lb);
+                shelf.userData = { isShelf:true, label:lb, y: rack.y };
+
+                // Items
+                const items = libraryData.filter(i => i.category === rack.id);
+                if(items.length > 0) {
+                    const w = 0.42; // Item width spacing
+                    const startX = -((items.length * w) / 2) + (w/2);
+
+                    items.forEach((item, i) => {
+                        // Dimensions
+                        let h = 1.3, d = 1.0;
+                        if(rack.id === 'Research') { h = 1.1; d = 0.15; }
+
+                        const geo = new THREE.BoxGeometry(0.35, h, d);
+                        const tex = getTexture(item.color, item.spine, rack.id);
+                        tex.colorSpace = THREE.SRGBColorSpace;
+
+                        const matSpine = new THREE.MeshStandardMaterial({map:tex});
+                        const matCover = new THREE.MeshStandardMaterial({color: item.color});
+                        const matPages = new THREE.MeshStandardMaterial({color: 0xfffff0});
+
+                        // Materials: R, L, Top, Bot, Front, Back
+                        const mats = [matCover, matCover, matPages, matPages, matSpine, matPages];
+
+                        const mesh = new THREE.Mesh(geo, mats);
+                        mesh.position.set(startX + (i*w), rack.y + (h/2) + 0.1, 0);
+                        
+                        // Random tilt
+                        mesh.rotation.y = (Math.random() * 0.1) - 0.05;
+                        mesh.position.z = (Math.random() * 0.1);
+
+                        mesh.castShadow = true;
+                        mesh.userData = { isItem:true, data: item, origZ: mesh.position.z };
+                        scene.add(mesh); meshes.push(mesh);
+                    });
+                }
+            });
+
+            // Back Panel
+            const back = new THREE.Mesh(new THREE.BoxGeometry(12, 16, 0.5), woodMat);
+            back.position.set(0, 0, -1);
+            back.receiveShadow = true;
+            scene.add(back); meshes.push(back);
+        }
+
+        // --- 5. INTERACTION & NAV ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let hovered = null;
+
+        // Hover Effect
+        window.addEventListener('mousemove', e => {
+            mouse.x = (e.clientX/window.innerWidth)*2-1;
+            mouse.y = -(e.clientY/window.innerHeight)*2+1;
+            
+            raycaster.setFromCamera(mouse, camera);
+            const hits = raycaster.intersectObjects(meshes);
+            const hit = hits.find(x => x.object.userData.isItem);
+
+            if(hovered && (!hit || hit.object !== hovered)) {
+                // Mouse out
+                new TWEEN.Tween(hovered.position).to({z: hovered.userData.origZ}, 200).start();
+                document.body.style.cursor = 'default';
+                hovered = null;
+            }
+            if(hit && hovered !== hit.object) {
+                // Mouse over
+                hovered = hit.object;
+                document.body.style.cursor = 'pointer';
+                new TWEEN.Tween(hovered.position).to({z: hovered.userData.origZ + 0.6}, 200).easing(TWEEN.Easing.Cubic.Out).start();
+            }
+        });
+
+        // Click to Open
+        window.addEventListener('click', () => {
+            if(hovered) {
+                showDetail(hovered.userData.data);
+            }
+        });
+
+        window.showDetail = (item) => {
+            selectedItem = item;
+            document.getElementById('d-cat').innerText = item.category;
+            document.getElementById('d-title').innerText = item.title;
+            document.getElementById('d-auth').innerText = item.author;
+            document.getElementById('d-year').innerText = item.year;
+            document.getElementById('d-spine').innerText = item.spine;
+            
+            const lnk = document.getElementById('d-link');
+            if(item.link && item.link.length > 3) {
+                lnk.href = item.link;
+                lnk.style.display = 'block';
+            } else {
+                lnk.style.display = 'none';
+            }
+            
+            document.getElementById('detail-card').classList.add('active');
+        };
+        window.closeDetail = () => document.getElementById('detail-card').classList.remove('active');
+
+        // --- NAVIGATION API ---
+        window.moveCam = (yDelta) => {
+            new TWEEN.Tween(camera.position)
+                .to({ y: camera.position.y + yDelta }, 500)
+                .easing(TWEEN.Easing.Cubic.Out)
+                .start();
+        };
+
+        window.zoomCam = (zDelta) => {
+            let newZ = camera.position.z + zDelta;
+            if(newZ < 5) newZ = 5; // Min zoom
+            if(newZ > 25) newZ = 25; // Max zoom
+            new TWEEN.Tween(camera.position)
+                .to({ z: newZ }, 500)
+                .easing(TWEEN.Easing.Cubic.Out)
+                .start();
+        };
+
+        window.resetCam = () => {
+            new TWEEN.Tween(camera.position)
+                .to({ x: defaultCamPos.x, y: defaultCamPos.y, z: defaultCamPos.z }, 800)
+                .easing(TWEEN.Easing.Back.Out)
+                .start();
+        };
+
+        // --- INIT ---
+        loadDB();
+        buildLibrary();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            TWEEN.update();
+
+            // Sync HTML Labels
+            meshes.forEach(m => {
+                if(m.userData.isShelf && m.userData.label) {
+                    const v = new THREE.Vector3(0, m.userData.y + 1, 0); // Label pos
+                    v.project(camera);
+                    
+                    const x = (v.x * .5 + .5) * window.innerWidth;
+                    const y = (v.y * -.5 + .5) * window.innerHeight;
+                    
+                    if(Math.abs(v.z) < 1 && Math.abs(v.x) < 1) {
+                        m.userData.label.style.left = x + 'px';
+                        m.userData.label.style.top = y + 'px';
+                        m.userData.label.style.opacity = 1;
+                    } else {
+                        m.userData.label.style.opacity = 0;
+                    }
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.onresize = () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        };
+    </script>
+</body>
+</html>
