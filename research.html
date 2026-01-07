@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Written Works - Sai Karun Nandipati</title>
+  <!-- Tailwind CSS (Play CDN for v3 features) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+              dark: 'rgb(var(--color-primary-dark) / <alpha-value>)',
+              light: 'rgb(var(--color-primary-light) / <alpha-value>)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Three.js & Vanta.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Vanilla-Tilt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <style>
+    /* CSS Variables for Theme Colors */
+    :root {
+      /* Default Blue Theme */
+      --color-primary: 37 99 235;       /* blue-600 */
+      --color-primary-dark: 29 78 216;  /* blue-700 */
+      --color-primary-light: 219 234 254; /* blue-100 */
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Loader Styles */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: rgb(var(--color-primary));
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #1f2937;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #4b5563;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Navbar Glassmorphism */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .glass-nav {
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Vanta Background Wrapper */
+    #vanta-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Card 3D Effect */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+    }
+
+    .tilt-inner {
+      transform: translateZ(20px);
+    }
+
+    /* Dark Mode Defaults */
+    .dark body {
+      background-color: transparent;
+      color: #f3f4f6;
+    }
+
+    /* Ensure text readability on top of Vanta background */
+    .section-bg-glass {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+    }
+    .dark .section-bg-glass {
+        background: rgba(15, 23, 42, 0.85);
+    }
+
+    /* Theme Selector UI */
+    .theme-selector {
+        position: fixed;
+        right: 20px;
+        bottom: 20px; /* moved to bottom right to avoid navbar overlap */
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 10px;
+        border-radius: 999px;
+        display: flex;
+        gap: 10px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .dark .theme-selector {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .theme-circle {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s, border 0.2s;
+        border: 2px solid transparent;
+    }
+    .theme-circle:hover {
+        transform: scale(1.2);
+    }
+    .theme-circle.active {
+        border-color: #000;
+        transform: scale(1.1);
+    }
+    .dark .theme-circle.active {
+        border-color: #fff;
+    }
+
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Background for Vanta -->
+  <div id="vanta-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="glass-nav fixed w-full top-0 z-50 transition-colors duration-300">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+      <a href="index.html" class="text-2xl font-bold text-primary dark:text-primary-light transition-colors">NSK</a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html#hero" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Home</a>
+        <a href="index.html#services" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Services</a>
+        <a href="index.html#skills" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Skills</a>
+        <a href="index.html#projects" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Projects</a>
+        <a href="index.html#experience" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Experience</a>
+        <a href="research.html" class="text-primary font-bold transition">Written Works</a>
+        <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Contact</a>
+
+        <button id="toggle-dark-mode" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition focus:outline-none">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
+      <div class="flex flex-col px-6 py-4 space-y-4">
+        <a href="index.html#hero" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Home</a>
+        <a href="index.html#services" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Services</a>
+        <a href="index.html#skills" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Skills</a>
+        <a href="index.html#projects" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Projects</a>
+        <a href="index.html#experience" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Experience</a>
+        <a href="research.html" class="text-primary font-bold transition mobile-link">Written Works</a>
+        <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Theme Selector -->
+  <div class="theme-selector" id="theme-selector">
+      <!-- Generated by JS -->
+  </div>
+
+  <!-- Written Works Section -->
+  <section id="works" class="pt-32 pb-20 md:pt-40 md:pb-28 px-6 min-h-screen">
+    <div class="container mx-auto">
+      <div class="text-center mb-16 gs-reveal">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Written Works</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">A collection of my research papers, books, and articles.</p>
+      </div>
+
+      <!-- Research Papers -->
+      <div class="mb-20">
+        <h3 class="text-2xl font-bold mb-8 text-primary dark:text-primary-light border-b border-gray-200 dark:border-gray-700 pb-2">Research Papers</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="research-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Books -->
+      <div>
+        <h3 class="text-2xl font-bold mb-8 text-primary dark:text-primary-light border-b border-gray-200 dark:border-gray-700 pb-2">Books</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="books-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <a href="https://orcid.org/0009-0007-9218-9750/print" target="_blank" class="inline-block px-8 py-3 bg-primary text-white rounded-lg shadow-lg hover:bg-primary-dark transition transform hover:-translate-y-1">
+          <i class="fab fa-orcid mr-2"></i> View Full ORCID Profile
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-500 py-8 text-center border-t border-gray-800">
+    <div class="container mx-auto px-6">
+      <p>&copy; 2025 Mr Sai Karun Nandipati. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DATA POPULATION ---
+         const RESEARCH_DATA = [
+            { id: 1, category: "Research", title: "Review on ML for Student Performance", spine: "ML REVIEW", author: "UIJES", year: "2025", color: "#eeeeee", link: "https://doi.org/10.53414/UIJES.5.2.21" },
+            { id: 2, category: "Research", title: "Quality of LLM-Mediated Communication", spine: "LLM COMM", author: "Odebiyi E.S.", year: "2025", color: "#e0e0e0", link: "https://scholar.google.com" },
+            { id: 3, category: "Research", title: "Integrating PPO for AUV Control", spine: "AUV PPO", author: "Gazi Univ", year: "2025", color: "#d6d6d6", link: "#" },
+            { id: 4, category: "Research", title: "Intrusion Detection in Health Care", spine: "IDS HEALTH", author: "ICRIT-24", year: "2024", color: "#cccccc", link: "#" },
+            { id: 5, category: "Research", title: "Frontiers of Innovation in Deep Learning", spine: "DL FRONTIER", author: "ICRIT-24", year: "2024", color: "#c2c2c2", link: "#" },
+            { id: 6, category: "Research", title: "Local LLM Decentralized Intel", spine: "LOCAL LLM", author: "ICRIT-24", year: "2024", color: "#bdbdbd", link: "#" },
+            { id: 7, category: "Research", title: "WRNN-Driven Detection for Leukemia", spine: "WRNN MED", author: "Unpublished", year: "2024", color: "#b0bec5", link: "https://doi.org/10.13140/RG.2.2.28151.23202" },
+            { id: 8, category: "Research", title: "Recent Trends in DL Algorithms", spine: "DL TRENDS", author: "Emerging", year: "2023", color: "#cfd8dc", link: "#" }
+        ];
+
+        const BOOK_DATA = [
+            { id: 9, category: "Book1", title: "Agentic AI: Autonomous Systems", spine: "AGENTIC AI", author: "N.S.Sai Karun", year: "2025", color: "#b71c1c", link: "https://www.amazon.com/dp/B0DV96JFYY" },
+            { id: 10, category: "Book1", title: "AI Education Strategies", spine: "AI CURRICULUM", author: "N.S.Sai Karun", year: "2025", color: "#0d47a1", link: "#" },
+            { id: 11, category: "Book1", title: "AI in Commerce", spine: "AI COMMERCE", author: "Mrs. V.N.V.S Mani", year: "2025", color: "#1b5e20", link: "https://www.amazon.com/dp/B0F6VF52PS" },
+            { id: 12, category: "Book1", title: "AI in E-Commerce", spine: "AI E-SHOP", author: "L Sri latha", year: "2025", color: "#e65100", link: "https://www.amazon.com/dp/B0F6T38NNL" },
+            { id: 13, category: "Book1", title: "AI in Education", spine: "AI EDU", author: "N.S.Sai Karun", year: "2025", color: "#4a148c", link: "https://www.amazon.com/dp/B0FMR2VFV8" },
+            { id: 14, category: "Book1", title: "AI in the Classroom", spine: "AI CLASS", author: "N.S.Sai Karun", year: "2025", color: "#006064", link: "https://www.amazon.com/dp/B0DXVQFCP1" },
+            { id: 15, category: "Book1", title: "Artificial Intelligence - Intellect Born", spine: "AI INTELLECT", author: "N.S.Sai Karun", year: "2025", color: "#3e2723", link: "#" },
+            { id: 16, category: "Book1", title: "AI in Biomedical Research", spine: "AI BIOMED", author: "N.S.Sai Karun", year: "2025", color: "#880e4f", link: "https://www.amazon.com/dp/B0F4XTXTWN" },
+            { id: 17, category: "Book1", title: "Augmented Creativity", spine: "AUG CREATE", author: "N.S.Sai Karun", year: "2025", color: "#1a237e", link: "#" },
+            { id: 18, category: "Book1", title: "Building Multi-Agent Systems", spine: "MULTI-AGENT", author: "N.S.Sai Karun", year: "2025", color: "#bf360c", link: "https://www.amazon.com/dp/B0F2T9DXR3" },
+            { id: 19, category: "Book1", title: "Data Mining Concepts", spine: "DATA MINE", author: "N.S.Sai Karun", year: "2025", color: "#004d40", link: "https://www.amazon.com/dp/B0FQT45KWF" },
+            { id: 20, category: "Book2", title: "Digital Marketing Fundamentals", spine: "DIGI MKTG", author: "N.S.Sai Karun", year: "2025", color: "#33691e", link: "#" },
+            { id: 21, category: "Book2", title: "Foundations of RAG", spine: "RAG LLM", author: "J.Balaji", year: "2025", color: "#01579b", link: "https://www.amazon.com/dp/B0F61XXJX9" },
+            { id: 22, category: "Book2", title: "Generative AI Applications", spine: "GEN AI", author: "N.S.Sai Karun", year: "2025", color: "#ff6f00", link: "https://www.amazon.com/dp/B0DTJ17RML" },
+            { id: 23, category: "Book2", title: "Human 2.0: AI Evolution", spine: "HUMAN 2.0", author: "N.S.Sai Karun", year: "2025", color: "#263238", link: "https://www.amazon.com/dp/B0F48LMTJW" },
+            { id: 24, category: "Book2", title: "JavaScript in Action (Pothi)", spine: "JS ACT I", author: "N.S.Sai Karun", year: "2025", color: "#f9a825", link: "https://store.pothi.com/book/n-s-sai-karun-javascript-action-100-practical-projects-boost-your-skills/" },
+            { id: 25, category: "Book2", title: "JavaScript in Action (Amazon)", spine: "JS ACT II", author: "N.S.Sai Karun", year: "2025", color: "#fbc02d", link: "https://www.amazon.com/dp/B0DVLMLVXR" },
+            { id: 26, category: "Book2", title: "Journey with Python", spine: "PYTHON", author: "N.S.Sai Karun", year: "2025", color: "#303f9f", link: "#" },
+            { id: 27, category: "Book2", title: "Linux Essentials 101", spine: "LINUX 101", author: "N.S.Sai Karun", year: "2025", color: "#d84315", link: "#" },
+            { id: 28, category: "Book2", title: "Leveraging Chatbots (Chapter)", spine: "CHATBOTS", author: "N.S.Sai Karun", year: "2025", color: "#512da8", link: "#" },
+            { id: 29, category: "Book2", title: "Mastering MEAN Stack", spine: "MEAN STACK", author: "Phani Raja", year: "2025", color: "#2e7d32", link: "https://www.amazon.com/dp/B0F3P9HBXN" },
+            { id: 30, category: "Book2", title: "Mastering Java", spine: "JAVA", author: "Sharmila Sk", year: "2025", color: "#c62828", link: "https://www.amazon.com/dp/B0FBV64K8N" },
+             { id: 31, category: "Book3", title: "Mastering UI Design", spine: "UI DESIGN", author: "N.S.Sai Karun", year: "2025", color: "#00838f", link: "https://www.amazon.com/dp/B0DXVDY5DY" },
+            { id: 32, category: "Book3", title: "Mini Projects Using Python", spine: "PY MINI", author: "N.S.Sai Karun", year: "2025", color: "#455a64", link: "https://www.amazon.com/dp/B0FWRXWQV2" },
+            { id: 33, category: "Book3", title: "No Code Development", spine: "NO CODE", author: "N.S.Sai Karun", year: "2025", color: "#ad1457", link: "#" },
+            { id: 34, category: "Book3", title: "Prompt Engineering", spine: "PROMPT", author: "N.S.Sai Karun", year: "2025", color: "#6a1b9a", link: "#" },
+            { id: 35, category: "Book3", title: "Research Methodology IPR", spine: "RESEARCH IPR", author: "N.S.Sai Karun", year: "2025", color: "#283593", link: "https://www.amazon.com/dp/B0DWN7BRB1" },
+            { id: 36, category: "Book3", title: "Social Network Analysis", spine: "SNA", author: "N.S.Sai Karun", year: "2025", color: "#0277bd", link: "https://www.amazon.com/dp/B0F8BPFKHY" },
+            { id: 37, category: "Book3", title: "The Complete Guide to Web 3.0", spine: "WEB 3.0", author: "N.S.Sai Karun", year: "2025", color: "#00695c", link: "https://www.amazon.com/dp/B0DTN28ZBG" },
+            { id: 38, category: "Book3", title: "Transform Ideas into AI Projects", spine: "AI IDEAS", author: "N.S.Sai Karun", year: "2025", color: "#ef6c00", link: "https://www.amazon.com/dp/B0F2GSWHSX" },
+            { id: 39, category: "Book3", title: "Web Dev: HTML, CSS, JS", spine: "WEB DEV", author: "N.S.Sai Karun", year: "2025", color: "#c62828", link: "https://www.amazon.com/dp/B0DTHXGWGQ" },
+            { id: 40, category: "Book3", title: "OOSE (UML)", spine: "OOSE UML", author: "N.S.Sai Karun", year: "2025", color: "#424242", link: "https://www.amazon.com/dp/B0DTTGBHZV" },
+            { id: 41, category: "Book3", title: "Asst. Professor (Project)", spine: "PROFESSOR", author: "Krishna Univ", year: "2023-24", color: "#212121", link: "#" },
+            { id: 42, category: "Book3", title: "Engineering of AI-Enabled Systems", spine: "AI ENG", author: "Emerging", year: "2023", color: "#424242", link: "#" }
+        ];
+
+        const researchContainer = document.getElementById('research-container');
+        const booksContainer = document.getElementById('books-container');
+
+        // Render Research Papers
+        RESEARCH_DATA.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'p-6 bg-gray-50 dark:bg-slate-800 rounded-xl hover:bg-white dark:hover:bg-slate-700 hover:shadow-lg transition border border-gray-100 dark:border-slate-700 tilt-card gs-reveal';
+            el.setAttribute('data-tilt', '');
+
+            el.innerHTML = `
+                <div class="tilt-inner">
+                    <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold mb-3">Paper</span>
+                    <h4 class="text-xl font-bold mb-2 dark:text-white leading-tight">${item.title}</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-1"><i class="fas fa-user-edit mr-2"></i> ${item.author}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4"><i class="far fa-calendar-alt mr-2"></i> ${item.year}</p>
+                    ${item.link && item.link !== '#' ? `<a href="${item.link}" target="_blank" class="text-primary hover:text-primary-dark font-medium text-sm flex items-center gap-1">Read Paper <i class="fas fa-external-link-alt"></i></a>` : ''}
+                </div>
+            `;
+            researchContainer.appendChild(el);
+        });
+
+        // Render Books
+        BOOK_DATA.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'p-6 bg-gray-50 dark:bg-slate-800 rounded-xl hover:bg-white dark:hover:bg-slate-700 hover:shadow-lg transition border border-gray-100 dark:border-slate-700 tilt-card gs-reveal';
+            el.setAttribute('data-tilt', '');
+
+            el.innerHTML = `
+                <div class="tilt-inner flex gap-4">
+                     <div class="flex-shrink-0 w-16 h-24 rounded shadow-md" style="background-color: ${item.color}; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.8); font-size: 1.5rem;">
+                        <i class="fas fa-book"></i>
+                     </div>
+                     <div class="flex-1">
+                        <h4 class="text-lg font-bold mb-1 dark:text-white leading-tight">${item.title}</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Author: ${item.author}</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Year: ${item.year}</p>
+                         ${item.link && item.link !== '#' ? `<a href="${item.link}" target="_blank" class="text-primary hover:text-primary-dark font-medium text-xs flex items-center gap-1">View Book <i class="fas fa-arrow-right"></i></a>` : ''}
+                     </div>
+                </div>
+            `;
+            booksContainer.appendChild(el);
+        });
+
+
+        // Theme Definitions
+        const themes = [
+            { name: 'blue', primary: '37 99 235', dark: '29 78 216', light: '219 234 254' },
+            { name: 'green', primary: '22 163 74', dark: '21 128 61', light: '220 252 231' },
+            { name: 'purple', primary: '147 51 234', dark: '126 34 206', light: '243 232 255' },
+            { name: 'orange', primary: '234 88 12', dark: '194 65 12', light: '255 237 213' },
+            { name: 'red', primary: '220 38 38', dark: '185 28 28', light: '254 226 226' }
+        ];
+
+        const themeSelector = document.getElementById('theme-selector');
+
+        // Load saved theme color
+        const savedTheme = localStorage.getItem('themeColor') || 'blue';
+        setTheme(savedTheme);
+
+        // Generate Theme UI
+        themes.forEach(theme => {
+            const circle = document.createElement('div');
+            circle.className = `theme-circle ${theme.name === savedTheme ? 'active' : ''}`;
+            circle.style.backgroundColor = `rgb(${theme.primary})`;
+            circle.dataset.theme = theme.name;
+            circle.title = theme.name.charAt(0).toUpperCase() + theme.name.slice(1);
+
+            circle.addEventListener('click', () => {
+                setTheme(theme.name);
+                // Update active state
+                document.querySelectorAll('.theme-circle').forEach(c => c.classList.remove('active'));
+                circle.classList.add('active');
+            });
+
+            themeSelector.appendChild(circle);
+        });
+
+        function setTheme(themeName) {
+            const theme = themes.find(t => t.name === themeName);
+            if (theme) {
+                const root = document.documentElement;
+                root.style.setProperty('--color-primary', theme.primary);
+                root.style.setProperty('--color-primary-dark', theme.dark);
+                root.style.setProperty('--color-primary-light', theme.light);
+                localStorage.setItem('themeColor', themeName);
+            }
+        }
+
+        // Loader
+        const loader = document.getElementById('loader');
+        if (loader) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 800); // Slight delay to show loader
+            });
+        }
+
+        // Vanta.js Background
+        let vantaEffect = null;
+        function initVanta() {
+             try {
+                if (vantaEffect) vantaEffect.destroy();
+
+                vantaEffect = VANTA.FOG({
+                    el: "#vanta-bg",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    highlightColor: 0x3b82f6, // Blue
+                    midtoneColor: 0x6366f1, // Indigo
+                    lowlightColor: 0xa855f7, // Purple
+                    baseColor: 0xf8fafc, // Light gray base
+                    blurFactor: 0.60,
+                    speed: 1.50,
+                    zoom: 0.80
+                });
+            } catch (e) {
+                console.warn("Vanta.js failed to initialize", e);
+            }
+        }
+        initVanta();
+
+        // Initialize Vanilla-Tilt
+        if (typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+                max: 15,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2,
+                scale: 1.05
+            });
+        }
+
+        // GSAP Scroll Animations
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const revealElements = document.querySelectorAll('.gs-reveal');
+            revealElements.forEach(element => {
+                gsap.fromTo(element,
+                    { y: 50, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 85%", // Start animation when top of element hits 85% of viewport height
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        }
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById('toggle-dark-mode');
+        const htmlElement = document.documentElement;
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Check for saved user preference
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+        }
+
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+
+                const isDark = htmlElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
+
+        // Mobile Menu Toggle
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+    });
+  </script>
+</body>
+
+</html>
