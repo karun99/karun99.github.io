@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSK AI Collection |My Words are Commands to Many AI Agents, Lessons to the Students who Learn </title>
+    <title>NSK AI Collection | My Words are Commands</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -42,35 +42,46 @@
 
         /* --- Hero Section --- */
         #hero {
-            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             padding: 0 10%; background: radial-gradient(circle at center, #112240 0%, #06090f 100%);
         }
-        #hero h1 { font-size: 4.5rem; margin-bottom: 10px; font-weight: 800; }
-        .college-tag { color: var(--primary); letter-spacing: 5px; text-transform: uppercase; font-size: 1rem; margin-bottom: 20px; }
+        #hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; font-weight: 800; }
+        .college-tag { color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 20px; }
 
-        /* --- Why AI Section --- */
-        .section { padding: 80px 10%; }
+        /* --- Section Animations --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .section { padding: 100px 10%; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 2.5rem; color: var(--primary); }
         
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .why-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-left: 5px solid var(--secondary); transition: 0.3s; }
-        .why-card:hover { background: #1a202c; transform: scale(1.02); }
+        .why-card:hover { background: #1a202c; transform: translateY(-5px); }
 
-        /* --- Technologies Section --- */
+        /* --- Tech Section --- */
         .tech-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
         .tech-box { flex: 1; min-width: 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid #1e2530; }
-        .tech-box h3 { border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
-        .tech-list-items { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
-        .tech-tag { background: #222; padding: 6px 15px; border-radius: 5px; font-size: 0.85rem; border: 1px solid #333; transition: 0.3s; }
+        .tech-tag { background: #222; padding: 6px 15px; border-radius: 5px; font-size: 0.85rem; border: 1px solid #333; transition: 0.3s; display: inline-block; margin: 5px; }
         .tech-tag:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* --- Faculty Carousel (Minimized for space) --- */
-        #team { background: #0a0f18; text-align: center; overflow: hidden; }
-        .carousel-track { display: flex; transition: 0.6s ease-in-out; }
-        .faculty-card { min-width: 100%; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+        /* --- Carousel --- */
+        .carousel-container { max-width: 900px; margin: 0 auto; position: relative; overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faculty-card { min-width: 100%; padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .faculty-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); margin-bottom: 15px; object-fit: cover; }
         
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0, 212, 255, 0.1); border: 1px solid var(--primary);
+            color: white; width: 45px; height: 45px; border-radius: 50%;
+            cursor: pointer; z-index: 10; transition: 0.3s;
+        }
+        .carousel-btn:hover { background: var(--primary); color: black; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
         footer { text-align: center; padding: 40px; border-top: 1px solid #1e2530; color: var(--text-dim); }
     </style>
 </head>
@@ -78,7 +89,7 @@
 
     <div id="splash">
         <img src="logo.jpg" class="splash-logo" alt="KBN Logo">
-        <h1 style="color: white; margin-bottom: 20px; font-weight: 300; letter-spacing: 5px;">WELCOME TO MY AI PROJECT COLLECTION</h1>
+        <h1 style="color: white; margin-bottom: 20px; font-weight: 300; letter-spacing: 5px; text-align: center;">WELCOME TO KBN AI CLUB</h1>
         <div class="loader"><div class="loader-bar"></div></div>
     </div>
 
@@ -96,15 +107,13 @@
     </nav>
 
     <header id="hero">
-     <img src="https://lh3.googleusercontent.com/gg/AIJ2gl901O6GKbi-bhBdT-truH2DOnjP_WE-uEMFInq81ivuy3xbO2ryhvbyrkSY6N07h2ZVzStACi7yEPXWv5OKvlIJjSscy50IB4R4e2sPeKtkiCaLpISE1VrVs7zBs9xycpVGX5I6Tc_39lfJBc8J6_5MVRJpCIxfDpZWZWgq2nHk--t8wDK_=s1024-rj-mp2" 
-     alt="KBN Logo" 
-     style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid #00d4ff;">
-        <p class="college-tag">Sai Karun Nandipati, Asst Professor ,KBN College, CTO,NRCM tutorials</p>
+        <img src="https://lh3.googleusercontent.com/gg/AIJ2gl901O6GKbi-bhBdT-truH2DOnjP_WE-uEMFInq81ivuy3xbO2ryhvbyrkSY6N07h2ZVzStACi7yEPXWv5OKvlIJjSscy50IB4R4e2sPeKtkiCaLpISE1VrVs7zBs9xycpVGX5I6Tc_39lfJBc8J6_5MVRJpCIxfDpZWZWgq2nHk--t8wDK_=s1024-rj-mp2" alt="Sai Karun" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); margin-bottom: 20px;">
+        <p class="college-tag">Sai Karun Nandipati | Asst. Professor @ KBN College</p>
         <h1>KBN <span style="color: var(--primary)">AI</span> CLUB</h1>
         <p style="color: var(--text-dim); max-width: 600px;">Designing the future of computation through intelligence, ethics, and innovation.</p>
     </header>
 
-    <section id="why-learn" class="section">
+    <section id="why-learn" class="section reveal">
         <div class="section-header">
             <h2>Why Learn <span style="color:white">AI?</span></h2>
             <p style="color:var(--text-dim); margin-top:10px">The skill of the century.</p>
@@ -112,209 +121,118 @@
         <div class="why-grid">
             <div class="why-card">
                 <h3>🚀 Career Resilience</h3>
-                <p>AI is expected to create 97 million new jobs by 2026. Learning it now ensures you are ready for the high-paying roles of tomorrow.</p>
+                <p>AI is expected to create 97 million new jobs by 2026. Learning it now ensures you are ready for high-impact roles.</p>
             </div>
             <div class="why-card">
                 <h3>💡 Problem Solving</h3>
-                <p>AI allows us to solve massive global challenges in healthcare, climate change, and space exploration that humans cannot handle alone.</p>
+                <p>Solve massive global challenges in healthcare and climate change that humans cannot handle alone.</p>
             </div>
             <div class="why-card">
                 <h3>🛠️ Creative Freedom</h3>
-                <p>From AI-generated art to music, learning AI turns your ideas into reality without needing deep manual technical skills for every step.</p>
+                <p>Turn ideas into reality using Gen-AI without needing deep manual technical skills for every step.</p>
             </div>
         </div>
     </section>
 
-    <section id="tech-stack" class="section" style="background: #0a0f18;">
+    <section id="tech-stack" class="section reveal" style="background: #0a0f18;">
         <div class="section-header">
             <h2>The <span style="color:white">Tech Ecosystem</span></h2>
         </div>
-        
         <div class="tech-container">
             <div class="tech-box">
                 <h3>Programming</h3>
                 <div class="tech-list-items">
-                    <span class="tech-tag">Python (Primary)</span>
-                    <span class="tech-tag">R Language</span>
-                    <span class="tech-tag">C++ for Edge AI</span>
-                    <span class="tech-tag">Julia</span>
+                    <span class="tech-tag">Python</span><span class="tech-tag">R</span><span class="tech-tag">C++</span><span class="tech-tag">Julia</span>
                 </div>
             </div>
             <div class="tech-box">
                 <h3>Hot Domains</h3>
                 <div class="tech-list-items">
-                    <span class="tech-tag">Prompt Engineering</span>
-                    <span class="tech-tag">Generative AI (LLMs)</span>
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Prompt Engineering</span><span class="tech-tag">Generative AI</span><span class="tech-tag">CV</span><span class="tech-tag">NLP</span>
                 </div>
             </div>
             <div class="tech-box">
                 <h3>Modern Tools</h3>
                 <div class="tech-list-items">
-                    <span class="tech-tag">No-Code Dev (Zapier/Bubble)</span>
-                    <span class="tech-tag">Hugging Face</span>
-                    <span class="tech-tag">OpenAI API</span>
-                    <span class="tech-tag">Teachable Machine</span>
+                    <span class="tech-tag">Hugging Face</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">LangChain</span>
                 </div>
             </div>
         </div>
     </section>
 
-   <section id="team" class="section">
+    <section id="team" class="section reveal">
         <div class="section-header">
             <h2>Team <span style="color:white">KBN AI</span></h2>
-            <p style="color:var(--text-dim); margin-top:10px">Mentors guiding the future of intelligence.</p>
         </div>
-        
-        <div class="carousel-container" style="max-width: 900px; margin: 0 auto; position: relative; overflow: hidden;">
+        <div class="carousel-container">
             <div class="carousel-track" id="track">
-                
                 <div class="faculty-card">
                     <img src="https://vidwan.inflibnet.ac.in/profile_images/75175.jpg" class="faculty-img" alt="P. Ravindra">
-                    <div class="faculty-role">HOD, Dept. of Computer Science & Applications</div>
+                    <div class="faculty-role" style="color: var(--primary);">HOD, CS & Applications</div>
                     <h3>P. Ravindra</h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        A pioneering researcher in <b>DNA Cryptography</b> and AI-powered network security systems, specialized in secure message encryption and neural threat detection.
-                    </p>
+                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">Expert in <b>DNA Cryptography</b> and neural threat detection systems.</p>
                 </div>
-
                 <div class="faculty-card">
                     <img src="https://vidwan.inflibnet.ac.in/profile_images/394004.jpg" class="faculty-img" alt="N.S. Sai Karun">
-                    <div class="faculty-role">Assistant Professor</div>
+                    <div class="faculty-role" style="color: var(--primary);">Assistant Professor</div>
                     <h3>N.S. Sai Karun</h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        Prolific author and researcher specializing in <b>Generative AI, Prompt Engineering,&amp;No-Code Development</b>, empowering students through modern AI tools.
-                    </p>
+                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">Specializing in <b>Generative AI</b> and No-Code Development.</p>
                 </div>
-
                 <div class="faculty-card">
                     <img src="https://vidwan.inflibnet.ac.in/profile_images/245405.jpg" class="faculty-img" alt="J. Balaji">
-                    <div class="faculty-role">Assistant Professor</div>
+                    <div class="faculty-role" style="color: var(--primary);">Assistant Professor</div>
                     <h3>J. Balaji</h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        Expert in <b>Data Mining</b> and predictive analytics, focused on real-time natural language processing and misinformation detection frameworks.
-                    </p>
-                </div>
-
-                <div class="faculty-card">
-                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" class="faculty-img" alt="V. Bangaru Lakshmi">
-                    <div class="faculty-role">Assistant Professor</div>
-                    <h3>V. Bangaru Lakshmi</h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        Focused on <b>Machine Learning fundamentals</b> and data science applications, bridging the gap between academic theory and practical implementation.
-                    </p>
-                </div>
-
-                <div class="faculty-card">
-                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" class="faculty-img" alt="S. Vasu">
-                    <div class="faculty-role">Assistant Professor</div>
-                    <h3>S. Vasu</h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        Specializes in <b>System Architecture</b> and high-performance computing, facilitating the integration of AI models with enterprise-level software solutions.
-                    </p>
-                </div>
-
-                <div class="faculty-card">
-                    <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" class="faculty-img" alt="S. Yasodha">
-                    <div class="faculty-role">Assistant Professor</div>
-                    <h3>S. Yasodha</h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        Dedicated academician committed to the <b>practical implementation of emerging technologies</b> and mentoring students in interdisciplinary AI research.
-                    </p>
-                </div>
-                  <div class="faculty-card">
-                    <img src="http://lh3.googleusercontent.com/a/ACg8ocIGrfAk1zn-prKlTAwjJCtbn5sq4eBQmbcR_jfDUDaDDnWuew0=s96-c" class="faculty-img" alt="VBV Ravikiran">
-                    <div class="faculty-role">Assistant Professor</div>
-                    <h3>VBV Ravi kiran<h3>
-                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">
-                        Specialized in AI, Machine Learning, Data Science, Big Data Analytics, Natural Language Processing. 
-                    </p>
+                    <p style="margin-top: 15px; color: var(--text-dim); max-width: 600px;">Expert in <b>Data Mining</b> and predictive analytics.</p>
                 </div>
             </div>
-            
             <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
             <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
         </div>
     </section>
-    <section id="contact" class="section" style="background: linear-gradient(180deg, #0a0f18 0%, #06090f 100%);">
-        <div class="section-header">
-            <h2>Submit Your <span style="color:white">AI Idea</span></h2>
-            <p style="color:var(--text-dim); margin-top:10px">Have a project in mind? Let's build the future together.</p>
-        </div>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: flex-start;">
-            
-            <div style="flex: 1; min-width: 300px; max-width: 500px; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #1e2530;">
-                <form action="https://formsubmit.co/admin@kbncollege.ac.in" method="POST">
-                    <input type="hidden" name="_subject" value="New AI Idea Submission - KBN AI Club">
-                    <input type="hidden" name="_next" value="https://kbncollege.ac.in">
-                    
-                    <div style="margin-bottom: 20px;">
-                        <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--primary);">Full Name</label>
-                        <input type="text" name="name" required style="width: 100%; padding: 12px; background: #1a202c; border: 1px solid #333; border-radius: 8px; color: white; outline: none;">
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--primary);">Email ID</label>
-                        <input type="email" name="email" required style="width: 100%; padding: 12px; background: #1a202c; border: 1px solid #333; border-radius: 8px; color: white; outline: none;">
-                    </div>
-
-                    <div style="margin-bottom: 20px;">
-                        <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--primary);">Describe Your Idea</label>
-                        <textarea name="idea" rows="5" required style="width: 100%; padding: 12px; background: #1a202c; border: 1px solid #333; border-radius: 8px; color: white; outline: none; resize: none;"></textarea>
-                    </div>
-
-                    <button type="submit" style="width: 100%; padding: 15px; background: var(--primary); color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;">
-                        SEND IDEA TO ADMIN <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
-                    </button>
-                </form>
-            </div>
-
-            <div style="flex: 1; min-width: 300px; max-width: 500px;">
-                <div style="margin-bottom: 20px;">
-                    <h3 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
-                    <p style="color: var(--text-dim); font-size: 0.95rem;">
-                        Kakaraparthi Bhavanarayana College (Autonomous)<br>
-                        Kothapeta, Vijayawada - 520001,<br>
-                        Andhra Pradesh, India.
-                    </p>
-                </div>
-                
-                <div style="width: 100%; height: 300px; border-radius: 20px; overflow: hidden; border: 1px solid #1e2530;">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.215589083204!2d80.61202807514539!3d16.51525418423235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35ef0000000001%3A0xc6c4c0177727402!2sKakaraparthi%20Bhavanarayana%20College!5e0!3m2!1sen!2sin!4v1709230000000!5m2!1sen!2sin" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <footer>
-        <p>&copy; 2026 Kakaraparthi Bhavanarayana College. Powered by KBN AI Club.</p>
+        <p>© 2026 Kakaraparthi Bhavanarayana College. Powered by KBN AI Club.</p>
     </footer>
 
     <script>
-        // Splash Screen Logic
+        // 1. Splash Screen Logic
         function closeSplash() {
             setTimeout(() => {
                 const splash = document.getElementById('splash');
                 splash.style.opacity = '0';
                 setTimeout(() => { splash.style.visibility = 'hidden'; }, 1000);
-            }, 2500);
+            }, 2000);
         }
 
-        // Carousel Logic
+        // 2. Fixed Carousel Logic (Fixed Template Literal Syntax)
         let index = 0;
         function moveSlide(step) {
             const track = document.getElementById('track');
             const slides = document.querySelectorAll('.faculty-card');
             index = (index + step + slides.length) % slides.length;
-            track.style.transform = translateX(-${index * 100}%);
+            // The fix: added backticks around the translate function
+            track.style.transform = `translateX(-${index * 100}%)`;
         }
+
+        // 3. Auto-Slide Carousel
+        setInterval(() => moveSlide(1), 5000);
+
+        // 4. Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                let elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Run once on load to catch top sections
+        reveal();
     </script>
 </body>
 </html>
-
