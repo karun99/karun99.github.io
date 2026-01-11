@@ -1,506 +1,505 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Eleanor Vance - Author Archive</title>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
-    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
-    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Sai Karun</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+              dark: 'rgb(var(--color-primary-dark) / <alpha-value>)',
+              light: 'rgb(var(--color-primary-light) / <alpha-value>)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#14b830", // Unified Primary Green
-                        "primary-hover": "#0fa028",
-                        "background-light": "#f6f8f6",
-                        "background-dark": "#101622", // Screen 1 dark
-                        "background-dark-green": "#112114", // Screen 2 dark
-                        "paper-light": "#fdfbf7",
-                        "wood-light": "#6D4C41",
-                        "wood-dark": "#3E2723",
-                    },
-                    fontFamily: {
-                        "display": ["Newsreader", "serif"],
-                        "sans": ["Noto Sans", "sans-serif"],
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                    boxShadow: {
-                        'shelf': '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4)',
-                        'book': '5px 5px 15px rgba(0,0,0,0.5)',
-                        'spine-inset': 'inset 20px 0 30px -10px rgba(0,0,0,0.1)',
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .wood-texture {
-            background-color: #3E2723;
-            background-image: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.2) 100%);
-        }
-        /* Animation utilities */
-        .perspective-1000 { perspective: 1000px; }
-        .rotate-y-12 { transform: rotateY(12deg); }
-    </style>
+  <style>
+    /* CSS Variables for Theme Colors (Same as index.html) */
+    :root {
+      --color-primary: 37 99 235;
+      --color-primary-dark: 29 78 216;
+      --color-primary-light: 219 234 254;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    .dark ::-webkit-scrollbar-track { background: #1f2937; }
+    ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+    .dark ::-webkit-scrollbar-thumb { background: #4b5563; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    /* Navbar Glassmorphism */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .dark .glass-nav {
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dark Mode Defaults */
+    .dark body {
+      background-color: #0f172a;
+      color: #f3f4f6;
+    }
+
+    /* Theme Selector UI */
+    .theme-selector {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 10px;
+        border-radius: 999px;
+        display: flex;
+        gap: 10px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .dark .theme-selector {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .theme-circle {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s, border 0.2s;
+        border: 2px solid transparent;
+    }
+    .theme-circle:hover { transform: scale(1.2); }
+    .theme-circle.active { border-color: #000; transform: scale(1.1); }
+    .dark .theme-circle.active { border-color: #fff; }
+  </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-white font-display antialiased selection:bg-primary selection:text-white">
-    <div id="root"></div>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
-        const { createRoot } = ReactDOM;
-        const { MemoryRouter, Routes, Route, Link, useNavigate } = ReactRouterDOM;
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
 
-        // --- Screen 1: Home Page (Library Rack) ---
-        const HomePage = () => {
-            const navigate = useNavigate();
+  <!-- Navbar -->
+  <nav class="glass-nav fixed w-full top-0 z-50 transition-colors duration-300">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+      <a href="index.html" class="text-2xl font-bold text-primary dark:text-primary-light transition-colors">NSK</a>
 
-            return (
-                <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden">
-                    {/* Header */}
-                    <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#232f48] bg-[#111722]/95 backdrop-blur-md px-4 py-3 md:px-10 transition-all">
-                        <div className="flex items-center gap-4 md:gap-8">
-                            <div className="flex items-center gap-3 text-white">
-                                <div className="size-8 flex items-center justify-center rounded-full bg-primary/20 text-primary">
-                                    <span className="material-symbols-outlined text-[20px]">local_library</span>
-                                </div>
-                                <h2 className="text-white text-lg md:text-xl font-bold leading-tight tracking-[-0.015em]">Eleanor Vance</h2>
-                            </div>
-                            <nav className="hidden md:flex items-center gap-6">
-                                <Link className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" to="/">Home</Link>
-                                <Link className="text-[#92a4c9] hover:text-white transition-colors text-sm font-medium leading-normal" to="/details">My Works</Link>
-                                <span className="text-[#92a4c9] hover:text-white transition-colors text-sm font-medium leading-normal cursor-pointer">Contact</span>
-                            </nav>
-                        </div>
-                        <div className="flex flex-1 justify-end gap-4 md:gap-8">
-                            <label className="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
-                                <div className="flex w-full flex-1 items-stretch rounded-lg h-full group focus-within:ring-2 focus-within:ring-primary/50 transition-all">
-                                    <div className="text-[#92a4c9] flex border-none bg-[#232f48] items-center justify-center pl-4 rounded-l-lg border-r-0">
-                                        <span className="material-symbols-outlined text-[20px]">search</span>
-                                    </div>
-                                    <input className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#232f48] focus:border-none h-full placeholder:text-[#92a4c9] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search works..." />
-                                </div>
-                            </label>
-                            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[#232f48] cursor-pointer hover:border-primary transition-colors" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7BOs0vO9IdLBQ2-VTGfSY_hm5LBXpXBzWcOP4Jdu_T1-JXXn6XLEimkogDZPykXSImxQr2rAWsF2u5BuJRc5Fhi_TTnbEsXioXgu_RaFfu5vGnuFmbG1PPodVzDnDc75S19O1LvcFJqSCWb4aQaP3mBmQUZTjf-ZpwZoYSJI95102-a0gZQxoPhZNY0c0Vpco9caiTKa09MwXp6CcqOWwaSs5TKkKKLRPOUErJTLOZVD90TgNxjyZd8VEie97_3UZrzPWhL2QR7eL")'}}></div>
-                        </div>
-                    </header>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Home</a>
+        <a href="services.html" class="text-primary font-medium transition">Services</a>
+        <!-- Reuse anchors from index but redirect to index if clicked -->
+        <a href="index.html#projects" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Projects</a>
+        <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light">Contact</a>
 
-                    <div className="layout-container flex h-full grow flex-col">
-                        <div className="@container w-full">
-                            <div className="relative w-full h-[400px] flex flex-col items-center justify-center text-center p-6 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'linear-gradient(rgba(16, 22, 34, 0.7) 0%, rgba(16, 22, 34, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3XcquiC4Idu7ahfQNKyiFK2qvsv2h-3CnTAt9YyfDY0Xsq1m5eP2utpOW3X3YMKtr1g9Uky7XZT-PZ5x0jKqGRpecrc83m48MgSDW3PlUbV0LIcLXTt2rgVOpUR-Xm_GOUZFOdZliUcOkJ_7-If82W-UoPBeoWaSrHkj6sK7Q7l9X6kHlQo6-kFfP9U9qiq1nd5_D3r2pAutYJDTMgUxupfpkikQyMM64FzlML4jQvU3zjeMdFsGP2zwWCkEJwII6M6scF2X060In")'}}>
-                                <div className="flex flex-col gap-4 max-w-3xl z-10 animate-fade-in-up">
-                                    <span className="text-primary font-bold tracking-widest text-sm uppercase">The Personal Collection</span>
-                                    <h1 className="text-white text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg">
-                                        Welcome to the Archive
-                                    </h1>
-                                    <h2 className="text-[#92a4c9] text-lg md:text-xl font-normal leading-normal max-w-2xl mx-auto">
-                                        Browse the complete collection of written works, essays, and novels curated on the digital shelves.
-                                    </h2>
-                                    <div className="mt-6 flex flex-wrap justify-center gap-4">
-                                        <button onClick={() => navigate('/details')} className="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-primary/25">
-                                            <span className="material-symbols-outlined text-[20px]">auto_stories</span>
-                                            <span>Start Reading</span>
-                                        </button>
-                                        <button className="flex items-center gap-2 bg-[#232f48] hover:bg-[#2c3b5a] text-white px-6 py-3 rounded-lg font-bold transition-all">
-                                            <span className="material-symbols-outlined text-[20px]">mail</span>
-                                            <span>Subscribe</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <button id="toggle-dark-mode" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition focus:outline-none">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
 
-                        <div className="flex flex-1 justify-center py-10 px-4 md:px-0">
-                            <div className="layout-content-container flex flex-col max-w-[1200px] flex-1 w-full gap-16">
-                                {/* Shelf 1 */}
-                                <section className="flex flex-col w-full relative group/shelf">
-                                    <div className="flex items-center justify-between px-4 md:px-10 mb-2">
-                                        <div className="flex items-baseline gap-4">
-                                            <h2 className="text-white text-3xl font-bold leading-tight tracking-[-0.015em]">Latest Releases</h2>
-                                            <span className="text-[#92a4c9] text-sm font-sans hidden sm:inline-block">Fresh from the press</span>
-                                        </div>
-                                        <Link to="/details" className="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-                                            View All <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                                        </Link>
-                                    </div>
-                                    <div className="relative px-4 md:px-10 pt-8 pb-0">
-                                        <div className="flex flex-wrap md:flex-nowrap gap-8 items-end justify-center md:justify-start z-10 relative pb-[2px]">
-                                            {/* Book 1 */}
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[160px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUa9f_WvceKMkXQDimLos_9QEIyr7V74BT14wfq3jtRX2KqPmU-Eb_0MtkMBvo5QFuKi-LJjGikmp5mQR3Nuh7MY-KbppFKjiF4DcHCA3C-CfhiRsnX16esbkhmDS9LEb9ab-BZPv-07wcWuPf4M0RKR6RiVeJImvoEKM8Uboj1rjb46XC3WfHzestW4jJy8v1KTnA8sau50gscsqvt2VFrmaZoFyjyThyzbFfKuMQwnz8C5ZkaQ0LDkxTshIteXnJOVFPVnPQeTom")'}}>
-                                                    <div className="absolute top-0 left-0 w-[4px] h-full bg-white/20 rounded-l-sm"></div>
-                                                    <div className="absolute top-0 right-0 w-[2px] h-full bg-black/30 rounded-r-md"></div>
-                                                    <div className="absolute -top-3 -right-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-md">NEW</div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-80 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-base font-bold leading-tight truncate">Midnight Library</h3>
-                                                    <p className="text-[#92a4c9] text-xs mt-1">2024 • Fiction</p>
-                                                </div>
-                                            </div>
-                                            {/* Book 2 */}
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[160px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCq9s9vXqyjF2EgjIohDYEyC4BZA8IHyAepcH7wmPpwDA_oyDACrfYqbndT3OSOAyFc2h-UAqQ4jKwQZnzjbueR6NJTYn5A44haGssfiaU-7R5y5GRiurKIng0aYIfnKH6Lt-VFmc_C7cSdjSfJi04qt9ytDaH9ORhP5NuHmP-tjiYuA1Kk7KMgKNfLBKHTjc2hsR_HIfllWzIrf8Z52PnZ7Up2OdZb-XGXc_wLhwuDP-GLakMDA4CnkN8uh1qeFlThVmPdFKvoZP9T")'}}>
-                                                    <div className="absolute top-0 left-0 w-[4px] h-full bg-white/20 rounded-l-sm"></div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-80 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-base font-bold leading-tight truncate">Cloud Atlas</h3>
-                                                    <p className="text-[#92a4c9] text-xs mt-1">2023 • Sci-Fi</p>
-                                                </div>
-                                            </div>
-                                            {/* Book 3 */}
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[160px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCToaNlG7XPoOF8sc7W4RYPNCrlLsUXGAwzpsN2eXOi_5YbDy3qhlhGtckh0ofXkTnsWrEQ2n0TE1Rjbty6BUgghlb4cEt54pfj7Fnf4aWV-I2J5MZPT_n8Uuue3Z3TV8Cl4PRHn68JxISL-u8uTA37chDK2tOmplAvHvGjm9pO9qaln5PGUvNt1kf2yTZgCH76PR16H3ugCFD3IdpOZlmEsd5Ut2qOSQFZibn92TE-cxRwUnFprX6w-7l5YE1PLiwkfs6n4O4ZKaPn")'}}>
-                                                    <div className="absolute top-0 left-0 w-[4px] h-full bg-white/20 rounded-l-sm"></div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-80 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-base font-bold leading-tight truncate">The Alchemist</h3>
-                                                    <p className="text-[#92a4c9] text-xs mt-1">2023 • Philosophy</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="w-full h-8 mt-2 wood-texture rounded-sm shadow-shelf relative z-0">
-                                            <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10"></div>
-                                            <div className="absolute -bottom-10 left-4 right-4 h-10 bg-black/40 blur-xl rounded-[100%]"></div>
-                                        </div>
-                                    </div>
-                                </section>
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
 
-                                {/* Shelf 2 */}
-                                <section className="flex flex-col w-full relative group/shelf">
-                                    <div className="flex items-center justify-between px-4 md:px-10 mb-2">
-                                        <div className="flex items-baseline gap-4">
-                                            <h2 className="text-white text-3xl font-bold leading-tight tracking-[-0.015em]">Fiction &amp; Novels</h2>
-                                        </div>
-                                        <div className="flex gap-2">
-                                            <button className="size-8 rounded-full bg-[#232f48] text-white flex items-center justify-center hover:bg-primary transition-colors">
-                                                <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-                                            </button>
-                                            <button className="size-8 rounded-full bg-[#232f48] text-white flex items-center justify-center hover:bg-primary transition-colors">
-                                                <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="relative px-4 md:px-10 pt-8 pb-0">
-                                        <div className="flex flex-wrap md:flex-nowrap gap-8 items-end justify-center md:justify-start z-10 relative pb-[2px]">
-                                            {/* Book 1 */}
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[140px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom bg-[#3d4c53]">
-                                                    <div className="absolute inset-0 flex items-center justify-center p-2 text-center bg-gradient-to-tr from-black/60 to-transparent">
-                                                        <span className="text-white font-serif font-bold text-lg leading-tight">Echoes of Time</span>
-                                                    </div>
-                                                    <div className="absolute top-0 left-0 w-[3px] h-full bg-white/10"></div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-70 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-sm font-bold truncate">Echoes of Time</h3>
-                                                </div>
-                                            </div>
-                                            {/* Book 2 */}
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[140px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvTewyZq6gsn-d-zJHuUvsYEHe378Q8ok0DFOB1mUs9g_lWP8_cmnokMjgNQ_klziol_hMNzged2adleZEkgEDGgySmpT8VQL23VGD55-_RisUd4Ye2FA-1yU4L5XHL2MRKZhg54hRNprp_gtGHjeNpVuMnkrwfHXbbkAesHD3O6NLNYZ5NT2E4DQ5LhwbEVA966P6BBj9FDmRBUX2VV1Zcmueoyfxvk0uLiQMVFoUQaW2BjIftZ4dpNps9cl3zxeVgnlVdN0HLsxe")'}}>
-                                                    <div className="absolute top-0 left-0 w-[3px] h-full bg-white/20"></div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-70 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-sm font-bold truncate">Life of Pi</h3>
-                                                </div>
-                                            </div>
-                                            {/* Book 3 */}
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[140px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom bg-[#5d4037]">
-                                                    <div className="absolute inset-0 border-2 border-[#8d6e63] m-2 flex items-center justify-center">
-                                                        <div className="text-[#d7ccc8] font-serif font-bold text-xl rotate-0">VOL. II</div>
-                                                    </div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-70 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-sm font-bold truncate">Collected Works</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="w-full h-8 mt-2 wood-texture rounded-sm shadow-shelf relative z-0">
-                                            <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10"></div>
-                                            <div className="absolute -bottom-10 left-4 right-4 h-10 bg-black/40 blur-xl rounded-[100%]"></div>
-                                        </div>
-                                    </div>
-                                </section>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-gray-800 absolute w-full z-40">
+      <div class="flex flex-col px-6 py-4 space-y-4">
+        <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Home</a>
+        <a href="services.html" class="text-primary font-medium transition mobile-link">Services</a>
+        <a href="index.html#projects" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Projects</a>
+        <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition dark:text-gray-300 dark:hover:text-primary-light mobile-link">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-                                {/* Shelf 3 */}
-                                <section className="flex flex-col w-full relative group/shelf pb-20">
-                                    <div className="flex items-center justify-between px-4 md:px-10 mb-2">
-                                        <div className="flex items-baseline gap-4">
-                                            <h2 className="text-white text-3xl font-bold leading-tight tracking-[-0.015em]">Essays &amp; Collections</h2>
-                                        </div>
-                                    </div>
-                                    <div className="relative px-4 md:px-10 pt-8 pb-0">
-                                        <div className="flex flex-wrap md:flex-nowrap gap-8 items-end justify-center md:justify-start z-10 relative pb-[2px]">
-                                            <div onClick={() => navigate('/details')} className="group relative flex-shrink-0 w-[140px] cursor-pointer perspective-1000">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm bg-cover bg-center shadow-book transform transition-all duration-300 group-hover:-translate-y-4 group-hover:shadow-2xl origin-bottom" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWd9gVIBiCRGskF5z1AWB6lAaO3HVG-wxFVvemKHsGuAcprdFcSgI4gveDea8rlNQH9h3t88AwUeZDB6pdI3esCIDgii0tOu4RZiWkk7JqXdpJaC8zoqGwozh8qB4PGAJZir6_dMGuVPSl8XFHiKBuehImw5nMqWz9KbfWgV5rHMOqiUoFFoqWdBwPiLpxC6xxJG1Z0ksTRkVlwTzn9YTmWuVPh93B4Ad5IZYI2Es0ulQ1Ctnqsd7VZdduWK6m-B1x4lJWlFoTCagM")'}}>
-                                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                                                </div>
-                                                <div className="mt-4 text-center opacity-70 group-hover:opacity-100 transition-opacity">
-                                                    <h3 className="text-white text-sm font-bold truncate">On Creativity</h3>
-                                                </div>
-                                            </div>
-                                            <div className="group relative flex-shrink-0 w-[140px] opacity-50 hover:opacity-100 transition-opacity cursor-not-allowed">
-                                                <div className="relative w-full aspect-[2/3] rounded-r-md rounded-l-sm border-2 border-dashed border-[#92a4c9] flex items-center justify-center bg-[#232f48]/50">
-                                                    <span className="text-[#92a4c9] text-xs font-bold uppercase tracking-wider">Coming Soon</span>
-                                                </div>
-                                                <div className="mt-4 text-center">
-                                                    <h3 class="text-[#92a4c9] text-sm font-bold truncate">Winter 2024</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="w-full h-8 mt-2 wood-texture rounded-sm shadow-shelf relative z-0">
-                                            <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10"></div>
-                                            <div className="absolute -bottom-10 left-4 right-4 h-10 bg-black/40 blur-xl rounded-[100%]"></div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
+  <!-- Theme Selector -->
+  <div class="theme-selector" id="theme-selector"></div>
 
-                        <footer className="border-t border-[#232f48] bg-[#111722] py-12">
-                            <div className="layout-content-container max-w-[960px] mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-6">
-                                <div className="flex flex-col gap-2 text-center md:text-left">
-                                    <h3 className="text-white font-bold text-lg">Eleanor Vance</h3>
-                                    <p className="text-[#92a4c9] text-sm">© 2024 All rights reserved.</p>
-                                </div>
-                                <div className="flex items-center gap-6">
-                                    <span className="text-[#92a4c9] hover:text-white transition-colors cursor-pointer"><span className="material-symbols-outlined">alternate_email</span></span>
-                                    <span className="text-[#92a4c9] hover:text-white transition-colors cursor-pointer"><span className="material-symbols-outlined">public</span></span>
-                                    <span className="text-[#92a4c9] hover:text-white transition-colors cursor-pointer"><span className="material-symbols-outlined">rss_feed</span></span>
-                                </div>
-                            </div>
-                        </footer>
-                    </div>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1 gs-reveal">
+        <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Professional Solutions</span>
+        <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight text-gray-900 dark:text-white">
+            Empowering Your <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Digital & Academic</span> Journey
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg leading-relaxed">
+            From Software Training to Web Development, I provide expert mentoring and technical services tailored to your success.
+        </p>
+        <a href="#request-form" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-primary/30 transition transform hover:-translate-y-1">
+            Get Started
+        </a>
+      </div>
+      <div class="flex-1 flex justify-center gs-reveal">
+         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team Working" class="rounded-2xl shadow-2xl w-full max-w-md object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 px-6 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
+    <div class="container mx-auto">
+        <div class="mb-12 gs-reveal">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Why Choose My Services?</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Delivering value through expertise and dedication.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 gs-reveal">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+                    <i class="fas fa-user-tie"></i>
                 </div>
-            );
-        };
-
-        // --- Screen 2: Details Overlay (My Library View) ---
-        const DetailsPage = () => {
-            const navigate = useNavigate();
-            const [isClosing, setIsClosing] = useState(false);
-
-            const handleClose = () => {
-                setIsClosing(true);
-                setTimeout(() => navigate('/'), 300);
-            };
-
-            return (
-                <div className="relative flex h-screen w-full flex-col bg-background-light dark:bg-background-dark-green overflow-hidden transition-colors duration-300 font-display">
-                    {/* Header (Different style as per Screen 2) */}
-                    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#24472a] px-10 py-3 bg-[#112214] z-20 relative shadow-md">
-                        <Link to="/" className="flex items-center gap-4 text-white hover:opacity-90">
-                            <div className="size-6 text-primary">
-                                <span className="material-symbols-outlined text-3xl">local_library</span>
-                            </div>
-                            <h2 className="text-white text-xl font-bold leading-tight tracking-[-0.015em]">My Library</h2>
-                        </Link>
-                        <div className="flex flex-1 justify-end gap-8">
-                            <label className="flex flex-col min-w-40 !h-10 max-w-64 hidden sm:flex">
-                                <div className="flex w-full flex-1 items-stretch rounded-lg h-full">
-                                    <div className="text-[#93c89c] flex border-none bg-[#24472a] items-center justify-center pl-4 rounded-l-lg border-r-0">
-                                        <span className="material-symbols-outlined text-[24px]">search</span>
-                                    </div>
-                                    <input className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#24472a] focus:border-none h-full placeholder:text-[#93c89c] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" />
-                                </div>
-                            </label>
-                            <button className="flex items-center justify-center overflow-hidden rounded-lg h-10 bg-[#24472a] text-white gap-2 px-3 hover:bg-[#2f5e37] transition-colors">
-                                <span className="material-symbols-outlined text-[20px]">notifications</span>
-                            </button>
-                            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[#24472a]" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMkSXn-RZJ_VArMvzVeqiyL78gbPCj4HsEqT6cu7Z-EHpvk6BMTbqs01ApN-r6wCzEyMfBCPPbeno2oIakfnksHV05gTANQReD3kckTNYOSoBytVnP2W92Po9-PieTsAbQCV9cyrFVCa1l3CR1_aIAj_LjIMUc8FiEShTiC3L4Bg95lTynqpnCv6Pn1dQNO4msMB2g6EmjBqjCFLwhuuJJ88asJgHm5wPsOU60c3otqT5WmtYHHl90sIegFLK6POT6px8lxwMx0-29")'}}></div>
-                        </div>
-                    </header>
-
-                    {/* Main Background Grid */}
-                    <main className="flex-1 flex flex-col p-6 lg:p-10 relative overflow-y-auto z-0">
-                        <div className="w-full max-w-7xl mx-auto mb-8">
-                            <div className="flex flex-wrap gap-2 items-center">
-                                <Link className="text-[#93c89c] text-lg font-medium leading-normal hover:text-primary transition-colors flex items-center gap-1" to="/">
-                                    <span className="material-symbols-outlined text-lg">arrow_back</span>
-                                    Collections
-                                </Link>
-                                <span className="text-[#93c89c] text-base font-medium leading-normal">/</span>
-                                <span className="text-stone-900 dark:text-white text-lg font-bold leading-normal">Fiction</span>
-                            </div>
-                        </div>
-                        <div className="w-full max-w-7xl mx-auto flex items-end justify-between mb-8 border-b border-stone-200 dark:border-stone-800 pb-4">
-                            <div>
-                                <h1 className="text-3xl font-bold text-stone-900 dark:text-white font-display">My Works</h1>
-                                <p className="text-stone-500 dark:text-stone-400 mt-1 font-sans text-sm">12 books in your collection</p>
-                            </div>
-                            <button className="flex items-center gap-2 text-stone-500 hover:text-primary font-sans text-sm font-medium transition-colors">
-                                <span className="material-symbols-outlined text-lg">sort</span> Sort by: Recent
-                            </button>
-                        </div>
-                        {/* Grid Items */}
-                        <div className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 lg:gap-12 pb-20">
-                            {/* Items omitted for brevity of click handling, but represented visually in background */}
-                            <div className="group flex flex-col gap-3 cursor-pointer">
-                                <div className="relative w-full aspect-[2/3] rounded-md shadow-lg transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl bg-cover bg-center" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCN8WRq0rPr7vQQW3obcDl46_oNP0rzY-sOTn23pRdR3AbMa-Q97nKPPzB2rH0ban6liRfG2oDdjyO6eoSknnppGX_dww9Do2lXtCsomZ6bKU2E39HpoeIueTHbw8M2kGINlYtNSMcW7cFBpHUGaxLOj1Z02vQ3M0NnuQQPCkT-Bp_QSK-TERPADITW6vJ9UQGtPlI2O7kZOTELDJRdBShFdzSzmfwGuCza40ykSWDV2gQJXpdWaNoY_-iwINiqlMSOW0LylCUiV0OY")'}}>
-                                    <div className="absolute inset-0 bg-black/10 rounded-md group-hover:bg-black/0 transition-colors"></div>
-                                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 size-2 bg-primary rounded-full"></div>
-                                </div>
-                                <div>
-                                    <h3 className="text-stone-900 dark:text-white font-bold leading-tight line-clamp-2">The Last Alchemist</h3>
-                                    <p className="text-stone-500 dark:text-stone-400 text-sm mt-1 font-sans">Elena Vance</p>
-                                </div>
-                            </div>
-                             <div className="group flex flex-col gap-3 cursor-pointer">
-                                <div className="relative w-full aspect-[2/3] rounded-md shadow-md bg-[#2d3a4b] flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2">
-                                    <span className="material-symbols-outlined text-white/20 text-5xl">auto_stories</span>
-                                    <div className="absolute left-0 top-0 bottom-0 w-3 bg-white/10 rounded-l-md"></div>
-                                </div>
-                                <div>
-                                    <h3 className="text-stone-900 dark:text-white font-bold leading-tight">Whispers of the Void</h3>
-                                    <p className="text-stone-500 dark:text-stone-400 text-sm mt-1 font-sans">K. J. Sterling</p>
-                                </div>
-                            </div>
-                            <div className="group flex flex-col gap-3 cursor-pointer">
-                                <div className="relative w-full aspect-[2/3] rounded-md shadow-md bg-[#5c2e2e] flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2">
-                                    <div className="border-2 border-white/20 w-[80%] h-[80%] rounded flex items-center justify-center">
-                                        <span className="text-white/30 font-display font-bold text-xl">VOL. I</span>
-                                    </div>
-                                    <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/20 rounded-l-md"></div>
-                                </div>
-                                <div>
-                                    <h3 className="text-stone-900 dark:text-white font-bold leading-tight">Crimson Peak</h3>
-                                    <p className="text-stone-500 dark:text-stone-400 text-sm mt-1 font-sans">M. R. James</p>
-                                </div>
-                            </div>
-                             <div className="group flex flex-col gap-3 cursor-pointer">
-                                <div className="relative w-full aspect-[2/3] rounded-md shadow-md bg-[#3d4c41] flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2">
-                                    <span className="material-symbols-outlined text-white/20 text-5xl">history_edu</span>
-                                    <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/20 rounded-l-md"></div>
-                                </div>
-                                <div>
-                                    <h3 className="text-stone-900 dark:text-white font-bold leading-tight">Botany of Souls</h3>
-                                    <p className="text-stone-500 dark:text-stone-400 text-sm mt-1 font-sans">Sarah Field</p>
-                                </div>
-                            </div>
-                        </div>
-                    </main>
-
-                    {/* Modal Overlay */}
-                    <div aria-modal="true" className={`fixed inset-0 z-50 overflow-y-auto transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`} role="dialog">
-                        <div className="fixed inset-0 bg-stone-900/80 backdrop-blur-sm transition-opacity" onClick={handleClose}></div>
-                        <div className="flex min-h-screen items-center justify-center p-4 text-center sm:p-6 lg:p-10">
-                            <div className={`relative w-full max-w-[1100px] bg-paper-light rounded-xl shadow-2xl flex flex-col md:flex-row overflow-hidden min-h-[600px] group/book text-left transform transition-all duration-300 ${isClosing ? 'scale-95' : 'scale-100'}`}>
-                                <button onClick={handleClose} className="absolute -top-10 right-0 md:-right-12 text-white/70 hover:text-white transition-colors z-50 p-2 cursor-pointer group-hover:text-white">
-                                    <span className="material-symbols-outlined text-3xl">close</span>
-                                    <span className="sr-only">Close Overlay</span>
-                                </button>
-                                
-                                {/* Modal Left - Cover */}
-                                <div className="flex-1 p-8 lg:p-12 relative flex flex-col items-center justify-center bg-gradient-to-r from-paper-light to-[#f2f0eb] border-r border-[#e5e5e5]">
-                                    <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/5 to-transparent pointer-events-none z-10"></div>
-                                    <div className="relative w-48 lg:w-56 aspect-[2/3] shadow-lg rounded-sm mb-8 transform -rotate-2 group-hover/book:rotate-0 transition-transform duration-700 ease-out origin-bottom-left">
-                                        <div className="w-full h-full bg-cover bg-center rounded-sm" style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCN8WRq0rPr7vQQW3obcDl46_oNP0rzY-sOTn23pRdR3AbMa-Q97nKPPzB2rH0ban6liRfG2oDdjyO6eoSknnppGX_dww9Do2lXtCsomZ6bKU2E39HpoeIueTHbw8M2kGINlYtNSMcW7cFBpHUGaxLOj1Z02vQ3M0NnuQQPCkT-Bp_QSK-TERPADITW6vJ9UQGtPlI2O7kZOTELDJRdBShFdzSzmfwGuCza40ykSWDV2gQJXpdWaNoY_-iwINiqlMSOW0LylCUiV0OY")'}}>
-                                            <div className="absolute inset-0 bg-black/10 rounded-sm"></div>
-                                            <div className="absolute left-0 top-0 bottom-0 w-2 bg-white/20"></div>
-                                        </div>
-                                    </div>
-                                    <div className="prose max-w-sm text-center z-0">
-                                        <span className="material-symbols-outlined text-stone-300 text-4xl mb-2">format_quote</span>
-                                        <p className="text-stone-800 text-lg md:text-xl font-normal leading-relaxed italic">
-                                            In a world where magic has faded, one alchemist remains. A gripping tale of mystery and ancient power that challenges the very fabric of reality.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Modal Right - Content */}
-                                <div className="flex-1 p-8 lg:p-12 relative flex flex-col bg-gradient-to-l from-paper-light to-[#f2f0eb]">
-                                    <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/5 to-transparent pointer-events-none z-10"></div>
-                                    <div className="absolute top-6 right-6 z-20">
-                                        <button onClick={handleClose} className="flex items-center justify-center size-10 rounded-full hover:bg-stone-200 text-stone-500 hover:text-stone-800 transition-all cursor-pointer">
-                                            <span className="material-symbols-outlined text-2xl">close</span>
-                                        </button>
-                                    </div>
-                                    <div className="flex flex-col h-full pl-6 lg:pl-10 justify-center">
-                                        <div className="flex items-center gap-3 mb-4">
-                                            <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest border border-primary/20 font-sans">Fantasy</span>
-                                            <span className="text-stone-500 text-sm font-bold uppercase tracking-wider font-sans">Published 2023</span>
-                                        </div>
-                                        <h1 className="text-stone-900 text-5xl lg:text-6xl font-bold leading-[1.1] mb-2 tracking-tight">
-                                            The Last Alchemist
-                                        </h1>
-                                        <div className="mb-8">
-                                            <p className="text-stone-600 text-2xl italic font-medium">by Elena Vance</p>
-                                        </div>
-                                        <div className="w-16 h-1 bg-primary/30 rounded-full mb-8"></div>
-                                        <div className="grid grid-cols-2 gap-6 mb-10 text-stone-700 font-sans">
-                                            <div>
-                                                <p className="text-stone-400 text-xs font-bold uppercase tracking-widest mb-1">Publisher</p>
-                                                <p className="font-semibold">Penguin Classics</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-stone-400 text-xs font-bold uppercase tracking-widest mb-1">Language</p>
-                                                <p className="font-semibold">English</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-stone-400 text-xs font-bold uppercase tracking-widest mb-1">Length</p>
-                                                <p className="font-semibold">342 Pages</p>
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <p className="text-stone-400 text-xs font-bold uppercase tracking-widest mb-1">Rating</p>
-                                                <div className="flex items-center gap-1 text-yellow-600">
-                                                    <span className="material-symbols-outlined text-sm">star</span>
-                                                    <span className="material-symbols-outlined text-sm">star</span>
-                                                    <span className="material-symbols-outlined text-sm">star</span>
-                                                    <span className="material-symbols-outlined text-sm">star</span>
-                                                    <span className="material-symbols-outlined text-sm">star_half</span>
-                                                    <span className="text-stone-900 font-bold ml-1">4.8</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-wrap gap-4 mt-auto">
-                                            <button className="flex-1 min-w-[160px] bg-primary hover:bg-[#0fa028] text-white text-lg font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2 transform active:scale-95 font-sans">
-                                                <span className="material-symbols-outlined">menu_book</span>
-                                                Read Now
-                                            </button>
-                                            <button className="flex items-center justify-center size-12 rounded-lg border border-stone-300 text-stone-600 hover:text-primary hover:border-primary hover:bg-primary/5 transition-all">
-                                                <span className="material-symbols-outlined">bookmark_add</span>
-                                            </button>
-                                            <button className="flex items-center justify-center size-12 rounded-lg border border-stone-300 text-stone-600 hover:text-stone-900 hover:border-stone-900 hover:bg-stone-50 transition-all">
-                                                <span className="material-symbols-outlined">share</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h3 class="text-xl font-bold mb-4 dark:text-white">Professional Mentorship</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Gain insights from an experienced academic professional and researcher. Get guidance that bridges theory and practice.
+                </p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 gs-reveal">
+                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-check-double"></i>
                 </div>
-            );
-        };
+                <h3 class="text-xl font-bold mb-4 dark:text-white">Quality & Accuracy</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Whether it's code, content, or translation, expect high precision and professional standards in every deliverable.
+                </p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 gs-reveal">
+                <div class="w-14 h-14 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 dark:text-white">Future-Ready Skills</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Learn the latest technologies and methodologies. Stay ahead with training in AI, ML, and modern Web Development.
+                </p>
+            </div>
+        </div>
+    </div>
+  </section>
 
-        const App = () => {
-            return (
-                <MemoryRouter>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/details" element={<DetailsPage />} />
-                    </Routes>
-                </MemoryRouter>
-            );
-        };
+  <!-- Service Ecosystem Section -->
+  <section class="py-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div class="container mx-auto">
+         <div class="mb-16 gs-reveal">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">My Service Ecosystem</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">A comprehensive suite of services to meet your needs.</p>
+        </div>
 
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Education Column -->
+            <div class="gs-reveal">
+                <h3 class="text-2xl font-bold mb-8 text-primary border-b-2 border-primary pb-2 inline-block">Education & Training</h3>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Software Training</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Comprehensive training in programming languages and tools.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Tutoring</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Personalized academic tutoring for Computer Science subjects.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Mentoring for Projects</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Guidance on academic and industrial projects.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Content Column -->
+            <div class="gs-reveal">
+                 <h3 class="text-2xl font-bold mb-8 text-purple-600 border-b-2 border-purple-600 pb-2 inline-block">Content & Writing</h3>
+                 <ul class="space-y-6">
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-purple-50 dark:bg-slate-800 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Text Translation</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Accurate and context-aware translation services.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-purple-50 dark:bg-slate-800 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Technical Writing</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Documentation, manuals, and technical reports.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-purple-50 dark:bg-slate-800 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Content Writing</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Engaging content for websites, blogs, and marketing.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Development Column -->
+            <div class="gs-reveal">
+                 <h3 class="text-2xl font-bold mb-8 text-green-600 border-b-2 border-green-600 pb-2 inline-block">Development</h3>
+                 <ul class="space-y-6">
+                    <li class="flex items-start gap-4 text-gray-700 dark:text-gray-300 group">
+                        <div class="mt-1 w-8 h-8 rounded-full bg-green-50 dark:bg-slate-800 flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Web Development</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Full-stack web development using modern frameworks.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 px-6 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 dark:text-white gs-reveal">Meet the Expert</h2>
+        <div class="flex flex-col md:flex-row items-center gap-8 bg-white dark:bg-slate-700 rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto gs-reveal p-6">
+            <div class="w-full md:w-1/3">
+                <img src="https://vidwan.inflibnet.ac.in/profile_images/394004.jpg" alt="Sai Karun" class="w-full h-auto rounded-lg object-cover shadow-md">
+            </div>
+            <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-2 dark:text-white">N.S. Sai Karun</h3>
+                <p class="text-primary font-bold uppercase text-sm mb-4">Assistant Professor & Researcher</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    Expert in Generative AI, Machine Learning, and Web Development. Prolific author and researcher dedicated to empowering students and businesses through modern technology.
+                </p>
+                <div class="flex gap-4">
+                     <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
+                     <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fas fa-globe text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Request Form Section -->
+  <section id="request-form" class="py-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-12 gs-reveal">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Request a Service</h2>
+            <p class="text-gray-600 dark:text-gray-400">Have a requirement? Let's discuss how I can help you achieve your goals.</p>
+        </div>
+
+        <form class="space-y-6 gs-reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-bold mb-2 dark:text-gray-300">Full Name</label>
+                    <input type="text" class="w-full p-4 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-primary outline-none dark:text-white transition-colors" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2 dark:text-gray-300">Email ID</label>
+                    <input type="email" class="w-full p-4 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-primary outline-none dark:text-white transition-colors" placeholder="john@example.com">
+                </div>
+            </div>
+            <div>
+                 <label class="block text-sm font-bold mb-2 dark:text-gray-300">Service Required</label>
+                 <select class="w-full p-4 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-primary outline-none dark:text-white transition-colors">
+                    <option>Software Training</option>
+                    <option>Tutoring</option>
+                    <option>Text Translation</option>
+                    <option>Technical Writing</option>
+                    <option>Content Writing</option>
+                    <option>Mentoring for Projects</option>
+                    <option>Web Development</option>
+                    <option>Other</option>
+                 </select>
+            </div>
+            <div>
+                <label class="block text-sm font-bold mb-2 dark:text-gray-300">Describe Your Requirement</label>
+                <textarea class="w-full p-4 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-primary outline-none h-32 dark:text-white transition-colors" placeholder="Please provide details about your project or training needs..."></textarea>
+            </div>
+            <button class="bg-primary hover:bg-primary-dark text-white font-bold py-4 px-8 rounded-lg w-full transition duration-300 shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">Send Request</button>
+        </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-500 py-12 border-t border-gray-800">
+       <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between gap-12">
+          <div class="flex-1">
+               <h3 class="text-white text-xl font-bold mb-4">Visit Us</h3>
+               <p class="mb-2">Kakaraparthi Bhavanarayana College (Autonomous)</p>
+               <p class="mb-4">Kothapeta, Vijayawada - 520001, Andhra Pradesh, India.</p>
+               <div class="rounded-lg overflow-hidden border border-gray-800">
+                   <iframe
+                       src="https://maps.google.com/maps?q=Kakaraparti%20Bhavanarayana%20College%20Vijayawada&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                       width="100%"
+                       height="200"
+                       frameborder="0"
+                       style="border:0;"
+                       allowfullscreen=""
+                       aria-hidden="false"
+                       tabindex="0">
+                   </iframe>
+               </div>
+          </div>
+           <div class="flex-1 flex flex-col justify-between">
+               <div>
+                  <h3 class="text-white text-xl font-bold mb-4">Contact</h3>
+                  <p class="mb-2"><i class="fas fa-envelope mr-2"></i> saikarun085@gmail.com</p>
+               </div>
+               <div class="mt-8">
+                   <p>&copy; 2025 Sai Karun. All rights reserved.</p>
+               </div>
+          </div>
+       </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Theme Definitions (Consistent with index.html)
+        const themes = [
+            { name: 'blue', primary: '37 99 235', dark: '29 78 216', light: '219 234 254' },
+            { name: 'green', primary: '22 163 74', dark: '21 128 61', light: '220 252 231' },
+            { name: 'purple', primary: '147 51 234', dark: '126 34 206', light: '243 232 255' },
+            { name: 'orange', primary: '234 88 12', dark: '194 65 12', light: '255 237 213' },
+            { name: 'red', primary: '220 38 38', dark: '185 28 28', light: '254 226 226' }
+        ];
+
+        const themeSelector = document.getElementById('theme-selector');
+
+        // Load saved theme color
+        const savedTheme = localStorage.getItem('themeColor') || 'blue';
+        setTheme(savedTheme);
+
+        // Generate Theme UI
+        themes.forEach(theme => {
+            const circle = document.createElement('div');
+            circle.className = `theme-circle ${theme.name === savedTheme ? 'active' : ''}`;
+            circle.style.backgroundColor = `rgb(${theme.primary})`;
+            circle.dataset.theme = theme.name;
+            circle.title = theme.name.charAt(0).toUpperCase() + theme.name.slice(1);
+
+            circle.addEventListener('click', () => {
+                setTheme(theme.name);
+                document.querySelectorAll('.theme-circle').forEach(c => c.classList.remove('active'));
+                circle.classList.add('active');
+            });
+
+            themeSelector.appendChild(circle);
+        });
+
+        function setTheme(themeName) {
+            const theme = themes.find(t => t.name === themeName);
+            if (theme) {
+                const root = document.documentElement;
+                root.style.setProperty('--color-primary', theme.primary);
+                root.style.setProperty('--color-primary-dark', theme.dark);
+                root.style.setProperty('--color-primary-light', theme.light);
+                localStorage.setItem('themeColor', themeName);
+            }
+        }
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById('toggle-dark-mode');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+        }
+
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                const isDark = htmlElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // GSAP Animations
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            const revealElements = document.querySelectorAll('.gs-reveal');
+            revealElements.forEach(element => {
+                gsap.fromTo(element,
+                    { y: 50, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        }
+    });
+  </script>
 </body>
 </html>
