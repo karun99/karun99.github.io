@@ -3,243 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSK AI Collection | My Words are Commands to many AI Systems and lessons to many students  </title>
+    <title>NSK AI Collection | Sai Karun Nandipati</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         :root {
+            /* Default: Cyber Cyan Dark */
             --primary: #00d4ff;
             --secondary: #7000ff;
             --bg-dark: #06090f;
-            --card-bg: #11161d;
             --text-main: #ffffff;
             --text-dim: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --card-shadow: rgba(0, 0, 0, 0.5);
         }
-        
 
-        /* --- Splash Screen --- */
-        #splash {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: var(--bg-dark); display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 9999;
-            transition: opacity 1s ease-out, visibility 1s;
+        /* Color Theme Engine */
+        [data-color="purple"] { --primary: #bc13fe; --secondary: #4d05ff; }
+        [data-color="emerald"] { --primary: #00ff88; --secondary: #0061ff; }
+
+        /* Light Mode - Fixed for Visibility */
+        [data-theme="light"] {
+            --bg-dark: #f0f4f8;
+            --text-main: #1a202c;
+            --text-dim: #4a5568;
+            --glass: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --card-shadow: rgba(0, 0, 0, 0.05);
         }
-        .splash-logo { width: 100px; height: 100px; border: 3px solid var(--primary); border-radius: 50%; margin-bottom: 20px; animation: pulse 2s infinite; }
-        .loader { width: 200px; height: 3px; background: #222; border-radius: 5px; position: relative; overflow: hidden; }
-        .loader-bar { width: 0%; height: 100%; background: var(--primary); position: absolute; animation: load 2.5s forwards; }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--bg-dark); color: var(--text-main); transition: background 0.5s, color 0.5s; overflow-x: hidden; }
+
+        /* --- 1. LOADER SCREEN --- */
+        #loader-screen {
+            position: fixed; inset: 0; background: #000; z-index: 10000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .loader-content { width: 300px; text-align: center; }
+        .loader-logo { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--primary); margin-bottom: 20px; animation: pulse 2s infinite; }
+        .progress-container { width: 100%; height: 6px; background: #111; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: 0.1s; }
+
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); } 70% { box-shadow: 0 0 0 20px rgba(0, 212, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); } }
-        @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
 
-        /* --- Navigation --- */
-        nav { padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(6, 9, 15, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #1e2530; }
-        .nav-brand { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 45px; width: 45px; border-radius: 50%; border: 2px solid var(--primary); }
-        .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        /* --- NEURAL BACKGROUND --- */
+        #neural-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.25; pointer-events: none; }
 
-        /* --- Hero Section --- */
-        #hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            padding: 0 10%; background: radial-gradient(circle at center, #112240 0%, #06090f 100%);
+        /* --- NAVIGATION --- */
+        nav { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(25px); background: rgba(var(--bg-dark), 0.85); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass-border); }
+        .nav-links { display: flex; gap: 15px; list-style: none; }
+        .nav-links a { text-decoration: none; color: inherit; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; transition: 0.3s; padding: 5px 10px; border-radius: 5px; }
+        .nav-links a:hover { color: var(--primary); background: rgba(var(--primary), 0.1); }
+
+        /* --- THEME CONTROLS --- */
+        .controls { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
+        .control-dot { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; background: #333; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .control-dot:hover { transform: scale(1.15); box-shadow: 0 0 15px var(--primary); }
+
+        /* --- SECTIONS --- */
+        .section { padding: 120px 8% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 60px; text-align: center; }
+        .section-title span { color: var(--primary); }
+
+        /* --- HERO --- */
+        #hero { text-align: center; align-items: center; }
+        .hero-avatar { width: 170px; height: 170px; border-radius: 50%; border: 4px solid var(--primary); padding: 5px; box-shadow: 0 0 30px var(--primary); margin-bottom: 30px; }
+        .hero-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .terminal { width: 100%; max-width: 750px; background: #000; padding: 30px; border-radius: 15px; border: 1px solid var(--glass-border); text-align: left; font-family: 'Fira Code', monospace; box-shadow: 0 20px 50px var(--card-shadow); }
+
+        /* --- CARDS & GRID --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 25px; backdrop-filter: blur(15px); transition: 0.4s; height: 100%; display: flex; flex-direction: column; box-shadow: 0 10px 30px var(--card-shadow); }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+
+        /* --- BUTTONS --- */
+        .btn { 
+            padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; 
+            background: linear-gradient(45deg, var(--primary), var(--secondary)); 
+            color: #fff !important; display: flex; align-items: center; justify-content: center;
+            border: none; cursor: pointer; transition: 0.3s; margin-top: auto; text-align: center;
         }
-        #hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; font-weight: 800; }
-        .college-tag { color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 20px; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
 
-        /* --- Section Animations --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- PROFILE CAROUSEL --- */
+        .carousel-wrap { position: relative; max-width: 550px; margin: 0 auto; overflow: hidden; background: var(--glass); border-radius: 30px; border: 1px solid var(--glass-border); }
+        .carousel-track { display: flex; transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .p-slide { min-width: 100%; padding: 50px; text-align: center; }
+        .p-slide img { height: 70px; margin-bottom: 25px; filter: drop-shadow(0 0 10px var(--primary)); }
 
-        .section { padding: 100px 10%; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.5rem; color: var(--primary); }
-        
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .why-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-left: 5px solid var(--secondary); transition: 0.3s; }
-        .why-card:hover { background: #1a202c; transform: translateY(-5px); }
+        /* --- CONTACT IMPROVED --- */
+        .contact-container { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+        .input-group { position: relative; width: 100%; }
+        .input-f { width: 100%; padding: 15px 20px; background: rgba(var(--text-main), 0.05); border: 1px solid var(--glass-border); border-radius: 15px; color: var(--text-main); font-size: 0.95rem; transition: 0.3s; }
+        .input-f:focus { border-color: var(--primary); outline: none; background: rgba(var(--primary), 0.05); }
 
-        /* --- Tech Section --- */
-        .tech-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
-        .tech-box { flex: 1; min-width: 300px; background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid #1e2530; }
-        .tech-tag { background: #222; padding: 6px 15px; border-radius: 5px; font-size: 0.85rem; border: 1px solid #333; transition: 0.3s; display: inline-block; margin: 5px; }
-        .tech-tag:hover { border-color: var(--primary); color: var(--primary); }
+        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-dim); font-weight: 600; }
 
-        /* --- Carousel --- */
-        .carousel-container { max-width: 900px; margin: 0 auto; position: relative; overflow: hidden; }
-        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .faculty-card { min-width: 100%; padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .faculty-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); margin-bottom: 15px; object-fit: cover; }
-        
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(0, 212, 255, 0.1); border: 1px solid var(--primary);
-            color: white; width: 45px; height: 45px; border-radius: 50%;
-            cursor: pointer; z-index: 10; transition: 0.3s;
-        }
-        .carousel-btn:hover { background: var(--primary); color: black; }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-
-        footer { text-align: center; padding: 40px; border-top: 1px solid #1e2530; color: var(--text-dim); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
     </style>
 </head>
-<body onload="closeSplash()">
+<body onload="startLoading()">
 
-    <div id="splash">
-        <img src="logo.jpg" class="splash-logo" alt="KBN Logo">
-        <h1 style="color: white; margin-bottom: 20px; font-weight: 300; letter-spacing: 5px; text-align: center;">WELCOME TO NSK AI PROJECTS COLLECTION</h1>
-        <div class="loader"><div class="loader-bar"></div></div>
+    <div id="loader-screen">
+        <div class="loader-content">
+            <img src="logo.jpg" class="loader-logo">
+            <div id="loader-title" style="color: #fff; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px;">INITIALIZING NSK CORE...</div>
+            <div class="progress-container"><div class="progress-bar" id="p-bar"></div></div>
+            <div id="p-percent" style="color: var(--primary); margin-top: 10px; font-family: 'Fira Code';">0%</div>
+        </div>
+    </div>
+
+    <canvas id="neural-canvas"></canvas>
+
+    <div class="controls">
+        <div class="control-dot" onclick="toggleTheme()" id="themeBtn"><i class="fas fa-moon"></i></div>
+        <div class="control-dot" onclick="changeColor('cyan')" style="background: #00d4ff;"></div>
+        <div class="control-dot" onclick="changeColor('purple')" style="background: #bc13fe;"></div>
+        <div class="control-dot" onclick="changeColor('emerald')" style="background: #00ff88;"></div>
     </div>
 
     <nav>
-        <div class="nav-brand">
-            <img src="logo.jpg" alt="Logo" class="logo-img">
-            <span style="font-weight: bold;">NSK AI PROJECTS</span>
-        </div>
+        <div class="nav-brand" style="font-weight: 800; letter-spacing: 1px;">S<span style="color:var(--primary)">AI</span>KARUN NANDIPATI</div>
         <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#why-learn">Why AI?</a></li>
-            <li><a href="#tech-stack">Tech Stack</a></li>
-            <li><a href="#team">Team KBN</a></li>
+            <li><a href="https://karun99.github.io">HOME</a></li>
+            <li><a href="#hero">START</a></li>
+            <li><a href="#why-ai">PHILOSOPHY</a></li>
+            <li><a href="#tech-skills">DNA</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#profiles">ACADEMIA</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
     </nav>
 
-    <header id="hero">
-        <img src="logo.jpg" alt="Sai Karun" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); margin-bottom: 20px;">
-        <p class="college-tag">Sai Karun Nandipati | Asst. Professor @ KBN College</p>
-        <h1>Projects made by S<span style="color: var(--primary)">AI</span>KARUN</h1>
-        <p style="color: var(--text-dim); max-width: 600px;"> This project is to demonstrate my works to the world which can provide benefits to the people .<br>
-    This page can be a valid definition to the point that AI is a technology which is able to develop and shape the development of pedagogy , content and learning.
+    <header id="hero" class="section">
+        <div class="hero-avatar" data-aos="zoom-in">
+            <img src="logo.jpg" alt="Sai Karun">
+        </div>
+        <h1 data-aos="fade-up">SAI KARUN <span style="color:var(--primary)">NANDIPATI</span></h1>
+        <p style="letter-spacing: 5px; color: var(--text-dim); margin-top: 10px; font-weight: 600;">ASST. PROFESSOR | AI ARCHITECT</p>
+        <div class="terminal" data-aos="fade-up" data-aos-delay="200">
+            <div id="typed" style="color: var(--primary); font-size: 0.95rem;"></div>
+        </div>
     </header>
 
-    <section id="why-learn" class="section reveal">
-        <div class="section-header">
-            <h2>Why Selected <span style="color:white">AI?</span></h2>
-            <p style="color:var(--text-dim); margin-top:10px">This is a subject which help the people to improve the productivity in the domain of the work performed.<br>
-            Below are the Projects I have Created</p>
-        </div>
-        <div class="why-grid">
-            <div class="why-card">
-                <h3>Duet AI</h3>
-                <p>It is an Agentic AI Based Ecosystem used to explore the fundamental Process of Human Computer Interaction and Parallel Consciousness <br>
-                built from my passion infused to the AI using Prompts </p><br>
-       <a href="https://github.com/nsktech994/Duet--Digital-Twin-Technology" target="blank"><button style=";background-color: #FE4A49;border: none;color: white;text-align: center;font-size: 16px;padding:15px
-";border-radius:"25px";>Click Me to Visit</button></a>  
-           </div>
-            <div class="why-card">
-                <h3></h3> Lit AI </h3>
-                <p>A Virtual Research Symposium made using Hybrid AI Swarm Technology which helps the emerging researchers to present their research <br>
-                in the virtual symposium .</p>
-      <a href="https://github.com/nsktech994/AI-Lit--" target="blank"><button style=";background-color: #FE4A49;border: none;color: white;text-align: center;font-size: 16px;padding:15px
-";border-radius:"25px";>Click Me to Visit</button></a>  
-
+    <section id="why-ai" class="section">
+        <h2 class="section-title">Why <span>Selected AI?</span></h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"><i class="fas fa-microchip"></i></div>
+                <h3>Productivity Force</h3>
+                <p style="color: var(--text-dim); margin-top: 15px; line-height: 1.7;">AI acts as a force multiplier. In the classroom and the lab, it helps improve productivity across any domain by automating technical friction and highlighting core insights.</p>
             </div>
-            
-        </div>
-    </section>
-
-    <section id="tech-stack" class="section reveal" style="background: #0a0f18;">
-        <div class="section-header">
-            <h2>The <span style="color:white">Tech Ecosystem</span></h2>
-        </div>
-        <div class="tech-container">
-            <div class="tech-box">
-                <h3>Programming</h3>
-                <div class="tech-list-items">
-                    <span class="tech-tag">Python</span><span class="tech-tag">R</span><span class="tech-tag">C</span>
-                </div>
-            </div>
-            <div class="tech-box">
-                <h3>AI Technolgies</h3>
-                <div class="tech-list-items">
-                    <span class="tech-tag">Prompt Engineering</span><span class="tech-tag">Generative AI</span><span class="tech-tag">CV</span><span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Agentic AI</span><span class="tech-tag">Neural Networks</span><span class="tech-tag">Human Computer Interaction</span>
-                    <span class="tech-tag">Digital Twin</span><span class="tech-tag">RAG LLM</span>
-                </div>
-            </div>
-            <div class="tech-box">
-                <h3>Web Development</h3>
-                <div class="tech-list-items">
-                    <span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Javascript</span>
-                    <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span>
-                </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <div style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Future Pedagogy</h3>
+                <p style="color: var(--text-dim); margin-top: 15px; line-height: 1.7;">AI is a technology capable of shaping the very development of pedagogy. It transforms content delivery and reshapes the interaction between teacher and student.</p>
             </div>
         </div>
     </section>
 
-    <section id="team" class="section reveal">
-        <div class="section-header">
-            <h2>My<span style="color:white">Profiles</span></h2>
+    <section id="tech-skills" class="section" style="background: rgba(0,0,0,0.05)">
+        <h2 class="section-title">Technical <span>DNA Matrix</span></h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-right">
+                <h3>Technical Stack</h3>
+                <div style="margin-top: 25px; display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">Python</span>
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">Agentic AI</span>
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">Prompt Eng.</span>
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">R Language</span>
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">Digital Twin</span>
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">HCI</span>
+                    <span style="padding:8px 18px; background:rgba(var(--primary), 0.1); border: 1px solid var(--primary); border-radius:50px; font-size:0.75rem; color:var(--primary); font-weight: 800;">PHP / MySQL</span>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-left">
+                <h3>Capability Matrix</h3>
+                <canvas id="skillsChart" style="margin-top:20px;"></canvas>
+            </div>
         </div>
-        <div class="carousel-container">
-            <div class="carousel-track" id="track">
-                <div class="faculty-card">
-                    <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/ResearchGate_icon_SVG.svg/2048px-ResearchGate_icon_SVG.svg.png" alt="Researchgate"class="logo-img"></a>
-                     <h3>Researchgate Profile</h3>
-                 </div>
-                <div class="faculty-card">
-                     <a href="https://orcid.org/0009-0007-9218-9750"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJudLS7lIjumxd7mp8AFUNqcoCGd6FQ_mfTw&s" alt="ORCID" class="logo-img"></a>
-                     <h3>ORCID</h3>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">AI <span>Architecture</span></h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 25px;"><i class="fas fa-brain"></i></div>
+                <h3>Duet AI Ecosystem</h3>
+                <p style="color: var(--text-dim); margin: 20px 0; line-height: 1.7;">An Agentic AI ecosystem investigating the fundamental process of Human-Computer Interaction and Parallel Consciousness through prompt architecture.</p>
+                
+                <a href="https://github.com/nsktech994/Duet--Digital-Twin-Technology" target="_blank" class="btn">VIEW REPOSITORY</a>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 25px;"><i class="fas fa-network-wired"></i></div>
+                <h3>Lit AI Symposium</h3>
+                <p style="color: var(--text-dim); margin: 20px 0; line-height: 1.7;">A Virtual Research Symposium platform utilizing Hybrid AI Swarm Technology to assist emerging scholars in their research presentations.</p>
+                
+                <a href="https://github.com/nsktech994/AI-Lit--" target="_blank" class="btn">VIEW REPOSITORY</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="profiles" class="section" style="background: rgba(0,0,0,0.05)">
+        <h2 class="section-title">Academic <span>Connections</span></h2>
+        <div class="carousel-wrap" data-aos="fade-up">
+            <div class="carousel-track" id="p-track">
+                <div class="p-slide">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/ResearchGate_icon_SVG.svg/2048px-ResearchGate_icon_SVG.svg.png">
+                    <h3>ResearchGate</h3>
+                    <p style="margin:20px 0; color: var(--text-dim);">Scholarly network and digital repository for global research publications.</p>
+                    <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" target="_blank" class="btn">VISIT PROFILE</a>
                 </div>
+                <div class="p-slide">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJudLS7lIjumxd7mp8AFUNqcoCGd6FQ_mfTw&s">
+                    <h3>ORCID iD</h3>
+                    <p style="margin:20px 0; color: var(--text-dim);">Connecting research and researchers through a unique persistent digital identifier.</p>
+                    <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" class="btn">VISIT PROFILE</a>
                 </div>
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
-            <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+            </div>
+            <div style="display:flex; justify-content:center; gap:25px; padding-bottom: 30px;">
+                <button onclick="moveP(-1)" class="control-dot" style="border-radius:15px"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="moveP(1)" class="control-dot" style="border-radius:15px"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact <span>Architect</span></h2>
+        <div class="contact-container" data-aos="zoom-in">
+            <div class="card" style="padding: 50px;">
+                <form class="contact-form" action="mailto:saikarun085@kbncollege.ac.in" method="post" enctype="text/plain">
+                    <div class="input-group">
+                        <input type="text" placeholder="Full Name" class="input-f" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Professional Email" class="input-f" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea placeholder="Instruction / Inquiry Message" class="input-f" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; height: 55px; font-size: 1rem;">SEND COMMAND</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© NSK AI Projects Website </p>
+        <p>© 2026 Sai Karun Nandipati | NSK Intelligence Collection</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
     <script>
-        // 1. Splash Screen Logic
-        function closeSplash() {
-            setTimeout(() => {
-                const splash = document.getElementById('splash');
-                splash.style.opacity = '0';
-                setTimeout(() => { splash.style.visibility = 'hidden'; }, 1000);
-            }, 2000);
-        }
-
-        // 2. Fixed Carousel Logic (Fixed Template Literal Syntax)
-        let index = 0;
-        function moveSlide(step) {
-            const track = document.getElementById('track');
-            const slides = document.querySelectorAll('.faculty-card');
-            index = (index + step + slides.length) % slides.length;
-            // The fix: added backticks around the translate function
-            track.style.transform = `translateX(-${index * 100}%)`;
-        }
-
-        // 3. Auto-Slide Carousel
-        setInterval(() => moveSlide(1), 5000);
-
-        // 4. Scroll Reveal Animation
-        function reveal() {
-            const reveals = document.querySelectorAll(".reveal");
-            for (let i = 0; i < reveals.length; i++) {
-                let windowHeight = window.innerHeight;
-                let elementTop = reveals[i].getBoundingClientRect().top;
-                let elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        // 1. LOADER SYSTEM
+        function startLoading() {
+            let width = 0;
+            const bar = document.getElementById('p-bar');
+            const percent = document.getElementById('p-percent');
+            const titles = ["Initializing Identity...", "Meet Sai Karun", "Assistant Professor", "AI Architect", "Web Developer"];
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    document.getElementById('loader-screen').style.opacity = '0';
+                    setTimeout(() => { document.getElementById('loader-screen').style.display = 'none'; document.body.style.overflow = 'auto'; initCharts(); }, 600);
+                } else {
+                    width++; bar.style.width = width + '%'; percent.innerText = width + '%';
+                    if(width % 20 === 0) document.getElementById('loader-title').innerText = titles[width/20];
                 }
-            }
+            }, 30);
         }
 
-        window.addEventListener("scroll", reveal);
-        // Run once on load to catch top sections
-        reveal();
+        // 2. COMPONENTS
+        AOS.init({ duration: 1000, once: true });
+        new Typed('#typed', {
+            strings: [
+                '$ nsk.identity_init()', 
+                '$ My words are commands to AI systems...', 
+                '$ AI is the future of pedagogy.', 
+                '$ Faculty protocols active.',
+                '$ Sai Karun status: ONLINE'
+            ],
+            typeSpeed: 50, backSpeed: 30, loop: true
+        });
+
+        // 3. CHARTING
+        function initCharts() {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Pedagogy', 'Agentic AI', 'Web Dev', 'Research', 'Prompting', 'HCI'],
+                    datasets: [{
+                        label: 'Mastery Level',
+                        data: [95, 90, 85, 88, 98, 92],
+                        backgroundColor: 'rgba(0, 212, 255, 0.2)',
+                        borderColor: '#00d4ff',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#00d4ff'
+                    }]
+                },
+                options: {
+                    scales: { 
+                        r: { 
+                            ticks: { display: false }, 
+                            grid: { color: 'rgba(128,128,128,0.2)' }, 
+                            angleLines: { color: 'rgba(128,128,128,0.2)' }, 
+                            pointLabels: { color: function() { return document.body.getAttribute('data-theme') === 'light' ? '#1a202c' : '#fff'; }, font: { size: 12, weight: '700' } } 
+                        } 
+                    }, 
+                    plugins: { legend: { display: false } } 
+                }
+            });
+        }
+
+        // 4. THEME & COLORS
+        function toggleTheme() { 
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            const isLight = body.getAttribute('data-theme') === 'light';
+            body.setAttribute('data-theme', isLight ? 'dark' : 'light');
+            btn.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            if(window.myChart) window.myChart.destroy(); // Optional: Re-init chart for color fix
+            initCharts();
+        }
+        function changeColor(c) { document.body.setAttribute('data-color', c); initCharts(); }
+
+        // 5. CAROUSEL
+        let curP = 0;
+        function moveP(dir) {
+            const track = document.getElementById('p-track');
+            const slides = document.querySelectorAll('.p-slide');
+            curP = (curP + dir + slides.length) % slides.length;
+            track.style.transform = `translateX(-${curP * 100}%)`;
+        }
+
+        // 6. NEURAL BACKGROUND
+        const canvas = document.getElementById('neural-canvas');
+        const nCtx = canvas.getContext('2d');
+        let pts = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        function initNet() {
+            resize();
+            for(let i=0; i<60; i++) pts.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4 });
+        }
+        function drawNet() {
+            nCtx.clearRect(0,0,canvas.width, canvas.height);
+            const color = getComputedStyle(document.body).getPropertyValue('--primary');
+            nCtx.fillStyle = color; nCtx.strokeStyle = color;
+            pts.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0 || p.x>canvas.width) p.vx*=-1; if(p.y<0 || p.y>canvas.height) p.vy*=-1;
+                for(let j=i+1; j<pts.length; j++) {
+                    const d = Math.hypot(p.x-pts[j].x, p.y-pts[j].y);
+                    if(d<150) { nCtx.globalAlpha = 1-(d/150); nCtx.beginPath(); nCtx.moveTo(p.x, p.y); nCtx.lineTo(pts[j].x, pts[j].y); nCtx.stroke(); }
+                }
+            });
+            requestAnimationFrame(drawNet);
+        }
+        initNet(); drawNet();
+        window.onresize = resize;
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
