@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSK AI | Sai Karun Nandipati</title>
+    <title> Sai Karun Nandipati |My Words are prompts to AI systems , lessons to students </title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,7 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #1e293b; overflow-x: hidden; width: 100%; }
         .mono { font-family: 'Fira Code', monospace; }
 
         /* --- ARC REACTOR LOADER --- */
@@ -34,48 +34,62 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: 1s cubic-bezier(0.8, 0, 0.2, 1);
         }
-        .reactor-container { position: relative; width: 150px; height: 150px; margin-bottom: 2rem; }
+        .reactor-container { position: relative; width: 120px; height: 120px; margin-bottom: 2rem; }
+        @media (min-width: 768px) { .reactor-container { width: 150px; height: 150px; } }
+        
         .reactor-ring { position: absolute; inset: 0; border: 4px solid #e2e8f0; border-top-color: #2563eb; border-radius: 50%; animation: spin 2s linear infinite; }
         .reactor-core { 
-            position: absolute; inset: 45px; 
+            position: absolute; inset: 35px; 
             background: url('https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg');
             background-size: cover; border-radius: 50%; border: 2px solid #2563eb;
             animation: pulse 1.5s ease-in-out infinite; 
         }
+        @media (min-width: 768px) { .reactor-core { inset: 45px; } }
+
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes pulse { 0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); } 50% { box-shadow: 0 0 50px rgba(37, 99, 235, 0.7); } }
 
-        /* --- FULL-WIDTH HORIZONTAL DNA --- */
+        /* --- RESPONSIVE DNA HELIX --- */
         .dna-full-container {
-            width: 100vw; height: 400px; display: flex; align-items: center; justify-content: center;
-            overflow-x: auto; overflow-y: hidden; position: relative; scrollbar-width: none; 
-            background: linear-gradient(to right, rgba(255,255,255,0), rgba(37,99,235,0.03), rgba(255,255,255,0));
+            width: 100%; height: 320px; display: flex; align-items: center;
+            overflow-x: auto; overflow-y: hidden; position: relative; 
+            scrollbar-width: none; -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+            background: linear-gradient(to right, transparent, rgba(37,99,235,0.03), transparent);
         }
         .dna-full-container::-webkit-scrollbar { display: none; }
 
-        .dna { display: flex; align-items: center; gap: 80px; padding: 0 100px; min-width: max-content; }
-        
+        .dna { display: flex; align-items: center; gap: 45px; padding: 0 40px; min-width: max-content; }
+        @media (min-width: 768px) { .dna { gap: 85px; padding: 0 100px; } .dna-full-container { height: 400px; } }
+
         .base-pair {
             display: flex; flex-direction: column; align-items: center; position: relative;
             animation: helix-rev 3s ease-in-out infinite alternate;
         }
-        .dot { width: 14px; height: 14px; background: #2563eb; border-radius: 50%; box-shadow: 0 0 15px rgba(37,99,235,0.6); }
-        .line { width: 2px; height: 120px; background: linear-gradient(to bottom, #2563eb, transparent, #2563eb); }
+        .dot { width: 10px; height: 10px; background: #2563eb; border-radius: 50%; box-shadow: 0 0 10px rgba(37,99,235,0.6); }
+        .line { width: 2px; height: 80px; background: linear-gradient(to bottom, #2563eb, transparent, #2563eb); }
+        
+        @media (min-width: 768px) { 
+            .dot { width: 14px; height: 14px; } 
+            .line { height: 120px; }
+        }
         
         .base-pair:nth-child(even) { animation-name: helix; }
         @keyframes helix { from { transform: scaleY(1); } to { transform: scaleY(-1); } }
         @keyframes helix-rev { from { transform: scaleY(-1); } to { transform: scaleY(1); } }
 
         .skill-bubble {
-            position: absolute; top: -50px; background: white; padding: 6px 16px;
-            border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #2563eb;
-            border: 1px solid rgba(37,99,235,0.2); white-space: nowrap; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            position: absolute; top: -45px; background: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 0.65rem; font-weight: 800; color: #2563eb;
+            border: 1px solid rgba(37,99,235,0.2); white-space: nowrap; box-shadow: 0 8px 12px -3px rgba(0,0,0,0.1);
         }
+        @media (min-width: 768px) { .skill-bubble { top: -50px; padding: 6px 16px; font-size: 0.75rem; } }
 
         /* --- UI ELEMENTS --- */
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         #vanta-bg { position: fixed; inset: 0; z-index: -1; opacity: 0.4; }
-        .timeline-card { background: white; border: 1px solid #e2e8f0; border-radius: 24px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 30px; }
+        .timeline-card { background: white; border: 1px solid #e2e8f0; border-radius: 24px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 24px; }
+        @media (min-width: 768px) { .timeline-card { padding: 30px; } }
         .timeline-card:hover { border-color: #2563eb; transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
@@ -87,8 +101,8 @@
             <div class="reactor-ring"></div>
             <div class="reactor-core"></div>
         </div>
-        <div class="mono text-blue-600 font-bold tracking-widest text-xs">SEQUENCING DATA...</div>
-        <div class="w-48 h-1 bg-slate-100 mt-6 rounded-full overflow-hidden border border-slate-200">
+        <div class="mono text-blue-600 font-bold tracking-widest text-[10px] md:text-xs">SEQUENCING DATA...</div>
+        <div class="w-32 md:w-48 h-1 bg-slate-100 mt-6 rounded-full overflow-hidden border border-slate-200">
             <div id="boot-progress" class="h-full bg-blue-600 transition-all duration-300" style="width: 0%"></div>
         </div>
     </div>
@@ -97,7 +111,14 @@
 
     <nav class="glass-nav fixed w-full top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-extrabold text-blue-600 tracking-tighter">NSK <span class="text-slate-800">AI</span></a>
+            <a href="#" class="text-xl font-extrabold text-blue-600 tracking-tighter">S<span class="text-slate-800">AI</span>KARUN</a>
+            
+            <div class="flex md:hidden space-x-5 text-slate-500 text-sm">
+                <a href="#resume" title="Credentials"><i class="fas fa-certificate"></i></a>
+                <a href="#dna" title="Skills"><i class="fas fa-dna"></i></a>
+                <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
+            </div>
+
             <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-600">
                 <a href="#hero" class="hover:text-blue-600 transition">Start</a>
                 <a href="#resume" class="hover:text-blue-600 transition">Credentials</a>
@@ -107,24 +128,24 @@
         </div>
     </nav>
 
-    <section id="hero" class="min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+    <section id="hero" class="min-h-screen flex items-center pt-28 pb-12 md:pt-20">
+        <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
             <div class="flex-1 text-center md:text-left">
-                <div class="mono text-blue-600 font-bold text-sm mb-4">>> IDENTITY: ASST_PROFESSOR_ML</div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
+                <div class="mono text-blue-600 font-bold text-[10px] md:text-sm mb-4">>> IDENTITY: ASST_PROFESSOR</div>
+                <h1 class="text-4xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
                     Sai Karun <span class="text-blue-600">Nandipati</span>
                 </h1>
-                <div id="typed-hero" class="text-lg text-slate-600 mb-8 min-h-[3rem]"></div>
-                <div class="flex gap-4 justify-center md:justify-start">
-                    <a href="#resume" class="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:-translate-y-1 transition">VIEW CREDENTIALS</a>
-                    <div class="flex space-x-4 items-center ml-4">
+                <div id="typed-hero" class="text-base md:text-lg text-slate-600 mb-8 min-h-[3rem]"></div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#resume" class="px-8 py-4 bg-blue-600 text-white text-sm font-bold rounded-xl shadow-lg hover:-translate-y-1 transition uppercase tracking-wider">Credentials</a>
+                    <div class="flex space-x-6 items-center justify-center">
                         <a href="https://karun99.github.io/projects.html" target="_blank" class="text-slate-400 hover:text-blue-600"><i class="fas fa-project-diagram text-xl"></i></a>
                         <a href="https://karun99.github.io/works.html" target="_blank" class="text-slate-400 hover:text-blue-600"><i class="fas fa-briefcase text-xl"></i></a>
                     </div>
                 </div>
             </div>
             <div class="flex-1 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                <div class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
                     <div class="absolute inset-0 bg-blue-100 rounded-3xl rotate-6 animate-pulse"></div>
                     <img src="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg" alt="Sai Karun" class="relative w-full h-full object-cover rounded-3xl border-4 border-white shadow-2xl transition-all duration-500 hover:rotate-0">
                 </div>
@@ -132,24 +153,24 @@
         </div>
     </section>
 
-    <section id="resume" class="py-24 bg-slate-50/50">
+    <section id="resume" class="py-20 bg-slate-50/50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-slate-900">ACADEMIC <span class="text-blue-600">TIMELINE</span></h2>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-tight">Academic <span class="text-blue-600">Timeline</span></h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <div class="gs-reveal">
-                    <h3 class="text-xl font-bold mb-8 uppercase tracking-widest text-slate-400">Education</h3>
+                    <h3 class="text-sm font-bold mb-6 md:mb-8 uppercase tracking-[0.2em] text-slate-400">Education</h3>
                     <div class="space-y-6">
-                        <div class="timeline-card"><span class="text-blue-600 font-bold mono text-xs">2023 - 2025</span><h4 class="text-xl font-bold mt-2">M.Tech (CSE)</h4><p class="text-slate-500">RK College of Engineering</p></div>
-                        <div class="timeline-card"><span class="text-blue-600 font-bold mono text-xs">2016 - 2018</span><h4 class="text-xl font-bold mt-2">M.Sc (Computer Science)</h4><p class="text-slate-500">SRR & CVR PG College</p></div>
+                        <div class="timeline-card"><span class="text-blue-600 font-bold mono text-[10px]">2023 - 2025</span><h4 class="text-lg md:text-xl font-bold mt-2">M.Tech (CSE)</h4><p class="text-slate-500 text-sm">RK College of Engineering</p></div>
+                        <div class="timeline-card"><span class="text-blue-600 font-bold mono text-[10px]">2016 - 2018</span><h4 class="text-lg md:text-xl font-bold mt-2">M.Sc (Computer Science)</h4><p class="text-slate-500 text-sm">SRR & CVR PG College</p></div>
                     </div>
                 </div>
                 <div class="gs-reveal">
-                    <h3 class="text-xl font-bold mb-8 uppercase tracking-widest text-slate-400">Employment</h3>
+                    <h3 class="text-sm font-bold mb-6 md:mb-8 uppercase tracking-[0.2em] text-slate-400">Employment</h3>
                     <div class="timeline-card border-l-4 border-blue-600">
-                        <span class="text-blue-600 font-bold mono text-xs">2023 - PRESENT</span>
-                        <h4 class="text-xl font-bold mt-2">Assistant Professor</h4>
+                        <span class="text-blue-600 font-bold mono text-[10px]">2023 - PRESENT</span>
+                        <h4 class="text-lg md:text-xl font-bold mt-2">Assistant Professor</h4>
                         <p class="text-slate-600 font-semibold text-sm">KBN College</p>
                         <p class="text-slate-500 text-xs mt-4 leading-relaxed">Leading AI research and software architecture implementations within the Computer Science Department.</p>
                     </div>
@@ -158,10 +179,10 @@
         </div>
     </section>
 
-    <section id="dna" class="py-24 bg-white border-y border-slate-100 overflow-hidden">
-        <div class="text-center mb-16 px-6">
-            <h2 class="text-4xl font-extrabold text-slate-900 mb-4">TECHNICAL <span class="text-blue-600">DNA</span></h2>
-            <p class="text-slate-500 mono text-sm">>> Decoding full-scale expertise sequence...</p>
+    <section id="dna" class="py-20 bg-white border-y border-slate-100 overflow-hidden">
+        <div class="text-center mb-12 px-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">Technical <span class="text-blue-600">DNA</span></h2>
+            <p class="text-slate-500 mono text-[10px] md:text-sm">>> Decoding expertise sequence (Scroll horizontal)...</p>
         </div>
         
         <div class="dna-full-container">
@@ -170,22 +191,22 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-slate-900 text-white rounded-t-[3rem]">
+    <section id="contact" class="py-20 bg-slate-900 text-white rounded-t-[2rem] md:rounded-t-[3rem]">
         <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h2 class="text-3xl font-bold mb-12 uppercase tracking-tighter">Initialize Connection</h2>
-            <form class="space-y-6 text-left" action="mailto:saikarun085@gmail.com" method="post" enctype="text-plain">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="IDENTITY_NAME" class="bg-white/5 border border-white/10 rounded-2xl p-5 w-full outline-none focus:border-blue-600 transition">
-                    <input type="email" placeholder="CONTACT_EMAIL" class="bg-white/5 border border-white/10 rounded-2xl p-5 w-full outline-none focus:border-blue-600 transition">
+            <h2 class="text-2xl md:text-3xl font-bold mb-10 uppercase tracking-tighter">Initialize Connection</h2>
+            <form class="space-y-4 md:space-y-6 text-left" action="mailto:saikarun085@gmail.com" method="post" enctype="text-plain">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <input type="text" placeholder="IDENTITY_NAME" class="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-5 w-full outline-none focus:border-blue-600 transition text-sm">
+                    <input type="email" placeholder="CONTACT_EMAIL" class="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-5 w-full outline-none focus:border-blue-600 transition text-sm">
                 </div>
-                <textarea placeholder="MESSAGE_CONTENT" rows="5" class="bg-white/5 border border-white/10 rounded-2xl p-5 w-full outline-none focus:border-blue-600 transition"></textarea>
-                <button class="w-full py-5 bg-blue-600 rounded-2xl font-extrabold hover:bg-blue-700 transition tracking-widest uppercase shadow-xl shadow-blue-900/20">Transmit Data</button>
+                <textarea placeholder="MESSAGE_CONTENT" rows="5" class="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-5 w-full outline-none focus:border-blue-600 transition text-sm"></textarea>
+                <button class="w-full py-4 md:py-5 bg-blue-600 rounded-xl md:rounded-2xl font-extrabold hover:bg-blue-700 transition tracking-widest uppercase shadow-xl shadow-blue-900/20 text-sm">Transmit Data</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p class="py-12 bg-slate-900 text-center text-slate-500 text-xs font-bold tracking-widest uppercase">© 2026 Sai Karun Nandipati | Powered by Neural Logic</p>
+        <p class="py-10 bg-slate-900 text-center text-slate-500 text-[10px] font-bold tracking-[0.3em] uppercase border-t border-white/5">© 2026 Sai Karun Nandipati | Neural Logic</p>
     </footer>
 
     <script>
@@ -195,11 +216,18 @@
             let w = 0;
             const int = setInterval(() => {
                 w += Math.random() * 25;
-                if(w >= 100) { clearInterval(int); setTimeout(() => document.getElementById('loader').style.display = 'none', 500); }
-                progress.style.width = w + '%';
+                if(w >= 100) { 
+                    clearInterval(int); 
+                    setTimeout(() => {
+                        const loader = document.getElementById('loader');
+                        loader.style.opacity = '0';
+                        setTimeout(() => loader.style.display = 'none', 1000);
+                    }, 500); 
+                }
+                progress.style.width = Math.min(w, 100) + '%';
             }, 150);
 
-            // 2. Full-Width Horizontal DNA
+            // 2. Responsive DNA Injection
             const skills = [
                 "Generative AI", "Python Analytics", "Machine Learning", "Agentic Systems", 
                 "Fullstack Dev", "Prompt Engineering", "Power BI", "R Language", 
@@ -220,10 +248,39 @@
             });
 
             // 3. Plugins Initialization
-            VANTA.FOG({ el: "#vanta-bg", highlightColor: 0x2563eb, midtoneColor: 0xffffff, lowlightColor: 0xf1f5f9, baseColor: 0xf8fafc, speed: 1.5 });
-            new Typed('#typed-hero', { strings: ['Assistant Professor at KBN College.', 'Architect of Agentic Intelligence.', 'Bridging Science and Neural Logic.'], typeSpeed: 40, loop: true });
+            try {
+                VANTA.FOG({ 
+                    el: "#vanta-bg", 
+                    highlightColor: 0x2563eb, 
+                    midtoneColor: 0xffffff, 
+                    lowlightColor: 0xf1f5f9, 
+                    baseColor: 0xf8fafc, 
+                    speed: 1.5,
+                    touchControls: false,
+                    mouseControls: true
+                });
+            } catch(e) { console.error("Vanta failed", e); }
+
+            new Typed('#typed-hero', { 
+                strings: ['Assistant Professor at KBN College.', 'Architect of Agentic Intelligence.', 'Bridging Science and Neural Logic.'], 
+                typeSpeed: 40, 
+                backSpeed: 20,
+                loop: true 
+            });
+
             gsap.registerPlugin(ScrollTrigger);
-            document.querySelectorAll('.gs-reveal').forEach(el => gsap.from(el, { scrollTrigger: el, y: 40, opacity: 0, duration: 1, ease: "power2.out" }));
+            document.querySelectorAll('.gs-reveal').forEach(el => {
+                gsap.from(el, { 
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 90%",
+                    }, 
+                    y: 30, 
+                    opacity: 0, 
+                    duration: 1, 
+                    ease: "power2.out" 
+                });
+            });
         });
     </script>
 </body>
