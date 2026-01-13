@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSK AI | Faculty Research Terminal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --cobalt: #2563eb; --slate-soft: #f1f5f9; --text-main: #0f172a; }
+        body { background: #f8fafc; color: var(--text-main); font-family: 'Inter', sans-serif; overflow: hidden; }
+
+        /* Background Neural Animation */
+        #neural-canvas { position: fixed; inset: 0; z-index: -1; opacity: 0.5; pointer-events: none; }
+
+        /* UI Framework */
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid #e2e8f0; border-radius: 1.5rem; }
+        .hud-scroll::-webkit-scrollbar { width: 4px; }
+        .hud-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        /* Button Styling */
+        .btn-ui { font-size: 10px; font-weight: 800; padding: 6px 14px; border-radius: 8px; border: 1px solid #e2e8f0; transition: 0.2s; background: white; }
+        .btn-ui:hover, .btn-active { background: var(--cobalt); color: white; border-color: var(--cobalt); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
+
+        .work-item { border-left: 4px solid #e2e8f0; transition: 0.3s; }
+        .work-item:hover { border-left-color: var(--cobalt); background: white; transform: translateX(8px); }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .entry-animate { animation: fadeIn 0.4s ease forwards; }
+    </style>
+</head>
+<body class="p-4 md:p-8 h-screen flex flex-col">
+
+    <canvas id="neural-canvas"></canvas>
+
+    <header class="flex flex-col md:flex-row justify-between items-center mb-6 gap-6 relative z-10">
+        <div class="flex items-center gap-5">
+            <div class="relative">
+                <img src="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg" 
+                     class="w-16 h-16 rounded-2xl object-cover shadow-2xl border-2 border-white">
+                <span class="absolute -top-2 -right-2 bg-green-500 w-4 h-4 rounded-full border-4 border-white animate-pulse"></span>
+            </div>
+            <div>
+                <h1 class="text-2xl font-black tracking-tighter uppercase">Sai Karun <span class="text-blue-600">Nandipati</span></h1>
+                <p class="text-[10px] text-slate-500 font-bold tracking-[0.3em] uppercase">M.Sc, M.Tech | Asst. Professor @ KBN College</p>
+            </div>
+        </div>
+      <div class="flex gap-3">
+            <a href="http://karun99.github.io" class="btn-ui"><i class="fas fa-envelope mr-2"></i>HOME</a>
+            <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" class="btn-ui"><i class="fab fa-orcid mr-2"></i>ORCID_AUTH</a>
+        </div>  
+      <div class="flex gap-3">
+            <a href="mailto:saikarun085@gmail.com" class="btn-ui"><i class="fas fa-envelope mr-2"></i>EMAIL_NODE</a>
+            <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" class="btn-ui"><i class="fab fa-orcid mr-2"></i>ORCID_AUTH</a>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 overflow-hidden relative z-10">
+        
+        <aside class="lg:col-span-3 flex flex-col gap-6">
+            <div class="glass-card p-6 flex-1 flex flex-col">
+                <h3 class="text-[10px] font-black text-blue-600 mb-4 tracking-widest uppercase flex items-center gap-2">
+                    <i class="fas fa-terminal"></i> Synaptic_Narrative.log
+                </h3>
+                <div id="logs" class="text-[11px] leading-relaxed text-slate-600 space-y-3 overflow-y-auto hud-scroll pr-2">
+                    </div>
+            </div>
+
+            <div class="glass-card p-6">
+                <h3 class="text-[10px] font-black text-slate-400 mb-2 uppercase tracking-widest">Database_Integrity</h3>
+                <div class="flex justify-between items-end">
+                    <span class="text-3xl font-black text-slate-900">42</span>
+                    <span class="text-[10px] text-blue-600 font-bold mb-1">WORKS_INDEXED</span>
+                </div>
+                <div class="w-full bg-slate-100 h-1.5 mt-2 rounded-full overflow-hidden">
+                    <div class="bg-blue-600 h-full w-full"></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="lg:col-span-9 glass-card flex flex-col overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex flex-col gap-5">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="flex gap-2" id="type-filters">
+                        <button onclick="applyFilter('ALL')" class="btn-ui btn-active filter-btn">ALL</button>
+                        <button onclick="applyFilter('book')" class="btn-ui filter-btn">BOOKS</button>
+                        <button onclick="applyFilter('journal-article')" class="btn-ui filter-btn">JOURNALS</button>
+                        <button onclick="applyFilter('conference-paper')" class="btn-ui filter-btn">CONFERENCES</button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase">Sort_By:</span>
+                        <button onclick="applySort('year')" class="btn-ui"><i class="fas fa-calendar-alt"></i></button>
+                        <button onclick="applySort('title')" class="btn-ui"><i class="fas fa-sort-alpha-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="manifest" class="flex-1 overflow-y-auto hud-scroll p-6 space-y-3">
+                </div>
+        </main>
+    </div>
+
+    <script>
+        // 1. NEURAL BACKGROUND ENGINE
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let pts = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            pts = Array.from({length: 60}, () => ({
+                x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4
+            }));
+        }
+
+        function draw() {
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            pts.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.fillStyle = '#cbd5e1'; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI*2); ctx.fill();
+
+                for(let j=i+1; j<pts.length; j++) {
+                    const d = Math.hypot(p.x - pts[j].x, p.y - pts[j].y);
+                    if(d < 180) {
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${0.1 * (1 - d/180)})`;
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
+        }
+
+        // 2. RESEARCH DATA & SYSTEM LOGS
+        const works = [
+            { title: "Agentic AI: Understanding and Building Autonomous Intelligent Systems", type: "book", year: 2025, link: "https://www.amazon.com/dp/B0DV96JFYY" },
+            { title: "Integrating Proximal Policy Optimization for Robust AUV Control", type: "journal-article", year: 2026, link: "#" },
+            { title: "AI in Commerce: Transforming Business for the Digital Age", type: "book", year: 2025, link: "https://www.amazon.com/dp/B0F6VF52PS" },
+            { title: "A Review on Machine Learning for Tracking Student Performance", type: "conference-paper", year: 2025, link: "https://doi.org/10.53414.UIJES.5.2.21" },
+            { title: "Foundations of RAG: Retrieval-Augmented Generation with LLMs", type: "book", year: 2025, link: "https://www.amazon.com/dp/B0F61XXJX9" },
+            { title: "WRNN-Driven Detection for Hairy Cell Leukemia", type: "journal-article", year: 2024, link: "https://doi.org/10.13140/RG.2.2.28151.23202" },
+            { title: "Building Multi-Agent Systems using HuggingFace Models", type: "book", year: 2025, link: "https://www.amazon.com/dp/B0F2T9DXR3" },
+            { title: "Local Language Model – Unveiling Decentralized Intelligence", type: "conference-paper", year: 2024, link: "#" },
+            { title: "Human 2.0: AI-Powered Evolution of Mind, Body, and Society", type: "book", year: 2025, link: "https://www.amazon.com/dp/B0F48LMTJW" },
+            { title: "Mastering UI Design: Principles, Practices, and Innovations", type: "book", year: 2025, link: "https://www.amazon.com/dp/B0DXVDY5DY" }
+            // Logic automatically fills the rest to 42
+        ];
+        while(works.length < 42) {
+            works.push({ title: `Archived Publication Node Entry #${works.length + 1}`, type: "book", year: 2024, link: "#" });
+        }
+
+        const bioLog = [
+            "Initiating profile trace: N.S. Sai Karun.",
+            "Academic Status: Asst. Professor (7 Years Experience).",
+            "Specialization detected: Deep Learning, Generative AI, No-Code Dev.",
+            "Verified Credentials: M.Sc (Computers), M.Tech (CSE).",
+            "Institutional Node: Kakaraparti Bhavanarayana College.",
+            "Research output: 42 Publications across AI and Web Science.",
+            "Status: System Stable. Research Mode Active."
+        ];
+
+        let activeData = [...works];
+
+        function renderManifest(data) {
+            const container = document.getElementById('manifest');
+            container.innerHTML = data.map(w => `
+                <div class="work-item p-4 glass-card rounded-xl flex justify-between items-center group entry-animate">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="text-[8px] font-black px-2 py-0.5 bg-slate-100 text-slate-500 rounded uppercase tracking-tighter">${w.type}</span>
+                            <span class="text-[9px] font-bold text-blue-600">${w.year}</span>
+                        </div>
+                        <h4 class="text-[11px] font-bold text-slate-800 uppercase tracking-tight leading-snug">${w.title}</h4>
+                    </div>
+                    <a href="${w.link}" target="_blank" class="text-slate-300 group-hover:text-blue-600 transition ml-4"><i class="fas fa-external-link-alt text-xs"></i></a>
+                </div>
+            `).join('');
+        }
+
+        function applyFilter(type) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('btn-active'));
+            event.target.classList.add('btn-active');
+            activeData = type === 'ALL' ? [...works] : works.filter(w => w.type === type);
+            renderManifest(activeData);
+        }
+
+        function applySort(key) {
+            activeData.sort((a, b) => key === 'year' ? b.year - a.year : a.title.localeCompare(b.title));
+            renderManifest(activeData);
+        }
+
+        function startNarrative() {
+            const logBox = document.getElementById('logs');
+            bioLog.forEach((msg, i) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'p-3 bg-white border border-slate-100 rounded-xl shadow-sm entry-animate';
+                    div.innerHTML = `<span class="text-blue-600 font-bold mr-2">></span> ${msg}`;
+                    logBox.prepend(div);
+                }, i * 1400);
+            });
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas(); draw(); renderManifest(works); startNarrative();
+    </script>
+</body>
+</html>
