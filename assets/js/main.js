@@ -126,7 +126,8 @@ function initLoader3D(container) {
     const page = path.includes('about') ? 'about' :
         path.includes('works') ? 'works' :
             path.includes('projects') ? 'projects' :
-                path.includes('contact') ? 'contact' : 'home';
+                path.includes('lectures') ? 'lectures' :
+                    path.includes('contact') ? 'contact' : 'home';
 
     const group = new THREE.Group();
     scene.add(group);
@@ -147,6 +148,10 @@ function initLoader3D(container) {
     else if (page === 'projects') {
         // PROJECTS: Iron Man Swarm
         createSwarm(group);
+    }
+    else if (page === 'lectures') {
+        // LECTURES: Holographic Grid
+        createLectureGrid(group);
     }
     else if (page === 'contact') {
         // CONTACT: Globe (Connection)
@@ -379,4 +384,49 @@ function createGlobe(parent, x, y, z, radius) {
     ring.position.set(x, y, z);
     parent.add(globe);
     parent.add(ring);
+}
+
+// 5. LECTURES: HOLOGRAPHIC GRID
+function createLectureGrid(parent) {
+    const group = new THREE.Group();
+
+    // Create a grid of screens
+    const planeGeo = new THREE.PlaneGeometry(3.2, 1.8); // 16:9 aspect ratio
+    const planeMat = new THREE.MeshBasicMaterial({
+        color: 0x06b6d4,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.1,
+        wireframe: false
+    });
+    const borderMat = new THREE.MeshBasicMaterial({ color: 0x06b6d4, wireframe: true, transparent: true, opacity: 0.3 });
+
+    const rows = 3;
+    const cols = 4;
+
+    for(let r=0; r<rows; r++) {
+        for(let c=0; c<cols; c++) {
+            // Calculate position on a curve
+            const theta = (c - (cols-1)/2) * 0.5;
+            const y = (r - (rows-1)/2) * 2.5;
+            const radius = 12;
+
+            const x = Math.sin(theta) * radius;
+            const z = Math.cos(theta) * radius - radius + 5; // Push back a bit
+
+            const meshGroup = new THREE.Group();
+            const screen = new THREE.Mesh(planeGeo, planeMat);
+            const border = new THREE.Mesh(planeGeo, borderMat);
+
+            meshGroup.add(screen);
+            meshGroup.add(border);
+
+            meshGroup.position.set(x, y, z);
+            meshGroup.lookAt(0, 0, radius*2); // Look towards viewer
+
+            group.add(meshGroup);
+        }
+    }
+
+    parent.add(group);
 }
