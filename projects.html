@@ -14,6 +14,22 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        'accent-primary': '#06b6d4',
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -61,99 +77,171 @@
     </header>
 
     <!-- PROJECTS GRID -->
-    <section class="py-10">
-        <div class="container grid md:grid-cols-2 gap-8">
-
-            <!-- Project 1 -->
-            <div class="glass-panel p-8 group hover:-translate-y-2 transition duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="text-4xl text-accent-primary"><i class="fas fa-brain"></i></div>
-                    <a href="https://github.com/nsktech994/Duet--Digital-Twin-Technology" target="_blank"
-                        class="text-gray-500 hover:text-white transition"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <h3 class="text-2xl text-white mb-2 font-display group-hover:text-gold transition-colors">Duet AI
-                    Ecosystem</h3>
-                <p class="text-xs text-accent-primary font-mono mb-4">DIGITAL TWIN // HCI</p>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    An Agentic AI ecosystem investigating the fundamental process of Human-Computer Interaction and
-                    Parallel Consciousness through prompt architecture.
-                </p>
-                <div class="flex gap-2 text-xs font-bold font-mono text-gray-500">
-                    <span class="bg-white/5 px-2 py-1 rounded">PYTHON</span>
-                    <span class="bg-white/5 px-2 py-1 rounded">LLM</span>
-                    <span class="bg-white/5 px-2 py-1 rounded">AGENTIC</span>
+    <section class="py-10 relative">
+        <div class="container relative z-10">
+            <!-- Add Project Button (Hidden by default) -->
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-white font-display tracking-widest text-xl">PORTFOLIO</h2>
+                <div class="flex gap-4">
+                    <button id="logout-btn"
+                        class="hidden text-red-400 hover:text-red-300 font-mono text-sm tracking-widest border border-red-400/30 px-4 py-2 rounded-full transition-all">LOGOUT</button>
+                    <button id="add-project-btn"
+                        class="hidden bg-accent-primary/20 hover:bg-accent-primary/40 text-accent-primary border border-accent-primary/50 px-6 py-2 rounded-full backdrop-blur-sm transition-all duration-300 flex items-center gap-2 group">
+                        <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        <span class="font-mono text-sm tracking-widest">NEW PROJECT</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="glass-panel p-8 group hover:-translate-y-2 transition duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="text-4xl text-accent-primary"><i class="fas fa-network-wired"></i></div>
-                    <a href="https://github.com/nsktech994/AI-Lit--" target="_blank"
-                        class="text-gray-500 hover:text-white transition"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <h3 class="text-2xl text-white mb-2 font-display group-hover:text-gold transition-colors">Lit AI
-                    Symposium</h3>
-                <p class="text-xs text-accent-primary font-mono mb-4">SWARM INTELLIGENCE // RESEARCH</p>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    A Virtual Research Symposium platform utilizing Hybrid AI Swarm Technology to assist emerging
-                    scholars in their research presentations.
-                </p>
-                <div class="flex gap-2 text-xs font-bold font-mono text-gray-500">
-                    <span class="bg-white/5 px-2 py-1 rounded">SWARM AI</span>
-                    <span class="bg-white/5 px-2 py-1 rounded">RESEARCH</span>
-                </div>
+            <!-- Dynamic Grid -->
+            <div id="projects-grid" class="grid md:grid-cols-2 gap-8">
+                <!-- Projects will be injected here by JS -->
             </div>
-
-            <!-- Project 3: HCL Detector -->
-            <div class="glass-panel p-8 group hover:-translate-y-2 transition duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="text-4xl text-accent-primary"><i class="fas fa-dna"></i></div>
-                    <a href="https://hclproto.created.app/" target="_blank"
-                        class="text-gray-500 hover:text-white transition"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <h3 class="text-2xl text-white mb-2 font-display group-hover:text-gold transition-colors">HCL Detector
-                    Prototype</h3>
-                <p class="text-xs text-accent-primary font-mono mb-4">BIO-INFORMATICS // NO-CODE</p>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Hairy Cell Leukemia detector prototype built using advanced No-Code tools for rapid diagnostic
-                    visualization.
-                </p>
-                <div class="flex gap-2 text-xs font-bold font-mono text-gray-500">
-                    <span class="bg-white/5 px-2 py-1 rounded">NO-CODE</span>
-                    <span class="bg-white/5 px-2 py-1 rounded">BIO-TECH</span>
-                </div>
-            </div>
-
-            <!-- Project 4: Career Roadmap -->
-            <div class="glass-panel p-8 group hover:-translate-y-2 transition duration-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="text-4xl text-accent-primary"><i class="fas fa-map-signs"></i></div>
-                    <a href="https://carcan.created.app/" target="_blank"
-                        class="text-gray-500 hover:text-white transition"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <h3 class="text-2xl text-white mb-2 font-display group-hover:text-gold transition-colors">Career Roadmap
-                    Generator</h3>
-                <p class="text-xs text-accent-primary font-mono mb-4">DEV TOOLS // GENERATIVE</p>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    AI-powered developer support tool that generates personalized career roadmaps and skill progression
-                    paths.
-                </p>
-                <div class="flex gap-2 text-xs font-bold font-mono text-gray-500">
-                    <span class="bg-white/5 px-2 py-1 rounded">GENERATIVE AI</span>
-                    <span class="bg-white/5 px-2 py-1 rounded">CAREER</span>
-                </div>
-            </div>
-
-
-
         </div>
     </section>
 
+    <!-- PROJECT MODAL -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" id="modal-backdrop"></div>
+
+        <!-- Modal Content -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="glass-panel w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300"
+                id="modal-content">
+                <div class="p-8 border border-white/10 relative overflow-hidden">
+                    <!-- Header -->
+                    <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
+                        <h3 class="text-2xl font-display text-white tracking-widest" id="modal-title">ADD PROJECT</h3>
+                        <button id="close-modal-btn" class="text-gray-400 hover:text-red-400 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Form -->
+                    <form id="project-form" class="space-y-6">
+                        <input type="hidden" id="project-id">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Title -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Project
+                                    Title</label>
+                                <input type="text" id="project-title" required
+                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-display"
+                                    placeholder="e.g. DUET AI ECOSYSTEM">
+                            </div>
+
+                            <!-- Category -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Category
+                                    String</label>
+                                <input type="text" id="project-category" required
+                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                    placeholder="e.g. DIGITAL TWIN // HCI">
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="space-y-2">
+                            <label
+                                class="text-xs font-mono text-accent-primary tracking-widest uppercase">Description</label>
+                            <textarea id="project-desc" rows="3" required
+                                class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 text-sm leading-relaxed"
+                                placeholder="Brief overview of the project..."></textarea>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Link -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Project
+                                    URL</label>
+                                <input type="url" id="project-link" required
+                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                    placeholder="https://...">
+                            </div>
+
+                            <!-- Icon Class -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Icon
+                                    Class (FontAwesome)</label>
+                                <input type="text" id="project-icon" required
+                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                    placeholder="fas fa-brain">
+                            </div>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Tags (Comma
+                                Separated)</label>
+                            <input type="text" id="project-tags" required
+                                class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                placeholder="PYTHON, LLM, AGENTIC">
+                        </div>
+
+                        <!-- Featured Checkbox -->
+                        <div class="flex items-center gap-3 py-2">
+                            <input type="checkbox" id="project-featured"
+                                class="w-5 h-5 accent-accent-primary bg-transparent border-white/20 rounded focus:ring-accent-primary">
+                            <label for="project-featured"
+                                class="text-xs font-mono text-white tracking-widest uppercase cursor-pointer select-none">Mark
+                                as Featured Project</label>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex justify-end pt-6 border-t border-white/5 gap-4">
+                            <button type="button" id="cancel-btn"
+                                class="px-6 py-2 text-gray-400 hover:text-white font-mono text-sm tracking-widest transition-colors">CANCEL</button>
+                            <button type="submit"
+                                class="bg-accent-primary hover:bg-accent-secondary text-black px-8 py-2 font-bold font-mono tracking-widest transition-all duration-300 hover:scale-105">
+                                SAVE SYSTEM
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" id="login-backdrop"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="glass-panel w-full max-w-sm p-8 border border-white/10 relative">
+                <h3 class="text-xl font-display text-white tracking-widest mb-6 text-center text-accent-primary">SYSTEM
+                    ACCESS</h3>
+                <form id="login-form" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-mono text-gray-400 tracking-widest">USERNAME</label>
+                        <input type="text" id="username"
+                            class="w-full bg-black/50 border border-white/10 p-2 text-white font-mono focus:border-accent-primary/50 focus:outline-none"
+                            required>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-mono text-gray-400 tracking-widest">PASSWORD</label>
+                        <input type="password" id="password"
+                            class="w-full bg-black/50 border border-white/10 p-2 text-white font-mono focus:border-accent-primary/50 focus:outline-none"
+                            required>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-accent-primary/20 hover:bg-accent-primary text-accent-primary hover:text-black border border-accent-primary/50 py-2 font-bold font-mono tracking-widest transition-all">
+                        AUTHENTICATE
+                    </button>
+                    <p id="login-error" class="text-red-400 text-xs font-mono text-center hidden">ACCESS DENIED: INVALID
+                        CREDENTIALS</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>© 2026 Sai Karun Nandipati | Projects Module</p>
+        <div class="container flex justify-between items-center">
+            <p class="text-gray-500 text-sm">© 2026 Sai Karun Nandipati | Projects Module</p>
+            <button id="admin-login-btn"
+                class="text-xs text-gray-700 hover:text-accent-primary transition-colors font-mono"><i
+                    class="fas fa-lock"></i> ADMIN</button>
         </div>
     </footer>
 

@@ -1,82 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html ⚡ lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+    
     <title>Sai Karun Nandipati | AI Architect & Professor</title>
-    <meta name="description"
-        content="Portfolio of Sai Karun Nandipati - Assistant Professor and Researcher specializing in Agentic AI, Generative Models, and Fullstack Engineering.">
+    <link rel="canonical" href="index.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="description" content="Portfolio of Sai Karun Nandipati - Assistant Professor and Researcher specializing in Agentic AI, Generative Models, and Fullstack Engineering.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons & Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Utility Fallback -->
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-custom>
+        /* --- VARIABLES & THEME --- */
+        :root {
+            --bg-dark: #020617;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-primary: #06b6d4;
+            --accent-secondary: #d4af37;
+            --accent-glow: rgba(6, 182, 212, 0.5);
+            --nav-height: 80px;
+            --section-spacing: 120px;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-image:
+                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4, .font-display { font-family: 'Orbitron', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        .text-accent-primary { color: var(--accent-primary); }
+        .text-gold { color: var(--accent-secondary); }
+        .text-glow { text-shadow: 0 0 10px var(--accent-glow); }
+        .text-gray-400 { color: #9ca3af; }
+        .text-xl { font-size: 1.25rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-5xl { font-size: 3rem; }
+        .font-bold { font-weight: 700; }
+        .font-light { font-weight: 300; }
+        .uppercase { text-transform: uppercase; }
+        .tracking-widest { letter-spacing: 0.1em; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+        .gap-6 { gap: 1.5rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .min-h-screen { min-height: 100vh; }
+        .pt-32 { padding-top: 8rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: var(--nav-height); z-index: 1000;
+            display: flex; align-items: center; border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            background: var(--bg-card); backdrop-filter: blur(12px);
+        }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; color: white; }
+        .desktop-menu { display: none; }
+        .mobile-toggle { font-size: 1.5rem; color: var(--accent-secondary); background: none; border: none; cursor: pointer; }
+        
+        #sidebar { background: var(--bg-dark); width: 250px; padding: 20px; border-right: 1px solid rgba(6, 182, 212, 0.1); }
+        .sidebar-link { display: block; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; }
+        .sidebar-close { margin-bottom: 20px; color: var(--accent-primary); background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+        @media (min-width: 768px) {
+            .desktop-menu { display: flex; gap: 3rem; margin-left: auto; }
+            .mobile-toggle { display: none; }
+            .desktop-link { color: var(--text-muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; font-family: 'Orbitron', sans-serif; }
+            .desktop-link:hover, .desktop-link.active { color: var(--accent-primary); text-shadow: 0 0 8px var(--accent-glow); }
+            .text-5xl { font-size: 3rem; }
+            .md\:text-8xl { font-size: 6rem; }
+            .md\:flex-row { flex-direction: row; }
+            .grid { display: grid; }
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* --- BUTTONS --- */
+        .btn-neon {
+            display: inline-block; padding: 12px 32px; background: transparent;
+            border: 1px solid var(--accent-primary); color: var(--accent-primary);
+            font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em;
+            transition: 0.3s;
+        }
+        .btn-neon:hover { background: var(--accent-primary); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
+        
+        .btn-ghost {
+            display: inline-block; padding: 12px 32px; border: 1px solid rgba(255,255,255,0.1);
+            color: white; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em;
+            transition: 0.3s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.05); }
+
+        /* --- REACTOR ANIMATION (CSS ONLY) --- */
+        .reactor-container {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 600px; height: 600px; z-index: -1; pointer-events: none; opacity: 0.4;
+        }
+        .reactor-ring {
+            position: absolute; border-radius: 50%; border: 2px solid var(--accent-primary);
+            box-shadow: 0 0 20px var(--accent-glow);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+        }
+        .r1 { width: 300px; height: 300px; animation: spin 10s linear infinite; border-style: dashed; }
+        .r2 { width: 400px; height: 400px; animation: spin-rev 15s linear infinite; border-color: var(--accent-secondary); opacity: 0.5; }
+        .r3 { width: 280px; height: 280px; border: 1px solid var(--accent-primary); animation: pulse 3s infinite ease-in-out; }
+
+        @keyframes spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes spin-rev { from { transform: translate(-50%, -50%) rotate(360deg); } to { transform: translate(-50%, -50%) rotate(0deg); } }
+        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.5; } 50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; } }
+
+        /* --- TYPEWRITER ANIMATION (CSS ONLY) --- */
+        .typing-container {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid var(--accent-secondary);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            max-width: fit-content;
+        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent-secondary) } }
+
+        /* --- FOOTER --- */
+        footer { padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); background: #000; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
+    </style>
 </head>
-
 <body>
-    <!-- LOADER -->
-    <div id="loader">
-        <div class="text-center">
-            <h2 class="font-display text-2xl text-white tracking-[0.3em] mb-4 text-glow">
-                PRO<span class="text-accent-primary">FILE</span> 2.0
-            </h2>
-            <div class="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
-                <div id="loader-bar" class="h-full bg-accent-primary loader-bar"></div>
-            </div>
-            <div id="loader-text" class="mt-2 font-mono text-[10px] text-gold tracking-widest">
-                INITIALIZING...
-            </div>
-        </div>
-    </div>
 
-    <!-- NAV -->
-    <nav class="glass-panel">
-        <div class="container flex items-center justify-between h-full">
-            <a href="index.html" class="nav-logo text-white">
+    <!-- SIDEBAR NAV -->
+    <amp-sidebar id="sidebar" layout="nodisplay" side="right">
+        <button on="tap:sidebar.close" class="sidebar-close">&times;</button>
+        <nav class="flex-col">
+            <a href="index.html" class="sidebar-link text-accent-primary">HOME</a>
+            <a href="about.html" class="sidebar-link">ABOUT</a>
+            <a href="works.html" class="sidebar-link">WORKS</a>
+            <a href="projects.html" class="sidebar-link">PROJECTS</a>
+            <a href="contact.html" class="sidebar-link">CONTACT</a>
+        </nav>
+    </amp-sidebar>
+
+    <!-- HEADER -->
+    <nav>
+        <div class="container flex items-center justify-between" style="width: 100%;">
+            <a href="index.html" class="nav-logo">
                 S<span class="text-gold">AI</span>KARUN
             </a>
+            
+            <div class="desktop-menu">
+                <a href="index.html" class="desktop-link active">HOME</a>
+                <a href="about.html" class="desktop-link">ABOUT</a>
+                <a href="works.html" class="desktop-link">WORKS</a>
+                <a href="projects.html" class="desktop-link">PROJECTS</a>
+                <a href="contact.html" class="desktop-link">CONTACT</a>
+            </div>
 
-            <div class="mobile-menu-btn">
+            <button on="tap:sidebar.toggle" class="mobile-toggle">
                 <i class="fas fa-bars"></i>
-            </div>
-
-            <div class="nav-links">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="works.html">WORKS</a>
-                <a href="projects.html">PROJECTS</a>
-                <a href="contact.html">CONTACT</a>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="min-h-screen flex items-center justify-center text-center pt-32">
+    <section class="min-h-screen flex items-center justify-center text-center pt-32" style="position: relative; overflow: hidden;">
+        
+        <!-- CSS REACTOR BACKGROUND -->
+        <div class="reactor-container">
+            <div class="reactor-ring r1"></div>
+            <div class="reactor-ring r2"></div>
+            <div class="reactor-ring r3"></div>
+        </div>
+
         <div class="container">
-            <div
-                class="font-mono text-accent-primary text-sm mb-6 tracking-widest inline-block border-b border-cyan-500/30 pb-2">
-                >> SYSTEM_STATUS: ONLINE
+            <div class="font-mono text-accent-primary mb-6 tracking-widest inline-block" style="border-bottom: 1px solid rgba(6,182,212,0.3); padding-bottom: 0.5rem; font-size: 0.875rem;">
+                &gt;&gt; SYSTEM_STATUS: ONLINE
             </div>
 
-            <h1 class="text-5xl md:text-8xl font-bold mb-6 leading-tight">
+            <h1 class="text-5xl md:text-8xl font-bold mb-6" style="line-height: 1.1;">
                 Sai Karun <br />
                 <span class="text-gold text-glow">Nandipati</span>
             </h1>
 
-            <div class="max-w-2xl mx-auto mb-12">
+            <div class="mx-auto mb-12" style="max-width: 42rem;">
                 <p class="text-xl text-gray-400 font-light mb-8">
-                    Assistant Professor <span class="text-accent-primary">•</span> AI Researcher <span
-                        class="text-accent-primary">•</span> Fullstack Architect
+                    Assistant Professor <span class="text-accent-primary">•</span> AI Researcher <span class="text-accent-primary">•</span> Fullstack Architect
                 </p>
-                <div class="h-8">
-                    <span id="typed-text" class="font-mono text-accent-primary"></span>
+                <div style="height: 2rem;">
+                    <div class="typing-container font-mono text-accent-primary">
+                        Architecting Intelligence.
+                    </div>
                 </div>
             </div>
 
@@ -84,32 +226,30 @@
                 <a href="works.html" class="btn-neon">
                     EXPLORE LIBRARY
                 </a>
-                <a href="projects.html"
-                    class="px-8 py-3 border border-white/10 text-white font-display text-xs tracking-widest hover:bg-white/5 transition">
+                <a href="projects.html" class="btn-ghost">
                     VIEW PROJECTS
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- TEASER: PHILOSOPHY -->
-    <section class="py-20 bg-slate-950/50 border-y border-white/5">
-        <div class="container grid md:grid-cols-2 gap-16 items-center">
-            <div>
+    <!-- TEASER -->
+    <section class="py-20" style="background: rgba(2, 6, 23, 0.5); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="container grid md:grid-cols-2 gap-6 items-center">
+            <div style="text-align: left;">
                 <h2 class="text-3xl mb-6">The <span class="text-gold">Philosophy</span></h2>
-                <p class="text-gray-400 leading-relaxed mb-6">
+                <p class="text-gray-400 mb-6" style="line-height: 1.8;">
                     Research is not just about discovery; it's about translating intelligence into pedagogy.
                     I bridge the gap between complex Neural Logic and accessible Human Knowledge.
                 </p>
-                <a href="about.html"
-                    class="text-accent-primary text-sm font-bold tracking-widest hover:text-white transition">
-                    READ FULL BIO <i class="fas fa-arrow-right ml-2"></i>
+                <a href="about.html" class="text-accent-primary font-bold tracking-widest uppercase" style="font-size: 0.875rem;">
+                    Read Full Bio <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
                 </a>
             </div>
-            <div class="glass-panel p-8 transform rotate-2 hover:rotate-0 transition duration-500">
-                <div class="text-4xl text-gold mb-4"><i class="fas fa-brain"></i></div>
+            <div style="padding: 2rem; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
+                <div class="text-gold mb-4" style="font-size: 2.25rem;"><i class="fas fa-brain"></i></div>
                 <h3 class="text-xl mb-2">Agentic AI</h3>
-                <p class="text-sm text-gray-500">Building autonomous systems that can reason, plan, and execute.</p>
+                <p class="text-gray-400" style="font-size: 0.875rem;">Building autonomous systems that can reason, plan, and execute.</p>
             </div>
         </div>
     </section>
@@ -117,34 +257,14 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="flex justify-center gap-6 mb-8 text-xl">
-                <a href="#" class="hover:text-gold"><i class="fab fa-github"></i></a>
-                <a href="#" class="hover:text-gold"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-gold"><i class="fas fa-graduation-cap"></i></a>
+            <div class="flex justify-center gap-6 mb-6" style="font-size: 1.25rem;">
+                <a href="#" style="color:white;"><i class="fab fa-github"></i></a>
+                <a href="#" style="color:white;"><i class="fab fa-linkedin"></i></a>
+                <a href="#" style="color:white;"><i class="fas fa-graduation-cap"></i></a>
             </div>
             <p>© 2026 Sai Karun Nandipati | Profile 2.0</p>
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-        // Init Hero Typed
-        new Typed('#typed-text', {
-            strings: [
-                'Architecting Intelligence.',
-                'Redefining Pedagogy.',
-                'Building the Future.'
-            ],
-            typeSpeed: 40,
-            backSpeed: 20,
-            loop: true
-        });
-    </script>
 </body>
-
 </html>
