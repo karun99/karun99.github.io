@@ -4,134 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Sai Karun | Collaboration</title>
+    <!-- SEO METADATA -->
+    <title>Contact | Sai Karun</title>
     <meta name="description"
-        content="Contact Sai Karun Nandipati for research collaboration, speaking engagements, or academic inquiries.">
+        content="Get in touch with Sai Karun for research collaborations, consulting, or speaking engagements.">
+    <meta name="keywords" content="Contact Sai Karun, Hire AI Architect, Research Collaboration, Connect">
 
-    <!-- Fonts & Icons -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
-    <!-- LOADER -->
-    <div id="loader">
-        <div class="text-center">
-            <h2 class="font-display text-2xl text-white tracking-[0.3em] mb-4 text-glow">
-                COMMS <span class="text-accent-primary">UPLINK</span>
-            </h2>
-            <div class="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
-                <div id="loader-bar" class="h-full bg-accent-primary loader-bar"></div>
-            </div>
-            <div id="loader-text" class="mt-2 font-mono text-[10px] text-gold tracking-widest">
-                ESTABLISHING CONNECTION...
-            </div>
+<body class="bg-black text-white overflow-x-hidden antialiased selection:bg-cyan-500/30">
+
+    <div id="loader" class="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center">
+        <div class="loader-content">
+            <div class="w-16 h-16 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
     </div>
 
-    <!-- NAV -->
-    <nav class="glass-panel">
-        <div class="container flex items-center justify-between h-full">
-            <a href="index.html" class="nav-logo text-white">
-                S<span class="text-gold">AI</span>KARUN
+    <!-- BACKGROUND 3D CANVAS -->
+    <canvas id="webgl" class="fixed top-0 left-0 w-full h-full -z-10 outline-none"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 w-full z-40 px-6 py-6 mix-blend-difference">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="font-orbitron font-bold text-xl tracking-widest hover:text-cyan-400 transition-colors duration-300">
+                SAI<span class="text-xs align-top opacity-70">PROFILE</span>
             </a>
-            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-            <div class="nav-links">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="works.html">WORKS</a>
-                <a href="projects.html">PROJECTS</a>
-                <a href="contact.html">CONTACT</a>
+
+            <div class="hidden md:flex gap-8 font-inter text-xs tracking-[0.15em]">
+                <a href="index.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">HOME</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">HOME</span>
+                </a>
+                <a href="about.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">ABOUT</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">ABOUT</span>
+                </a>
+                <a href="works.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">WORKS</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">WORKS</span>
+                </a>
+                <a href="projects.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">PROJECTS</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">PROJECTS</span>
+                </a>
+                <a href="contact.html" class="nav-link relative group overflow-hidden text-cyan-400">
+                    <span class="block">CONTACT</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 transition-transform duration-300">CONTACT</span>
+                </a>
             </div>
+            <button class="md:hidden text-2xl text-white">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- CONTENT -->
-    <section class="min-h-screen flex items-center justify-center">
-        <div class="container grid md:grid-cols-2 gap-16 items-center">
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen flex items-center justify-center pt-20">
+        <section class="container max-w-lg mx-auto px-6 w-full">
+            <div class="text-center mb-10">
+                <h1 class="font-cinzel text-3xl md:text-5xl mb-4">OPEN <span class="text-gold text-glow">CHANNEL</span>
+                </h1>
+                <p class="text-gray-400">Send your signal. I will respond if the frequency matches.</p>
+            </div>
 
-            <!-- Left Info -->
-            <div>
-                <h1 class="text-5xl font-display mb-6">Initialize <span class="text-gold">Uplink</span></h1>
-                <p class="text-gray-400 text-lg mb-10 leading-relaxed">
-                    Open to research collaborations, academic inquiries, and speaking opportunities in the field of
-                    Agentic AI.
-                </p>
-
-                <div class="space-y-6">
-                    <a href="mailto:saikarun085@kbncollege.ac.in"
-                        class="flex items-center gap-4 text-gray-300 hover:text-accent-primary transition group">
-                        <div
-                            class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent-primary/20">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <span class="font-mono text-sm tracking-wider">saikarun085@kbncollege.ac.in</span>
-                    </a>
-
-                    <a href="https://github.com/nsktech994" target="_blank"
-                        class="flex items-center gap-4 text-gray-300 hover:text-accent-primary transition group">
-                        <div
-                            class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent-primary/20">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <span class="font-mono text-sm tracking-wider">github.com/nsktech994</span>
-                    </a>
-
-                    <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" target="_blank"
-                        class="flex items-center gap-4 text-gray-300 hover:text-accent-primary transition group">
-                        <div
-                            class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-accent-primary/20">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <span class="font-mono text-sm tracking-wider">ResearchGate Profile</span>
-                    </a>
+            <form class="glass-panel p-8 space-y-6">
+                <div>
+                    <label class="block text-xs font-mono text-cyan-400 mb-2">IDENTIFIER (NAME)</label>
+                    <input type="text"
+                        class="w-full bg-black/50 border border-white/10 p-3 text-white focus:outline-none focus:border-cyan-500 transition duration-300 placeholder-white/20"
+                        placeholder="ENTER NAME">
                 </div>
+                <div>
+                    <label class="block text-xs font-mono text-cyan-400 mb-2">SOURCE (EMAIL)</label>
+                    <input type="email"
+                        class="w-full bg-black/50 border border-white/10 p-3 text-white focus:outline-none focus:border-cyan-500 transition duration-300 placeholder-white/20"
+                        placeholder="ENTER EMAIL">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-cyan-400 mb-2">PAYLOAD (MESSAGE)</label>
+                    <textarea
+                        class="w-full bg-black/50 border border-white/10 p-3 text-white focus:outline-none focus:border-cyan-500 transition duration-300 placeholder-white/20 h-32 resize-none"
+                        placeholder="TYPE TRANSMISSION..."></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-4 bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 font-orbitron text-sm tracking-widest hover:bg-cyan-500 hover:text-black transition duration-300">
+                    TRANSMIT
+                </button>
+            </form>
+
+            <div class="flex justify-center gap-8 mt-12 text-gray-500">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
             </div>
+        </section>
+    </main>
 
-            <!-- Right Form -->
-            <div class="glass-panel p-10 border-t-2 border-t-gold">
-                <form action="mailto:saikarun085@kbncollege.ac.in" method="post" enctype="text/plain" class="space-y-6">
-                    <div>
-                        <label class="block text-xs text-gold font-mono tracking-widest mb-2">IDENTITY</label>
-                        <input type="text" name="name"
-                            class="w-full bg-black/50 border border-white/10 p-4 text-white focus:border-accent-primary outline-none transition"
-                            placeholder="ENTER NAME">
-                    </div>
-                    <div>
-                        <label class="block text-xs text-gold font-mono tracking-widest mb-2">COORDINATES</label>
-                        <input type="email" name="email"
-                            class="w-full bg-black/50 border border-white/10 p-4 text-white focus:border-accent-primary outline-none transition"
-                            placeholder="ENTER EMAIL">
-                    </div>
-                    <div>
-                        <label class="block text-xs text-gold font-mono tracking-widest mb-2">TRANSMISSION</label>
-                        <textarea name="message" rows="4"
-                            class="w-full bg-black/50 border border-white/10 p-4 text-white focus:border-accent-primary outline-none transition"
-                            placeholder="ENTER MESSAGE..."></textarea>
-                    </div>
-                    <button class="w-full btn-neon py-4 text-center">
-                        TRANSMIT DATA
-                    </button>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>© 2026 Sai Karun Nandipati | Comms Module</p>
-        </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 

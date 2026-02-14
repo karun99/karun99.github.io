@@ -1,270 +1,158 @@
-<!doctype html>
-<html ⚡ lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
-    
-    <title>Sai Karun Nandipati | AI Architect & Professor</title>
-    <link rel="canonical" href="index.html">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="description" content="Portfolio of Sai Karun Nandipati - Assistant Professor and Researcher specializing in Agentic AI, Generative Models, and Fullstack Engineering.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO METADATA -->
+    <title>Sai Karun | AI Architect & Professor - Home</title>
+    <meta name="description"
+        content="Official portfolio of Sai Karun Nandipati, Assistant Professor and Agentic AI Researcher. Exploring the intersection of Neural Logic and High-Performance Engineering.">
+    <meta name="keywords"
+        content="Sai Karun, AI Architect, Professor, Agentic AI, Neural Networks, Fullstack Developer, Portfolio">
+    <meta name="author" content="Sai Karun Nandipati">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style amp-custom>
-        /* --- VARIABLES & THEME --- */
-        :root {
-            --bg-dark: #020617;
-            --bg-card: rgba(15, 23, 42, 0.6);
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent-primary: #06b6d4;
-            --accent-secondary: #d4af37;
-            --accent-glow: rgba(6, 182, 212, 0.5);
-            --nav-height: 80px;
-            --section-spacing: 120px;
-        }
-
-        /* --- RESET & BASE --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Lato', sans-serif;
-            line-height: 1.6;
-            background-image:
-                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3, h4, .font-display { font-family: 'Orbitron', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
-        .font-mono { font-family: 'Fira Code', monospace; }
-        .text-accent-primary { color: var(--accent-primary); }
-        .text-gold { color: var(--accent-secondary); }
-        .text-glow { text-shadow: 0 0 10px var(--accent-glow); }
-        .text-gray-400 { color: #9ca3af; }
-        .text-xl { font-size: 1.25rem; }
-        .text-3xl { font-size: 1.875rem; }
-        .text-5xl { font-size: 3rem; }
-        .font-bold { font-weight: 700; }
-        .font-light { font-weight: 300; }
-        .uppercase { text-transform: uppercase; }
-        .tracking-widest { letter-spacing: 0.1em; }
-
-        /* --- LAYOUT UTILITIES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .flex { display: flex; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .justify-center { justify-content: center; }
-        .justify-between { justify-content: space-between; }
-        .text-center { text-align: center; }
-        .gap-6 { gap: 1.5rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-12 { margin-bottom: 3rem; }
-        .min-h-screen { min-height: 100vh; }
-        .pt-32 { padding-top: 8rem; }
-        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-
-        /* --- NAVIGATION --- */
-        nav {
-            position: fixed; top: 0; width: 100%; height: var(--nav-height); z-index: 1000;
-            display: flex; align-items: center; border-bottom: 1px solid rgba(6, 182, 212, 0.1);
-            background: var(--bg-card); backdrop-filter: blur(12px);
-        }
-        .nav-logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; color: white; }
-        .desktop-menu { display: none; }
-        .mobile-toggle { font-size: 1.5rem; color: var(--accent-secondary); background: none; border: none; cursor: pointer; }
-        
-        #sidebar { background: var(--bg-dark); width: 250px; padding: 20px; border-right: 1px solid rgba(6, 182, 212, 0.1); }
-        .sidebar-link { display: block; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; }
-        .sidebar-close { margin-bottom: 20px; color: var(--accent-primary); background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-
-        @media (min-width: 768px) {
-            .desktop-menu { display: flex; gap: 3rem; margin-left: auto; }
-            .mobile-toggle { display: none; }
-            .desktop-link { color: var(--text-muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; font-family: 'Orbitron', sans-serif; }
-            .desktop-link:hover, .desktop-link.active { color: var(--accent-primary); text-shadow: 0 0 8px var(--accent-glow); }
-            .text-5xl { font-size: 3rem; }
-            .md\:text-8xl { font-size: 6rem; }
-            .md\:flex-row { flex-direction: row; }
-            .grid { display: grid; }
-            .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* --- BUTTONS --- */
-        .btn-neon {
-            display: inline-block; padding: 12px 32px; background: transparent;
-            border: 1px solid var(--accent-primary); color: var(--accent-primary);
-            font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em;
-            transition: 0.3s;
-        }
-        .btn-neon:hover { background: var(--accent-primary); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
-        
-        .btn-ghost {
-            display: inline-block; padding: 12px 32px; border: 1px solid rgba(255,255,255,0.1);
-            color: white; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em;
-            transition: 0.3s;
-        }
-        .btn-ghost:hover { background: rgba(255,255,255,0.05); }
-
-        /* --- REACTOR ANIMATION (CSS ONLY) --- */
-        .reactor-container {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 600px; height: 600px; z-index: -1; pointer-events: none; opacity: 0.4;
-        }
-        .reactor-ring {
-            position: absolute; border-radius: 50%; border: 2px solid var(--accent-primary);
-            box-shadow: 0 0 20px var(--accent-glow);
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-        }
-        .r1 { width: 300px; height: 300px; animation: spin 10s linear infinite; border-style: dashed; }
-        .r2 { width: 400px; height: 400px; animation: spin-rev 15s linear infinite; border-color: var(--accent-secondary); opacity: 0.5; }
-        .r3 { width: 280px; height: 280px; border: 1px solid var(--accent-primary); animation: pulse 3s infinite ease-in-out; }
-
-        @keyframes spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
-        @keyframes spin-rev { from { transform: translate(-50%, -50%) rotate(360deg); } to { transform: translate(-50%, -50%) rotate(0deg); } }
-        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.5; } 50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; } }
-
-        /* --- TYPEWRITER ANIMATION (CSS ONLY) --- */
-        .typing-container {
-            display: inline-block;
-            overflow: hidden;
-            border-right: .15em solid var(--accent-secondary);
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-            max-width: fit-content;
-        }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent-secondary) } }
-
-        /* --- FOOTER --- */
-        footer { padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); background: #000; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
-    </style>
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
 
-    <!-- SIDEBAR NAV -->
-    <amp-sidebar id="sidebar" layout="nodisplay" side="right">
-        <button on="tap:sidebar.close" class="sidebar-close">&times;</button>
-        <nav class="flex-col">
-            <a href="index.html" class="sidebar-link text-accent-primary">HOME</a>
-            <a href="about.html" class="sidebar-link">ABOUT</a>
-            <a href="works.html" class="sidebar-link">WORKS</a>
-            <a href="projects.html" class="sidebar-link">PROJECTS</a>
-            <a href="contact.html" class="sidebar-link">CONTACT</a>
-        </nav>
-    </amp-sidebar>
+<body class="bg-black text-white overflow-x-hidden antialiased selection:bg-cyan-500/30">
 
-    <!-- HEADER -->
-    <nav>
-        <div class="container flex items-center justify-between" style="width: 100%;">
-            <a href="index.html" class="nav-logo">
-                S<span class="text-gold">AI</span>KARUN
+    <!-- LOADER -->
+    <div id="loader" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center">
+        <div class="loader-content text-center">
+            <h1 class="font-cinzel text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-4 tracking-widest opacity-0 transform translate-y-4"
+                id="loader-title">
+                INITIALIZING
+            </h1>
+            <div class="w-64 h-0.5 bg-gray-800 rounded-full overflow-hidden relative mt-4 mx-auto">
+                <div id="loader-bar"
+                    class="absolute top-0 left-0 h-full w-0 bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+            </div>
+            <p class="font-mono text-xs text-cyan-500/50 mt-2 tracking-[0.2em] blink">SYSTEM_ACCESS_GRANTED</p>
+        </div>
+    </div>
+
+    <!-- BACKGROUND 3D CANVAS -->
+    <canvas id="webgl" class="fixed top-0 left-0 w-full h-full -z-10 outline-none"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 w-full z-40 px-6 py-6 mix-blend-difference">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="font-orbitron font-bold text-xl tracking-widest hover:text-cyan-400 transition-colors duration-300">
+                SAI<span class="text-xs align-top opacity-70">PROFILE</span>
             </a>
-            
-            <div class="desktop-menu">
-                <a href="index.html" class="desktop-link active">HOME</a>
-                <a href="about.html" class="desktop-link">ABOUT</a>
-                <a href="works.html" class="desktop-link">WORKS</a>
-                <a href="projects.html" class="desktop-link">PROJECTS</a>
-                <a href="contact.html" class="desktop-link">CONTACT</a>
+
+            <div class="hidden md:flex gap-8 font-inter text-xs tracking-[0.15em]">
+                <a href="index.html" class="nav-link relative group overflow-hidden text-cyan-400">
+                    <span class="block">HOME</span>
+                    <span class="absolute top-full left-0 text-cyan-400 transition-transform duration-300">HOME</span>
+                </a>
+                <a href="about.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">ABOUT</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">ABOUT</span>
+                </a>
+                <a href="works.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">WORKS</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">WORKS</span>
+                </a>
+                <a href="projects.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">PROJECTS</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">PROJECTS</span>
+                </a>
+                <a href="contact.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">CONTACT</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">CONTACT</span>
+                </a>
             </div>
 
-            <button on="tap:sidebar.toggle" class="mobile-toggle">
+            <button class="md:hidden text-2xl text-white">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="min-h-screen flex items-center justify-center text-center pt-32" style="position: relative; overflow: hidden;">
-        
-        <!-- CSS REACTOR BACKGROUND -->
-        <div class="reactor-container">
-            <div class="reactor-ring r1"></div>
-            <div class="reactor-ring r2"></div>
-            <div class="reactor-ring r3"></div>
-        </div>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="relative h-screen flex items-center justify-center px-4">
+            <div class="container max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center pointer-events-none">
+                <div class="md:col-span-8 text-left z-10 pointer-events-auto">
+                    <div class="overflow-hidden mb-2">
+                        <p class="hero-subtitle font-mono text-cyan-400/80 text-sm tracking-[0.3em] font-bold">
+                            // AI ARCHITECT
+                        </p>
+                    </div>
+                    <div class="overflow-hidden">
+                        <h1
+                            class="hero-title font-cinzel text-5xl md:text-8xl font-bold leading-none mb-6 text-white mix-blend-exclusion">
+                            DIGITAL <br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">ALCHEMIST</span>
+                        </h1>
+                    </div>
+                    <p
+                        class="hero-desc max-w-xl text-gray-400 font-inter font-light text-lg leading-relaxed mb-8 backdrop-blur-sm bg-black/10 p-4 rounded-lg border-l-2 border-cyan-400/30">
+                        Bridging the gap between <span class="text-white font-medium">Neural Logic</span> and human
+                        experience.
+                        Building autonomous systems that look as good as they think.
+                    </p>
 
-        <div class="container">
-            <div class="font-mono text-accent-primary mb-6 tracking-widest inline-block" style="border-bottom: 1px solid rgba(6,182,212,0.3); padding-bottom: 0.5rem; font-size: 0.875rem;">
-                &gt;&gt; SYSTEM_STATUS: ONLINE
-            </div>
-
-            <h1 class="text-5xl md:text-8xl font-bold mb-6" style="line-height: 1.1;">
-                Sai Karun <br />
-                <span class="text-gold text-glow">Nandipati</span>
-            </h1>
-
-            <div class="mx-auto mb-12" style="max-width: 42rem;">
-                <p class="text-xl text-gray-400 font-light mb-8">
-                    Assistant Professor <span class="text-accent-primary">•</span> AI Researcher <span class="text-accent-primary">•</span> Fullstack Architect
-                </p>
-                <div style="height: 2rem;">
-                    <div class="typing-container font-mono text-accent-primary">
-                        Architecting Intelligence.
+                    <div class="flex flex-wrap gap-4">
+                        <a href="works.html"
+                            class="btn-primary group relative px-8 py-3 bg-white/5 border border-white/20 overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                            <div
+                                class="absolute inset-0 w-0 bg-cyan-400/20 transition-all duration-[250ms] ease-out group-hover:w-full opacity-0 group-hover:opacity-100">
+                            </div>
+                            <span class="relative font-orbitron text-xs tracking-widest font-bold">EXPLORE WORKS</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="works.html" class="btn-neon">
-                    EXPLORE LIBRARY
-                </a>
-                <a href="projects.html" class="btn-ghost">
-                    VIEW PROJECTS
-                </a>
+            <!-- Scroll Indicator -->
+            <div
+                class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+                <span class="text-[10px] font-mono tracking-widest uppercase">Explore</span>
+                <i class="fas fa-chevron-down text-xs"></i>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- TEASER -->
-    <section class="py-20" style="background: rgba(2, 6, 23, 0.5); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <div class="container grid md:grid-cols-2 gap-6 items-center">
-            <div style="text-align: left;">
-                <h2 class="text-3xl mb-6">The <span class="text-gold">Philosophy</span></h2>
-                <p class="text-gray-400 mb-6" style="line-height: 1.8;">
-                    Research is not just about discovery; it's about translating intelligence into pedagogy.
-                    I bridge the gap between complex Neural Logic and accessible Human Knowledge.
+        <!-- Brief Intro Teaser -->
+        <section class="py-20 border-t border-white/5 bg-black/50 backdrop-blur-sm">
+            <div class="container max-w-6xl mx-auto px-6 text-center">
+                <h2 class="font-orbitron text-2xl md:text-3xl mb-4">LATEST <span
+                        class="text-purple-400">TRANSMISSION</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+                    Currently deploying advanced agentic workflows for next-gen research portals.
+                    Check out the latest updates in the projects log.
                 </p>
-                <a href="about.html" class="text-accent-primary font-bold tracking-widest uppercase" style="font-size: 0.875rem;">
-                    Read Full Bio <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
-                </a>
+                <a href="about.html" class="text-cyan-400 font-mono text-sm hover:text-white transition-colors">READ
+                    FULL BIO -></a>
             </div>
-            <div style="padding: 2rem; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);">
-                <div class="text-gold mb-4" style="font-size: 2.25rem;"><i class="fas fa-brain"></i></div>
-                <h3 class="text-xl mb-2">Agentic AI</h3>
-                <p class="text-gray-400" style="font-size: 0.875rem;">Building autonomous systems that can reason, plan, and execute.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="flex justify-center gap-6 mb-6" style="font-size: 1.25rem;">
-                <a href="#" style="color:white;"><i class="fab fa-github"></i></a>
-                <a href="#" style="color:white;"><i class="fab fa-linkedin"></i></a>
-                <a href="#" style="color:white;"><i class="fas fa-graduation-cap"></i></a>
-            </div>
-            <p>© 2026 Sai Karun Nandipati | Profile 2.0</p>
-        </div>
-    </footer>
-
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -4,721 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Karun Nandipati | Research Library</title>
+    <!-- SEO METADATA -->
+    <title>Works & Research | Sai Karun</title>
+    <meta name="description"
+        content="Explore the research library and publications of Sai Karun. Featuring papers on Generative AI, FDP sessions, and academic patents.">
+    <meta name="keywords" content="Research Papers, AI Publications, FDP, Patents, Academic Works, Sai Karun">
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Tailwind -->
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        display: ['"Cinzel"', 'serif'],
-                        sans: ['"Lato"', 'sans-serif'],
-                    },
-                    colors: {
-                        'shelf-dark': '#2d1b15',
-                        'shelf-light': '#4a3228',
-                        'gold-accent': '#d4af37',
-                        'paper-cream': '#fdfbf7',
-                    },
-                    backgroundImage: {
-                        'leather-texture': "url('https://www.transparenttextures.com/patterns/black-leather.png')",
-                        'wood-pattern': "linear-gradient(to bottom, #4a3228 0%, #2d1b15 100%)"
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Three.js for Loader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- D3.js for Network Graph -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-
-    <style>
-        :root {
-            --spine-width: 45px;
-            --book-height: 260px;
-        }
-
-        body {
-            background-color: #0f0f0f;
-            color: #ecf0f1;
-            perspective: 2500px;
-            overflow-x: hidden;
-            font-family: 'Lato', sans-serif;
-            background-image: radial-gradient(circle at 50% 30%, #1f1f1f 0%, #000000 100%);
-        }
-
-        .library-scene {
-            padding: 4rem 2rem;
-            transform-style: preserve-3d;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        /* Controls / Filter Bar */
-        .control-panel {
-            backdrop-filter: blur(10px);
-            background: rgba(45, 27, 21, 0.8);
-            border-bottom: 2px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* 3D Shelf */
-        .shelf-row {
-            position: relative;
-            margin-bottom: 8rem;
-            transform-style: preserve-3d;
-        }
-
-        .shelf-base {
-            position: absolute;
-            bottom: -20px;
-            left: -20px;
-            right: -20px;
-            height: 30px;
-            background: linear-gradient(to right, #2d1b15, #4a3228, #2d1b15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-            border-radius: 4px;
-            transform: translateZ(-20px);
-        }
-
-        .shelf-label {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            font-family: 'Cinzel', serif;
-            color: #d4af37;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            width: 100%;
-            padding-bottom: 0.5rem;
-        }
-
-        .books-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-end;
-            justify-content: flex-start;
-            gap: 12px;
-            padding-left: 20px;
-            transform-style: preserve-3d;
-        }
-
-        /* 3D Book Object */
-        .book-container {
-            perspective: 1000px;
-            width: var(--spine-width);
-            height: var(--book-height);
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 10px;
-        }
-
-        .book-container.thick {
-            width: 55px;
-        }
-
-        .book-container.thin {
-            width: 35px;
-        }
-
-        .book {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-            transform-origin: center bottom;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .book-container:hover .book {
-            transform: translateZ(50px) translateY(-30px) scale(1.05);
-        }
-
-        .spine {
-            position: absolute;
-            inset: 0;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            box-shadow: inset 2px 0 5px rgba(255, 255, 255, 0.1), inset -2px 0 5px rgba(0, 0, 0, 0.3), 5px 5px 15px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            background-size: cover;
-        }
-
-        .spine::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            bottom: 5px;
-            left: 3px;
-            right: 3px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 2px;
-        }
-
-        .spine-band {
-            position: absolute;
-            top: 30px;
-            width: 100%;
-            height: 10px;
-            background: rgba(212, 175, 55, 0.6);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .spine-band.bottom {
-            top: auto;
-            bottom: 30px;
-        }
-
-        .spine-title {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            max-height: 70%;
-            line-height: 1.2;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-            z-index: 10;
-        }
-
-        /* Contextual Popover */
-        .popover {
-            position: fixed;
-            z-index: 100;
-            background: #fdfbf7;
-            color: #2d1b15;
-            width: 320px;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-            border: 1px solid #d4af37;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s, transform 0.3s;
-            transform: translateY(10px);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .popover.active {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        /* Network Graph Container */
-        #network-viz {
-            width: 100%;
-            height: 150px;
-            background: #1a1a1a;
-            border-bottom: 1px solid #d4af37;
-            position: relative;
-        }
-
-        .node text {
-            fill: #d4af37;
-            font-size: 8px;
-            font-family: 'Lato', sans-serif;
-            pointer-events: none;
-        }
-
-        .link {
-            stroke: #555;
-            stroke-opacity: 0.4;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="selection:bg-gold-accent selection:text-black" onclick="closePopover(event)">
+<body class="bg-black text-white overflow-x-hidden antialiased selection:bg-cyan-500/30">
 
-    <!-- LOADER -->
-    <div id="loader">
-        <div class="text-center">
-            <h2 class="font-display text-2xl text-white tracking-[0.3em] mb-4 text-glow">
-                WORKS <span class="text-accent-primary">LIBRARY</span>
-            </h2>
-            <div class="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
-                <div id="loader-bar" class="h-full bg-accent-primary loader-bar"></div>
-            </div>
-            <div id="loader-text" class="mt-2 font-mono text-[10px] text-gold tracking-widest">
-                LOADING DATABASE...
-            </div>
+    <div id="loader" class="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center">
+        <div class="loader-content">
+            <div class="w-16 h-16 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
     </div>
 
-    <!-- Navbar / Controls -->
-    <nav class="control-panel">
-        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-6">
-                <a href="index.html" class="flex items-center gap-4 group">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg"
-                        class="w-12 h-12 rounded-full border-2 border-gold-accent shadow-md group-hover:scale-105 transition">
-                    <div>
-                        <h1 class="font-display text-xl text-gold-accent">Sai Karun <span
-                                class="text-white">Nandipati</span></h1>
-                        <p class="text-[10px] text-gray-400 font-sans tracking-[0.2em] uppercase">Research Library</p>
-                    </div>
+    <!-- BACKGROUND 3D CANVAS -->
+    <canvas id="webgl" class="fixed top-0 left-0 w-full h-full -z-10 outline-none"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 w-full z-40 px-6 py-6 mix-blend-difference">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="font-orbitron font-bold text-xl tracking-widest hover:text-cyan-400 transition-colors duration-300">
+                SAI<span class="text-xs align-top opacity-70">PROFILE</span>
+            </a>
+
+            <div class="hidden md:flex gap-8 font-inter text-xs tracking-[0.15em]">
+                <a href="index.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">HOME</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">HOME</span>
                 </a>
-
-                <!-- Main Nav -->
-                <div class="hidden md:flex items-center gap-6 ml-6 border-l border-gold-accent/20 pl-6 h-8">
-                    <a href="index.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Home</a>
-                    <a href="projects.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Projects</a>
-                    <a href="services.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Services</a>
-                    <a href="works.html"
-                        class="text-xs font-bold text-gold-accent tracking-widest uppercase border-b border-gold-accent pb-0.5">Works</a>
-                </div>
+                <a href="about.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">ABOUT</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">ABOUT</span>
+                </a>
+                <a href="works.html" class="nav-link relative group overflow-hidden text-cyan-400">
+                    <span class="block">WORKS</span>
+                    <span class="absolute top-full left-0 text-cyan-400 transition-transform duration-300">WORKS</span>
+                </a>
+                <a href="projects.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">PROJECTS</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">PROJECTS</span>
+                </a>
+                <a href="contact.html" class="nav-link relative group overflow-hidden">
+                    <span class="block group-hover:-translate-y-full transition-transform duration-300">CONTACT</span>
+                    <span
+                        class="absolute top-full left-0 text-cyan-400 group-hover:-translate-y-full transition-transform duration-300">CONTACT</span>
+                </a>
             </div>
-
-            <!-- Search & Filters -->
-            <div class="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
-                <div class="relative w-full md:w-64">
-                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gold-accent/50 text-xs"></i>
-                    <input type="text" id="searchInput" placeholder="Search titles..."
-                        class="w-full bg-black/30 border border-gold-accent/30 rounded-full py-1.5 pl-10 pr-4 text-xs text-white focus:border-gold-accent focus:outline-none transition">
-                </div>
-
-                <div class="flex bg-black/30 rounded-lg p-1 border border-gold-accent/20">
-                    <button onclick="filterBooks('all')"
-                        class="filter-btn active px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-white">ALL</button>
-                    <button onclick="filterBooks('Research Paper')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">PAPERS</button>
-                    <button onclick="filterBooks('Book')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">BOOKS</button>
-                    <button onclick="filterBooks('Patent')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">PATENTS</button>
-                    <button onclick="filterBooks('Peer Review')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">REVIEWS</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stats Bar -->
-        <div class="bg-[#1a110e] border-b border-gold-accent/20 py-1.5 text-center">
-            <div
-                class="container mx-auto flex justify-center gap-8 text-[10px] text-gray-500 font-sans tracking-widest uppercase">
-                <span id="total-works">42 Works Indexed</span>
-                <span class="text-gold-accent"><i class="fas fa-star mr-1"></i> Highly Cited</span>
-                <span><i class="fas fa-book mr-1"></i> Faculty Publications</span>
-            </div>
+            <button class="md:hidden text-2xl text-white">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Main Library -->
-    <main class="library-scene container mx-auto" id="library-container">
-        <!-- Shelves injected by JS -->
+    <!-- MAIN CONTENT -->
+    <main class="pt-32 pb-20">
+        <section class="container max-w-7xl mx-auto px-6">
+            <header class="mb-16">
+                <h1 class="font-orbitron text-4xl md:text-6xl mb-4">RESEARCH <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">LIBRARY</span>
+                </h1>
+                <p class="text-gray-400 max-w-2xl">A compendium of published papers, patents, and faculty development
+                    programs delivered.</p>
+            </header>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Research Item 1 -->
+                <article class="glass-panel p-6 group hover:border-cyan-500/50 transition duration-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="bg-cyan-900/30 text-cyan-400 text-[10px] font-mono tracking-widest px-2 py-1 rounded">PAPER</span>
+                        <span class="text-gray-500 text-xs font-mono">2025</span>
+                    </div>
+                    <h3 class="font-cinzel text-xl text-white mb-3 group-hover:text-cyan-300 transition">Autonomous
+                        Agents in EdTech</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Exploration of using LLM-based agents to generate personalized curriculum dynamically for
+                        engineering students.
+                    </p>
+                    <a href="#"
+                        class="inline-flex items-center text-xs font-bold tracking-widest text-white hover:text-cyan-400">
+                        READ PUBLICATION <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </article>
+
+                <!-- Research Item 2 -->
+                <article class="glass-panel p-6 group hover:border-purple-500/50 transition duration-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="bg-purple-900/30 text-purple-400 text-[10px] font-mono tracking-widest px-2 py-1 rounded">PATENT</span>
+                        <span class="text-gray-500 text-xs font-mono">PENDING</span>
+                    </div>
+                    <h3 class="font-cinzel text-xl text-white mb-3 group-hover:text-purple-300 transition">Neural
+                        Network Visualization Tool</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        A system and method for real-time 3D rendering of complex neural architecture states for
+                        debugging purposes.
+                    </p>
+                    <a href="#"
+                        class="inline-flex items-center text-xs font-bold tracking-widest text-white hover:text-purple-400">
+                        VIEW FILE <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </article>
+
+                <!-- Research Item 3 -->
+                <article class="glass-panel p-6 group hover:border-pink-500/50 transition duration-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="bg-pink-900/30 text-pink-400 text-[10px] font-mono tracking-widest px-2 py-1 rounded">SEMINAR</span>
+                        <span class="text-gray-500 text-xs font-mono">2024</span>
+                    </div>
+                    <h3 class="font-cinzel text-xl text-white mb-3 group-hover:text-pink-300 transition">The Future of
+                        Generative AI</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Keynote speaker at the National Conference on Advanced Computing, discussing the ethical
+                        implications of AGI.
+                    </p>
+                    <a href="#"
+                        class="inline-flex items-center text-xs font-bold tracking-widest text-white hover:text-pink-400">
+                        WATCH REPLAY <i class="fas fa-play ml-2"></i>
+                    </a>
+                </article>
+
+            </div>
+        </section>
     </main>
 
-    <!-- Contextual Popover -->
-    <div id="popover" class="popover">
-        <div id="network-viz"></div> <!-- Network Graph here -->
-        <div class="p-5 flex-1 flex flex-col relative">
-            <button onclick="closePopover()"
-                class="absolute top-2 right-3 text-lg text-gray-400 hover:text-red-600">&times;</button>
-
-            <span class="text-[9px] text-gray-500 uppercase tracking-widest mb-1 font-bold"
-                id="popover-type">Type</span>
-            <h3 class="font-serif text-lg font-bold leading-tight mb-2 text-shelf-dark" id="popover-title">Title</h3>
-
-            <div class="flex items-center gap-2 mb-3 text-xs text-gray-600">
-                <i class="fas fa-calendar-alt text-gold-accent"></i> <span id="popover-year">Year</span>
-                <span class="mx-1">•</span>
-                <span id="popover-source" class="font-bold">Source</span>
-            </div>
-
-            <div class="mt-auto">
-                <div class="bg-gray-100 p-2 rounded mb-3">
-                    <p class="text-[8px] uppercase text-gray-400 tracking-wider">Reference DOI</p>
-                    <p class="text-[10px] font-mono text-blue-600 truncate" id="popover-doi">10.1234/5678</p>
-                </div>
-                <!-- Link logic in JS -->
-                <a href="#" target="_blank" id="popover-link"
-                    class="block w-full py-2 bg-shelf-dark text-white text-center text-xs font-bold uppercase tracking-widest rounded hover:bg-gold-accent hover:text-black transition">
-                    View Work
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // --- 1. DATA SOURCE (The 42 Works) ---
-        const rawWorks = [
-            // Research Papers (Journals/Conferences)
-            { t: "Integrating Proximal Policy Optimization with Physically Realistic Simulation for Robust Autonomous Underwater Vehicle Control", cat: "Research Paper", y: "2026", src: "Gazi University Journal of Science", doi: "Review" },
-            { t: "Integrating Proximal Policy Optimization with Physically Realistic Simulation (Duplicate Entry)", cat: "Research Paper", y: "2025", src: "Gazi University", doi: "Review" }, // Kept as per user list
-            { t: "A REVIEW ON MACHINE LEARNING APPROACH FOR TRACKING AND PREDICTING STUDENT PERFORMANCE", cat: "Research Paper", y: "2025", src: "UIJES", doi: "10.53414.UIJES.5.2.21" },
-            { t: "Quality of LLM-Mediated Communication in Disabled Learning", cat: "Research Paper", y: "2025", src: "Google Scholar", doi: "Journal Article" },
-            { t: "An Analysis of Intrusion detection and penetration systems in the health care sector", cat: "Research Paper", y: "2024", src: "ICRIT-2024", doi: "Conference" },
-            { t: "Frontiers of Innovation in Deep Learning – Meta Learning", cat: "Research Paper", y: "2024", src: "ICRIT-2024", doi: "Conference" },
-            { t: "Local Language Model – Unveiling Potential of decentralized Intelligence", cat: "Research Paper", y: "2024", src: "ICRIT-2024", doi: "Conference" },
-            { t: "WRNN-Driven Detection Mechanisms for Hairy Cell Leukemia", cat: "Research Paper", y: "2024", src: "Unpublished", doi: "10.13140/RG.2.2.28151.23202" },
-            { t: "Recent Trends in Deep Learning Algorithms and Their Applications", cat: "Research Paper", y: "2023", src: "Emerging Trends", doi: "Conference" },
-            { t: "The Engineering Of AI- Enabled system is Distinct From Other Engineering Disciplines", cat: "Research Paper", y: "2023", src: "Emerging Trends", doi: "Conference" },
-
-            // Books & Chapters
-            { t: "Agentic AI: Understanding and Building Autonomous Intelligent Systems", cat: "Book", y: "2025", src: "Amazon", doi: "B0DV96JFYY" },
-            { t: "AI Education Strategies for Future-Proofing Curriculum Design", cat: "Book", y: "2025", src: "Book Chapter", doi: "Review" },
-            { t: "AI in Commerce: Transforming Business for the Digital Age", cat: "Book", y: "2025", src: "Amazon", doi: "B0F6VF52PS" },
-            { t: "AI in E-Commerce: Revolutionizing Online Shopping", cat: "Book", y: "2025", src: "Amazon", doi: "B0F6T38NNL" },
-            { t: "AI in Education: From Schooling to Research", cat: "Book", y: "2025", src: "Amazon", doi: "B0FMR2VFV8" },
-            { t: "AI in the Classroom: From Chalkboards to Code", cat: "Book", y: "2025", src: "Amazon", doi: "B0DXVQFCP1" },
-            { t: "Artificial Intelligence - Intellect Born from Intelligence", cat: "Book", y: "2025", src: "Amazon", doi: "978-81-983232-3-1" },
-            { t: "Artificial Intelligence in Biomedical Research", cat: "Book", y: "2025", src: "Amazon", doi: "B0F4XTXTWN" },
-            { t: "Augmented Creativity: The AI-Powered Revolution Reshaping the Next Generation", cat: "Book", y: "2025", src: "Amazon", doi: "Book" },
-            { t: "Building Multi-Agent Systems using HuggingFace Models", cat: "Book", y: "2025", src: "Amazon", doi: "B0F2T9DXR3" },
-            { t: "Data Mining: Concepts, Techniques, and Applications", cat: "Book", y: "2025", src: "Amazon", doi: "B0FQT45KWF" },
-            { t: "Digital Marketing Fundamentals", cat: "Book", y: "2025", src: "Amazon", doi: "978-81-980666-2-6" },
-            { t: "Foundations of RAG: Retrieval-Augmented Generation with LLMs", cat: "Book", y: "2025", src: "Amazon", doi: "B0F61XXJX9" },
-            { t: "Generative AI: Transforming Real-Life Applications Across Sectors", cat: "Book", y: "2025", src: "Amazon", doi: "B0DTJ17RML" },
-            { t: "Human 2.0: The AI-Powered Evolution of Mind, Body, and Society", cat: "Book", y: "2025", src: "Amazon", doi: "B0F48LMTJW" },
-            { t: "JavaScript in Action: 100 Practical Projects", cat: "Book", y: "2025", src: "Pothi", doi: "B0DVLMLVXR" },
-            { t: "JavaScript in Action: 100 Practical Projects (Var 2)", cat: "Book", y: "2025", src: "Amazon", doi: "B0DVLMLVXR" },
-            { t: "Journey with Python: Core Programming to Data Science and Al", cat: "Book", y: "2025", src: "Amazon", doi: "978-81-980666-6-4" },
-            { t: "Leveraging Consciousness-Based Chatbots to Support Students Through Loss and Trauma", cat: "Book", y: "2025", src: "Book Chapter", doi: "9798337327525" },
-            { t: "Linux Essentials 101: From Definition to Distribution Development", cat: "Book", y: "2025", src: "Amazon", doi: "3639763718" },
-            { t: "MASTERING FULL-STACK WEB DEVELOPMENT WITH MEAN STACK", cat: "Book", y: "2025", src: "Amazon", doi: "B0F3P9HBXN" },
-            { t: "Mastering Java Programming: From Basics to Advanced Concepts", cat: "Book", y: "2025", src: "Amazon", doi: "B0FBV64K8N" },
-            { t: "Mastering UI Design: Principles, Practices, and Innovations", cat: "Book", y: "2025", src: "Amazon", doi: "B0DXVDY5DY" },
-            { t: "Mini Projects Using Python", cat: "Book", y: "2025", src: "Amazon", doi: "B0FWRXWQV2" },
-            { t: "No Code Development - Empowering Everyone to Build the Future", cat: "Book", y: "2025", src: "Amazon", doi: "978-81-983232-6-2" },
-            { t: "Prompt Engineering", cat: "Book", y: "2025", src: "Amazon", doi: "978-81-980666-0-2" },
-            { t: "Research Methodology and Intellectual Property Rights", cat: "Book", y: "2025", src: "Amazon", doi: "B0DWN7BRB1" },
-            { t: "Social Network Analysis and Its Applications", cat: "Book", y: "2025", src: "Amazon", doi: "B0F8BPFKHY" },
-            { t: "The Complete Guide to Web 3.0", cat: "Book", y: "2025", src: "Amazon", doi: "B0DTN28ZBG" },
-            { t: "Transform Ideas into AI Projects: A Google AI Studio Guide", cat: "Book", y: "2025", src: "Amazon", doi: "B0F2GSWHSX" },
-            { t: "Web Development Using HTML, CSS, and JavaScript", cat: "Book", y: "2025", src: "Amazon", doi: "B0DTHXGWGQ" },
-            { t: "Mastering Object-Oriented Software Engineering with UML and PlantUML", cat: "Book", y: "2025", src: "Amazon", doi: "B0DTTGBHZV" },
-
-            // Peer Reviews
-            { t: "Peer review for IGI Global Book Chapter", cat: "Peer Review", y: "2025", src: "IGI Global", doi: "Verification" },
-        ];
-
-        // --- 2. CONFIG & HELPERS ---
-        const config = {
-            colors: {
-                'Book': ['#5d4037', '#4e342e', '#3e2723', '#2d1b15'], // Browns
-                'Research Paper': ['#1a237e', '#283593', '#303f9f', '#1565c0'], // Blues
-                'Patent': ['#37474f', '#455a64', '#546e7a', '#607d8b'], // Metal/Greys
-                'Peer Review': ['#1b5e20', '#2e7d32', '#388e3c', '#4caf50'] // Greens
-            }
-        };
-
-        const works = rawWorks.map((w, i) => {
-            const colors = config.colors[w.cat] || config.colors['Book'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            const height = w.cat === 'Book' ? (240 + Math.random() * 40) : (220 + Math.random() * 20); // Books taller
-            const thickness = w.cat === 'Book' ? 'thick' : 'thin';
-
-            // Generate Link
-            let link = "#";
-            if (w.doi.startsWith("B0") || w.doi.startsWith("978")) link = `https://www.amazon.com/dp/${w.doi}`;
-            else if (w.doi.includes("10.")) link = `https://doi.org/${w.doi}`;
-
-            return { ...w, id: i, color, height, thickness, link };
-        });
-
-        // --- 3. RENDER LOGIC ---
-        const container = document.getElementById('library-container');
-        const searchInput = document.getElementById('searchInput');
-
-        function renderShelves(data) {
-            container.innerHTML = '';
-
-            if (data.length === 0) {
-                container.innerHTML = '<div class="text-center text-gray-500 mt-20 font-serif italic">No works found in this section.</div>';
-                return;
-            }
-
-            // Group into shelves of ~14 books
-            const chunkSize = 14;
-            for (let i = 0; i < data.length; i += chunkSize) {
-                const chunk = data.slice(i, i + chunkSize);
-                createShelf(chunk, i);
-            }
-        }
-
-        function createShelf(books, index) {
-            const shelf = document.createElement('div');
-            shelf.className = 'shelf-row';
-
-            const labelText = getShelfLabel(index, books[0].cat);
-
-            shelf.innerHTML = `
-                <div class="shelf-label">${labelText}</div>
-                <div class="books-grid">
-                    ${books.map((book) => createBookHTML(book)).join('')}
-                </div>
-                <div class="shelf-base"></div>
-            `;
-            container.appendChild(shelf);
-
-            // Animate in
-            gsap.from(shelf.children, { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
-        }
-
-
-        function createBookHTML(book) {
-            return `
-                <div class="book-container ${book.thickness}" 
-                     style="--book-height: ${book.height}px;"
-                     onmouseenter="showPopover(event, ${book.id})"
-                     onmouseleave="hidePopover(event)"
-                     onclick="handleBookClick(event, ${book.id})">
-                     
-                    <div class="book">
-                        <!-- Spine -->
-                        <div class="spine" style="background-color: ${book.color}; background-image: var(--leather-texture);">
-                            <div class="spine-band"></div>
-                            <div class="spine-title truncate">${book.t.substring(0, 45)}...</div>
-                            <div class="spine-band bottom"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function getShelfLabel(index, type) {
-            const map = {
-                'Book': 'Published Volumes',
-                'Research Paper': 'Journal & Conference Papers',
-                'Peer Review': 'Editorial & Review',
-                'Patent': 'Intellectual Property'
-            };
-            return `${map[type] || 'Collection'} - Shelf ${Math.floor(index / 14) + 1}`;
-        }
-
-        // --- 4. FILTER & SEARCH ---
-        function filterBooks(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('text-white', 'hover:bg-gold-accent/10');
-                btn.classList.add('text-gray-400');
-                if (btn.textContent.includes(category.toUpperCase()) || (category === 'all' && btn.textContent === 'ALL')) {
-                    btn.classList.add('text-white');
-                    btn.classList.remove('text-gray-400');
-                }
-            });
-
-            const term = searchInput.value.toLowerCase();
-            const filtered = works.filter(w => {
-                const matchCat = category === 'all' || w.cat === category;
-                const matchSearch = w.t.toLowerCase().includes(term);
-                return matchCat && matchSearch;
-            });
-            renderShelves(filtered);
-            document.getElementById('total-works').textContent = `${filtered.length} Works Displayed`;
-        }
-
-        searchInput.addEventListener('input', () => {
-            const activeBtn = document.querySelector('.filter-btn.text-white');
-            let cat = 'all';
-            if (activeBtn.textContent.includes('BOOKS')) cat = 'Book';
-            filterBooks(cat);
-        });
-
-
-
-        // --- 5. INTERACTION & VISUALIZATION ---
-        const popover = document.getElementById('popover');
-        let popoverTimeout; // Timer for hiding popover
-
-        // Click Action: Navigate
-        window.handleBookClick = (e, id) => {
-            const w = works.find(item => item.id === id);
-            if (!w) return;
-
-            if (w.link && w.link !== "#") {
-                // Open Link
-                window.open(w.link, '_blank');
-            } else {
-                // Fallback: Just show popover if no link (or ensure it's open)
-                window.showPopover(e, id, true);
-            }
-        };
-
-        // Hover Action: Show Details
-        window.showPopover = (e, id, force = false) => {
-            clearTimeout(popoverTimeout);
-
-            e.stopPropagation();
-            const w = works.find(item => item.id === id);
-            if (!w) return;
-
-            // Positioning
-            const rect = e.currentTarget.getBoundingClientRect();
-            let left = rect.right + 20;
-            let top = rect.top + window.scrollY - 50;
-
-            const popWidth = 320;
-            const popHeight = 400;
-            const padding = 20;
-            const scrollY = window.scrollY;
-
-            if (left + popWidth > window.innerWidth - padding) left = rect.left - popWidth - 20;
-            if (top + popHeight > window.innerHeight + scrollY - padding) top = (window.innerHeight + scrollY) - popHeight - padding;
-            if (top < scrollY + 100) top = scrollY + 100;
-            if (left < padding) left = padding;
-
-            popover.style.top = `${top}px`;
-            popover.style.left = `${left}px`;
-            popover.style.zIndex = "9999";
-
-            // Content
-            document.getElementById('popover-title').textContent = w.t;
-            document.getElementById('popover-type').textContent = w.cat;
-            document.getElementById('popover-year').textContent = w.y;
-            document.getElementById('popover-source').textContent = w.src;
-            document.getElementById('popover-doi').textContent = w.doi || "N/A";
-
-            const btn = document.getElementById('popover-link');
-            if (w.link && w.link !== "#") {
-                btn.href = w.link;
-                btn.classList.remove('opacity-50', 'pointer-events-none');
-                btn.innerHTML = `<i class="fas fa-external-link-alt mr-2"></i>CLICK BOOK TO OPEN`;
-            } else {
-                btn.href = "#";
-                btn.classList.add('opacity-50', 'pointer-events-none');
-                btn.innerText = "LINK UNAVAILABLE";
-            }
-
-            popover.classList.add('active');
-
-            // Render Network (Debounced)
-            if (!popover.dataset.currentId || popover.dataset.currentId != id) {
-                popover.dataset.currentId = id;
-                setTimeout(() => { try { renderNetwork(w); } catch (e) { } }, 50);
-            }
-        };
-
-        window.hidePopover = (e) => {
-            popoverTimeout = setTimeout(() => {
-                popover.classList.remove('active');
-            }, 400); // 400ms delay to allow mouse transition
-        };
-
-        // Keep open if hovering popover itself
-        popover.addEventListener('mouseenter', () => clearTimeout(popoverTimeout));
-        popover.addEventListener('mouseleave', () => popover.classList.remove('active'));
-
-        window.closePopover = (e) => {
-            if (e && e.target.closest('#popover')) return;
-            popover.classList.remove('active');
-        };
-
-        // --- 6. D3 NETWORK (Co-Author) ---
-        function renderNetwork(work) {
-            const container = document.getElementById('network-viz');
-            if (!container) return;
-            container.innerHTML = '';
-
-            const width = container.clientWidth || 320;
-            const height = container.clientHeight || 150;
-
-            // Extract logic keywords from title for "Concept Network"
-            // Ignore common stop words
-            const stopWords = ['with', 'using', 'based', 'from', 'review', 'analysis', 'approach', 'system', 'study', 'towards', 'model', 'data'];
-            const keywords = work.t.split(/\s+/)
-                .map(w => w.replace(/[^a-zA-Z]/g, ''))
-                .filter(w => w.length > 4 && !stopWords.includes(w.toLowerCase()))
-                .slice(0, 5); // Take top 5 keywords
-
-            const nodes = [
-                { id: "Sai Karun", group: 1, r: 6 },
-                ...keywords.map(k => ({ id: k, group: 2, r: 4 }))
-            ];
-
-            // Add a generic node if few keywords
-            if (nodes.length < 3) nodes.push({ id: "Research", group: 2, r: 4 });
-
-            const links = nodes.slice(1).map(n => ({ source: "Sai Karun", target: n.id }));
-
-            const svg = d3.select("#network-viz").append("svg")
-                .attr("width", "100%")
-                .attr("height", "100%")
-                .attr("viewBox", `0 0 ${width} ${height}`);
-
-            const simulation = d3.forceSimulation(nodes)
-                .force("link", d3.forceLink(links).id(d => d.id).distance(50))
-                .force("charge", d3.forceManyBody().strength(-100))
-                .force("center", d3.forceCenter(width / 2, height / 2))
-                .force("collide", d3.forceCollide(10));
-
-            const link = svg.append("g")
-                .selectAll("line")
-                .data(links)
-                .join("line")
-                .attr("class", "link")
-                .attr("stroke", "#d4af37")
-                .attr("stroke-opacity", 0.3);
-
-            const node = svg.append("g")
-                .selectAll("circle")
-                .data(nodes)
-                .join("circle")
-                .attr("r", d => d.r)
-                .attr("fill", d => d.group === 1 ? "#d4af37" : "#2d1b15")
-                .attr("stroke", "#d4af37")
-                .attr("stroke-width", 1);
-
-            const label = svg.append("g")
-                .selectAll("text")
-                .data(nodes)
-                .join("text")
-                .text(d => d.id)
-                .attr("font-size", "8px")
-                .attr("fill", "#888")
-                .attr("text-anchor", "middle")
-                .attr("dy", -8)
-                .style("pointer-events", "none");
-
-            simulation.on("tick", () => {
-                link
-                    .attr("x1", d => d.source.x)
-                    .attr("y1", d => d.source.y)
-                    .attr("x2", d => d.target.x)
-                    .attr("y2", d => d.target.y);
-
-                node
-                    .attr("cx", d => d.x)
-                    .attr("cy", d => d.y);
-
-                label
-                    .attr("x", d => d.x)
-                    .attr("y", d => d.y);
-            });
-        }
-
-        // Initialize
-        renderShelves(works);
-
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
