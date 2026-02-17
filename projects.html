@@ -67,10 +67,11 @@
     </nav>
 
     <!-- HEADER -->
-    <header class="pt-40 pb-20 text-center">
-        <div class="container">
-            <h1 class="text-4xl md:text-6xl mb-6">System <span class="text-gold">Architecture</span></h1>
-            <p class="max-w-xl mx-auto text-gray-400 font-light">
+    <header class="pt-32 pb-12 text-center relative z-20">
+        <div class="container px-4">
+            <h1 class="text-3xl md:text-6xl mb-4 font-display tracking-wider">System <span
+                    class="text-gold text-glow">Architecture</span></h1>
+            <p class="max-w-xl mx-auto text-gray-400 font-light text-sm md:text-base leading-relaxed">
                 Engineering the next generation of Agentic Workflows and Educational Intelligence.
             </p>
         </div>
@@ -78,124 +79,132 @@
 
     <!-- PROJECTS GRID -->
     <section class="py-10 relative">
-        <div class="container relative z-10">
+        <div class="container relative z-10 px-4">
             <!-- Add Project Button (Hidden by default) -->
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-white font-display tracking-widest text-xl">PORTFOLIO</h2>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2">
+                    PORTFOLIO INDEX</h2>
                 <div class="flex gap-4">
                     <button id="logout-btn"
-                        class="hidden text-red-400 hover:text-red-300 font-mono text-sm tracking-widest border border-red-400/30 px-4 py-2 rounded-full transition-all">LOGOUT</button>
+                        class="hidden text-red-400 hover:text-red-300 font-mono text-xs tracking-widest border border-red-400/30 px-4 py-2 rounded-full transition-all hover:bg-red-400/10">
+                        <i class="fas fa-sign-out-alt mr-2"></i>LOGOUT
+                    </button>
                     <button id="add-project-btn"
-                        class="hidden bg-accent-primary/20 hover:bg-accent-primary/40 text-accent-primary border border-accent-primary/50 px-6 py-2 rounded-full backdrop-blur-sm transition-all duration-300 flex items-center gap-2 group">
+                        class="hidden bg-accent-primary/10 hover:bg-accent-primary/20 text-accent-primary border border-accent-primary/50 px-6 py-2 rounded-none backdrop-blur-sm transition-all duration-300 flex items-center gap-2 group hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                         <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
-                        <span class="font-mono text-sm tracking-widest">NEW PROJECT</span>
+                        <span class="font-mono text-xs tracking-widest font-bold">NEW SYSTEM</span>
                     </button>
                 </div>
             </div>
 
             <!-- Dynamic Grid -->
-            <div id="projects-grid" class="grid md:grid-cols-2 gap-8">
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 pb-20">
                 <!-- Projects will be injected here by JS -->
             </div>
         </div>
     </section>
 
     <!-- PROJECT MODAL -->
-    <div id="project-modal" class="fixed inset-0 z-50 hidden">
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden">
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" id="modal-backdrop"></div>
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
 
         <!-- Modal Content -->
-        <div class="absolute inset-0 flex items-center justify-center p-4">
-            <div class="glass-panel w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300"
+        <div class="absolute inset-0 flex items-center justify-center p-4 overflow-y-auto">
+            <div class="glass-panel w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300 my-8"
                 id="modal-content">
-                <div class="p-8 border border-white/10 relative overflow-hidden">
+                <div class="p-6 md:p-8 border border-white/10 relative overflow-hidden bg-black/40">
                     <!-- Header -->
-                    <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
-                        <h3 class="text-2xl font-display text-white tracking-widest" id="modal-title">ADD PROJECT</h3>
-                        <button id="close-modal-btn" class="text-gray-400 hover:text-red-400 transition-colors">
-                            <i class="fas fa-times text-xl"></i>
+                    <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/5">
+                        <h3 class="text-xl md:text-2xl font-display text-white tracking-widest" id="modal-title">
+                            INITIATE PROJECT</h3>
+                        <button id="close-modal-btn"
+                            class="text-gray-400 hover:text-red-400 transition-colors w-8 h-8 flex items-center justify-center border border-transparent hover:border-red-400/30 rounded-full">
+                            <i class="fas fa-times text-lg"></i>
                         </button>
                     </div>
 
                     <!-- Form -->
-                    <form id="project-form" class="space-y-6">
+                    <form id="project-form" class="space-y-5">
                         <input type="hidden" id="project-id">
 
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <div class="grid md:grid-cols-2 gap-5">
                             <!-- Title -->
-                            <div class="space-y-2">
-                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Project
-                                    Title</label>
+                            <div class="space-y-1">
+                                <label
+                                    class="text-[10px] font-mono text-accent-primary tracking-widest uppercase">Project
+                                    Identity</label>
                                 <input type="text" id="project-title" required
-                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-display"
+                                    class="w-full bg-black/60 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-700 font-display text-sm"
                                     placeholder="e.g. DUET AI ECOSYSTEM">
                             </div>
 
                             <!-- Category -->
-                            <div class="space-y-2">
-                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Category
-                                    String</label>
+                            <div class="space-y-1">
+                                <label
+                                    class="text-[10px] font-mono text-accent-primary tracking-widest uppercase">Classification</label>
                                 <input type="text" id="project-category" required
-                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                    class="w-full bg-black/60 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-700 font-mono text-xs"
                                     placeholder="e.g. DIGITAL TWIN // HCI">
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <div class="space-y-2">
-                            <label
-                                class="text-xs font-mono text-accent-primary tracking-widest uppercase">Description</label>
-                            <textarea id="project-desc" rows="3" required
-                                class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 text-sm leading-relaxed"
-                                placeholder="Brief overview of the project..."></textarea>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-mono text-accent-primary tracking-widest uppercase">System
+                                Abstract</label>
+                            <textarea id="project-desc" rows="4" required
+                                class="w-full bg-black/60 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-700 text-sm leading-relaxed font-light"
+                                placeholder="Brief overview of the project architecture and purpose..."></textarea>
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <div class="grid md:grid-cols-2 gap-5">
                             <!-- Link -->
-                            <div class="space-y-2">
-                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Project
-                                    URL</label>
+                            <div class="space-y-1">
+                                <label
+                                    class="text-[10px] font-mono text-accent-primary tracking-widest uppercase">Access
+                                    Node (URL)</label>
                                 <input type="url" id="project-link" required
-                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                    class="w-full bg-black/60 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-700 font-mono text-xs"
                                     placeholder="https://...">
                             </div>
 
                             <!-- Icon Class -->
-                            <div class="space-y-2">
-                                <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Icon
-                                    Class (FontAwesome)</label>
+                            <div class="space-y-1">
+                                <label
+                                    class="text-[10px] font-mono text-accent-primary tracking-widest uppercase">Visual
+                                    Identifier (FontAwesome)</label>
                                 <input type="text" id="project-icon" required
-                                    class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                    class="w-full bg-black/60 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-700 font-mono text-xs"
                                     placeholder="fas fa-brain">
                             </div>
                         </div>
 
                         <!-- Tags -->
-                        <div class="space-y-2">
-                            <label class="text-xs font-mono text-accent-primary tracking-widest uppercase">Tags (Comma
-                                Separated)</label>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-mono text-accent-primary tracking-widest uppercase">Tech
+                                Stack Tags</label>
                             <input type="text" id="project-tags" required
-                                class="w-full bg-black/40 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600 font-mono text-sm"
+                                class="w-full bg-black/60 border border-white/10 p-3 text-white focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-700 font-mono text-xs"
                                 placeholder="PYTHON, LLM, AGENTIC">
                         </div>
 
                         <!-- Featured Checkbox -->
-                        <div class="flex items-center gap-3 py-2">
+                        <div class="flex items-center gap-3 py-2 bg-white/5 p-3 border border-white/5">
                             <input type="checkbox" id="project-featured"
-                                class="w-5 h-5 accent-accent-primary bg-transparent border-white/20 rounded focus:ring-accent-primary">
+                                class="w-4 h-4 accent-accent-primary bg-transparent border-white/20 rounded focus:ring-accent-primary cursor-pointer">
                             <label for="project-featured"
-                                class="text-xs font-mono text-white tracking-widest uppercase cursor-pointer select-none">Mark
-                                as Featured Project</label>
+                                class="text-[10px] font-mono text-white tracking-widest uppercase cursor-pointer select-none">Priority
+                                Assignment (Featured)</label>
                         </div>
 
                         <!-- Actions -->
-                        <div class="flex justify-end pt-6 border-t border-white/5 gap-4">
+                        <div class="flex justify-end pt-6 border-t border-white/5 gap-3">
                             <button type="button" id="cancel-btn"
-                                class="px-6 py-2 text-gray-400 hover:text-white font-mono text-sm tracking-widest transition-colors">CANCEL</button>
+                                class="px-6 py-2 text-gray-400 hover:text-white font-mono text-xs tracking-widest transition-colors border border-transparent hover:border-white/10">CANCEL</button>
                             <button type="submit"
-                                class="bg-accent-primary hover:bg-accent-secondary text-black px-8 py-2 font-bold font-mono tracking-widest transition-all duration-300 hover:scale-105">
-                                SAVE SYSTEM
+                                class="bg-accent-primary hover:bg-white hover:text-black text-black px-6 py-2 font-bold font-mono text-xs tracking-widest transition-all duration-300 shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]">
+                                DEPLOY SYSTEM
                             </button>
                         </div>
                     </form>
@@ -205,43 +214,60 @@
     </div>
 
     <!-- LOGIN MODAL -->
-    <div id="login-modal" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" id="login-backdrop"></div>
+    <div id="login-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md transition-opacity" id="login-backdrop"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4">
-            <div class="glass-panel w-full max-w-sm p-8 border border-white/10 relative">
-                <h3 class="text-xl font-display text-white tracking-widest mb-6 text-center text-accent-primary">SYSTEM
-                    ACCESS</h3>
+            <div
+                class="glass-panel w-full max-w-sm p-8 border border-white/10 relative shadow-[0_0_50px_rgba(0,0,0,0.8)] login-container-anim">
+                <div class="text-center mb-8">
+                    <i class="fas fa-user-shield text-4xl text-accent-primary mb-4 animate-pulse"></i>
+                    <h3 class="text-xl font-display text-white tracking-widest text-accent-primary">SYSTEM ACCESS</h3>
+                    <p class="text-[10px] font-mono text-gray-500 mt-2">RESTRICTED AREA // AUTHORIZED PERSONNEL ONLY</p>
+                </div>
+
                 <form id="login-form" class="space-y-6">
                     <div class="space-y-2">
-                        <label class="text-xs font-mono text-gray-400 tracking-widest">USERNAME</label>
-                        <input type="text" id="username"
-                            class="w-full bg-black/50 border border-white/10 p-2 text-white font-mono focus:border-accent-primary/50 focus:outline-none"
-                            required>
+                        <label class="text-[10px] font-mono text-accent-secondary tracking-widest uppercase">Identity
+                            Hash</label>
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-3 top-3 text-gray-500 text-xs"></i>
+                            <input type="text" id="username"
+                                class="w-full bg-black/50 border border-white/10 p-2 pl-8 text-white font-mono text-sm focus:border-accent-primary/50 focus:outline-none transition-colors"
+                                placeholder="USERNAME" required>
+                        </div>
                     </div>
                     <div class="space-y-2">
-                        <label class="text-xs font-mono text-gray-400 tracking-widest">PASSWORD</label>
-                        <input type="password" id="password"
-                            class="w-full bg-black/50 border border-white/10 p-2 text-white font-mono focus:border-accent-primary/50 focus:outline-none"
-                            required>
+                        <label class="text-[10px] font-mono text-accent-secondary tracking-widest uppercase">Security
+                            Token</label>
+                        <div class="relative">
+                            <i class="fas fa-key absolute left-3 top-3 text-gray-500 text-xs"></i>
+                            <input type="password" id="password"
+                                class="w-full bg-black/50 border border-white/10 p-2 pl-8 text-white font-mono text-sm focus:border-accent-primary/50 focus:outline-none transition-colors"
+                                placeholder="PASSWORD" required>
+                        </div>
                     </div>
                     <button type="submit"
-                        class="w-full bg-accent-primary/20 hover:bg-accent-primary text-accent-primary hover:text-black border border-accent-primary/50 py-2 font-bold font-mono tracking-widest transition-all">
+                        class="w-full bg-accent-primary/10 hover:bg-accent-primary text-accent-primary hover:text-black border border-accent-primary/50 py-3 font-bold font-mono text-sm tracking-widest transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] mt-4">
                         AUTHENTICATE
                     </button>
-                    <p id="login-error" class="text-red-400 text-xs font-mono text-center hidden">ACCESS DENIED: INVALID
-                        CREDENTIALS</p>
+                    <p id="login-error"
+                        class="text-red-400 text-[10px] font-mono text-center hidden mt-4 border border-red-400/20 p-2 bg-red-400/5">
+                        <i class="fas fa-exclamation-triangle mr-1"></i> ACCESS DENIED: INVALID CREDENTIALS
+                    </p>
                 </form>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="container flex justify-between items-center">
-            <p class="text-gray-500 text-sm">© 2026 Sai Karun Nandipati | Projects Module</p>
+    <footer class="border-t border-white/5 bg-black/80 py-8 mt-auto">
+        <div class="container flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-600 text-xs font-mono">© 2026 Sai Karun Nandipati | <span class="text-gray-500">System
+                    Ver. 2.0.4</span></p>
             <button id="admin-login-btn"
-                class="text-xs text-gray-700 hover:text-accent-primary transition-colors font-mono"><i
-                    class="fas fa-lock"></i> ADMIN</button>
+                class="text-[10px] text-gray-700 hover:text-accent-primary transition-colors font-mono border border-transparent hover:border-accent-primary/30 px-3 py-1 rounded">
+                <i class="fas fa-terminal mr-2"></i>ADMIN CONSOLE
+            </button>
         </div>
     </footer>
 
