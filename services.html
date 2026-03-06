@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services | Sai Karun Nandipati</title>
+    <meta name="description"
+        content="Professional services offered by Sai Karun Nandipati: Research Assistance, Online Tutoring, and Technical Writing.">
+    <meta name="keywords"
+        content="saikarun nandipati, research assistance, online tutoring, technical writing, AI research, machine learning tutor, technical documentation">
+    <meta name="author" content="Sai Karun Nandipati">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        'accent-primary': '#06b6d4',
+                        'bg-dark': '#020617',
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Project Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .service-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .service-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.1);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .gradient-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+        }
+    </style>
+</head>
+
+<body class="bg-bg-dark text-slate-200 overflow-x-hidden">
+
+    <!-- LOADER -->
+    <div id="loader"
+        class="fixed inset-0 bg-bg-dark z-[2000] flex flex-col items-center justify-center transition-all duration-500">
+        <h2 class="font-display text-2xl text-white tracking-widest mb-4 glow-text">
+            DATA <span class="text-accent-primary">SYNC</span>
+        </h2>
+        <div class="w-64 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div id="loader-bar" class="h-full bg-accent-primary shadow-[0_0_10px_#06b6d4] transition-all"
+                style="width: 0%"></div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div
+        class="nav-links fixed top-20 left-0 w-full h-0 bg-bg-dark overflow-hidden transition-all duration-300 flex flex-col items-center justify-center gap-8 z-[999]">
+        <a href="index.html" class="font-display text-slate-400 hover:text-accent-primary text-xl">HOME</a>
+        <a href="about.html" class="font-display text-slate-400 hover:text-accent-primary text-xl">ABOUT</a>
+        <a href="services.html" class="font-display text-accent-primary text-xl active-nav">SERVICES</a>
+        <a href="works.html" class="font-display text-slate-400 hover:text-accent-primary text-xl">WORKS</a>
+        <a href="projects.html" class="font-display text-slate-400 hover:text-accent-primary text-xl">PROJECTS</a>
+        <a href="contact.html" class="font-display text-slate-400 hover:text-accent-primary text-xl">CONTACT</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav
+        class="fixed top-0 w-full h-[80px] z-[1000] flex items-center border-b border-accent-primary/10 bg-slate-900/60 backdrop-blur-xl">
+        <div class="container mx-auto px-8 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold tracking-widest text-white">
+                S<span class="text-gold">AI</span>KARUN
+            </a>
+
+            <div class="hidden md:flex gap-12 ml-auto">
+                <a href="index.html"
+                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">HOME</a>
+                <a href="about.html"
+                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">ABOUT</a>
+                <a href="services.html"
+                    class="text-[11px] font-bold tracking-[0.2em] font-display text-accent-primary glow-text">SERVICES</a>
+                <a href="works.html"
+                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">WORKS</a>
+                <a href="projects.html"
+                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">PROJECTS</a>
+                <a href="contact.html"
+                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">CONTACT</a>
+            </div>
+
+            <button class="mobile-menu-btn flex md:hidden text-2xl text-gold">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-48 pb-24 relative overflow-hidden gradient-bg">
+        <div class="container mx-auto px-8 text-center relative z-10">
+            <div data-gsap="fade-up" class="inline-block px-4 py-1 border border-accent-primary/30 rounded-full text-[10px] tracking-[0.3em] font-mono text-accent-primary mb-6">
+                >> EXPERTISE_&_SOLUTIONS
+            </div>
+            <h1 data-gsap="fade-up" class="text-5xl md:text-7xl font-bold mb-8 font-display leading-tight">
+                Our <span class="text-gold glow-text">Services</span>
+            </h1>
+            <p data-gsap="fade-up" class="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl font-light mb-12">
+                Empowering individuals and organizations through cutting-edge AI research, personalized education, and precise technical documentation.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVICES GRID -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Research Assistance -->
+                <div data-gsap="fade-right" class="service-card p-10 rounded-3xl flex flex-col h-full">
+                    <div class="w-16 h-16 bg-accent-primary/10 rounded-2xl flex items-center justify-center text-accent-primary text-3xl mb-8">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 font-display font-display tracking-tight text-white">Research <br><span class="text-accent-primary">Assistance</span></h3>
+                    <p class="text-slate-400 mb-8 font-light leading-relaxed">
+                        Comprehensive support for academic and industrial research projects, specializing in Agentic AI, Generative Models, and Human-AI Symbiosis.
+                    </p>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Literature Reviews</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Experimental Design</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Data Analysis & Visualization</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Implementation of AI Models</li>
+                    </ul>
+                    <a href="works.html" class="mt-auto inline-flex items-center text-xs font-bold tracking-widest text-gold hover:text-accent-primary transition-colors uppercase">
+                        Explore Research <i class="fas fa-arrow-right ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Online Tutoring - NRCM Tutorials -->
+                <div data-gsap="fade-up" class="service-card p-10 rounded-3xl flex flex-col h-full ring-2 ring-accent-primary/20">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center overflow-hidden">
+                            <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/C7Jovp50Gzqe87xseOZ7/pub/EgxvobMgnv7mpkQ1JGSP.jpg" alt="NRCM Tutorials Logo" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[10px] font-mono text-gold tracking-widest border border-gold/30 px-2 py-1 rounded">OFFICIAL PARTNER</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 font-display tracking-tight text-white">NRCM <br><span class="text-gold">Tutorials</span></h3>
+                    <p class="text-slate-400 mb-8 font-light leading-relaxed">
+                        Expert-led education through my official platform, **NRCM Tutorials**, offering specialized tracks in Machine Learning, Web Development, and AI Literacy.
+                    </p>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> 1-on-1 Mentorship</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Interactive Course Modules</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Hands-on Coding Projects</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Interview Preparation</li>
+                    </ul>
+                    <a href="https://nrcmtut.glide.page/" target="_blank" class="mt-auto inline-flex items-center text-xs font-bold tracking-widest text-gold hover:text-accent-primary transition-colors uppercase">
+                        Visit Platform <i class="fas fa-external-link-alt ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Technical Writing -->
+                <div data-gsap="fade-left" class="service-card p-10 rounded-3xl flex flex-col h-full">
+                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-slate-200 text-3xl mb-8">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 font-display font-display tracking-tight text-white">Technical <br><span class="text-slate-400">Writing</span></h3>
+                    <p class="text-slate-400 mb-8 font-light leading-relaxed">
+                        Precise and impactful content creation for research papers, technical blogs, and comprehensive system documentation.
+                    </p>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> White Papers & Journals</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> API Documentation</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Technical Blog Writing</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-gold text-xs"></i> Case Studies</li>
+                    </ul>
+                    <a href="https://nskp.carrd.co" target="_blank" class="mt-auto inline-flex items-center text-xs font-bold tracking-widest text-gold hover:text-accent-primary transition-colors uppercase">
+                        View Portfolio <i class="fas fa-external-link-alt ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-white/5">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-center gap-8 mb-8 text-2xl">
+                <a href="#" class="text-white hover:text-accent-primary transition-colors"><i
+                        class="fab fa-github"></i></a>
+                <a href="#" class="text-white hover:text-accent-primary transition-colors"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-white hover:text-accent-primary transition-colors"><i
+                        class="fas fa-graduation-cap"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm tracking-widest font-mono">© 2026 SAI KARUN NANDIPATI | PROFILE 2.0</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // GSAP Animations for Services Page
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const fadeUpElements = document.querySelectorAll('[data-gsap="fade-up"]');
+            fadeUpElements.forEach(el => {
+                gsap.from(el, {
+                    y: 40,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 90%",
+                    }
+                });
+            });
+
+            gsap.from('[data-gsap="fade-right"]', {
+                x: -50,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".service-card",
+                    start: "top 85%",
+                }
+            });
+
+            gsap.from('[data-gsap="fade-left"]', {
+                x: 50,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".service-card",
+                    start: "top 85%",
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
