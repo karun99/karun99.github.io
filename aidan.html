@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>Multi-Agent AI Analytics Platform | Data Analysis & Lead Generation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .platform {
+      max-width: 1800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid #334155;
+      border-radius: 1.5rem;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Input Section */
+    .input-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .config-panel {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    .config-panel h3 {
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid #475569;
+      color: #e2e8f0;
+      padding: 0.6rem;
+      border-radius: 0.5rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .file-upload {
+      border: 2px dashed #475569;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .file-upload:hover {
+      border-color: #60a5fa;
+      background: rgba(96, 165, 250, 0.1);
+    }
+
+    /* Agent Cards */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .agent-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .agent-card.processing {
+      border-color: #f59e0b;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+    }
+
+    .agent-card.completed {
+      border-color: #10b981;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .agent-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .agent-output {
+      background: #0f172a;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background: #3b82f6; color: white; }
+    .btn-success { background: #10b981; color: white; }
+    .btn-warning { background: #f59e0b; color: #0f172a; }
+    .btn-danger { background: #ef4444; color: white; }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Visualization Area */
+    .visualization-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .chart-container {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    /* Export Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .export-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .input-section {
+        grid-template-columns: 1fr;
+      }
+      .agents-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="platform">
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1>🤖 Multi-Agent AI Analytics Platform</h1>
+      <p style="color: #94a3b8;">Data Analysis · Visualization · Lead Generation · KPI Reporting</p>
+    </div>
+    <div style="display: flex; gap: 0.5rem;">
+      <button class="btn btn-warning" onclick="showExportModal()">
+        <i class="fas fa-download"></i> Export Report
+      </button>
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-section">
+    <div class="config-panel">
+      <h3><i class="fas fa-cog"></i> Configuration</h3>
+      <div class="form-group">
+        <label>OpenRouter API Key</label>
+        <input type="password" id="apiKey" placeholder="sk-or-...">
+      </div>
+      <div class="form-group">
+        <label>Problem Statement</label>
+        <textarea id="problemStatement" placeholder="Describe your business problem...">Analyze customer churn patterns, identify key drivers, predict high-risk accounts, and generate targeted retention strategies with KPIs.</textarea>
+      </div>
+      <div class="form-group">
+        <label>Upload Dataset (CSV/JSON)</label>
+        <div class="file-upload" id="fileUpload">
+          <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: #60a5fa;"></i>
+          <p>Click to upload or drag & drop</p>
+          <input type="file" id="fileInput" accept=".csv,.json" style="display: none;">
+        </div>
+        <div id="fileInfo" style="margin-top: 0.5rem; font-size: 0.8rem; color: #94a3b8;"></div>
+      </div>
+    </div>
+
+    <div class="config-panel">
+      <h3><i class="fas fa-robot"></i> Agent Model Configuration</h3>
+      <div id="agentModelConfig">
+        <!-- Dynamically generated -->
+      </div>
+      <button class="btn btn-primary" onclick="initializeAgents()" style="width: 100%; margin-top: 1rem;">
+        <i class="fas fa-rocket"></i> Initialize Multi-Agent System
+      </button>
+    </div>
+  </div>
+
+  <!-- Agent Cards -->
+  <div class="agents-grid" id="agentsGrid">
+    <!-- Generated dynamically -->
+  </div>
+
+  <!-- Visualization Area -->
+  <div class="visualization-grid" id="visualizationGrid">
+    <!-- Charts will be added here -->
+  </div>
+</div>
+
+<!-- Export Modal -->
+<div class="modal" id="exportModal">
+  <div class="modal-content">
+    <h3 style="color: #60a5fa;">📊 Export Complete Report</h3>
+    <p style="color: #94a3b8; margin: 1rem 0;">Choose your preferred format:</p>
+    <div class="export-options">
+      <button class="btn btn-primary" onclick="exportReport('pdf')">
+        <i class="fas fa-file-pdf"></i> PDF Report
+      </button>
+      <button class="btn btn-success" onclick="exportReport('pptx')">
+        <i class="fas fa-file-powerpoint"></i> PowerPoint
+      </button>
+      <button class="btn btn-warning" onclick="exportReport('html')">
+        <i class="fas fa-file-code"></i> HTML
+      </button>
+      <button class="btn btn-danger" onclick="exportReport('markdown')">
+        <i class="fas fa-markdown"></i> Markdown
+      </button>
+    </div>
+    <button class="btn" onclick="closeExportModal()" style="width: 100%; margin-top: 1rem;">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+  // Multi-Agent AI Analytics Platform
+  class AIAnalyticsPlatform {
+    constructor() {
+      this.apiKey = '';
+      this.baseURL = 'https://openrouter.ai/api/v1';
+      this.dataset = null;
+      this.datasetSummary = '';
+      this.agents = {
+        metadataExplainer: {
+          name: 'Data & Metadata Explainer Agent',
+          icon: 'fa-database',
+          model: 'google/gemini-flash-1.5',
+          status: 'idle',
+          output: ''
+        },
+        problemAnalyzer: {
+          name: 'Problem Analysis Agent',
+          icon: 'fa-magnifying-glass',
+          model: 'google/gemini-pro-1.5',
+          status: 'idle',
+          output: ''
+        },
+        visualizationCreator: {
+          name: 'Visualization & Insights Agent',
+          icon: 'fa-chart-bar',
+          model: 'anthropic/claude-3-haiku',
+          status: 'idle',
+          output: ''
+        },
+        leadGenerator: {
+          name: 'Lead Generation & KPI Agent',
+          icon: 'fa-bullseye',
+          model: 'openai/gpt-4o-mini',
+          status: 'idle',
+          output: ''
+        }
+      };
+      this.availableModels = [];
+      this.charts = [];
+      this.reportData = {};
+    }
+
+    async fetchModels() {
+      try {
+        const response = await fetch('https://openrouter.ai/api/v1/models');
+        const data = await response.json();
+        this.availableModels = data.data || [];
+      } catch {
+        this.availableModels = [
+          { id: 'google/gemini-flash-1.5', name: 'Gemini Flash 1.5' },
+          { id: 'google/gemini-pro-1.5', name: 'Gemini Pro 1.5' },
+          { id: 'anthropic/claude-3.5-sonnet', name: 'Claude 3.5 Sonnet' },
+          { id: 'anthropic/claude-3-haiku', name: 'Claude 3 Haiku' },
+          { id: 'openai/gpt-4o', name: 'GPT-4o' },
+          { id: 'openai/gpt-4o-mini', name: 'GPT-4o Mini' },
+          { id: 'meta-llama/llama-3.1-70b-instruct', name: 'Llama 3.1 70B' }
+        ];
+      }
+      this.renderModelConfigs();
+    }
+
+    renderModelConfigs() {
+      const container = document.getElementById('agentModelConfig');
+      container.innerHTML = Object.entries(this.agents).map(([id, agent]) => `
+        <div class="form-group">
+          <label>${agent.name}</label>
+          <select id="model_${id}" onchange="platform.updateAgentModel('${id}', this.value)">
+            ${this.availableModels.map(m => 
+              `<option value="${m.id}" ${m.id === agent.model ? 'selected' : ''}>${m.name || m.id}</option>`
+            ).join('')}
+          </select>
+        </div>
+      `).join('');
+    }
+
+    updateAgentModel(agentId, modelId) {
+      this.agents[agentId].model = modelId;
+      this.log(`🔄 ${this.agents[agentId].name} model updated to ${modelId}`);
+    }
+
+    async loadDataset(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          try {
+            if (file.name.endsWith('.json')) {
+              this.dataset = JSON.parse(e.target.result);
+            } else if (file.name.endsWith('.csv')) {
+              Papa.parse(e.target.result, {
+                header: true,
+                dynamicTyping: true,
+                complete: (results) => {
+                  this.dataset = results.data;
+                }
+              });
+            }
+            this.datasetSummary = `Dataset: ${file.name}, ${Array.isArray(this.dataset) ? this.dataset.length : Object.keys(this.dataset).length} records`;
+            document.getElementById('fileInfo').textContent = this.datasetSummary;
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        };
+        reader.readAsDataURL(file);
+        // For actual processing, use readAsText
+        const textReader = new FileReader();
+        textReader.onload = (e) => {
+          if (file.name.endsWith('.json')) {
+            this.dataset = JSON.parse(e.target.result);
+          } else {
+            Papa.parse(e.target.result, {
+              header: true,
+              dynamicTyping: true,
+              complete: (results) => {
+                this.dataset = results.data;
+              }
+            });
+          }
+        };
+        textReader.readAsText(file);
+      });
+    }
+
+    async callOpenRouter(model, messages, temperature = 0.7) {
+      if (!this.apiKey) throw new Error('API key not configured');
+      
+      const response = await fetch(`${this.baseURL}/chat/completions`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': window.location.href,
+          'X-Title': 'AI Analytics Platform'
+        },
+        body: JSON.stringify({ model, messages, temperature, max_tokens: 2000 })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error?.message || 'API request failed');
+      }
+
+      const data = await response.json();
+      return data.choices[0].message.content;
+    }
+
+    async runMetadataExplainer() {
+      const agent = this.agents.metadataExplainer;
+      this.setAgentStatus('metadataExplainer', 'processing');
+      
+      const dataSample = Array.isArray(this.dataset) ? 
+        this.dataset.slice(0, 10) : this.dataset;
+      
+      const messages = [{
+        role: 'system',
+        content: 'You are a data metadata expert. Analyze dataset structure, explain columns, data types, quality issues, and provide a comprehensive data dictionary. Include statistical summaries.'
+      }, {
+        role: 'user',
+        content: `Analyze this dataset metadata:\n${JSON.stringify(dataSample, null, 2)}\n\nProblem: ${document.getElementById('problemStatement').value}`
+      }];
+
+      try {
+        const result = await this.callOpenRouter(agent.model, messages);
+        agent.output = result;
+        this.reportData.metadata = result;
+        this.setAgentStatus('metadataExplainer', 'completed');
+      } catch (error) {
+        agent.output = `Error: ${error.message}`;
+        this.setAgentStatus('metadataExplainer', 'error');
+      }
+    }
+
+    async runProblemAnalyzer() {
+      const agent = this.agents.problemAnalyzer;
+      this.setAgentStatus('problemAnalyzer', 'processing');
+      
+      const problem = document.getElementById('problemStatement').value;
+      const dataSample = this.dataset ? JSON.stringify(Array.isArray(this.dataset) ? this.dataset.slice(0, 20) : this.dataset).substring(0, 2000) : '';
+      
+      const messages = [{
+        role: 'system',
+        content: 'You are a business problem analyzer. Identify root causes, patterns, correlations, and provide actionable insights. Structure analysis with: 1) Problem decomposition 2) Key findings 3) Root cause analysis 4) Recommendations.'
+      }, {
+        role: 'user',
+        content: `Problem: ${problem}\n\nDataset sample: ${dataSample}\n\nProvide detailed problem analysis.`
+      }];
+
+      try {
+        const result = await this.callOpenRouter(agent.model, messages);
+        agent.output = result;
+        this.reportData.problemAnalysis = result;
+        this.setAgentStatus('problemAnalyzer', 'completed');
+      } catch (error) {
+        agent.output = `Error: ${error.message}`;
+        this.setAgentStatus('problemAnalyzer', 'error');
+      }
+    }
+
+    async runVisualizationCreator() {
+      const agent = this.agents.visualizationCreator;
+      this.setAgentStatus('visualizationCreator', 'processing');
+      
+      const dataSample = this.dataset ? JSON.stringify(Array.isArray(this.dataset) ? this.dataset.slice(0, 50) : this.dataset).substring(0, 3000) : '';
+      
+      const messages = [{
+        role: 'system',
+        content: 'You are a data visualization expert. Suggest chart types, generate chart configurations, and provide data insights. Output JSON format with chart suggestions: {"charts": [{"type": "bar/line/pie", "title": "", "data": {}, "insight": ""}]}'
+      }, {
+        role: 'user',
+        content: `Create visualization recommendations for:\nData: ${dataSample}\nProblem: ${document.getElementById('problemStatement').value}`
+      }];
+
+      try {
+        const result = await this.callOpenRouter(agent.model, messages);
+        agent.output = result;
+        this.reportData.visualizations = result;
+        this.createChartsFromAI(result);
+        this.setAgentStatus('visualizationCreator', 'completed');
+      } catch (error) {
+        agent.output = `Error: ${error.message}`;
+        this.setAgentStatus('visualizationCreator', 'error');
+      }
+    }
+
+    async runLeadGenerator() {
+      const agent = this.agents.leadGenerator;
+      this.setAgentStatus('leadGenerator', 'processing');
+      
+      const problem = document.getElementById('problemStatement').value;
+      const allOutputs = Object.values(this.agents).map(a => a.output).join('\n').substring(0, 3000);
+      
+      const messages = [{
+        role: 'system',
+        content: 'You are a lead generation and KPI specialist. Generate actionable leads, define KPIs, create metrics framework, and provide ROI projections. Output: 1) Target leads/segments 2) KPI dashboard metrics 3) Conversion strategies 4) Revenue projections.'
+      }, {
+        role: 'user',
+        content: `Based on analysis:\nProblem: ${problem}\n\nInsights: ${allOutputs}\n\nGenerate leads and KPIs.`
+      }];
+
+      try {
+        const result = await this.callOpenRouter(agent.model, messages);
+        agent.output = result;
+        this.reportData.leadsKPIs = result;
+        this.setAgentStatus('leadGenerator', 'completed');
+      } catch (error) {
+        agent.output = `Error: ${error.message}`;
+        this.setAgentStatus('leadGenerator', 'error');
+      }
+    }
+
+    setAgentStatus(agentId, status) {
+      this.agents[agentId].status = status;
+      this.updateAgentUI(agentId);
+    }
+
+    updateAgentUI(agentId) {
+      const agent = this.agents[agentId];
+      const card = document.querySelector(`[data-agent="${agentId}"]`);
+      if (!card) return;
+
+      card.className = 'agent-card';
+      if (agent.status === 'processing') card.classList.add('processing');
+      else if (agent.status === 'completed') card.classList.add('completed');
+
+      const outputEl = card.querySelector('.agent-output');
+      outputEl.textContent = agent.output || 'Waiting for execution...';
+      
+      const statusEl = card.querySelector('.agent-status');
+      statusEl.textContent = agent.status.toUpperCase();
+      statusEl.style.color = agent.status === 'completed' ? '#10b981' : 
+                             agent.status === 'processing' ? '#f59e0b' : '#94a3b8';
+    }
+
+    createChartsFromAI(aiResponse) {
+      const vizGrid = document.getElementById('visualizationGrid');
+      vizGrid.innerHTML = '';
+      this.charts = [];
+
+      // Create sample charts based on dataset
+      if (this.dataset && Array.isArray(this.dataset) && this.dataset.length > 0) {
+        const sampleData = this.dataset.slice(0, 50);
+        const columns = Object.keys(sampleData[0] || {});
+        
+        // Create bar chart for categorical data
+        if (columns.length >= 1) {
+          const canvasId = 'chart_' + Date.now();
+          vizGrid.innerHTML += `
+            <div class="chart-container">
+              <h4>📊 Data Distribution Analysis</h4>
+              <canvas id="${canvasId}"></canvas>
+            </div>
+          `;
+          
+          setTimeout(() => {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            const chart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: sampleData.map((d, i) => `Record ${i+1}`).slice(0, 10),
+                datasets: [{
+                  label: columns[0] || 'Value',
+                  data: sampleData.map(d => d[columns[0]] || 0).slice(0, 10),
+                  backgroundColor: '#60a5fa'
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: { legend: { display: false } }
+              }
+            });
+            this.charts.push(chart);
+          }, 100);
+        }
+
+        // Create line chart for trends
+        if (columns.length >= 2) {
+          const canvasId2 = 'chart2_' + Date.now();
+          vizGrid.innerHTML += `
+            <div class="chart-container">
+              <h4>📈 Trend Analysis</h4>
+              <canvas id="${canvasId2}"></canvas>
+            </div>
+          `;
+          
+          setTimeout(() => {
+            const ctx = document.getElementById(canvasId2).getContext('2d');
+            const chart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: sampleData.map((d, i) => `Q${i+1}`).slice(0, 10),
+                datasets: [{
+                  label: columns[1] || 'Metric',
+                  data: sampleData.map(d => d[columns[1]] || Math.random()*100).slice(0, 10),
+                  borderColor: '#a78bfa',
+                  tension: 0.4
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: { legend: { display: false } }
+              }
+            });
+            this.charts.push(chart);
+          }, 100);
+        }
+      }
+    }
+
+    log(message) {
+      console.log(`[${new Date().toLocaleTimeString()}] ${message}`);
+    }
+
+    async runAllAgents() {
+      if (!this.apiKey) {
+        alert('Please enter your OpenRouter API key first');
+        return;
+      }
+      if (!this.dataset) {
+        alert('Please upload a dataset first');
+        return;
+      }
+
+      // Run agents in sequence
+      await this.runMetadataExplainer();
+      await new Promise(r => setTimeout(r, 1000));
+      
+      await this.runProblemAnalyzer();
+      await new Promise(r => setTimeout(r, 1000));
+      
+      await this.runVisualizationCreator();
+      await new Promise(r => setTimeout(r, 1000));
+      
+      await this.runLeadGenerator();
+      
+      this.log('✅ All agents completed. Report ready for export.');
+    }
+  }
+
+  // Initialize platform
+  const platform = new AIAnalyticsPlatform();
+
+  // Render agent cards
+  function renderAgentCards() {
+    const grid = document.getElementById('agentsGrid');
+    grid.innerHTML = Object.entries(platform.agents).map(([id, agent]) => `
+      <div class="agent-card" data-agent="${id}">
+        <div class="agent-header">
+          <h4><i class="fas ${agent.icon}" style="color: #60a5fa;"></i> ${agent.name}</h4>
+          <span class="agent-status" style="font-size: 0.8rem;">IDLE</span>
+        </div>
+        <div class="agent-output">Configure and initialize to start analysis...</div>
+      </div>
+    `).join('');
+  }
+
+  // Initialize agents
+  async function initializeAgents() {
+    const apiKey = document.getElementById('apiKey').value;
+    if (!apiKey) {
+      alert('Please enter your OpenRouter API key');
+      return;
+    }
+    
+    platform.apiKey = apiKey;
+    platform.log('🔑 API key configured');
+    
+    // Get selected models
+    Object.keys(platform.agents).forEach(agentId => {
+      const select = document.getElementById(`model_${agentId}`);
+      if (select) {
+        platform.agents[agentId].model = select.value;
+      }
+    });
+    
+    platform.log('🚀 Starting multi-agent analysis pipeline...');
+    await platform.runAllAgents();
+  }
+
+  // File upload handling
+  document.getElementById('fileUpload').addEventListener('click', () => {
+    document.getElementById('fileInput').click();
+  });
+
+  document.getElementById('fileInput').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      await platform.loadDataset(file);
+      platform.log(`📁 Dataset loaded: ${file.name}`);
+    }
+  });
+
+  // Drag & drop support
+  document.getElementById('fileUpload').addEventListener('dragover', (e) => {
+    e.preventDefault();
+    e.target.style.borderColor = '#60a5fa';
+  });
+
+  document.getElementById('fileUpload').addEventListener('drop', async (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      await platform.loadDataset(file);
+      platform.log(`📁 Dataset loaded via drag & drop: ${file.name}`);
+    }
+  });
+
+  // Export functions
+  function showExportModal() {
+    document.getElementById('exportModal').style.display = 'flex';
+  }
+
+  function closeExportModal() {
+    document.getElementById('exportModal').style.display = 'none';
+  }
+
+  function exportReport(format) {
+    const report = generateReportContent();
+    
+    switch(format) {
+      case 'pdf':
+        exportToPDF(report);
+        break;
+      case 'html':
+        exportToHTML(report);
+        break;
+      case 'markdown':
+        exportToMarkdown(report);
+        break;
+      case 'pptx':
+        exportToPPTX(report);
+        break;
+    }
+    
+    closeExportModal();
+  }
+
+  function generateReportContent() {
+    return {
+      title: 'Multi-Agent AI Analytics Report',
+      timestamp: new Date().toISOString(),
+      problemStatement: document.getElementById('problemStatement').value,
+      datasetInfo: platform.datasetSummary,
+      agents: platform.agents,
+      reportData: platform.reportData
+    };
+  }
+
+  function exportToPDF(report) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    doc.setFontSize(18);
+    doc.text(report.title, 20, 20);
+    doc.setFontSize(12);
+    doc.text(`Generated: ${report.timestamp}`, 20, 30);
+    doc.text(`Problem: ${report.problemStatement}`, 20, 40);
+    
+    let yPos = 50;
+    Object.entries(report.agents).forEach(([id, agent]) => {
+      if (yPos > 250) {
+        doc.addPage();
+        yPos = 20;
+      }
+      doc.setFontSize(14);
+      doc.text(agent.name, 20, yPos);
+      doc.setFontSize(10);
+      const lines = doc.splitTextToSize(agent.output || 'No output', 170);
+      doc.text(lines, 20, yPos + 10);
+      yPos += 10 + (lines.length * 5) + 10;
+    });
+    
+    doc.save('ai-analytics-report.pdf');
+  }
+
+  function exportToHTML(report) {
+    let html = `
+      <!DOCTYPE html>
+      <html>
+      <head><title>${report.title}</title>
+      <style>body{font-family:Arial;padding:20px;background:#f5f5f5}
+      .agent{margin:20px 0;padding:20px;background:white;border-radius:8px}
+      h1{color:#1a1a2e}h3{color:#16213e}pre{white-space:pre-wrap;background:#f0f0f0;padding:10px}</style>
+      </head>
+      <body>
+      <h1>${report.title}</h1>
+      <p>Generated: ${report.timestamp}</p>
+      <h2>Problem Statement</h2>
+      <p>${report.problemStatement}</p>
+    `;
+    
+    Object.entries(report.agents).forEach(([id, agent]) => {
+      html += `
+        <div class="agent">
+          <h3>🤖 ${agent.name}</h3>
+          <p><strong>Model:</strong> ${agent.model}</p>
+          <pre>${agent.output || 'No output generated'}</pre>
+        </div>
+      `;
+    });
+    
+    html += '</body></html>';
+    
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ai-analytics-report.html';
+    a.click();
+  }
+
+  function exportToMarkdown(report) {
+    let md = `# ${report.title}\n\n`;
+    md += `**Generated:** ${report.timestamp}\n\n`;
+    md += `## Problem Statement\n${report.problemStatement}\n\n`;
+    md += `## Dataset\n${report.datasetInfo}\n\n`;
+    
+    Object.entries(report.agents).forEach(([id, agent]) => {
+      md += `## ${agent.name}\n`;
+      md += `**Model:** ${agent.model}\n\n`;
+      md += '```\n' + (agent.output || 'No output') + '\n```\n\n';
+    });
+    
+    const blob = new Blob([md], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ai-analytics-report.md';
+    a.click();
+  }
+
+  function exportToPPTX(report) {
+    // Simple HTML-based PPTX export
+    let html = `
+      <html>
+      <head><style>
+        .slide{page-break-after:always;padding:40px;font-family:Arial}
+        h1{color:#1a1a2e;font-size:32px}
+        h2{color:#16213e;font-size:24px}
+        pre{white-space:pre-wrap;background:#f0f0f0;padding:15px;font-size:12px}
+      </style></head>
+      <body>
+      <div class="slide">
+        <h1>${report.title}</h1>
+        <p>${report.timestamp}</p>
+        <p>${report.problemStatement}</p>
+      </div>
+    `;
+    
+    Object.entries(report.agents).forEach(([id, agent]) => {
+      html += `
+        <div class="slide">
+          <h2>${agent.name}</h2>
+          <p>Model: ${agent.model}</p>
+          <pre>${agent.output || 'No output'}</pre>
+        </div>
+      `;
+    });
+    
+    html += '</body></html>';
+    
+    const blob = new Blob([html], { type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'ai-analytics-report.pptx';
+    a.click();
+  }
+
+  // Initialize on load
+  window.addEventListener('load', async () => {
+    await platform.fetchModels();
+    renderAgentCards();
+    platform.log('🟢 Platform ready. Configure API key and upload dataset to begin.');
+  });
+
+  // Global scope exposure
+  window.platform = platform;
+  window.initializeAgents = initializeAgents;
+  window.showExportModal = showExportModal;
+  window.closeExportModal = closeExportModal;
+  window.exportReport = exportReport;
+</script>
+</body>
+</html>
