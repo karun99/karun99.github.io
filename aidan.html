@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-  <title>Multi-Agent AI Analytics Platform | Data Analysis & Lead Generation</title>
+  <title>Multi-Agent AI Analytics Platform | Fraud Detection System</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -21,7 +20,7 @@
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: #e2e8f0;
       min-height: 100vh;
-      padding: 1rem;
+      padding: 0.5rem;
     }
 
     .platform {
@@ -29,60 +28,86 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
-    /* Header */
     .header {
-      background: rgba(30, 41, 59, 0.8);
+      background: rgba(30, 41, 59, 0.9);
       backdrop-filter: blur(20px);
       border: 1px solid #334155;
-      border-radius: 1.5rem;
-      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.5rem;
     }
 
     .header h1 {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 1.5rem;
       background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
-    /* Input Section */
+    .notification {
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+      display: none;
+      font-weight: 500;
+    }
+
+    .notification.success {
+      background: #065f46;
+      color: #d1fae5;
+      border: 1px solid #10b981;
+      display: block;
+    }
+
+    .notification.error {
+      background: #7f1d1d;
+      color: #fecaca;
+      border: 1px solid #ef4444;
+      display: block;
+    }
+
+    .notification.info {
+      background: #1e3a5f;
+      color: #dbeafe;
+      border: 1px solid #3b82f6;
+      display: block;
+    }
+
     .input-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .config-panel {
       background: #1e293b;
       border: 1px solid #334155;
-      border-radius: 1rem;
-      padding: 1.5rem;
+      border-radius: 0.8rem;
+      padding: 1rem;
     }
 
     .config-panel h3 {
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       color: #60a5fa;
+      font-size: 1rem;
     }
 
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       color: #94a3b8;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     input, select, textarea {
@@ -90,100 +115,156 @@
       background: #0f172a;
       border: 1px solid #475569;
       color: #e2e8f0;
-      padding: 0.6rem;
-      border-radius: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 0.4rem;
       font-family: inherit;
+      font-size: 0.9rem;
     }
 
     textarea {
-      min-height: 80px;
+      min-height: 60px;
       resize: vertical;
     }
 
     .file-upload {
       border: 2px dashed #475569;
       border-radius: 0.5rem;
-      padding: 1rem;
+      padding: 1.5rem;
       text-align: center;
       cursor: pointer;
       transition: all 0.3s;
+      background: #0f172a;
     }
 
     .file-upload:hover {
       border-color: #60a5fa;
-      background: rgba(96, 165, 250, 0.1);
     }
 
-    /* Agent Cards */
+    .file-upload.active {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .dataset-preview {
+      background: #0f172a;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+    }
+
+    .dataset-preview table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .dataset-preview th {
+      background: #1e293b;
+      padding: 0.4rem;
+      text-align: left;
+      color: #60a5fa;
+      position: sticky;
+      top: 0;
+    }
+
+    .dataset-preview td {
+      padding: 0.3rem;
+      border-bottom: 1px solid #334155;
+    }
+
     .agents-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.8rem;
     }
 
     .agent-card {
       background: #1e293b;
       border: 1px solid #334155;
-      border-radius: 1rem;
-      padding: 1.5rem;
+      border-radius: 0.8rem;
+      padding: 1rem;
       transition: all 0.3s;
     }
 
     .agent-card.processing {
       border-color: #f59e0b;
-      box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
     }
 
     .agent-card.completed {
       border-color: #10b981;
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .agent-card.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
     }
 
     .agent-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
+
+    .agent-status-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.3rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .status-idle { background: #334155; color: #94a3b8; }
+    .status-processing { background: #78350f; color: #fbbf24; }
+    .status-completed { background: #064e3b; color: #6ee7b7; }
+    .status-error { background: #7f1d1d; color: #fca5a5; }
 
     .agent-output {
       background: #0f172a;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-top: 1rem;
+      border-radius: 0.4rem;
+      padding: 0.8rem;
       max-height: 300px;
       overflow-y: auto;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      line-height: 1.4;
     }
 
     .btn {
-      padding: 0.6rem 1.2rem;
-      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.4rem;
       border: none;
       cursor: pointer;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       transition: all 0.2s;
+      font-size: 0.9rem;
     }
 
     .btn-primary { background: #3b82f6; color: white; }
-    .btn-success { background: #10b981; color: white; }
-    .btn-warning { background: #f59e0b; color: #0f172a; }
-    .btn-danger { background: #ef4444; color: white; }
+    .btn-primary:hover { background: #2563eb; }
+    .btn-success { background: #059669; color: white; }
+    .btn-success:hover { background: #047857; }
+    .btn-warning { background: #d97706; color: white; }
+    .btn-warning:hover { background: #b45309; }
+    .btn-danger { background: #dc2626; color: white; }
+    .btn-danger:hover { background: #b91c1c; }
 
     .btn:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
 
-    /* Visualization Area */
     .visualization-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -191,11 +272,10 @@
     .chart-container {
       background: #1e293b;
       border: 1px solid #334155;
-      border-radius: 1rem;
-      padding: 1.5rem;
+      border-radius: 0.8rem;
+      padding: 1rem;
     }
 
-    /* Export Modal */
     .modal {
       display: none;
       position: fixed;
@@ -225,6 +305,22 @@
       margin: 1rem 0;
     }
 
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: #334155;
+      border-radius: 2px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, #3b82f6, #10b981);
+      width: 0%;
+      transition: width 0.3s;
+    }
+
     @media (max-width: 768px) {
       .input-section {
         grid-template-columns: 1fr;
@@ -241,14 +337,17 @@
   <div class="header">
     <div>
       <h1>🤖 Multi-Agent AI Analytics Platform</h1>
-      <p style="color: #94a3b8;">Data Analysis · Visualization · Lead Generation · KPI Reporting</p>
+      <p style="color: #94a3b8; font-size: 0.9rem;">Fraud Detection · Data Analysis · Lead Generation · KPI Reporting</p>
     </div>
     <div style="display: flex; gap: 0.5rem;">
-      <button class="btn btn-warning" onclick="showExportModal()">
+      <button class="btn btn-warning" onclick="showExportModal()" id="exportBtn" disabled>
         <i class="fas fa-download"></i> Export Report
       </button>
     </div>
   </div>
+
+  <!-- Notifications -->
+  <div id="notification"></div>
 
   <!-- Input Section -->
   <div class="input-section">
@@ -260,39 +359,40 @@
       </div>
       <div class="form-group">
         <label>Problem Statement</label>
-        <textarea id="problemStatement" placeholder="Describe your business problem...">Analyze customer churn patterns, identify key drivers, predict high-risk accounts, and generate targeted retention strategies with KPIs.</textarea>
+        <textarea id="problemStatement">Analyze credit card transactions to detect fraudulent patterns, identify key fraud indicators, create risk scoring models, and generate KPIs for fraud prevention strategy.</textarea>
       </div>
       <div class="form-group">
         <label>Upload Dataset (CSV/JSON)</label>
         <div class="file-upload" id="fileUpload">
           <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: #60a5fa;"></i>
-          <p>Click to upload or drag & drop</p>
+          <p>Click to upload or drag & drop CSV/JSON file</p>
           <input type="file" id="fileInput" accept=".csv,.json" style="display: none;">
         </div>
-        <div id="fileInfo" style="margin-top: 0.5rem; font-size: 0.8rem; color: #94a3b8;"></div>
+      </div>
+      <div id="datasetInfo" style="margin-top: 0.5rem;"></div>
+      <div class="dataset-preview" id="datasetPreview" style="display: none;">
+        <h4 style="color: #60a5fa; margin-bottom: 0.5rem;">📊 Dataset Preview (First 5 rows)</h4>
+        <div id="previewTable"></div>
       </div>
     </div>
 
     <div class="config-panel">
       <h3><i class="fas fa-robot"></i> Agent Model Configuration</h3>
-      <div id="agentModelConfig">
-        <!-- Dynamically generated -->
-      </div>
-      <button class="btn btn-primary" onclick="initializeAgents()" style="width: 100%; margin-top: 1rem;">
-        <i class="fas fa-rocket"></i> Initialize Multi-Agent System
+      <div id="agentModelConfig"></div>
+      <button class="btn btn-primary" onclick="initializeAgents()" style="width: 100%; margin-top: 1rem;" id="initBtn">
+        <i class="fas fa-rocket"></i> Run Multi-Agent Analysis
       </button>
+      <div class="progress-bar" id="progressBar" style="display: none;">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
     </div>
   </div>
 
   <!-- Agent Cards -->
-  <div class="agents-grid" id="agentsGrid">
-    <!-- Generated dynamically -->
-  </div>
+  <div class="agents-grid" id="agentsGrid"></div>
 
   <!-- Visualization Area -->
-  <div class="visualization-grid" id="visualizationGrid">
-    <!-- Charts will be added here -->
-  </div>
+  <div class="visualization-grid" id="visualizationGrid"></div>
 </div>
 
 <!-- Export Modal -->
@@ -304,49 +404,49 @@
       <button class="btn btn-primary" onclick="exportReport('pdf')">
         <i class="fas fa-file-pdf"></i> PDF Report
       </button>
-      <button class="btn btn-success" onclick="exportReport('pptx')">
-        <i class="fas fa-file-powerpoint"></i> PowerPoint
+      <button class="btn btn-success" onclick="exportReport('html')">
+        <i class="fas fa-file-code"></i> HTML Report
       </button>
-      <button class="btn btn-warning" onclick="exportReport('html')">
-        <i class="fas fa-file-code"></i> HTML
-      </button>
-      <button class="btn btn-danger" onclick="exportReport('markdown')">
+      <button class="btn btn-warning" onclick="exportReport('markdown')">
         <i class="fas fa-markdown"></i> Markdown
       </button>
+      <button class="btn btn-danger" onclick="exportReport('pptx')">
+        <i class="fas fa-file-powerpoint"></i> PowerPoint
+      </button>
     </div>
-    <button class="btn" onclick="closeExportModal()" style="width: 100%; margin-top: 1rem;">
+    <button class="btn" onclick="closeExportModal()" style="width: 100%; margin-top: 1rem; background: #334155;">
       Cancel
     </button>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script>
-  // Multi-Agent AI Analytics Platform
+  // Multi-Agent AI Analytics Platform with Robust CSV Parsing
   class AIAnalyticsPlatform {
     constructor() {
       this.apiKey = '';
       this.baseURL = 'https://openrouter.ai/api/v1';
       this.dataset = null;
-      this.datasetSummary = '';
+      this.datasetColumns = [];
+      this.datasetRowCount = 0;
       this.agents = {
         metadataExplainer: {
           name: 'Data & Metadata Explainer Agent',
           icon: 'fa-database',
-          model: 'google/gemini-flash-1.5',
+          model: 'deepseek/deepseek-chat',
           status: 'idle',
           output: ''
         },
         problemAnalyzer: {
           name: 'Problem Analysis Agent',
-          icon: 'fa-magnifying-glass',
-          model: 'google/gemini-pro-1.5',
+          icon: 'fa-magnifying-glass-chart',
+          model: 'openai/gpt-4o-mini',
           status: 'idle',
           output: ''
         },
         visualizationCreator: {
           name: 'Visualization & Insights Agent',
-          icon: 'fa-chart-bar',
+          icon: 'fa-chart-pie',
           model: 'anthropic/claude-3-haiku',
           status: 'idle',
           output: ''
@@ -354,7 +454,7 @@
         leadGenerator: {
           name: 'Lead Generation & KPI Agent',
           icon: 'fa-bullseye',
-          model: 'openai/gpt-4o-mini',
+          model: 'google/gemini-flash-1.5',
           status: 'idle',
           output: ''
         }
@@ -369,16 +469,19 @@
         const response = await fetch('https://openrouter.ai/api/v1/models');
         const data = await response.json();
         this.availableModels = data.data || [];
+        this.showNotification('✅ Loaded ' + this.availableModels.length + ' AI models', 'success');
       } catch {
         this.availableModels = [
-          { id: 'google/gemini-flash-1.5', name: 'Gemini Flash 1.5' },
-          { id: 'google/gemini-pro-1.5', name: 'Gemini Pro 1.5' },
-          { id: 'anthropic/claude-3.5-sonnet', name: 'Claude 3.5 Sonnet' },
-          { id: 'anthropic/claude-3-haiku', name: 'Claude 3 Haiku' },
+          { id: 'deepseek/deepseek-chat', name: 'DeepSeek V3' },
           { id: 'openai/gpt-4o', name: 'GPT-4o' },
           { id: 'openai/gpt-4o-mini', name: 'GPT-4o Mini' },
+          { id: 'anthropic/claude-3.5-sonnet', name: 'Claude 3.5 Sonnet' },
+          { id: 'anthropic/claude-3-haiku', name: 'Claude 3 Haiku' },
+          { id: 'google/gemini-flash-1.5', name: 'Gemini Flash 1.5' },
+          { id: 'google/gemini-pro-1.5', name: 'Gemini Pro 1.5' },
           { id: 'meta-llama/llama-3.1-70b-instruct', name: 'Llama 3.1 70B' }
         ];
+        this.showNotification('⚠️ Using offline model list', 'info');
       }
       this.renderModelConfigs();
     }
@@ -387,7 +490,7 @@
       const container = document.getElementById('agentModelConfig');
       container.innerHTML = Object.entries(this.agents).map(([id, agent]) => `
         <div class="form-group">
-          <label>${agent.name}</label>
+          <label><i class="fas ${agent.icon}"></i> ${agent.name}</label>
           <select id="model_${id}" onchange="platform.updateAgentModel('${id}', this.value)">
             ${this.availableModels.map(m => 
               `<option value="${m.id}" ${m.id === agent.model ? 'selected' : ''}>${m.name || m.id}</option>`
@@ -399,53 +502,125 @@
 
     updateAgentModel(agentId, modelId) {
       this.agents[agentId].model = modelId;
-      this.log(`🔄 ${this.agents[agentId].name} model updated to ${modelId}`);
+      this.showNotification(`🔄 ${this.agents[agentId].name} model updated`, 'info');
     }
 
-    async loadDataset(file) {
+    loadDataset(file) {
       return new Promise((resolve, reject) => {
+        const extension = file.name.split('.').pop().toLowerCase();
+        
         const reader = new FileReader();
-        reader.onload = async (e) => {
+        
+        reader.onload = (e) => {
           try {
-            if (file.name.endsWith('.json')) {
-              this.dataset = JSON.parse(e.target.result);
-            } else if (file.name.endsWith('.csv')) {
-              Papa.parse(e.target.result, {
+            const content = e.target.result;
+            
+            if (extension === 'json') {
+              // Parse JSON
+              const parsed = JSON.parse(content);
+              this.dataset = Array.isArray(parsed) ? parsed : [parsed];
+              this.processDataset();
+              resolve();
+            } else if (extension === 'csv') {
+              // Parse CSV with Papa Parse
+              Papa.parse(content, {
                 header: true,
                 dynamicTyping: true,
+                skipEmptyLines: true,
                 complete: (results) => {
-                  this.dataset = results.data;
+                  if (results.data && results.data.length > 0) {
+                    this.dataset = results.data;
+                    this.processDataset();
+                    resolve();
+                  } else {
+                    reject(new Error('CSV file appears to be empty. Please check the file format.'));
+                  }
+                },
+                error: (error) => {
+                  reject(new Error('CSV parsing error: ' + error.message));
                 }
               });
+            } else {
+              reject(new Error('Unsupported file format. Please use CSV or JSON.'));
             }
-            this.datasetSummary = `Dataset: ${file.name}, ${Array.isArray(this.dataset) ? this.dataset.length : Object.keys(this.dataset).length} records`;
-            document.getElementById('fileInfo').textContent = this.datasetSummary;
-            resolve();
           } catch (error) {
-            reject(error);
+            reject(new Error('Failed to parse file: ' + error.message));
           }
         };
-        reader.readAsDataURL(file);
-        // For actual processing, use readAsText
-        const textReader = new FileReader();
-        textReader.onload = (e) => {
-          if (file.name.endsWith('.json')) {
-            this.dataset = JSON.parse(e.target.result);
-          } else {
-            Papa.parse(e.target.result, {
-              header: true,
-              dynamicTyping: true,
-              complete: (results) => {
-                this.dataset = results.data;
-              }
-            });
-          }
+        
+        reader.onerror = () => {
+          reject(new Error('Failed to read file'));
         };
-        textReader.readAsText(file);
+        
+        reader.readAsText(file);
       });
     }
 
-    async callOpenRouter(model, messages, temperature = 0.7) {
+    processDataset() {
+      if (this.dataset && Array.isArray(this.dataset) && this.dataset.length > 0) {
+        this.datasetColumns = Object.keys(this.dataset[0]);
+        this.datasetRowCount = this.dataset.length;
+        
+        // Update UI
+        document.getElementById('datasetInfo').innerHTML = `
+          <div class="notification success">
+            ✅ Dataset loaded: <strong>${this.datasetRowCount.toLocaleString()} records</strong> | 
+            <strong>${this.datasetColumns.length} columns</strong>
+          </div>
+        `;
+        
+        // Show preview
+        this.showDatasetPreview();
+        
+        // Enable export button
+        document.getElementById('exportBtn').disabled = false;
+        
+        this.showNotification(`Dataset loaded with ${this.datasetRowCount} records and ${this.datasetColumns.length} columns`, 'success');
+      } else {
+        throw new Error('Dataset is empty or invalid');
+      }
+    }
+
+    showDatasetPreview() {
+      const previewDiv = document.getElementById('datasetPreview');
+      const tableDiv = document.getElementById('previewTable');
+      
+      const previewRows = this.dataset.slice(0, 5);
+      
+      let html = '<table><thead><tr>';
+      this.datasetColumns.forEach(col => {
+        html += `<th>${col}</th>`;
+      });
+      html += '</tr></thead><tbody>';
+      
+      previewRows.forEach(row => {
+        html += '<tr>';
+        this.datasetColumns.forEach(col => {
+          html += `<td>${row[col] !== null && row[col] !== undefined ? row[col] : ''}</td>`;
+        });
+        html += '</tr>';
+      });
+      
+      html += '</tbody></table>';
+      
+      if (this.datasetRowCount > 5) {
+        html += `<p style="color: #94a3b8; margin-top: 0.5rem;">... and ${this.datasetRowCount - 5} more rows</p>`;
+      }
+      
+      tableDiv.innerHTML = html;
+      previewDiv.style.display = 'block';
+    }
+
+    showNotification(message, type = 'info') {
+      const notification = document.getElementById('notification');
+      notification.className = 'notification ' + type;
+      notification.textContent = message;
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 5000);
+    }
+
+    async callOpenRouter(model, messages, maxTokens = 1000) {
       if (!this.apiKey) throw new Error('API key not configured');
       
       const response = await fetch(`${this.baseURL}/chat/completions`, {
@@ -454,43 +629,61 @@
           'Authorization': `Bearer ${this.apiKey}`,
           'Content-Type': 'application/json',
           'HTTP-Referer': window.location.href,
-          'X-Title': 'AI Analytics Platform'
+          'X-Title': 'AI Fraud Detection Analytics'
         },
-        body: JSON.stringify({ model, messages, temperature, max_tokens: 2000 })
+        body: JSON.stringify({
+          model: model,
+          messages: messages,
+          temperature: 0.7,
+          max_tokens: maxTokens
+        })
       });
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.error?.message || 'API request failed');
+        throw new Error(error.error?.message || `API error: ${response.status}`);
       }
 
       const data = await response.json();
       return data.choices[0].message.content;
     }
 
+    prepareDataSummary(maxRows = 20) {
+      const sample = this.dataset.slice(0, maxRows);
+      const columns = this.datasetColumns;
+      
+      let summary = `Dataset Summary:\n`;
+      summary += `- Total Records: ${this.datasetRowCount}\n`;
+      summary += `- Columns: ${columns.join(', ')}\n`;
+      summary += `- Sample Data (first ${maxRows} rows):\n`;
+      summary += JSON.stringify(sample, null, 2);
+      
+      return summary;
+    }
+
     async runMetadataExplainer() {
       const agent = this.agents.metadataExplainer;
       this.setAgentStatus('metadataExplainer', 'processing');
       
-      const dataSample = Array.isArray(this.dataset) ? 
-        this.dataset.slice(0, 10) : this.dataset;
+      const dataSummary = this.prepareDataSummary(10);
       
       const messages = [{
         role: 'system',
-        content: 'You are a data metadata expert. Analyze dataset structure, explain columns, data types, quality issues, and provide a comprehensive data dictionary. Include statistical summaries.'
+        content: 'You are a data metadata expert. Analyze the dataset structure, explain each column, identify data types, detect anomalies, and provide statistical summary. Focus on fraud detection patterns.'
       }, {
         role: 'user',
-        content: `Analyze this dataset metadata:\n${JSON.stringify(dataSample, null, 2)}\n\nProblem: ${document.getElementById('problemStatement').value}`
+        content: `Analyze this credit card transaction dataset:\n${dataSummary}\n\nProvide: 1) Column descriptions 2) Data quality assessment 3) Key statistics 4) Fraud indicators`
       }];
 
       try {
-        const result = await this.callOpenRouter(agent.model, messages);
+        const result = await this.callOpenRouter(agent.model, messages, 1500);
         agent.output = result;
         this.reportData.metadata = result;
         this.setAgentStatus('metadataExplainer', 'completed');
       } catch (error) {
         agent.output = `Error: ${error.message}`;
         this.setAgentStatus('metadataExplainer', 'error');
+        this.showNotification(`Metadata Agent failed: ${error.message}`, 'error');
       }
     }
 
@@ -498,25 +691,26 @@
       const agent = this.agents.problemAnalyzer;
       this.setAgentStatus('problemAnalyzer', 'processing');
       
+      const dataSummary = this.prepareDataSummary(20);
       const problem = document.getElementById('problemStatement').value;
-      const dataSample = this.dataset ? JSON.stringify(Array.isArray(this.dataset) ? this.dataset.slice(0, 20) : this.dataset).substring(0, 2000) : '';
       
       const messages = [{
         role: 'system',
-        content: 'You are a business problem analyzer. Identify root causes, patterns, correlations, and provide actionable insights. Structure analysis with: 1) Problem decomposition 2) Key findings 3) Root cause analysis 4) Recommendations.'
+        content: 'You are a fraud detection expert. Analyze the problem, identify fraud patterns, calculate risk factors, and provide actionable insights. Use statistical reasoning.'
       }, {
         role: 'user',
-        content: `Problem: ${problem}\n\nDataset sample: ${dataSample}\n\nProvide detailed problem analysis.`
+        content: `Problem: ${problem}\n\nDataset:\n${dataSummary}\n\nProvide: 1) Fraud pattern analysis 2) Risk factors 3) Detection strategies 4) Statistical insights`
       }];
 
       try {
-        const result = await this.callOpenRouter(agent.model, messages);
+        const result = await this.callOpenRouter(agent.model, messages, 1500);
         agent.output = result;
         this.reportData.problemAnalysis = result;
         this.setAgentStatus('problemAnalyzer', 'completed');
       } catch (error) {
         agent.output = `Error: ${error.message}`;
         this.setAgentStatus('problemAnalyzer', 'error');
+        this.showNotification(`Problem Analyzer failed: ${error.message}`, 'error');
       }
     }
 
@@ -524,25 +718,27 @@
       const agent = this.agents.visualizationCreator;
       this.setAgentStatus('visualizationCreator', 'processing');
       
-      const dataSample = this.dataset ? JSON.stringify(Array.isArray(this.dataset) ? this.dataset.slice(0, 50) : this.dataset).substring(0, 3000) : '';
+      const dataSample = JSON.stringify(this.dataset.slice(0, 30)).substring(0, 3000);
+      const columns = this.datasetColumns.join(', ');
       
       const messages = [{
         role: 'system',
-        content: 'You are a data visualization expert. Suggest chart types, generate chart configurations, and provide data insights. Output JSON format with chart suggestions: {"charts": [{"type": "bar/line/pie", "title": "", "data": {}, "insight": ""}]}'
+        content: 'You are a data visualization expert. Suggest chart types for fraud detection and provide insights. Output JSON format.'
       }, {
         role: 'user',
-        content: `Create visualization recommendations for:\nData: ${dataSample}\nProblem: ${document.getElementById('problemStatement').value}`
+        content: `Dataset columns: ${columns}\nSample data: ${dataSample}\n\nSuggest visualizations for fraud detection.`
       }];
 
       try {
-        const result = await this.callOpenRouter(agent.model, messages);
+        const result = await this.callOpenRouter(agent.model, messages, 1000);
         agent.output = result;
         this.reportData.visualizations = result;
-        this.createChartsFromAI(result);
+        this.createVisualizations();
         this.setAgentStatus('visualizationCreator', 'completed');
       } catch (error) {
         agent.output = `Error: ${error.message}`;
         this.setAgentStatus('visualizationCreator', 'error');
+        this.showNotification(`Visualization Agent failed: ${error.message}`, 'error');
       }
     }
 
@@ -550,25 +746,153 @@
       const agent = this.agents.leadGenerator;
       this.setAgentStatus('leadGenerator', 'processing');
       
-      const problem = document.getElementById('problemStatement').value;
-      const allOutputs = Object.values(this.agents).map(a => a.output).join('\n').substring(0, 3000);
+      const allInsights = Object.values(this.agents)
+        .filter(a => a.output && !a.output.startsWith('Error'))
+        .map(a => a.output)
+        .join('\n\n')
+        .substring(0, 3000);
       
       const messages = [{
         role: 'system',
-        content: 'You are a lead generation and KPI specialist. Generate actionable leads, define KPIs, create metrics framework, and provide ROI projections. Output: 1) Target leads/segments 2) KPI dashboard metrics 3) Conversion strategies 4) Revenue projections.'
+        content: 'You are a KPI and strategy expert. Generate fraud prevention KPIs, detection metrics, risk thresholds, and actionable recommendations.'
       }, {
         role: 'user',
-        content: `Based on analysis:\nProblem: ${problem}\n\nInsights: ${allOutputs}\n\nGenerate leads and KPIs.`
+        content: `Based on fraud analysis:\n${allInsights}\n\nGenerate: 1) Key KPIs 2) Risk thresholds 3) Prevention strategies 4) ROI metrics`
       }];
 
       try {
-        const result = await this.callOpenRouter(agent.model, messages);
+        const result = await this.callOpenRouter(agent.model, messages, 1500);
         agent.output = result;
         this.reportData.leadsKPIs = result;
         this.setAgentStatus('leadGenerator', 'completed');
       } catch (error) {
         agent.output = `Error: ${error.message}`;
         this.setAgentStatus('leadGenerator', 'error');
+        this.showNotification(`KPI Agent failed: ${error.message}`, 'error');
+      }
+    }
+
+    createVisualizations() {
+      const vizGrid = document.getElementById('visualizationGrid');
+      vizGrid.innerHTML = '';
+      
+      // Destroy existing charts
+      this.charts.forEach(chart => chart.destroy());
+      this.charts = [];
+
+      if (!this.dataset || this.dataset.length === 0) return;
+
+      // Find numeric columns
+      const numericCols = this.datasetColumns.filter(col => {
+        return this.dataset.slice(0, 10).some(row => typeof row[col] === 'number');
+      });
+
+      // Chart 1: Transaction Amount Distribution
+      if (numericCols.length > 0) {
+        const canvasId = 'chart_amount_dist';
+        vizGrid.innerHTML += `
+          <div class="chart-container">
+            <h4 style="color: #60a5fa;">💰 Transaction Amount Distribution</h4>
+            <canvas id="${canvasId}"></canvas>
+          </div>
+        `;
+        
+        setTimeout(() => {
+          const ctx = document.getElementById(canvasId).getContext('2d');
+          const amounts = this.dataset.slice(0, 50).map(d => d[numericCols[0]] || 0);
+          const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: amounts.map((_, i) => `Txn ${i+1}`),
+              datasets: [{
+                label: numericCols[0],
+                data: amounts,
+                backgroundColor: amounts.map(v => v > (Math.max(...amounts) * 0.8) ? '#ef4444' : '#3b82f6')
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: { 
+                title: { display: true, text: 'Transaction Amounts', color: '#e2e8f0' }
+              }
+            }
+          });
+          this.charts.push(chart);
+        }, 200);
+      }
+
+      // Chart 2: Fraud Distribution if Class column exists
+      const classCol = this.datasetColumns.find(c => c.toLowerCase().includes('class') || c.toLowerCase().includes('fraud'));
+      if (classCol) {
+        const canvasId2 = 'chart_fraud_dist';
+        vizGrid.innerHTML += `
+          <div class="chart-container">
+            <h4 style="color: #60a5fa;">🔍 Fraud vs Legitimate Transactions</h4>
+            <canvas id="${canvasId2}"></canvas>
+          </div>
+        `;
+        
+        setTimeout(() => {
+          const ctx = document.getElementById(canvasId2).getContext('2d');
+          const fraudCount = this.dataset.filter(d => d[classCol] === 1 || d[classCol] === '1').length;
+          const legitCount = this.dataset.length - fraudCount;
+          
+          const chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+              labels: ['Legitimate', 'Fraudulent'],
+              datasets: [{
+                data: [legitCount, fraudCount],
+                backgroundColor: ['#10b981', '#ef4444']
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { position: 'bottom', labels: { color: '#e2e8f0' } }
+              }
+            }
+          });
+          this.charts.push(chart);
+        }, 200);
+      }
+
+      // Chart 3: Time-based trend if Time column exists
+      const timeCol = this.datasetColumns.find(c => c.toLowerCase().includes('time'));
+      if (timeCol && numericCols.length > 0) {
+        const canvasId3 = 'chart_time_trend';
+        vizGrid.innerHTML += `
+          <div class="chart-container">
+            <h4 style="color: #60a5fa;">📈 Transaction Trend Over Time</h4>
+            <canvas id="${canvasId3}"></canvas>
+          </div>
+        `;
+        
+        setTimeout(() => {
+          const ctx = document.getElementById(canvasId3).getContext('2d');
+          const sample = this.dataset.slice(0, 100);
+          const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: sample.map((_, i) => i + 1),
+              datasets: [{
+                label: 'Amount',
+                data: sample.map(d => d[numericCols[0]] || 0),
+                borderColor: '#a78bfa',
+                tension: 0.3,
+                pointRadius: sample.map(d => (d[classCol] === 1 || d[classCol] === '1') ? 5 : 2),
+                pointBackgroundColor: sample.map(d => (d[classCol] === 1 || d[classCol] === '1') ? '#ef4444' : '#3b82f6')
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { display: false }
+              }
+            }
+          });
+          this.charts.push(chart);
+        }, 200);
       }
     }
 
@@ -582,121 +906,56 @@
       const card = document.querySelector(`[data-agent="${agentId}"]`);
       if (!card) return;
 
-      card.className = 'agent-card';
-      if (agent.status === 'processing') card.classList.add('processing');
-      else if (agent.status === 'completed') card.classList.add('completed');
-
-      const outputEl = card.querySelector('.agent-output');
-      outputEl.textContent = agent.output || 'Waiting for execution...';
+      card.className = 'agent-card ' + agent.status;
       
-      const statusEl = card.querySelector('.agent-status');
-      statusEl.textContent = agent.status.toUpperCase();
-      statusEl.style.color = agent.status === 'completed' ? '#10b981' : 
-                             agent.status === 'processing' ? '#f59e0b' : '#94a3b8';
+      const badge = card.querySelector('.agent-status-badge');
+      badge.textContent = agent.status.toUpperCase();
+      badge.className = 'agent-status-badge status-' + agent.status;
+      
+      const output = card.querySelector('.agent-output');
+      output.textContent = agent.output || 'Waiting for execution...';
     }
 
-    createChartsFromAI(aiResponse) {
-      const vizGrid = document.getElementById('visualizationGrid');
-      vizGrid.innerHTML = '';
-      this.charts = [];
-
-      // Create sample charts based on dataset
-      if (this.dataset && Array.isArray(this.dataset) && this.dataset.length > 0) {
-        const sampleData = this.dataset.slice(0, 50);
-        const columns = Object.keys(sampleData[0] || {});
-        
-        // Create bar chart for categorical data
-        if (columns.length >= 1) {
-          const canvasId = 'chart_' + Date.now();
-          vizGrid.innerHTML += `
-            <div class="chart-container">
-              <h4>📊 Data Distribution Analysis</h4>
-              <canvas id="${canvasId}"></canvas>
-            </div>
-          `;
-          
-          setTimeout(() => {
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            const chart = new Chart(ctx, {
-              type: 'bar',
-              data: {
-                labels: sampleData.map((d, i) => `Record ${i+1}`).slice(0, 10),
-                datasets: [{
-                  label: columns[0] || 'Value',
-                  data: sampleData.map(d => d[columns[0]] || 0).slice(0, 10),
-                  backgroundColor: '#60a5fa'
-                }]
-              },
-              options: {
-                responsive: true,
-                plugins: { legend: { display: false } }
-              }
-            });
-            this.charts.push(chart);
-          }, 100);
-        }
-
-        // Create line chart for trends
-        if (columns.length >= 2) {
-          const canvasId2 = 'chart2_' + Date.now();
-          vizGrid.innerHTML += `
-            <div class="chart-container">
-              <h4>📈 Trend Analysis</h4>
-              <canvas id="${canvasId2}"></canvas>
-            </div>
-          `;
-          
-          setTimeout(() => {
-            const ctx = document.getElementById(canvasId2).getContext('2d');
-            const chart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: sampleData.map((d, i) => `Q${i+1}`).slice(0, 10),
-                datasets: [{
-                  label: columns[1] || 'Metric',
-                  data: sampleData.map(d => d[columns[1]] || Math.random()*100).slice(0, 10),
-                  borderColor: '#a78bfa',
-                  tension: 0.4
-                }]
-              },
-              options: {
-                responsive: true,
-                plugins: { legend: { display: false } }
-              }
-            });
-            this.charts.push(chart);
-          }, 100);
-        }
-      }
-    }
-
-    log(message) {
-      console.log(`[${new Date().toLocaleTimeString()}] ${message}`);
+    updateProgress(percent) {
+      const progressBar = document.getElementById('progressBar');
+      const progressFill = document.getElementById('progressFill');
+      progressBar.style.display = 'block';
+      progressFill.style.width = percent + '%';
     }
 
     async runAllAgents() {
       if (!this.apiKey) {
-        alert('Please enter your OpenRouter API key first');
+        this.showNotification('❌ Please enter your OpenRouter API key', 'error');
         return;
       }
-      if (!this.dataset) {
-        alert('Please upload a dataset first');
+      
+      if (!this.dataset || this.dataset.length === 0) {
+        this.showNotification('❌ Please upload a valid dataset first', 'error');
         return;
       }
 
-      // Run agents in sequence
+      document.getElementById('initBtn').disabled = true;
+      this.updateProgress(0);
+
+      // Run agents sequentially
       await this.runMetadataExplainer();
-      await new Promise(r => setTimeout(r, 1000));
-      
+      this.updateProgress(25);
+      await new Promise(r => setTimeout(r, 500));
+
       await this.runProblemAnalyzer();
-      await new Promise(r => setTimeout(r, 1000));
-      
+      this.updateProgress(50);
+      await new Promise(r => setTimeout(r, 500));
+
       await this.runVisualizationCreator();
-      await new Promise(r => setTimeout(r, 1000));
-      
+      this.updateProgress(75);
+      await new Promise(r => setTimeout(r, 500));
+
       await this.runLeadGenerator();
+      this.updateProgress(100);
       
-      this.log('✅ All agents completed. Report ready for export.');
+      document.getElementById('initBtn').disabled = false;
+      document.getElementById('exportBtn').disabled = false;
+      this.showNotification('✅ All agents completed successfully! Report ready for export.', 'success');
     }
   }
 
@@ -709,10 +968,16 @@
     grid.innerHTML = Object.entries(platform.agents).map(([id, agent]) => `
       <div class="agent-card" data-agent="${id}">
         <div class="agent-header">
-          <h4><i class="fas ${agent.icon}" style="color: #60a5fa;"></i> ${agent.name}</h4>
-          <span class="agent-status" style="font-size: 0.8rem;">IDLE</span>
+          <h4 style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas ${agent.icon}" style="color: #60a5fa;"></i>
+            ${agent.name}
+          </h4>
+          <span class="agent-status-badge status-idle">IDLE</span>
         </div>
-        <div class="agent-output">Configure and initialize to start analysis...</div>
+        <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">
+          Model: <span id="modelLabel_${id}">${agent.model}</span>
+        </div>
+        <div class="agent-output">Ready for analysis...</div>
       </div>
     `).join('');
   }
@@ -726,17 +991,16 @@
     }
     
     platform.apiKey = apiKey;
-    platform.log('🔑 API key configured');
     
-    // Get selected models
+    // Update model selections
     Object.keys(platform.agents).forEach(agentId => {
       const select = document.getElementById(`model_${agentId}`);
       if (select) {
         platform.agents[agentId].model = select.value;
+        document.getElementById(`modelLabel_${agentId}`).textContent = select.value;
       }
     });
     
-    platform.log('🚀 Starting multi-agent analysis pipeline...');
     await platform.runAllAgents();
   }
 
@@ -748,23 +1012,40 @@
   document.getElementById('fileInput').addEventListener('change', async (e) => {
     const file = e.target.files[0];
     if (file) {
-      await platform.loadDataset(file);
-      platform.log(`📁 Dataset loaded: ${file.name}`);
+      try {
+        document.getElementById('fileUpload').classList.add('active');
+        document.getElementById('datasetInfo').innerHTML = '<div class="notification info">⏳ Loading dataset...</div>';
+        
+        await platform.loadDataset(file);
+        
+        document.getElementById('fileUpload').querySelector('p').textContent = `✅ ${file.name} loaded`;
+      } catch (error) {
+        platform.showNotification('❌ ' + error.message, 'error');
+        document.getElementById('fileUpload').classList.remove('active');
+      }
     }
   });
 
-  // Drag & drop support
+  // Drag and drop
   document.getElementById('fileUpload').addEventListener('dragover', (e) => {
     e.preventDefault();
     e.target.style.borderColor = '#60a5fa';
   });
 
+  document.getElementById('fileUpload').addEventListener('dragleave', (e) => {
+    e.target.style.borderColor = '#475569';
+  });
+
   document.getElementById('fileUpload').addEventListener('drop', async (e) => {
     e.preventDefault();
+    e.target.style.borderColor = '#475569';
     const file = e.dataTransfer.files[0];
     if (file) {
-      await platform.loadDataset(file);
-      platform.log(`📁 Dataset loaded via drag & drop: ${file.name}`);
+      try {
+        await platform.loadDataset(file);
+      } catch (error) {
+        platform.showNotification('❌ ' + error.message, 'error');
+      }
     }
   });
 
@@ -775,6 +1056,17 @@
 
   function closeExportModal() {
     document.getElementById('exportModal').style.display = 'none';
+  }
+
+  function generateReportContent() {
+    return {
+      title: 'Fraud Detection AI Analytics Report',
+      timestamp: new Date().toISOString(),
+      problemStatement: document.getElementById('problemStatement').value,
+      datasetInfo: `${platform.datasetRowCount} records, ${platform.datasetColumns.length} columns`,
+      agents: platform.agents,
+      reportData: platform.reportData
+    };
   }
 
   function exportReport(format) {
@@ -798,64 +1090,71 @@
     closeExportModal();
   }
 
-  function generateReportContent() {
-    return {
-      title: 'Multi-Agent AI Analytics Report',
-      timestamp: new Date().toISOString(),
-      problemStatement: document.getElementById('problemStatement').value,
-      datasetInfo: platform.datasetSummary,
-      agents: platform.agents,
-      reportData: platform.reportData
-    };
-  }
-
   function exportToPDF(report) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
-    doc.setFontSize(18);
+    doc.setFontSize(16);
+    doc.setTextColor(30, 41, 59);
     doc.text(report.title, 20, 20);
-    doc.setFontSize(12);
-    doc.text(`Generated: ${report.timestamp}`, 20, 30);
-    doc.text(`Problem: ${report.problemStatement}`, 20, 40);
     
-    let yPos = 50;
+    doc.setFontSize(10);
+    doc.setTextColor(100, 116, 139);
+    doc.text(`Generated: ${report.timestamp}`, 20, 30);
+    doc.text(`Dataset: ${report.datasetInfo}`, 20, 38);
+    doc.text(`Problem: ${report.problemStatement.substring(0, 100)}...`, 20, 46);
+    
+    let yPos = 60;
     Object.entries(report.agents).forEach(([id, agent]) => {
       if (yPos > 250) {
         doc.addPage();
         yPos = 20;
       }
-      doc.setFontSize(14);
+      
+      doc.setFontSize(12);
+      doc.setTextColor(59, 130, 246);
       doc.text(agent.name, 20, yPos);
-      doc.setFontSize(10);
-      const lines = doc.splitTextToSize(agent.output || 'No output', 170);
-      doc.text(lines, 20, yPos + 10);
-      yPos += 10 + (lines.length * 5) + 10;
+      
+      doc.setFontSize(8);
+      doc.setTextColor(100, 116, 139);
+      const output = agent.output || 'No output';
+      const lines = doc.splitTextToSize(output, 170);
+      doc.text(lines, 20, yPos + 8);
+      
+      yPos += 8 + (lines.length * 4) + 10;
     });
     
-    doc.save('ai-analytics-report.pdf');
+    doc.save('fraud-detection-report.pdf');
   }
 
   function exportToHTML(report) {
     let html = `
       <!DOCTYPE html>
       <html>
-      <head><title>${report.title}</title>
-      <style>body{font-family:Arial;padding:20px;background:#f5f5f5}
-      .agent{margin:20px 0;padding:20px;background:white;border-radius:8px}
-      h1{color:#1a1a2e}h3{color:#16213e}pre{white-space:pre-wrap;background:#f0f0f0;padding:10px}</style>
+      <head>
+        <title>${report.title}</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+          .header { background: #1a1a2e; color: white; padding: 20px; border-radius: 8px; }
+          .agent { background: white; margin: 20px 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+          pre { white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 4px; font-size: 12px; }
+          h2 { color: #1a1a2e; }
+        </style>
       </head>
       <body>
-      <h1>${report.title}</h1>
-      <p>Generated: ${report.timestamp}</p>
-      <h2>Problem Statement</h2>
-      <p>${report.problemStatement}</p>
+        <div class="header">
+          <h1>${report.title}</h1>
+          <p>Generated: ${report.timestamp}</p>
+          <p>Dataset: ${report.datasetInfo}</p>
+        </div>
+        <h2>Problem Statement</h2>
+        <p>${report.problemStatement}</p>
     `;
     
     Object.entries(report.agents).forEach(([id, agent]) => {
       html += `
         <div class="agent">
-          <h3>🤖 ${agent.name}</h3>
+          <h2>${agent.name}</h2>
           <p><strong>Model:</strong> ${agent.model}</p>
           <pre>${agent.output || 'No output generated'}</pre>
         </div>
@@ -868,15 +1167,15 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'ai-analytics-report.html';
+    a.download = 'fraud-detection-report.html';
     a.click();
   }
 
   function exportToMarkdown(report) {
     let md = `# ${report.title}\n\n`;
     md += `**Generated:** ${report.timestamp}\n\n`;
+    md += `**Dataset:** ${report.datasetInfo}\n\n`;
     md += `## Problem Statement\n${report.problemStatement}\n\n`;
-    md += `## Dataset\n${report.datasetInfo}\n\n`;
     
     Object.entries(report.agents).forEach(([id, agent]) => {
       md += `## ${agent.name}\n`;
@@ -888,19 +1187,18 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'ai-analytics-report.md';
+    a.download = 'fraud-detection-report.md';
     a.click();
   }
 
   function exportToPPTX(report) {
-    // Simple HTML-based PPTX export
     let html = `
       <html>
       <head><style>
-        .slide{page-break-after:always;padding:40px;font-family:Arial}
-        h1{color:#1a1a2e;font-size:32px}
-        h2{color:#16213e;font-size:24px}
-        pre{white-space:pre-wrap;background:#f0f0f0;padding:15px;font-size:12px}
+        .slide { page-break-after: always; padding: 40px; font-family: Arial; }
+        h1 { font-size: 32px; color: #1a1a2e; }
+        h2 { font-size: 24px; color: #16213e; }
+        pre { white-space: pre-wrap; background: #f0f0f0; padding: 15px; font-size: 12px; border-radius: 4px; }
       </style></head>
       <body>
       <div class="slide">
@@ -914,7 +1212,7 @@
       html += `
         <div class="slide">
           <h2>${agent.name}</h2>
-          <p>Model: ${agent.model}</p>
+          <p><strong>Model:</strong> ${agent.model}</p>
           <pre>${agent.output || 'No output'}</pre>
         </div>
       `;
@@ -926,7 +1224,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'ai-analytics-report.pptx';
+    a.download = 'fraud-detection-report.pptx';
     a.click();
   }
 
@@ -934,10 +1232,10 @@
   window.addEventListener('load', async () => {
     await platform.fetchModels();
     renderAgentCards();
-    platform.log('🟢 Platform ready. Configure API key and upload dataset to begin.');
+    platform.showNotification('🟢 Platform ready. Enter API key, upload dataset, and run analysis.', 'info');
   });
 
-  // Global scope exposure
+  // Global exposure
   window.platform = platform;
   window.initializeAgents = initializeAgents;
   window.showExportModal = showExportModal;
