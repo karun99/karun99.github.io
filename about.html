@@ -364,12 +364,49 @@
         /* DNA Container */
         .dna-container {
             position: relative;
-            height: 500px;
+            height: 460px;
             width: 100%;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+        }
+
+        /* Skill Category Legend */
+        .skill-legend {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.9rem 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .legend-label {
+            margin-right: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #cbd5e1;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .legend-item i {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px currentColor;
         }
 
         /* Loader */
@@ -553,29 +590,39 @@
                     <!-- 3D Scene Injected Here -->
                     <div id="dna-tooltip" style="
                         position: absolute; 
-                        top: 50%; 
-                        left: 50%; 
-                        transform: translate(-50%, -50%); 
-                        background: rgba(0,0,0,0.8); 
+                        top: 0; 
+                        left: 0; 
+                        background: rgba(0,0,0,0.88); 
                         border: 1px solid var(--accent-primary); 
-                        padding: 0.5rem 1rem; 
+                        padding: 0.6rem 0.9rem; 
                         border-radius: 4px; 
                         color: #fff; 
                         font-family: 'Fira Code', monospace; 
-                        font-size: 0.8rem;
+                        font-size: 0.75rem;
+                        line-height: 1.5;
                         pointer-events: none;
                         opacity: 0;
                         transition: opacity 0.2s;
                         z-index: 20;
+                        max-width: 230px;
                     ">SYSTEM_CORE</div>
                 </div>
 
+                <!-- Skill Category Legend -->
+                <div class="skill-legend">
+                    <span class="legend-label font-mono text-xs text-gray-400">CODON BANDS:</span>
+                    <span class="legend-item"><i style="background:#06b6d4"></i>AI &amp; ML</span>
+                    <span class="legend-item"><i style="background:#d4af37"></i>Web</span>
+                    <span class="legend-item"><i style="background:#22c55e"></i>Data</span>
+                    <span class="legend-item"><i style="background:#f472b6"></i>Research</span>
+                </div>
+
                 <div
-                    style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.8); padding: 1rem; border: 1px solid var(--accent-primary); border-radius: 4px;">
+                    style="position: absolute; bottom: 54px; right: 20px; background: rgba(0,0,0,0.8); padding: 1rem; border: 1px solid var(--accent-primary); border-radius: 4px;">
                     <h4 class="text-gold font-display text-sm mb-1">SKILL_MATRIX</h4>
                     <p class="text-xs text-gray-300 font-mono">
-                        > MOUSE OVER NODES<br />
-                        > TO DECODE GENOME
+                        > HOVER NODES TO DECODE<br />
+                        > DRAG MOUSE FOR PARALLAX
                     </p>
                 </div>
             </div>

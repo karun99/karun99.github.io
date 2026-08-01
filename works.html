@@ -311,8 +311,6 @@
                         class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Projects</a>
                     <a href="services.html"
                         class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Services</a>
-                    <a href="services.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Services</a>
                     <a href="works.html"
                         class="text-xs font-bold text-gold-accent tracking-widest uppercase border-b border-gold-accent pb-0.5">Works</a>
                 </div>
@@ -333,8 +331,6 @@
                         class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">PAPERS</button>
                     <button onclick="filterBooks('Book')"
                         class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">BOOKS</button>
-                    <button onclick="filterBooks('Patent')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">PATENTS</button>
                     <button onclick="filterBooks('Peer Review')"
                         class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">REVIEWS</button>
                 </div>
@@ -345,9 +341,10 @@
         <div class="bg-[#1a110e] border-b border-gold-accent/20 py-1.5 text-center">
             <div
                 class="container mx-auto flex justify-center gap-8 text-[10px] text-gray-500 font-sans tracking-widest uppercase">
-                <span id="total-works">42 Works Indexed</span>
-                <span class="text-gold-accent"><i class="fas fa-star mr-1"></i> Highly Cited</span>
-                <span><i class="fas fa-book mr-1"></i> Faculty Publications</span>
+                <span id="total-works" class="text-gold-accent"><i class="fas fa-database mr-1"></i>0 Works Indexed</span>
+                <span><i class="fas fa-file-alt mr-1"></i> <span id="count-papers">0</span> Papers</span>
+                <span><i class="fas fa-book mr-1"></i> <span id="count-books">0</span> Books</span>
+                <span><i class="fas fa-star mr-1"></i> <span id="count-reviews">0</span> Reviews</span>
             </div>
         </div>
     </nav>
@@ -393,7 +390,6 @@
         const rawWorks = [
             // Research Papers (Journals/Conferences)
             { t: "Integrating Proximal Policy Optimization with Physically Realistic Simulation for Robust Autonomous Underwater Vehicle Control", cat: "Research Paper", y: "2026", src: "Gazi University Journal of Science", doi: "Review" },
-            { t: "Integrating Proximal Policy Optimization with Physically Realistic Simulation (Duplicate Entry)", cat: "Research Paper", y: "2025", src: "Gazi University", doi: "Review" }, // Kept as per user list
             { t: "A REVIEW ON MACHINE LEARNING APPROACH FOR TRACKING AND PREDICTING STUDENT PERFORMANCE", cat: "Research Paper", y: "2025", src: "UIJES", doi: "10.53414.UIJES.5.2.21" },
             { t: "Quality of LLM-Mediated Communication in Disabled Learning", cat: "Research Paper", y: "2025", src: "Google Scholar", doi: "Journal Article" },
             { t: "An Analysis of Intrusion detection and penetration systems in the health care sector", cat: "Research Paper", y: "2024", src: "ICRIT-2024", doi: "Conference" },
@@ -536,14 +532,19 @@
         }
 
         // --- 4. FILTER & SEARCH ---
+        const CATEGORY_BY_BTN = {
+            'ALL': 'all',
+            'PAPERS': 'Research Paper',
+            'BOOKS': 'Book',
+            'REVIEWS': 'Peer Review'
+        };
+
         function filterBooks(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('text-white', 'hover:bg-gold-accent/10');
-                btn.classList.add('text-gray-400');
-                if (btn.textContent.includes(category.toUpperCase()) || (category === 'all' && btn.textContent === 'ALL')) {
-                    btn.classList.add('text-white');
-                    btn.classList.remove('text-gray-400');
-                }
+                const label = btn.textContent.trim().toUpperCase();
+                const matches = CATEGORY_BY_BTN[label] === category;
+                btn.classList.toggle('text-white', matches);
+                btn.classList.toggle('text-gray-400', !matches);
             });
 
             const term = searchInput.value.toLowerCase();
@@ -558,8 +559,7 @@
 
         searchInput.addEventListener('input', () => {
             const activeBtn = document.querySelector('.filter-btn.text-white');
-            let cat = 'all';
-            if (activeBtn.textContent.includes('BOOKS')) cat = 'Book';
+            const cat = activeBtn ? (CATEGORY_BY_BTN[activeBtn.textContent.trim().toUpperCase()] || 'all') : 'all';
             filterBooks(cat);
         });
 
@@ -737,6 +737,13 @@
 
         // Initialize
         renderShelves(works);
+
+        // Populate stats bar
+        const byCat = (cat) => works.filter(w => w.cat === cat).length;
+        document.getElementById('total-works').textContent = `${works.length} Works Indexed`;
+        document.getElementById('count-papers').textContent = byCat('Research Paper');
+        document.getElementById('count-books').textContent = byCat('Book');
+        document.getElementById('count-reviews').textContent = byCat('Peer Review');
 
     </script>
 </body>

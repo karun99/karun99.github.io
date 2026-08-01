@@ -192,15 +192,36 @@ function initLoader3D(container) {
     });
 }
 
-// --- 5. ABOUT PAGE SPECIFIC: NEURAL CONSTELLATION ---
+// --- 5. ABOUT PAGE SPECIFIC: INTERACTIVE SKILLS GENOME (IMPROVED DNA) ---
+const SKILL_CATEGORIES = [
+    {
+        key: 'AI_ML', label: 'AI & ML ENGINEERING', color: 0x06b6d4, desc: 'Neural architectures, LLMs & agentic systems',
+        skills: ['Python', 'TensorFlow', 'Deep Learning', 'LLM', 'RAG', 'Agentic AI', 'Gen AI', 'Big Data']
+    },
+    {
+        key: 'WEB', label: 'WEB & FULLSTACK', color: 0xd4af37, desc: 'Modern interfaces & server systems',
+        skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'JavaScript', 'Three.js', 'Tailwind', 'MEAN Stack']
+    },
+    {
+        key: 'DATA', label: 'DATA & INFRA', color: 0x22c55e, desc: 'Storage, pipelines & deployment',
+        skills: ['MongoDB', 'SQL', 'Docker', 'Git', 'AWS', 'FastAPI', 'Power BI', 'Linux']
+    },
+    {
+        key: 'RESEARCH', label: 'RESEARCH & AI LITERACY', color: 0xf472b6, desc: 'Scholarship, writing & IPR',
+        skills: ['Prompt Engineering', 'Research Methodology', 'Technical Writing', 'IPR & Patents', 'Machine Learning', 'NLP']
+    }
+];
+
 function initAboutVisuals(container) {
     if (!container) return;
 
     const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x020617, 0.014);
+
     const width = container.clientWidth;
     const height = container.clientHeight || 500;
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
-    camera.position.z = 40;
+    camera.position.set(0, 0, 46);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(width, height);
@@ -209,60 +230,111 @@ function initAboutVisuals(container) {
 
     const group = new THREE.Group();
     scene.add(group);
-    createInteractiveDNA(group);
 
+    // Ambient starfield
+    addStarField(scene, 380);
+
+    // The skills genome (categorized DNA helix)
+    const helix = createSkillsGenome();
+    group.add(helix);
+
+    // Interaction state
+    const pointer = new THREE.Vector2(0, 0);
+    const target = new THREE.Vector2(0, 0);
     const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
+    const mouse = new THREE.Vector2(0, 0);
     const tooltip = document.getElementById('dna-tooltip');
+    let hasPointer = false;
+    let hoveredNode = null;
 
-    container.addEventListener('mousemove', (event) => {
+    const nodes = [];
+    helix.traverse((child) => {
+        if (child.isMesh && child.userData.isSkillNode) nodes.push(child);
+    });
+
+    container.addEventListener('pointermove', (event) => {
         const rect = container.getBoundingClientRect();
-        mouse.x = ((event.clientX - rect.left) / width) * 2 - 1;
-        mouse.y = -((event.clientY - rect.top) / height) * 2 + 1;
+        target.x = ((event.clientX - rect.left) / width) * 2 - 1;
+        target.y = -((event.clientY - rect.top) / height) * 2 + 1;
+        mouse.x = target.x;
+        mouse.y = target.y;
+        hasPointer = true;
 
         if (tooltip) {
-            const x = event.clientX - rect.left + 15;
-            const y = event.clientY - rect.top + 15;
-            tooltip.style.left = `${x}px`;
-            tooltip.style.top = `${y}px`;
+            tooltip.style.left = `${event.clientX - rect.left + 16}px`;
+            tooltip.style.top = `${event.clientY - rect.top + 16}px`;
         }
     });
 
-    let hoveredNode = null;
+    container.addEventListener('mouseleave', () => {
+        hasPointer = false;
+        target.set(0, 0);
+        resetHover();
+        if (tooltip) tooltip.style.opacity = 0;
+    });
+
+    function animateScale(obj, s) {
+        if (typeof gsap !== 'undefined') {
+            gsap.to(obj.scale, { x: s, y: s, z: s, duration: 0.35, ease: 'power2.out' });
+        } else {
+            obj.scale.set(s, s, s);
+        }
+    }
+
+    function resetHover() {
+        if (hoveredNode) {
+            animateScale(hoveredNode, 1);
+            hoveredNode.material.color.setHex(hoveredNode.userData.color);
+            hoveredNode = null;
+        }
+    }
+
     function animate() {
         requestAnimationFrame(animate);
-        group.rotation.y += 0.005;
-        raycaster.setFromCamera(mouse, camera);
-        const nodes = [];
-        group.traverse((child) => {
-            if (child.isMesh && child.userData.isNode) {
-                nodes.push(child);
-            }
-        });
-        const intersects = raycaster.intersectObjects(nodes);
-        if (intersects.length > 0) {
-            const object = intersects[0].object;
-            if (hoveredNode !== object) {
-                const skill = object.userData.skill || "UNKNOWN";
-                if (tooltip) {
-                    tooltip.innerText = `>> DECODING: ${skill}`;
-                    tooltip.style.opacity = 1;
-                    tooltip.style.background = "rgba(6, 182, 212, 0.9)";
+
+        const time = performance.now() * 0.001;
+
+        // Auto-rotation + mouse parallax (smooth damped)
+        pointer.x += (target.x - pointer.x) * 0.06;
+        pointer.y += (target.y - pointer.y) * 0.06;
+        helix.rotation.y = time * 0.35 + pointer.x * 0.6;
+        helix.rotation.x = pointer.y * 0.25;
+
+        // Gentle breathing scale
+        const breath = 1 + Math.sin(time * 1.2) * 0.015;
+        helix.scale.set(breath, breath, breath);
+
+        // Pulsing starfield
+        const stars = scene.getObjectByName('starfield');
+        if (stars) stars.material.size = 0.2 + Math.sin(time * 2) * 0.05;
+
+        // Hover raycast only after pointer enters container
+        if (hasPointer) {
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(nodes);
+            if (intersects.length > 0) {
+                const object = intersects[0].object;
+                if (hoveredNode !== object) {
+                    resetHover();
+                    hoveredNode = object;
+                    animateScale(object, 2);
+                    object.material.color.setHex(0xffffff);
+                    if (tooltip) {
+                        const d = object.userData;
+                        const hex = '#' + d.color.toString(16).padStart(6, '0');
+                        tooltip.innerHTML =
+                            `<span style="color:${hex}">${d.category}</span> :: ${d.skill}` +
+                            `<br /><small>${d.desc}</small>`;
+                        tooltip.style.opacity = 1;
+                        tooltip.style.borderColor = hex;
+                    }
                 }
-                object.scale.set(1.5, 1.5, 1.5);
-                object.material.color.setHex(0xffffff);
-                hoveredNode = object;
-            }
-        } else {
-            if (hoveredNode) {
-                hoveredNode.scale.set(1, 1, 1);
-                hoveredNode.material.color.setHex(hoveredNode.userData.originalColor);
-                hoveredNode = null;
-                if (tooltip) {
-                    tooltip.style.opacity = 0;
-                }
+            } else {
+                resetHover();
+                if (tooltip) tooltip.style.opacity = 0;
             }
         }
+
         renderer.render(scene, camera);
     }
     animate();
@@ -278,39 +350,96 @@ function initAboutVisuals(container) {
     }
 }
 
-function createInteractiveDNA(parent) {
-    const dnaGroup = new THREE.Group();
-    const count = 40;
-    const skills = ["React", "Node.js", "Python", "TensorFlow", "Three.js", "HTML5", "CSS3", "JavaScript", "TypeScript", "Git", "Docker", "AWS", "MongoDB", "SQL", "REST API", "GraphQL", "Next.js", "Tailwind", "Figma", "UI/UX", "Algo", "Data Struct", "OOP", "System Design", "CI/CD", "Testing", "Agile", "Scrum", "Jira", "Linux", "Bash", "Networking", "Security", "Crypto", "Web3", "Solidity", "Rust", "Go", "C++", "Java"];
-    const color1 = 0x06b6d4;
-    const color2 = 0xd4af37;
-    const nodeGeo = new THREE.SphereGeometry(0.5, 16, 16);
-    const connectorMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.3 });
+function createSkillsGenome() {
+    const genome = new THREE.Group();
 
-    for (let i = 0; i < count; i++) {
-        const h = (i - count / 2) * 1.5;
-        const r = 8;
-        const theta = i * 0.5;
-        const x1 = Math.cos(theta) * r;
-        const z1 = Math.sin(theta) * r;
-        const mat1 = new THREE.MeshBasicMaterial({ color: color1 });
-        const node1 = new THREE.Mesh(nodeGeo, mat1);
-        node1.position.set(x1, h, z1);
-        node1.userData = { isNode: true, skill: skills[i % skills.length], originalColor: color1 };
-        dnaGroup.add(node1);
-        const x2 = Math.cos(theta + Math.PI) * r;
-        const z2 = Math.sin(theta + Math.PI) * r;
-        const mat2 = new THREE.MeshBasicMaterial({ color: color2 });
-        const node2 = new THREE.Mesh(nodeGeo, mat2);
-        node2.position.set(x2, h, z2);
-        node2.userData = { isNode: true, skill: skills[(i + 5) % skills.length], originalColor: color2 };
-        dnaGroup.add(node2);
-        const lineGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x1, h, z1), new THREE.Vector3(x2, h, z2)]);
-        const line = new THREE.Line(lineGeo, connectorMaterial);
-        dnaGroup.add(line);
+    const pairs = 26;
+    const radius = 7.2;
+    const spread = 1.3;
+    const bands = SKILL_CATEGORIES.length;
+    const perBand = Math.ceil(pairs / bands);
+
+    // Backbone strands (helical curves)
+    const curveA = [];
+    const curveB = [];
+    for (let i = 0; i <= pairs; i++) {
+        const h = (i - pairs / 2) * spread;
+        const theta = i * 0.55;
+        curveA.push(new THREE.Vector3(Math.cos(theta) * radius, h, Math.sin(theta) * radius));
+        curveB.push(new THREE.Vector3(Math.cos(theta + Math.PI) * radius, h, Math.sin(theta + Math.PI) * radius));
     }
-    dnaGroup.rotation.z = Math.PI / 6;
-    parent.add(dnaGroup);
+    const backboneMat = new THREE.MeshBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.5 });
+    const tubeA = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(curveA), 120, 0.18, 8, false), backboneMat);
+    const tubeB = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(curveB), 120, 0.18, 8, false), backboneMat);
+    genome.add(tubeA, tubeB);
+
+    const sphereGeo = new THREE.SphereGeometry(0.52, 20, 20);
+    const rungGeo = new THREE.CylinderGeometry(0.07, 0.07, radius * 2, 6);
+
+    for (let i = 0; i < pairs; i++) {
+        const h = (i - pairs / 2) * spread;
+        const theta = i * 0.55;
+
+        const catIndex = Math.min(Math.floor(i / perBand), bands - 1);
+        const cat = SKILL_CATEGORIES[catIndex];
+        const catColor = new THREE.Color(cat.color);
+
+        const xA = Math.cos(theta) * radius;
+        const zA = Math.sin(theta) * radius;
+        const xB = Math.cos(theta + Math.PI) * radius;
+        const zB = Math.sin(theta + Math.PI) * radius;
+
+        const skillA = cat.skills[i % cat.skills.length];
+        const skillB = cat.skills[(i + Math.floor(cat.skills.length / 2)) % cat.skills.length];
+
+        // Strand A node
+        const nodeA = new THREE.Mesh(sphereGeo, new THREE.MeshBasicMaterial({ color: catColor }));
+        nodeA.position.set(xA, h, zA);
+        nodeA.userData = { isSkillNode: true, skill: skillA, category: cat.label, desc: cat.desc, color: cat.color };
+        genome.add(nodeA);
+
+        // Strand B node (slightly dimmer variant for depth)
+        const nodeB = new THREE.Mesh(sphereGeo, new THREE.MeshBasicMaterial({ color: catColor.clone().multiplyScalar(0.7) }));
+        nodeB.position.set(xB, h, zB);
+        nodeB.userData = { isSkillNode: true, skill: skillB, category: cat.label, desc: cat.desc, color: cat.color };
+        genome.add(nodeB);
+
+        // Base-pair rung
+        const rung = new THREE.Mesh(rungGeo, new THREE.MeshBasicMaterial({ color: catColor, transparent: true, opacity: 0.3 }));
+        rung.position.set((xA + xB) / 2, h, (zA + zB) / 2);
+        rung.lookAt(new THREE.Vector3(xB, h, zB));
+        rung.rotateX(Math.PI / 2);
+        genome.add(rung);
+
+        // Hydrogen-bond glint
+        const bondGeo = new THREE.BufferGeometry().setFromPoints([nodeA.position, nodeB.position]);
+        genome.add(new THREE.Line(bondGeo, new THREE.LineBasicMaterial({ color: catColor, transparent: true, opacity: 0.2 })));
+    }
+
+    // Central energy core
+    const core = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(2.4, 1),
+        new THREE.MeshBasicMaterial({ color: 0x06b6d4, wireframe: true, transparent: true, opacity: 0.18 })
+    );
+    genome.add(core);
+
+    genome.rotation.z = 0.12;
+    return genome;
+}
+
+function addStarField(scene, count) {
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 90;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 70;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const mat = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.2, transparent: true, opacity: 0.7 });
+    const stars = new THREE.Points(geo, mat);
+    stars.name = 'starfield';
+    scene.add(stars);
 }
 
 // --- 3D HELPERS ---
@@ -460,6 +589,26 @@ const AUTH_KEY = 'sai_portfolio_auth';
 const DEFAULT_PROJECTS = [
     {
         id: 'p1',
+        title: 'S-AI — Multi-Agent Swarm Intelligence',
+        category: 'AGENTIC AI // SWARM',
+        description: 'A published npm multi-agent swarm system with neural Digital Twin persona adaptation, arXiv research mapping, Bhashini multilingual AI, MCP integration, and bias-reduced consensus across 6 specialized agents.',
+        link: 'https://www.npmjs.com/package/@saikarun/s-ai',
+        icon: 'fas fa-robot',
+        tags: ['TYPESCRIPT', 'LLM', 'AGENTIC', 'OPENSOURCE'],
+        featured: true
+    },
+    {
+        id: 'p2',
+        title: 'Collabuild — Research-to-Prototype Pipeline',
+        category: 'MAS // RESEARCH',
+        description: 'A multi-agent system (MAS) implementation that turns research papers into working prototypes through an automated orchestrated pipeline of specialized research agents.',
+        link: 'https://github.com/karun99/Collabuild',
+        icon: 'fas fa-project-diagram',
+        tags: ['PYTHON', 'MULTI-AGENT', 'DOCKER'],
+        featured: true
+    },
+    {
+        id: 'p3',
         title: 'Duet AI Ecosystem',
         category: 'DIGITAL TWIN // HCI',
         description: 'An Agentic AI ecosystem investigating the fundamental process of Human-Computer Interaction and Parallel Consciousness through prompt architecture.',
@@ -469,17 +618,97 @@ const DEFAULT_PROJECTS = [
         featured: true
     },
     {
-        id: 'p2',
+        id: 'p4',
+        title: 'AppIdea — Privacy-First Product Workspace',
+        category: 'DEV TOOLS // PRIVACY',
+        description: 'A client-side product workspace that turns raw ideas into professional documents (Charter, PRD, TDD, Pitch Deck) and exports PDF/PPTX — all data AES-256 encrypted and stored locally.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/appidea',
+        icon: 'fas fa-lightbulb',
+        tags: ['NEXT.JS', 'CRYPTOJS', 'PRIVACY'],
+        featured: false
+    },
+    {
+        id: 'p5',
         title: 'Lit AI Symposium',
         category: 'SWARM INTELLIGENCE // RESEARCH',
         description: 'A Virtual Research Symposium platform utilizing Hybrid AI Swarm Technology to assist emerging scholars in their research presentations.',
         link: 'https://github.com/nsktech994/AI-Lit--',
         icon: 'fas fa-network-wired',
         tags: ['SWARM AI', 'RESEARCH'],
-        featured: true
+        featured: false
     },
     {
-        id: 'p3',
+        id: 'p6',
+        title: 'LeadGen Agent — Multi-Agent Lead Generation',
+        category: 'AGENTIC AI // GTM',
+        description: 'A multi-agent lead generation system that validates, enriches and scores leads using OCR document parsing, Bhashini AI and web intelligence for high-conversion outreach.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/LeadGen%20Agent',
+        icon: 'fas fa-bullseye',
+        tags: ['TYPESCRIPT', 'OCR', 'BHASHINI'],
+        featured: false
+    },
+    {
+        id: 'p7',
+        title: 'Prompt-Code — Prompt Engineering Arena',
+        category: 'EDTECH // EVALUATION',
+        description: 'A prompt engineering challenge platform with AI-powered evaluation, leaderboards and peer review loops to sharpen LLM prompting craft.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/prompt-code',
+        icon: 'fas fa-code',
+        tags: ['EXPRESS', 'AI EVAL', 'NETLIFY'],
+        featured: false
+    },
+    {
+        id: 'p8',
+        title: 'Tut-Hub — Tutor & Learning Platform',
+        category: 'EDTECH // LMS',
+        description: 'A tutor and learning management platform enabling course delivery, student progress tracking and session management for modern educators.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/tut-hub',
+        icon: 'fas fa-graduation-cap',
+        tags: ['REACT', 'SUPABASE', 'LMS'],
+        featured: false
+    },
+    {
+        id: 'p9',
+        title: 'Study Buddy Next — AI Study Companion',
+        category: 'EDTECH // AI TUTOR',
+        description: 'An AI-powered study companion built on Next.js 16 and Tailwind CSS v4 that helps students query, summarize and retain course material interactively.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/study-buddy-next',
+        icon: 'fas fa-user-graduate',
+        tags: ['NEXT.JS', 'TAILWIND', 'AI'],
+        featured: false
+    },
+    {
+        id: 'p10',
+        title: 'Perspective AI — AI Backend Engine',
+        category: 'AI INFRA // BACKEND',
+        description: 'A TypeScript/Express backend engine for AI apps with AES-256 auth, project management, configurable content-generation agents and an admin dashboard.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/you-ai-engine',
+        icon: 'fas fa-server',
+        tags: ['TYPESCRIPT', 'EXPRESS', 'AUTH'],
+        featured: false
+    },
+    {
+        id: 'p11',
+        title: 'AI-CMS — AI Content Management',
+        category: 'AI INFRA // CMS',
+        description: 'An AI-assisted content management system pairing a React + Vite frontend with LLM generation for fast, structured content workflows.',
+        link: 'https://github.com/karun99/proto-collection/tree/main/ai-cms',
+        icon: 'fas fa-newspaper',
+        tags: ['REACT', 'VITE', 'AI'],
+        featured: false
+    },
+    {
+        id: 'p12',
+        title: 'Career Roadmap Generator',
+        category: 'DEV TOOLS // GENERATIVE',
+        description: 'AI-powered developer support tool that generates personalized career roadmaps and skill progression paths.',
+        link: 'https://carcan.created.app/',
+        icon: 'fas fa-map-signs',
+        tags: ['GENERATIVE AI', 'CAREER'],
+        featured: false
+    },
+    {
+        id: 'p13',
         title: 'HCL Detector Prototype',
         category: 'BIO-INFORMATICS // NO-CODE',
         description: 'Hairy Cell Leukemia detector prototype built using advanced No-Code tools for rapid diagnostic visualization.',
@@ -489,13 +718,13 @@ const DEFAULT_PROJECTS = [
         featured: false
     },
     {
-        id: 'p4',
-        title: 'Career Roadmap Generator',
-        category: 'DEV TOOLS // GENERATIVE',
-        description: 'AI-powered developer support tool that generates personalized career roadmaps and skill progression paths.',
-        link: 'https://carcan.created.app/',
-        icon: 'fas fa-map-signs',
-        tags: ['GENERATIVE AI', 'CAREER'],
+        id: 'p14',
+        title: 'Job Aggregator & Analytics Suite',
+        category: 'AUTOMATION // DATA',
+        description: 'A FastAPI job aggregation service feeding a Dash + Plotly analytics dashboard for lead validation, regional insights and market intelligence.',
+        link: 'https://github.com/karun99/proto-collection',
+        icon: 'fas fa-briefcase',
+        tags: ['FASTAPI', 'DASH', 'PLOTLY'],
         featured: false
     }
 ];
@@ -522,15 +751,22 @@ function initProjectManager() {
         return;
     }
 
-    // Load Projects
+    // Load Projects (versioned so updated defaults re-seed once per release)
     let projects = [];
     try {
-        const stored = localStorage.getItem(PROJECT_STORAGE_KEY);
-        projects = stored ? JSON.parse(stored) : DEFAULT_PROJECTS;
-        // Ensure default projects if storage was empty/corrupt
-        if (!projects || projects.length === 0) {
+        const PROJECT_VERSION = 'v2';
+        const versionKey = 'sai_portfolio_projects_version';
+        if (localStorage.getItem(versionKey) !== PROJECT_VERSION) {
             projects = DEFAULT_PROJECTS;
             localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
+            localStorage.setItem(versionKey, PROJECT_VERSION);
+        } else {
+            const stored = localStorage.getItem(PROJECT_STORAGE_KEY);
+            projects = stored ? JSON.parse(stored) : DEFAULT_PROJECTS;
+            if (!projects || projects.length === 0) {
+                projects = DEFAULT_PROJECTS;
+                localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
+            }
         }
     } catch (e) {
         console.error(">> SYSTEM ERROR: Failed to load projects", e);
