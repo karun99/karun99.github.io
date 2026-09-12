@@ -52,6 +52,16 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        .resource-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
+        }
+
         @media (max-width: 768px) {
             .nav-links.open {
                 height: calc(100vh - var(--nav-height));
@@ -289,11 +299,77 @@
         </div>
     </div>
 
+    <!-- LEARNER RESOURCES -->
+    <section class="py-16 relative">
+        <div class="container relative z-10 px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+                <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2">
+                    LEARNER <span class="text-gold">RESOURCES</span></h2>
+                <a href="learner-resources.html"
+                    class="text-[11px] font-mono tracking-widest text-accent-primary hover:text-white transition-all border border-accent-primary/40 hover:border-accent-primary px-4 py-2">
+                    VIEW ALL <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <a href="http://nskcs.glide.page" target="_blank" rel="noopener"
+                    class="resource-card glass-panel p-6 border border-white/5 relative overflow-hidden group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all mb-5">
+                        <i class="fas fa-graduation-cap text-accent-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-display text-white tracking-widest mb-2">NSK CS STUDENT PORTAL</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-4">Computer science portal with student-facing resources and updates.</p>
+                    <span class="font-mono text-[11px] text-accent-primary tracking-widest break-all">nskcs.glide.page</span>
+                </a>
+
+                <a href="https://mreduce.netlify.app" target="_blank" rel="noopener"
+                    class="resource-card glass-panel p-6 border border-white/5 relative overflow-hidden group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all mb-5">
+                        <i class="fas fa-flask text-accent-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-display text-white tracking-widest mb-2">M-REDUCE</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-4">Machine learning research and reduced computation learning hub.</p>
+                    <span class="font-mono text-[11px] text-accent-primary tracking-widest break-all">mreduce.netlify.app</span>
+                </a>
+
+                <a href="https://bda-m1.netlify.app" target="_blank" rel="noopener"
+                    class="resource-card glass-panel p-6 border border-white/5 relative overflow-hidden group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all mb-5">
+                        <i class="fas fa-database text-accent-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-display text-white tracking-widest mb-2">BDA MODULE 1</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-4">Big Data Analytics — module one study material and notes.</p>
+                    <span class="font-mono text-[11px] text-accent-primary tracking-widest break-all">bda-m1.netlify.app</span>
+                </a>
+
+                <a href="https://genaibca.netlify.app" target="_blank" rel="noopener"
+                    class="resource-card glass-panel p-6 border border-white/5 relative overflow-hidden group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all mb-5">
+                        <i class="fas fa-robot text-accent-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-display text-white tracking-widest mb-2">GENAI BCA</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-4">Generative AI for BCA learners — concepts, prompts, and labs.</p>
+                    <span class="font-mono text-[11px] text-accent-primary tracking-widest break-all">genaibca.netlify.app</span>
+                </a>
+
+                <a href="https://iai-notes.netlify.app" target="_blank" rel="noopener"
+                    class="resource-card glass-panel p-6 border border-white/5 relative overflow-hidden group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded border border-white/10 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all mb-5">
+                        <i class="fas fa-brain text-accent-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-display text-white tracking-widest mb-2">IAI NOTES</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-4">Intro to Artificial Intelligence — study notes and exam prep material.</p>
+                    <span class="font-mono text-[11px] text-accent-primary tracking-widest break-all">iai-notes.netlify.app</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="border-t border-white/5 bg-black/80 py-8 mt-auto">
         <div class="container flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-gray-600 text-xs font-mono">© 2026 Sai Karun Nandipati | <span class="text-gray-500">System
-                    Ver. 2.0.4</span></p>
+                    Ver. 2.1.0</span></p>
             <button id="admin-login-btn"
                 class="text-[10px] text-gray-700 hover:text-accent-primary transition-colors font-mono border border-transparent hover:border-accent-primary/30 px-3 py-1 rounded">
                 <i class="fas fa-terminal mr-2"></i>ADMIN CONSOLE
