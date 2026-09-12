@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories | Sai Karun</title>
+    <meta name="description"
+        content="Complete archive of open-source repositories by Sai Karun Nandipati — Agentic AI, EdTech, full-stack systems, and research tooling.">
+    <meta name="keywords"
+        content="saikarun nandipati, sai karun, github repositories, open source, agentic ai, edtech, fullstack, research">
+    <meta name="author" content="Sai Karun Nandipati">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GitHub Repositories | Sai Karun Nandipati">
+    <meta property="og:description" content="Full archive of open-source repositories and systems.">
+    <meta property="og:image"
+        content="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="GitHub Repositories | Sai Karun">
+    <meta property="twitter:description" content="Full archive of open-source repositories and systems.">
+    <meta property="twitter:image"
+        content="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        'accent-primary': '#06b6d4',
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .repo-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
+        }
+
+        .lang-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            display: inline-block;
+            background: var(--accent-primary);
+        }
+
+        #repos-container {
+            min-height: 60vh;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links.open {
+                height: calc(100vh - var(--nav-height));
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg-dark text-slate-200">
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="text-center">
+            <h2 class="font-display text-2xl text-white tracking-[0.3em] mb-4 text-glow">
+                REPO <span class="text-accent-primary">ARCHIVE</span>
+            </h2>
+            <div class="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
+                <div id="loader-bar" class="h-full bg-accent-primary loader-bar"></div>
+            </div>
+            <div id="loader-text" class="mt-2 font-mono text-[10px] text-gold tracking-widest">
+                SYNCING WITH GITHUB...
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="glass-panel">
+        <div class="container flex items-center justify-between h-full">
+            <a href="index.html" class="nav-logo text-white">
+                S<span class="text-gold">AI</span>KARUN
+            </a>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+            <div class="nav-links" style="gap:1.6rem;">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="services.html">SERVICES</a>
+                <a href="works.html">WORKS</a>
+                <a href="projects.html">PROJECTS</a>
+                <a href="repositories.html" class="active-nav">REPOSITORIES</a>
+                <a href="learner-resources.html">RESOURCES</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="pt-40 pb-12 text-center relative z-20">
+        <div class="container px-4">
+            <h1 class="text-3xl md:text-6xl mb-4 font-display tracking-wider">From The <span
+                    class="text-gold text-glow">Vault</span></h1>
+            <p class="max-w-xl mx-auto text-gray-400 font-light text-sm md:text-base leading-relaxed mb-6">
+                Every open-source system, experiment, and learning artifact committed to GitHub.
+            </p>
+            <div id="stats-bar"
+                class="inline-flex flex-wrap justify-center items-center gap-4 md:gap-8 px-6 py-3 glass-panel rounded-full font-mono text-[10px] md:text-xs text-gray-400 tracking-widest">
+                <span class="text-gold"><i class="fas fa-database mr-2"></i><span id="stat-total">0</span> REPOS</span>
+                <span><i class="fas fa-code mr-2"></i><span id="stat-langs">0</span> LANGUAGES</span>
+                <span><i class="fas fa-star mr-2"></i><span id="stat-stars">0</span> STARS</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTROLS -->
+    <section class="py-0 relative">
+        <div class="container relative z-10 px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+                <div class="relative w-full md:w-96">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-accent-primary/60 text-xs"></i>
+                    <input type="text" id="repo-search"
+                        class="w-full bg-black/50 border border-white/10 p-3 pl-10 text-white font-mono text-xs focus:border-accent-primary/50 focus:outline-none transition-colors rounded-none placeholder-gray-600"
+                        placeholder="SEARCH REPOSITORIES..." oninput="renderRepos()">
+                </div>
+                <div id="lang-filters"
+                    class="flex flex-wrap gap-2 justify-center md:justify-end font-mono text-[10px] tracking-widest">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPOS GRID -->
+    <section class="pt-2 pb-24 relative">
+        <div class="container relative z-10 px-4">
+            <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-8">
+                PUBLIC INDEX // <span class="text-gold" id="results-count">0</span> FOUND</h2>
+            <div id="repos-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"></div>
+            <div id="empty-state" class="hidden text-center text-gray-500 mt-16 font-mono text-xs tracking-widest">
+                <i class="fas fa-box-open text-3xl mb-4 text-accent-primary/40 block"></i>
+                NO REPOSITORIES MATCH THIS QUERY
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-black/80 py-8 mt-auto">
+        <div class="container flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-600 text-xs font-mono">© 2026 Sai Karun Nandipati | <span class="text-gray-500">Repo
+                    Archive Ver. 1.0.0</span></p>
+            <a href="https://github.com/karun99" target="_blank" rel="noopener"
+                class="text-[10px] text-gray-700 hover:text-accent-primary transition-colors font-mono border border-transparent hover:border-accent-primary/30 px-3 py-1 rounded">
+                <i class="fab fa-github mr-2"></i>GITHUB.COM/KARUN99
+            </a>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="assets/data/repositories.js"></script>
+    <script>
+        const LANG_COLORS = {
+            'JavaScript': '#f1e05a',
+            'TypeScript': '#3178c6',
+            'HTML': '#e34c26',
+            'CSS': '#563d7c',
+            'Python': '#3572A5',
+            'PHP': '#4F5D95',
+            'Shell': '#89e051'
+        };
+
+        const LANG_ICONS = {
+            'JavaScript': 'fab fa-js',
+            'TypeScript': 'fab fa-js',
+            'HTML': 'fab fa-html5',
+            'CSS': 'fab fa-css3-alt',
+            'Python': 'fab fa-python',
+            'PHP': 'fab fa-php',
+            'Shell': 'fas fa-terminal'
+        };
+
+        let activeLang = 'ALL';
+
+        function langIcon(lang) {
+            return LANG_ICONS[lang] || 'fas fa-code-branch';
+        }
+
+        function langColor(lang) {
+            return LANG_COLORS[lang] || '#8b949e';
+        }
+
+        function escapes(s) {
+            const div = document.createElement('div');
+            div.textContent = s || '';
+            return div.innerHTML;
+        }
+
+        function buildFilters() {
+            const langs = ['ALL', ...new Set(REPOSITORIES.map(r => r.lang).filter(Boolean))].sort();
+            document.getElementById('lang-filters').innerHTML = langs.map(l =>
+                `<button onclick="setLang('${l}')" data-lang="${l}"
+                    class="px-3 py-1.5 border border-white/10 text-gray-400 hover:text-accent-primary hover:border-accent-primary/50 transition-all
+                    ${l === 'ALL' ? 'border-accent-primary/50 text-accent-primary bg-accent-primary/10' : ''}">${l.toUpperCase()}</button>`
+            ).join('');
+        }
+
+        window.setLang = (l) => {
+            activeLang = l;
+            document.querySelectorAll('#lang-filters button').forEach(b => {
+                const on = b.dataset.lang === l;
+                b.classList.toggle('border-accent-primary/50', on);
+                b.classList.toggle('text-accent-primary', on);
+                b.classList.toggle('bg-accent-primary/10', on);
+                b.classList.toggle('text-gray-400', !on);
+            });
+            renderRepos();
+        };
+
+        function buildStats() {
+            const total = REPOSITORIES.length;
+            const langs = new Set(REPOSITORIES.map(r => r.lang).filter(Boolean)).size;
+            const stars = REPOSITORIES.reduce((a, r) => a + r.stars, 0);
+            document.getElementById('stat-total').innerText = total;
+            document.getElementById('stat-langs').innerText = langs;
+            document.getElementById('stat-stars').innerText = stars;
+        }
+
+        function repoCard(r) {
+            const prjUrl = r.url;
+            const hasHome = !!r.home;
+            return `
+                <div class="repo-card glass-panel p-6 border border-white/5 relative overflow-hidden group">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center rounded border border-white/10
+                            bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all flex-shrink-0">
+                            <i class="${langIcon(r.lang)} text-accent-primary text-xl"></i>
+                        </div>
+                        <div class="flex gap-2 flex-shrink-0">
+                            ${r.archived ? '<span class="text-[8px] font-mono border border-red-400/40 text-red-400 px-2 py-0.5 tracking-widest">ARCHIVED</span>' : ''}
+                            <span class="text-[8px] font-mono border border-white/10 text-gray-500 px-2 py-0.5 tracking-widest">${escapeHtml(r.lang || 'MIXED')}</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl md:text-2xl font-display text-white tracking-widest mb-3 break-all">
+                        <i class="fab fa-github mr-2 text-gold text-sm"></i>${escapeHtml(r.name)}
+                    </h3>
+
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-5 min-h-[40px]">
+                        ${r.desc ? escapeHtml(r.desc) : '<span class="text-gray-600 italic">No description provided.</span>'}
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5 text-xs font-mono">
+                        <div class="flex items-center gap-4 text-gray-500">
+                            <span class="flex items-center gap-1.5">
+                                <span class="lang-dot" style="background:${langColor(r.lang)}"></span>
+                                <span class="text-gray-400">${solidify(r.lang)}</span>
+                            </span>
+                            <span title="Stars"><i class="fas fa-star mr-1 text-gold"></i>${r.stars}</span>
+                            <span title="Forks"><i class="fas fa-code-branch mr-1"></i>${r.forks}</span>
+                        </div>
+                        <span class="text-gray-600 hidden md:inline" title="Last updated"><i
+                                class="far fa-clock mr-1"></i>${escapeHtml(r.updated)}</span>
+                    </div>
+
+                    <div class="flex gap-3 mt-5">
+                        <a href="${prjUrl}" target="_blank" rel="noopener"
+                            class="flex-1 text-center px-4 py-2 border border-accent-primary text-accent-primary font-display text-[10px] tracking-[0.2em] hover:bg-accent-primary hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)]">
+                            <i class="fab fa-github mr-2"></i>SOURCE
+                        </a>
+                        ${hasHome ? `
+                        <a href="${escapeAttr(r.home)}" target="_blank" rel="noopener"
+                            class="flex-1 text-center px-4 py-2 border border-white/10 text-white font-display text-[10px] tracking-[0.2em] hover:bg-white/10 transition-all duration-300">
+                            <i class="fas fa-external-link-alt mr-2"></i>LIVE
+                        </a>` : ''}
+                    </div>
+                </div>`;
+        }
+
+        function solidify(lang) {
+            return escapes(lang || 'MIXED');
+        }
+
+        function escapeHtml(s) {
+            return escapes(s);
+        }
+
+        function escapeAttr(s) {
+            return escapes(s);
+        }
+
+        function renderRepos() {
+            const search = (document.getElementById('repo-search').value || '').trim().toLowerCase();
+            const list = REPOSITORIES.filter(r => {
+                const hitsLang = activeLang === 'ALL' || (r.lang || '').toUpperCase() === activeLang;
+                if (!hitsLang) return false;
+                if (!search) return true;
+                return (r.name + ' ' + (r.desc || '') + ' ' + (r.lang || '')).toLowerCase().includes(search);
+            });
+
+            document.getElementById('results-count').innerText = list.length;
+            const container = document.getElementById('repos-container');
+            const empty = document.getElementById('empty-state');
+            container.innerHTML = list.map(repoCard).join('');
+            empty.classList.toggle('hidden', list.length > 0);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            buildStats();
+            buildFilters();
+            renderRepos();
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

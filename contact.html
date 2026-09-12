@@ -34,6 +34,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @media (max-width: 768px) {
+            .nav-links.open {
+                height: calc(100vh - var(--nav-height));
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -59,12 +66,14 @@
                 S<span class="text-gold">AI</span>KARUN
             </a>
             <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-            <div class="nav-links">
+            <div class="nav-links" style="gap:1.6rem;">
                 <a href="profile.html">HOME</a>
                 <a href="about.html">ABOUT</a>
                 <a href="services.html">SERVICES</a>
                 <a href="works.html">WORKS</a>
                 <a href="projects.html">PROJECTS</a>
+                <a href="repositories.html">REPOSITORIES</a>
+                <a href="learner-resources.html">RESOURCES</a>
                 <a href="contact.html" class="active-nav">CONTACT</a>
             </div>
         </div>
