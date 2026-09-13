@@ -311,8 +311,7 @@
                         class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Projects</a>
                     <a href="services.html"
                         class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Services</a>
-                    <a href="repositories.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Repositories</a>
+
                     <a href="learner-resources.html"
                         class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Resources</a>
                     <a href="works.html"
@@ -504,7 +503,6 @@
             gsap.from(shelf.children, { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
         }
 
-
         function createBookHTML(book) {
             return `
                 <div class="book-container ${book.thickness}" 
@@ -566,8 +564,6 @@
             const cat = activeBtn ? (CATEGORY_BY_BTN[activeBtn.textContent.trim().toUpperCase()] || 'all') : 'all';
             filterBooks(cat);
         });
-
-
 
         // --- 5. INTERACTION & VISUALIZATION ---
         const popover = document.getElementById('popover');
