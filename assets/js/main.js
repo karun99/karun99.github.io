@@ -727,6 +727,27 @@ const DEFAULT_PROJECTS = [
         tags: ['FASTAPI', 'DASH', 'PLOTLY'],
         featured: false
     }
+
+    {
+        id: 'p15',
+        title: 'S-AI — Swarm Intelligence (Source)',
+        category: 'AGENTIC AI // SWARM',
+        description: 'S-AI v5.1 source — Multi-Agent Swarm Intelligence with MCP Builder, Skill Creator, Neural Mapping, and 20+ AI providers.',
+        link: 'https://github.com/karun99/s-ai',
+        icon: 'fas fa-robot',
+        tags: ['TYPESCRIPT', 'LLM', 'AGENTIC', 'OPENSOURCE'],
+        featured: false
+    },
+    {
+        id: 'p16',
+        title: 'S-AI Update — Synthetic Executive',
+        category: 'AGENTIC AI // SECURITY',
+        description: 'S-AI v6.1 — Synthetic Executive with security hardening, SSRF protection, sandboxing, and TRL/MRL/IRL readiness.',
+        link: 'https://github.com/karun99/s-ai-update',
+        icon: 'fas fa-shield-halved',
+        tags: ['TYPESCRIPT', 'SECURITY', 'AGENTIC'],
+        featured: false
+    }
 ];
 
 function initProjectManager() {
@@ -754,7 +775,7 @@ function initProjectManager() {
     // Load Projects (versioned so updated defaults re-seed once per release)
     let projects = [];
     try {
-        const PROJECT_VERSION = 'v2';
+        const PROJECT_VERSION = 'v3';
         const versionKey = 'sai_portfolio_projects_version';
         if (localStorage.getItem(versionKey) !== PROJECT_VERSION) {
             projects = DEFAULT_PROJECTS;
