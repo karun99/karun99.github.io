@@ -726,8 +726,7 @@ const DEFAULT_PROJECTS = [
         icon: 'fas fa-briefcase',
         tags: ['FASTAPI', 'DASH', 'PLOTLY'],
         featured: false
-    }
-
+    },
     {
         id: 'p15',
         title: 'S-AI — Swarm Intelligence (Source)',
@@ -1054,6 +1053,86 @@ function openModal(modal, form, project = null) {
         document.getElementById('project-id').value = '';
         document.getElementById('project-featured').checked = false;
     }
+}
+
+function closeModal(modal) {
+    if (!modal) return;
+    const content = modal.querySelector('#modal-content');
+    if (content) {
+        content.classList.add('scale-95', 'opacity-0');
+        content.classList.remove('scale-100', 'opacity-100');
+    }
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 150);
+}
+
+function saveProjectForm(form, modal, grid) {
+    if (!form) return;
+
+    const id = document.getElementById('project-id').value || 'p' + Date.now();
+    const title = document.getElementById('project-title').value.trim();
+    const category = document.getElementById('project-category').value.trim();
+    const description = document.getElementById('project-desc').value.trim();
+    const link = document.getElementById('project-link').value.trim();
+    const icon = document.getElementById('project-icon').value.trim();
+    const tags = document.getElementById('project-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+    const featured = document.getElementById('project-featured').checked;
+
+    let projects = [];
+    try {
+        projects = JSON.parse(localStorage.getItem(PROJECT_STORAGE_KEY) || "[]");
+        if (!Array.isArray(projects)) projects = [];
+    } catch (e) {
+        console.error(">> SYSTEM ERROR: Failed to read projects", e);
+        projects = [];
+    }
+
+    const existing = projects.find(p => p.id === id);
+    if (existing) {
+        Object.assign(existing, { title, category, description, link, icon, tags, featured });
+    } else {
+        projects.push({ id, title, category, description, link, icon, tags, featured });
+    }
+
+    localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
+    console.log(">> PROJECT DATA SAVED");
+    closeModal(modal);
+    form.reset();
+    renderProjects(grid, projects);
+}
+
+function editProject(id) {
+    const modal = document.getElementById('project-modal');
+    const form = document.getElementById('project-form');
+
+    let projects = [];
+    try {
+        projects = JSON.parse(localStorage.getItem(PROJECT_STORAGE_KEY) || "[]");
+    } catch (e) {
+        projects = [];
+    }
+    const project = projects.find(p => p.id === id);
+    if (!project) {
+        console.warn(">> PROJECT NOT FOUND: " + id);
+        return;
+    }
+    openModal(modal, form, project);
+}
+
+function deleteProject(id) {
+    const grid = document.getElementById('projects-grid');
+
+    let projects = [];
+    try {
+        projects = JSON.parse(localStorage.getItem(PROJECT_STORAGE_KEY) || "[]");
+    } catch (e) {
+        projects = [];
+    }
+    projects = projects.filter(p => p.id !== id);
+    localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
+    console.log(">> PROJECT DELETED: " + id);
+    renderProjects(grid, projects);
 }
 
 // --- MD5 Implementation ---
