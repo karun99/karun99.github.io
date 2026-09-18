@@ -628,16 +628,6 @@ const DEFAULT_PROJECTS = [
         featured: false
     },
     {
-        id: 'p5',
-        title: 'Lit AI Symposium',
-        category: 'SWARM INTELLIGENCE // RESEARCH',
-        description: 'A Virtual Research Symposium platform utilizing Hybrid AI Swarm Technology to assist emerging scholars in their research presentations.',
-        link: 'https://github.com/nsktech994/AI-Lit--',
-        icon: 'fas fa-network-wired',
-        tags: ['SWARM AI', 'RESEARCH'],
-        featured: false
-    },
-    {
         id: 'p6',
         title: 'LeadGen Agent — Multi-Agent Lead Generation',
         category: 'AGENTIC AI // GTM',
