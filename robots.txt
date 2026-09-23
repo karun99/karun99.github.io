@@ -1,0 +1,141 @@
+# robots.txt for karun99.github.io
+# Optimized for search engines AND AI / answer engines (AEO)
+
+# --- AI ANSWER-ENGINE CRAWLERS (explicitly allowed for AEO) ---
+
+# OpenAI (ChatGPT, SearchGPT, GPTBot)
+User-agent: GPTBot
+Allow: /
+
+# OpenAI search / discovery crawler
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI chat interface crawler (ChatGPT browsing)
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+# Anthropic Claude web crawl
+User-agent: Claude-Web
+Allow: /
+
+# Anthropic primary crawler
+User-agent: anthropic-ai
+Allow: /
+
+# Google (including Google-Extended used by Gemini / AI Overviews)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /logo.jpg
+
+# Google's AI / Gemini crawler
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (used to train many LLMs)
+User-agent: CCBot
+Allow: /
+
+# Microsoft Bing + Copilot
+User-agent: Bingbot
+Allow: /
+
+# Microsoft AI crawler (Copilot, Bing Chat)
+User-agent: Microsoft-PagesRobot
+Allow: /
+
+User-agent: CopilotBot
+Allow: /
+
+# Meta AI (Llama)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Amazon (Alexa, AWS Bedrock training)
+User-agent: Amazonbot
+Allow: /
+
+# Apple (Applebot, Siri + Apple Intelligence)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ByteDance (Doubao / Trae)
+User-agent: Bytespider
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Moz / general SEO tools
+User-agent: MJ12bot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+# Rytr / other AI writing assistants
+User-agent: rytr-crawler
+Allow: /
+
+# Neeva
+User-agent: NeevaBot
+Allow: /
+
+# Consensus (research AI)
+User-agent: ConsensusBot
+Allow: /
+
+# Scaled Inference / answer engines
+User-agent: ScaledInferenceBot
+Allow: /
+
+# --- DEFAULT: allow all other crawlers (they may follow sitemap) ---
+User-agent: *
+Allow: /
+
+# --- AI / LLM CONTEXT FILES FOR CRAWLERS ---
+# The LLM-readable markdown index (llmstxt.org standard) is served on-demand.
+# llms.txt is served for any crawler that requests it (not governed by User-agent here).
+
+# --- SITEMAPS ---
+Sitemap: https://karun99.github.io/sitemap.xml

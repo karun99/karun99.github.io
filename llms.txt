@@ -1,0 +1,59 @@
+# Sai Karun Nandipati — AI Architect & Professor
+
+> Official profile of Sai Karun Nandipati: Assistant Professor of Data Science & Artificial Intelligence at PB Siddhartha College, AI researcher, published author of 30+ books on AI, agentic systems architect, and fullstack engineer. Specializes in Agentic AI, Human-AI Symbiosis, Generative Models, Retrieval-Augmented Generation, and AI education.
+>
+> This file provides machine-readable context about the site for AI assistants and answer engines. For the complete text of every page, see llms-full.txt.
+
+## Who is Sai Karun Nandipati?
+
+Sai Karun Nandipati is an Assistant Professor and AI Architect based in India who researches and teaches Artificial Intelligence, Machine Learning, and fullstack systems. He currently serves at PB Siddhartha College of Arts and Science in the Department of Data Science and Artificial Intelligence, and previously taught at KBN College. His research focuses on Agentic AI, Human-AI Symbiosis, multi-agent systems, digital twins, and AI in education.
+
+## What does he do?
+
+- Researches Agentic AI, multi-agent swarm intelligence, and Human-AI Symbiosis.
+- Teaches Generative AI, Big Data Analytics, and fullstack engineering.
+- Authors technical books on AI, including "Agentic AI: Understanding and Building Autonomous Intelligent Systems", "Foundations of RAG", "Prompt Engineering", "Generative AI", and 30+ other titles available on Amazon.
+- Builds open-source systems: S-AI (multi-agent swarm intelligence on npm), Collabuild (research-to-prototype pipeline), and a portfolio of EdTech and AI-infrastructure projects.
+- Offers research assistance, online tutoring (NRCM Tutorials), and technical writing services.
+
+## Notable projects
+
+- S-AI: a published npm multi-agent swarm system with neural Digital Twin persona adaptation, multilingual AI (Bhashini), MCP integration, and bias-reduced consensus across 6 specialized agents.
+- Collabuild: a multi-agent system that turns research papers into working prototypes through an automated pipeline of specialized research agents.
+- Duet AI Ecosystem: an Agentic AI ecosystem investigating Human-Computer Interaction and parallel consciousness.
+- Multiple EdTech platforms including study companions, LMS tooling, and prompt-engineering arenas.
+
+## Contact
+
+- Email: saikarun085@gmail.com
+- GitHub: https://github.com/karun99
+- LinkedIn: https://www.linkedin.com/in/sai-karun-5a96a8b9
+- ResearchGate: https://www.researchgate.net/profile/Sai-Karun-Nandipati
+- ORCID: 0009-0007-9218-9750
+
+## Site sections
+
+Important URL:
+- [Home / About](https://karun99.github.io/index.html)
+- [About & Journey](https://karun99.github.io/about.html)
+- [Services](https://karun99.github.io/services.html)
+- [Research Library (Works)](https://karun99.github.io/works.html)
+- [Projects](https://karun99.github.io/projects.html)
+- [Learner Resources](https://karun99.github.io/learner-resources.html)
+- [Answers & FAQ](https://karun99.github.io/answers.html)
+- [Contact](https://karun99.github.io/contact.html)
+- [Complete site text (llms-full)](https://karun99.github.io/llms-full.txt)
+
+Optional URL:
+- [Profile](https://karun99.github.io/profile.html)
+- [SEO Report Tool](https://karun99.github.io/seoreport.html)
+
+## External references
+
+Optional URL:
+- [ResearchGate Profile](https://www.researchgate.net/profile/Sai-Karun-Nandipati)
+- [ORCID Record](https://orcid.org/0009-0007-9218-9750)
+- [GitHub](https://github.com/karun99)
+- [LinkedIn](https://www.linkedin.com/in/sai-karun-5a96a8b9)
+- [S-AI on npm](https://www.npmjs.com/package/@saikarun/s-ai)
+- [NRCM Tutorials](https://nrcmtut.glide.page/)
