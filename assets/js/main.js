@@ -736,6 +736,46 @@ const DEFAULT_PROJECTS = [
         icon: 'fas fa-shield-halved',
         tags: ['TYPESCRIPT', 'SECURITY', 'AGENTIC'],
         featured: false
+    },
+    {
+        id: 'p17',
+        title: 'neural-harness — Validation Harness Engine',
+        category: 'RESEARCH // VALIDATION',
+        description: 'A standard-library-only validation harness engine that measures neural software projects (information handling, neural synthesis, fused data-integration accuracy) and emits evidence-first, human-voiced reports. JOSS-track research software with an automated editorial bot.',
+        link: 'https://github.com/karun99/neural-harness',
+        icon: 'fas fa-dna',
+        tags: ['PYTHON', 'VALIDATION', 'JOSS', 'REPRODUCIBILITY'],
+        featured: true
+    },
+    {
+        id: 'p18',
+        title: 'Samvit — Local-First Personal AI',
+        category: 'RESEARCH // PERSONAL AI',
+        description: 'Local-first personal AI with one shared memory graph, five named profiles, a VISION accuracy marker and an ULTRON 14-check error-validation constraint. Standard library only, 80-test locked suite. JOSS-track research software.',
+        link: 'https://github.com/karun99/samvit',
+        icon: 'fas fa-brain',
+        tags: ['PYTHON', 'GUARDRAILS', 'JOSS', 'LOCAL-FIRST'],
+        featured: true
+    },
+    {
+        id: 'p19',
+        title: 'glama-gateway-mcp — MCP Gateway Server',
+        category: 'INFRA // MCP',
+        description: 'Dependency-free MCP server exposing the Glama OpenAI-compatible AI gateway as four tools (list models, chat, stream, status). Dependency-free LLM gateway MCP server, JOSS-track.',
+        link: 'https://github.com/karun99/glama-mcp',
+        icon: 'fas fa-plug',
+        tags: ['PYTHON', 'MCP', 'LLM', 'JOSS'],
+        featured: true
+    },
+    {
+        id: 'p20',
+        title: 'Health Quest — Food-Literacy Game',
+        category: 'EDTECH // EDUCATION',
+        description: 'Ethics-first food-literacy game for school students with a transparent Michelin-style Health Score, consent-first OpenStreetMap eatery lookup, and IEEE alignment. Built with a student co-author — release-track educational software.',
+        link: 'https://github.com/karun99/health-quest',
+        icon: 'fas fa-apple-whole',
+        tags: ['HTML', 'EDUCATION', 'ETHICS', 'STUDENT'],
+        featured: false
     }
 ];
 
