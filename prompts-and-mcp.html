@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts &amp; MCP Servers | Sai Karun</title>
+    <meta name="description"
+        content="Prompts and MCP server listings for the neural network projects of Sai Karun Nandipati — S-AI, Glama, Celebrum and more, indexed on Glama.ai.">
+    <meta name="keywords"
+        content="saikarun nandipati, sai karun, MCP server, prompts, glama.ai, S-AI, Celebrum, neural network, agentic AI, model context protocol">
+    <meta name="author" content="Sai Karun Nandipati">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karun99.github.io/prompts-and-mcp.html">
+    <meta property="og:title" content="Prompts &amp; MCP Servers | Sai Karun Nandipati">
+    <meta property="og:description"
+        content="MCP server listings for neural network projects, published on Glama.ai by Sai Karun Nandipati.">
+    <meta property="og:image"
+        content="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Prompts &amp; MCP Servers | Sai Karun">
+    <meta property="twitter:description"
+        content="MCP server listings for neural network projects, published on Glama.ai.">
+    <meta property="twitter:image"
+        content="https://i1.rgstatic.net/ii/profile.image/11431281770992354-1765018931962_Q512/Sai-Karun-Nandipati.jpg">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        'accent-primary': '#06b6d4',
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .resource-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links.open {
+                height: calc(100vh - var(--nav-height));
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg-dark text-slate-200">
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="text-center">
+            <h2 class="font-display text-2xl text-white tracking-[0.3em] mb-4 text-glow">
+                PROMPTS <span class="text-accent-primary">&amp; MCP</span>
+            </h2>
+            <div class="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
+                <div id="loader-bar" class="h-full bg-accent-primary loader-bar"></div>
+            </div>
+            <div id="loader-text" class="mt-2 font-mono text-[10px] text-gold tracking-widest">
+                CONNECTING SYSTEMS...
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="glass-panel">
+        <div class="container flex items-center justify-between h-full">
+            <a href="index.html" class="nav-logo text-white">
+                S<span class="text-gold">AI</span>KARUN
+            </a>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+            <div class="nav-links" style="gap:1.6rem;">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="services.html">SERVICES</a>
+                <a href="works.html">WORKS</a>
+                <a href="projects.html">PROJECTS</a>
+
+                <a href="learner-resources.html">RESOURCES</a>
+                <a href="prompts-and-mcp.html" class="active-nav">PROMPTS &amp; MCP</a>
+                <a href="answers.html">ANSWERS</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="pt-40 pb-12 text-center relative z-20">
+        <div class="container px-4">
+            <h1 class="text-3xl md:text-6xl mb-4 font-display tracking-wider">Prompts <span
+                    class="text-gold text-glow">&amp; MCP</span></h1>
+            <p class="max-w-xl mx-auto text-gray-400 font-light text-sm md:text-base leading-relaxed">
+                Model Context Protocol (MCP) server listings for my neural network projects — published on Glama.ai.
+            </p>
+        </div>
+    </header>
+
+    <!-- MCP SERVERS -->
+    <section class="pt-2 pb-24 relative">
+        <div class="container relative z-10 px-4">
+            <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10">
+                MCP <span class="text-gold">SERVERS</span></h2>
+
+            <p class="text-gray-400 font-light text-sm leading-relaxed mb-8 max-w-3xl">
+                Each project below is registered on <a href="https://glama.ai"
+                    class="text-accent-primary hover:text-gold transition-colors" target="_blank" rel="noopener">Glama.ai</a>
+                as an MCP server under the <span class="font-mono text-xs text-accent-primary">karun99</span> namespace.
+                The <span class="font-mono text-xs text-gold">LIVE</span> badge indicates a published, scoreable listing;
+                new listings are indexed by the Glama crawler within ~24 hours of claiming.
+            </p>
+
+            <div id="mcp-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <!-- MCP server cards injected below -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-black/80 py-8 mt-auto">
+        <div class="container flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-600 text-xs font-mono">© 2026 Sai Karun Nandipati | <span
+                    class="text-gray-500">PROMPTS &amp; MCP INDEX</span></p>
+            <span class="text-[10px] text-gray-700 font-mono"><i class="fas fa-plug mr-2"></i>MODEL CONTEXT
+                PROTOCOL</span>
+            <div class="flex gap-4 text-[10px] font-mono text-gray-700">
+                <a href="answers.html" class="hover:text-accent-primary transition-colors">ANSWERS</a>
+                <a href="llms.txt" class="hover:text-accent-primary transition-colors">llms.txt</a>
+                <a href="sitemap.xml" class="hover:text-accent-primary transition-colors">sitemap</a>
+                <a href="robots.txt" class="hover:text-accent-primary transition-colors">robots.txt</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        const MCP_SERVERS = [
+            {
+                name: "CELEBRUM",
+                icon: "fa-brain",
+                desc: "Local-first artificial brain — persona, memory graph, and truth engine.",
+                url: "https://glama.ai/mcp/servers/karun99/celebrum",
+                status: "LIVE",
+                tags: ["PERSONA", "MEMORY GRAPH", "TRUTH ENGINE"]
+            },
+            {
+                name: "GLAMA-MCP",
+                icon: "fa-plug",
+                desc: "Hub MCP gateway exposing the Glama OpenAI-compatible gateway to local clients.",
+                url: "https://glama.ai/mcp/servers/karun99/glama-mcp",
+                status: "PENDING",
+                tags: ["MCP GATEWAY", "STDIO", "GLAMA"]
+            },
+            {
+                name: "S-AI",
+                icon: "fa-sitemap",
+                desc: "Multi-agent swarm intelligence — vision, memory, and shared cognition.",
+                url: "https://glama.ai/mcp/servers/karun99/s-ai",
+                status: "PENDING",
+                tags: ["MULTI-AGENT", "SWARM", "COGNITION"]
+            },
+            {
+                name: "S-AI-UPDATE",
+                icon: "fa-shield-halved",
+                desc: "S-AI synthetic executive with security hardening and guardrails.",
+                url: "https://glama.ai/mcp/servers/karun99/s-ai-update",
+                status: "PENDING",
+                tags: ["SECURITY", "GUARDRAILS", "EXECUTIVE"]
+            },
+            {
+                name: "S-AI-SOULBOT",
+                icon: "fa-robot",
+                desc: "S-AI SoulBot v3.0 — AI companion with J\u0101taka-aligned behavioral guardrails.",
+                url: "https://glama.ai/mcp/servers/karun99/s-ai-soulbot",
+                status: "PENDING",
+                tags: ["V3.0", "GUARDRAILS", "SRS"]
+            },
+            {
+                name: "NEURAL-HARNESS",
+                icon: "fa-cubes",
+                desc: "Shared validation engine measuring information-handling capacity across models.",
+                url: "https://glama.ai/mcp/servers/karun99/neural-harness",
+                status: "PENDING",
+                tags: ["VALIDATION", "BENCHMARK", "ENGINE"]
+            },
+            {
+                name: "SAMVIT",
+                icon: "fa-user-shield",
+                desc: "Local-first personal AI (\u0938\u0902\u0935\u093f\u0924\u094d) with trusted knowledge retrieval.",
+                url: "https://glama.ai/mcp/servers/karun99/samvit",
+                status: "PENDING",
+                tags: ["LOCAL-FIRST", "PRIVACY", "RAG"]
+            },
+            {
+                name: "COLLABUILD",
+                icon: "fa-network-wired",
+                desc: "Multi-agent system pipeline from research paper to working prototype.",
+                url: "https://glama.ai/mcp/servers/karun99/collabuild",
+                status: "PENDING",
+                tags: ["MAS", "PAPER-TO-CODE", "PIPELINE"]
+            },
+            {
+                name: "AI-CONTENT-STUDIO",
+                icon: "fa-pen-fancy",
+                desc: "Content generation platform on React + Vite + ChromaDB.",
+                url: "https://glama.ai/mcp/servers/karun99/ai-content-studio",
+                status: "PENDING",
+                tags: ["CONTENT", "REACT", "CHROMADB"]
+            },
+            {
+                name: "TEDDY-TECHLEARN",
+                icon: "fa-graduation-cap",
+                desc: "AI-enhanced M.Tech CSE learning companion with course intelligence.",
+                url: "https://glama.ai/mcp/servers/karun99/teddy-techlearn",
+                status: "PENDING",
+                tags: ["EDTECH", "MTECH", "COURSE"]
+            },
+            {
+                name: "HEALTH-QUEST",
+                icon: "fa-heart-pulse",
+                desc: "Ethics-first food education companion for healthy living habits.",
+                url: "https://glama.ai/mcp/servers/karun99/health-quest",
+                status: "PENDING",
+                tags: ["HEALTH", "ETHICS-FIRST", "EDUCATION"]
+            },
+            {
+                name: "HELIXDB",
+                icon: "fa-dna",
+                desc: "Research and learning companion for students and research scholars.",
+                url: "https://glama.ai/mcp/servers/karun99/HelixDB",
+                status: "PENDING",
+                tags: ["RESEARCH", "LEARNING", "COMPANION"]
+            },
+            {
+                name: "YOU-AI-ENGINE",
+                icon: "fa-cogs",
+                desc: "Engine to build your own AI — configurable model orchestration.",
+                url: "https://glama.ai/mcp/servers/karun99/you-ai-engine",
+                status: "PENDING",
+                tags: ["ENGINE", "ORCHESTRATION", "CONFIGURABLE"]
+            },
+            {
+                name: "GEMINI-AI-CHATBOT",
+                icon: "fa-comments",
+                desc: "Chatbot front-end powered by the Gemini API.",
+                url: "https://glama.ai/mcp/servers/karun99/gemini-ai-chatbot",
+                status: "PENDING",
+                tags: ["GEMINI", "CHATBOT", "LLM"]
+            },
+            {
+                name: "AISTUDIO",
+                icon: "fa-flask-vial",
+                desc: "AI prototyping and experimentation studio.",
+                url: "https://glama.ai/mcp/servers/karun99/aistudio",
+                status: "PENDING",
+                tags: ["STUDIO", "PROTOTYPE", "EXPERIMENT"]
+            },
+            {
+                name: "BLOGBOT",
+                icon: "fa-feather-pointed",
+                desc: "Automated blog generation and publishing agent.",
+                url: "https://glama.ai/mcp/servers/karun99/blogbot",
+                status: "PENDING",
+                tags: ["BLOG", "AGENT", "AUTOMATION"]
+            },
+            {
+                name: "BUILDBOT",
+                icon: "fa-hammer",
+                desc: "Student AI coding assistant — from research paper to working code.",
+                url: "https://glama.ai/mcp/servers/karun99/buildbot",
+                status: "PENDING",
+                tags: ["CODER", "STUDENT", "ASSISTANT"]
+            },
+            {
+                name: "GEM-AI",
+                icon: "fa-gem",
+                desc: "Generative AI experiments and generative model toolkit.",
+                url: "https://glama.ai/mcp/servers/karun99/GEM-AI",
+                status: "PENDING",
+                tags: ["GENERATIVE", "TOOLKIT", "EXPERIMENTS"]
+            },
+            {
+                name: "FLOWISE",
+                icon: "fa-diagram-project",
+                desc: "ML practice workspace for machine learning experimentation.",
+                url: "https://glama.ai/mcp/servers/karun99/flowise",
+                status: "PENDING",
+                tags: ["ML", "PRACTICE", "EXPERIMENT"]
+            },
+            {
+                name: "ARTHAI",
+                icon: "fa-indian-rupee-sign",
+                desc: "Agentic commerce gateway for MSMEs — Razorpay-integrated agents.",
+                url: "https://glama.ai/mcp/servers/karun99/arthai",
+                status: "PENDING",
+                tags: ["COMMERCE", "MSME", "AGENTIC"]
+            }
+        ];
+
+        (function renderMcp() {
+            const grid = document.getElementById('mcp-grid');
+            if (!grid) return;
+            grid.innerHTML = MCP_SERVERS.map(function (s) {
+                const statusColor = s.status === 'LIVE'
+                    ? 'bg-gold/10 text-gold border-gold/40'
+                    : 'bg-accent-primary/10 text-accent-primary border-accent-primary/40';
+                return '<div class="resource-card glass-panel p-8 border border-white/5 relative overflow-hidden group">' +
+                    '<div class="flex items-start justify-between mb-6">' +
+                    '<div class="w-14 h-14 flex items-center justify-center rounded border border-white/10 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-all">' +
+                    '<i class="fas ' + s.icon + ' text-accent-primary text-2xl"></i></div>' +
+                    '<span class="font-mono text-[10px] tracking-widest px-3 py-1 rounded-full border ' + statusColor + '">' + s.status + '</span>' +
+                    '</div>' +
+                    '<h3 class="text-2xl font-display text-white tracking-widest mb-3">' + s.name + '</h3>' +
+                    '<p class="text-gray-400 font-light leading-relaxed mb-6">' + s.desc + '</p>' +
+                    '<div class="flex flex-wrap gap-2 mb-6">' + s.tags.map(function (t) {
+                        return '<span class="font-mono text-[9px] tracking-widest text-gray-500 border border-white/10 px-2 py-1">' + t + '</span>';
+                    }).join('') + '</div>' +
+                    '<a href="' + s.url + '" target="_blank" rel="noopener" class="font-mono text-xs text-accent-primary tracking-widest break-all hover:text-gold transition-colors">' +
+                    s.url + ' <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></a>' +
+                    '</div>';
+            }).join('');
+        })();
+    </script>
+</body>
+
+</html>

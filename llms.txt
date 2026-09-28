@@ -40,6 +40,7 @@ Important URL:
 - [Research Library (Works)](https://karun99.github.io/works.html)
 - [Projects](https://karun99.github.io/projects.html)
 - [Learner Resources](https://karun99.github.io/learner-resources.html)
+- [Prompts & MCP Servers](https://karun99.github.io/prompts-and-mcp.html)
 - [Answers & FAQ](https://karun99.github.io/answers.html)
 - [Contact](https://karun99.github.io/contact.html)
 - [Complete site text (llms-full)](https://karun99.github.io/llms-full.txt)
