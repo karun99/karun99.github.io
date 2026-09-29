@@ -1,0 +1,16 @@
+{
+  "name": "Sai Karun Nandipati | AI Architect & Professor",
+  "short_name": "Sai Karun",
+  "description": "Official portfolio of Sai Karun Nandipati — Assistant Professor of Data Science and AI, AI researcher, author of 30+ books on AI, and open-source builder.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "lang": "en",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "/assets/img/favicon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/favicon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

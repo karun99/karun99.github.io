@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>SEO-Optimiser | Advanced Flaw Detection</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
   </script>
   <style>
@@ -188,6 +187,85 @@
     .footer-brand { text-align: right; font-size: 0.8rem; color: #5f7d8a; margin-top: 0.5rem; }
     @media print { body { background: white; } .glass-card { box-shadow: none; } button, .search-panel, .export-toolbar { display: none; } }
   </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://karun99.github.io/seoreport.html",
+          "url": "https://karun99.github.io/seoreport.html",
+          "name": "SEO Flaw Detection Tool | Sai Karun Nandipati",
+          "description": "On-page SEO and answer-engine optimisation audit tool used to maintain the Sai Karun Nandipati portfolio site.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://karun99.github.io/#website"
+          },
+          "about": {
+            "@id": "https://karun99.github.io/#person"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>SEO Flaw Detection Tool | Sai Karun Nandipati</title>
+    <meta name="description" content="On-page SEO and answer-engine optimisation audit tool used to maintain the Sai Karun Nandipati portfolio. Reports canonical, schema and crawlability flaws.">
+    <meta name="author" content="Sai Karun Nandipati">
+
+    <link rel="canonical" href="https://karun99.github.io/seoreport.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="robots" content="noindex, follow">
+    <meta name="googlebot" content="noindex, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karun99.github.io/seoreport.html">
+    <meta property="og:site_name" content="Sai Karun Nandipati">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="SEO Flaw Detection Tool | Sai Karun Nandipati">
+    <meta property="og:description" content="On-page SEO and answer-engine optimisation audit tool used to maintain the Sai Karun Nandipati portfolio. Reports canonical, schema and crawlability flaws.">
+    <meta property="og:image" content="https://karun99.github.io/assets/img/og-image.png">
+    <meta property="og:image:secure_url" content="https://karun99.github.io/assets/img/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@karun99">
+    <meta name="twitter:creator" content="@karun99">
+    <meta name="twitter:url" content="https://karun99.github.io/seoreport.html">
+    <meta name="twitter:title" content="SEO Flaw Detection Tool | Sai Karun Nandipati">
+    <meta name="twitter:description" content="On-page SEO and answer-engine optimisation audit tool used to maintain the Sai Karun Nandipati portfolio. Reports canonical, schema and crawlability flaws.">
+    <meta name="twitter:image" content="https://karun99.github.io/assets/img/og-image.png">
+    <meta name="twitter:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://karun99.github.io/seoreport.html",
+          "url": "https://karun99.github.io/seoreport.html",
+          "name": "SEO Flaw Detection Tool | Sai Karun Nandipati",
+          "description": "On-page SEO and answer-engine optimisation audit tool used to maintain the Sai Karun Nandipati portfolio. Reports canonical, schema and crawlability flaws.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://karun99.github.io/#website"
+          },
+          "about": {
+            "@id": "https://karun99.github.io/#person"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 <div class="glass-card" id="mainCard">
@@ -465,7 +543,7 @@
   function exportHtml() {
     if (!lastAnalysisData) return;
     const { metadata, seoResult, engineResults, sitemapData, contentFlaws, url } = lastAnalysisData;
-    let r = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>SEO-Optimiser Report</title>
+    let r = `<!DOCTYPE html><html><head><meta charset="UTF-8">
     <style>body{font-family:sans-serif;max-width:950px;margin:2rem auto;background:#f4f9fd;padding:2rem;}
     h1{color:#0a3e4c} .score{font-size:3rem;} .flaw{background:#fef9e7;padding:.6rem;border-left:4px solid #c49b2b;margin:.4rem 0;}
     </style></head><body><h1>🎯 SEO-Optimiser Report</h1><p>${escapeHtml(url)}</p><div class="score">${seoResult.score}/100</div>

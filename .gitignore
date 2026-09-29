@@ -1,0 +1,9 @@
+# Local MCP client config. It references developer-machine commands and
+# ${GLAMA_API_KEY}. Never publish it from a public site repository, and never
+# inline a real key into it.
+.mcp.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
