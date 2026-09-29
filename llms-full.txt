@@ -676,6 +676,7 @@ Research Library
 [services.html] Services
 
 [learner-resources.html] Resources
+[prompts-and-mcp.html] PROMPTS & MCP
 [answers.html] Answers
 [works.html] Works
 
