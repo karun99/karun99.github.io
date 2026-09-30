@@ -329,7 +329,7 @@ artificial intelligence.
 
 MCP SERVERS
 
-Sai Karun Nandipati publishes 20 Model Context
+Sai Karun Nandipati publishes 18 Model Context
 Protocol servers for AI applications. MCP is the open standard that lets
 Claude, Cursor, ChatGPT and other AI clients call external tools and data sources
 over a single local interface. 2 of these
@@ -495,22 +495,6 @@ PENDING — NOT PUBLISHED YET
 Student AI coding assistant — from research paper to working code.
 
 CODER STUDENT ASSISTANT
-
-GEM-AI
-
-PENDING — NOT PUBLISHED YET
-
-Generative AI experiments and generative model toolkit.
-
-GENERATIVE TOOLKIT EXPERIMENTS
-
-FLOWISE
-
-PENDING — NOT PUBLISHED YET
-
-ML practice workspace for machine learning experimentation.
-
-ML PRACTICE EXPERIMENT
 
 ARTHAI
 

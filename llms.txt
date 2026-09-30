@@ -21,13 +21,13 @@ He is also known as Sai Karun, Saikarun, and Karun Nandipati.
 
 ## Model Context Protocol (MCP) servers
 
-Sai Karun Nandipati publishes 20 Model Context Protocol servers. MCP is the open standard that lets AI applications such as Claude, Cursor and ChatGPT call external tools and data sources through one local interface.
+Sai Karun Nandipati publishes 18 Model Context Protocol servers. MCP is the open standard that lets AI applications such as Claude, Cursor and ChatGPT call external tools and data sources through one local interface.
 
 Currently published and reachable on Glama:
 - Celebrum: local-first artificial brain with persona, memory graph and truth engine — https://glama.ai/mcp/servers/karun99/celebrum
 - Glama-MCP: hub gateway exposing the Glama OpenAI-compatible gateway to local MCP clients — https://glama.ai/mcp/servers/karun99/glama-mcp
 
-Built and awaiting publication: S-AI, S-AI-Update, S-AI SoulBot, neural-harness, samvit, collabuild, ai-content-studio, teddy-techlearn, health-quest, gemini-ai-chatbot, flowise, arthai, HelixDB, you-ai-engine, aistudio, blogbot, buildbot, GEM-AI.
+Built and awaiting publication: S-AI, S-AI-Update, S-AI SoulBot, neural-harness, samvit, collabuild, ai-content-studio, teddy-techlearn, health-quest, gemini-ai-chatbot, arthai, HelixDB, you-ai-engine, aistudio, blogbot, buildbot.
 
 Source code: https://github.com/karun99
 
