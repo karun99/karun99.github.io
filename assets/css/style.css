@@ -272,3 +272,18 @@ footer {
         margin-left: auto;
     }
 }
+/* --- A11Y: VISUALLY HIDDEN ---
+   Used for section headings that carry structure for screen readers and
+   answer engines but should not be painted. Defined here (not just via the
+   Tailwind CDN) so headings stay hidden if the CDN fails to load. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
