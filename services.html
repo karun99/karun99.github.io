@@ -119,27 +119,11 @@
     <meta name="twitter:image" content="https://karun99.github.io/assets/img/og-image.png">
     <meta name="twitter:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebPage",
-          "@id": "https://karun99.github.io/services.html",
-          "url": "https://karun99.github.io/services.html",
-          "name": "Services | Sai Karun Nandipati — AI Research & Tutoring",
-          "description": "Services from Sai Karun Nandipati: AI research assistance, agentic AI and fullstack engineering, academic tutoring, and technical writing.",
-          "inLanguage": "en",
-          "isPartOf": {
-            "@id": "https://karun99.github.io/#website"
-          },
-          "about": {
-            "@id": "https://karun99.github.io/#person"
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- head-boot:start -->
+    <script>document.documentElement.classList.add('js');</script>
+    <meta name="theme-color" content="#020617">
+    <meta name="color-scheme" content="dark">
+    <!-- head-boot:end -->
 </head>
 
 <body class="bg-bg-dark text-slate-200 overflow-x-hidden">
@@ -157,55 +141,64 @@
     </div>
 
     <!-- MOBILE MENU OVERLAY -->
-    <div
-        class="nav-links fixed top-20 left-0 w-full h-0 bg-bg-dark overflow-hidden transition-all duration-300 flex flex-col items-center justify-center gap-5 z-[999]">
-        <a href="index.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">HOME</a>
-        <a href="about.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">ABOUT</a>
-        <a href="services.html" class="font-display text-accent-primary text-lg active-nav">SERVICES</a>
-        <a href="works.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">WORKS</a>
-        <a href="projects.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">PROJECTS</a>
 
-        <a href="learner-resources.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">RESOURCES</a>
-        <a href="prompts-and-mcp.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">PROMPTS &amp; MCP</a>
-        <a href="answers.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">ANSWERS</a>
-        <a href="contact.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">CONTACT</a>
-    </div>
 
-    <!-- NAVIGATION -->
-    <nav
-        class="fixed top-0 w-full h-[80px] z-[1000] flex items-center border-b border-accent-primary/10 bg-slate-900/60 backdrop-blur-xl">
-        <div class="container mx-auto px-8 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-bold tracking-widest text-white">
-                S<span class="text-gold">AI</span>KARUN
-            </a>
+<!-- nav:start -->
+<a class="skip-link" href="#main">Skip to main content</a>
 
-            <div class="hidden md:flex gap-5 ml-auto">
-                <a href="index.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">HOME</a>
-                <a href="about.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">ABOUT</a>
-                <a href="services.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-accent-primary glow-text">SERVICES</a>
-                <a href="works.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">WORKS</a>
-                <a href="projects.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">PROJECTS</a>
+<header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+        <div class="container site-nav__inner">
+            <a class="site-nav__brand" href="index.html">S<span class="text-gold">AI</span>KARUN</a>
 
-                <a href="learner-resources.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">RESOURCES</a>
-                <a href="prompts-and-mcp.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">PROMPTS &amp; MCP</a>
-                <a href="answers.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">ANSWERS</a>
-                <a href="contact.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">CONTACT</a>
+            <ul class="site-nav__list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="learner-resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="site-nav__more">
+                <button class="site-nav__more-btn" type="button" aria-expanded="false"
+                    aria-controls="site-nav-more">
+                    MORE<i class="fas fa-chevron-down site-nav__more-caret" aria-hidden="true"></i>
+                </button>
+                <ul class="site-nav__more-menu" id="site-nav-more" hidden>
+                    <li><a href="services.html" aria-current="page">Services</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
             </div>
 
-            <button class="mobile-menu-btn flex md:hidden text-2xl text-gold">
-                <i class="fas fa-bars"></i>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                aria-label="Open main menu">
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
             </button>
         </div>
     </nav>
+
+    <div class="site-menu" id="site-menu" hidden>
+        <ul class="site-menu__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="works.html">Works</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="learner-resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="site-menu__heading">More</li>
+            <li><a href="services.html" aria-current="page">Services</a></li>
+            <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+            <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+        </ul>
+    </div>
+</header>
+<!-- nav:end -->
+
+<main id="main">
 
     <!-- HERO SECTION -->
     
@@ -337,29 +330,62 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-12 bg-black text-center border-t border-white/5">
-        <div class="container mx-auto px-8">
-            <div class="flex justify-center gap-8 mb-8 text-2xl">
-                <a href="https://github.com/karun99" target="_blank" rel="noopener"
-                    class="text-white hover:text-accent-primary transition-colors"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" target="_blank" rel="noopener"
-                    class="text-white hover:text-accent-primary transition-colors"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" target="_blank" rel="noopener"
-                    class="text-white hover:text-accent-primary transition-colors"><i
-                        class="fas fa-graduation-cap"></i></a>
+</main>
+
+<!-- footer:start -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__cols">
+            <div class="site-footer__col">
+                <h2>Profile</h2>
+                <ul>
+                    <li><a href="about.html">Biography</a></li>
+                    <li><a href="works.html">Books &amp; publications</a></li>
+                    <li><a href="projects.html">Open-source projects</a></li>
+                    <li><a href="services.html">Research &amp; tutoring</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            <p class="text-slate-500 text-sm tracking-widest font-mono">© 2026 SAI KARUN NANDIPATI | PROFILE 2.0</p>
-            <div class="mt-4 flex flex-wrap justify-center gap-4 text-[10px] font-mono text-slate-600">
-                <a href="answers.html" class="hover:text-accent-primary transition-colors"><i class="fas fa-question-circle mr-1"></i>ANSWERS / AEO</a>
-                <a href="llms.txt" class="hover:text-accent-primary transition-colors"><i class="fas fa-file-alt mr-1"></i>llms.txt</a>
-                <a href="sitemap.xml" class="hover:text-accent-primary transition-colors"><i class="fas fa-sitemap mr-1"></i>sitemap</a>
-                <a href="robots.txt" class="hover:text-accent-primary transition-colors"><i class="fas fa-robot mr-1"></i>robots.txt</a>
+            <div class="site-footer__col">
+                <h2>Learn</h2>
+                <ul>
+                    <li><a href="learner-resources.html">Learner resources</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP servers</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li><a href="https://github.com/karun99" rel="me noopener" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank">ORCID</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" rel="me noopener" target="_blank">ResearchGate</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>For crawlers</h2>
+                <ul>
+                    <li><a href="llms.txt">llms.txt</a></li>
+                    <li><a href="llms-full.txt">llms-full.txt</a></li>
+                    <li><a href="sitemap.xml">sitemap.xml</a></li>
+                    <li><a href="robots.txt">robots.txt</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+
+        <div class="site-footer__bar">
+            <span>&copy; 2026 Sai Karun Nandipati &middot; ORCID 0009-0007-9218-9750</span>
+            <span class="site-footer__social">
+                <a href="https://github.com/karun99" rel="me noopener" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+                <a href="mailto:saikarun085@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- footer:end -->
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>

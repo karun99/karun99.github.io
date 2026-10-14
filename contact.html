@@ -81,27 +81,11 @@
     <meta name="twitter:image" content="https://karun99.github.io/assets/img/og-image.png">
     <meta name="twitter:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebPage",
-          "@id": "https://karun99.github.io/contact.html",
-          "url": "https://karun99.github.io/contact.html",
-          "name": "Contact Sai Karun Nandipati | Research & Collaboration",
-          "description": "Contact Sai Karun Nandipati for AI research collaboration, project assistance, tutoring or technical writing. Email, GitHub, LinkedIn, ORCID and more.",
-          "inLanguage": "en",
-          "isPartOf": {
-            "@id": "https://karun99.github.io/#website"
-          },
-          "about": {
-            "@id": "https://karun99.github.io/#person"
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- head-boot:start -->
+    <script>document.documentElement.classList.add('js');</script>
+    <meta name="theme-color" content="#020617">
+    <meta name="color-scheme" content="dark">
+    <!-- head-boot:end -->
 </head>
 
 <body>
@@ -120,27 +104,62 @@
         </div>
     </div>
 
-    <!-- NAV -->
-    <nav class="glass-panel">
-        <div class="container flex items-center justify-between h-full">
-            <a href="index.html" class="nav-logo text-white">
-                S<span class="text-gold">AI</span>KARUN
-            </a>
-            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-            <div class="nav-links" style="gap:1.6rem;">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="services.html">SERVICES</a>
-                <a href="works.html">WORKS</a>
-                <a href="projects.html">PROJECTS</a>
+<!-- nav:start -->
+<a class="skip-link" href="#main">Skip to main content</a>
 
-                <a href="learner-resources.html">RESOURCES</a>
-                <a href="prompts-and-mcp.html">PROMPTS &amp; MCP</a>
-                <a href="answers.html">ANSWERS</a>
-                <a href="contact.html" class="active-nav">CONTACT</a>
+<header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+        <div class="container site-nav__inner">
+            <a class="site-nav__brand" href="index.html">S<span class="text-gold">AI</span>KARUN</a>
+
+            <ul class="site-nav__list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="learner-resources.html">Resources</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+
+            <div class="site-nav__more">
+                <button class="site-nav__more-btn" type="button" aria-expanded="false"
+                    aria-controls="site-nav-more">
+                    MORE<i class="fas fa-chevron-down site-nav__more-caret" aria-hidden="true"></i>
+                </button>
+                <ul class="site-nav__more-menu" id="site-nav-more" hidden>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
             </div>
+
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                aria-label="Open main menu">
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
+
+    <div class="site-menu" id="site-menu" hidden>
+        <ul class="site-menu__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="works.html">Works</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="learner-resources.html">Resources</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+            <li class="site-menu__heading">More</li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+            <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+        </ul>
+    </div>
+</header>
+<!-- nav:end -->
+
+<main id="main">
 
     <!-- CONTENT -->
     
@@ -235,15 +254,15 @@
                 <div class="mt-8 border-t border-white/10 pt-6">
                     <p class="text-xs text-gold font-mono tracking-widest mb-3">PROJECT CHANNELS</p>
                     <div class="flex flex-wrap gap-2">
-                        <a href="https://github.com/karun99/neural-harness/discussions"
+                        <a href="https://github.com/karun99/neural-harness"
                             class="text-[10px] font-mono border border-white/10 px-3 py-1.5 rounded-full text-gray-400 hover:border-accent-primary hover:text-accent-primary transition">neural-harness</a>
-                        <a href="https://github.com/karun99/samvit/discussions"
+                        <a href="https://github.com/karun99/samvit"
                             class="text-[10px] font-mono border border-white/10 px-3 py-1.5 rounded-full text-gray-400 hover:border-accent-primary hover:text-accent-primary transition">samvit</a>
-                        <a href="https://github.com/karun99/s-ai/discussions"
+                        <a href="https://github.com/karun99/s-ai"
                             class="text-[10px] font-mono border border-white/10 px-3 py-1.5 rounded-full text-gray-400 hover:border-accent-primary hover:text-accent-primary transition">s-ai</a>
-                        <a href="https://github.com/karun99/glama-mcp/discussions"
+                        <a href="https://github.com/karun99/glama-mcp"
                             class="text-[10px] font-mono border border-white/10 px-3 py-1.5 rounded-full text-gray-400 hover:border-accent-primary hover:text-accent-primary transition">glama-mcp</a>
-                        <a href="https://github.com/karun99/Collabuild/discussions"
+                        <a href="https://github.com/karun99/Collabuild"
                             class="text-[10px] font-mono border border-white/10 px-3 py-1.5 rounded-full text-gray-400 hover:border-accent-primary hover:text-accent-primary transition">Collabuild</a>
                     </div>
                 </div>
@@ -298,18 +317,62 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>© 2026 Sai Karun Nandipati | Comms Module</p>
-            <div class="mt-4 flex justify-center gap-4 text-[10px] font-mono text-gray-700">
-                <a href="answers.html" class="hover:text-accent-primary transition-colors">ANSWERS</a>
-                <a href="llms.txt" class="hover:text-accent-primary transition-colors">llms.txt</a>
-                <a href="sitemap.xml" class="hover:text-accent-primary transition-colors">sitemap</a>
-                <a href="robots.txt" class="hover:text-accent-primary transition-colors">robots.txt</a>
+</main>
+
+<!-- footer:start -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__cols">
+            <div class="site-footer__col">
+                <h2>Profile</h2>
+                <ul>
+                    <li><a href="about.html">Biography</a></li>
+                    <li><a href="works.html">Books &amp; publications</a></li>
+                    <li><a href="projects.html">Open-source projects</a></li>
+                    <li><a href="services.html">Research &amp; tutoring</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Learn</h2>
+                <ul>
+                    <li><a href="learner-resources.html">Learner resources</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP servers</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li><a href="https://github.com/karun99" rel="me noopener" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank">ORCID</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" rel="me noopener" target="_blank">ResearchGate</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>For crawlers</h2>
+                <ul>
+                    <li><a href="llms.txt">llms.txt</a></li>
+                    <li><a href="llms-full.txt">llms-full.txt</a></li>
+                    <li><a href="sitemap.xml">sitemap.xml</a></li>
+                    <li><a href="robots.txt">robots.txt</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+
+        <div class="site-footer__bar">
+            <span>&copy; 2026 Sai Karun Nandipati &middot; ORCID 0009-0007-9218-9750</span>
+            <span class="site-footer__social">
+                <a href="https://github.com/karun99" rel="me noopener" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+                <a href="mailto:saikarun085@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- footer:end -->
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>

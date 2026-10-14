@@ -35,11 +35,22 @@ The full catalog is at https://karun99.github.io/prompts-and-mcp.html
 
 ## Notable projects
 
-- S-AI: a published npm multi-agent swarm system with neural Digital Twin persona adaptation, multilingual AI (Bhashini), MCP integration, and bias-reduced consensus across 6 specialized agents.
-- Collabuild: a multi-agent system that turns research papers into working prototypes through an automated pipeline of specialized research agents.
-- S-AI SoulBot: a consent-gated companion harness implementing a Sentinel authorization authority, a 23-precedent Jātaka guardrail registry, consent continuity, and T0-T6 conformance tiers. Ships an MCP server.
-- Duet AI Ecosystem: an Agentic AI ecosystem investigating Human-Computer Interaction and parallel consciousness.
-- Multiple EdTech platforms including study companions, LMS tooling, and prompt-engineering arenas.
+29 open-source repositories are published at https://github.com/karun99 and listed at https://karun99.github.io/projects.html. The core ones:
+
+- S-AI (https://github.com/karun99/s-ai): a multi-agent swarm intelligence system published to npm as @saikarun/s-ai, with an MCP server builder, skill creator and neural knowledge mapping across 20+ AI providers.
+- Collabuild (https://github.com/karun99/Collabuild): a multi-agent system that turns research papers into working prototypes through an automated pipeline of specialized research agents.
+- S-AI SoulBot (https://github.com/karun99/s-ai-soulbot): a consent-gated companion harness with a Sentinel authorization authority, a Jātaka guardrail registry, consent continuity and T0-T6 conformance tiers.
+- Celebrum (https://github.com/karun99/celebrum): a local-first artificial brain — persona model, memory graph, truth engine and guardrail engine — shipped as CLI, GUI and MCP server.
+- samvit (https://github.com/karun99/samvit): local-first personal AI with one shared memory graph, five named profiles and a ULTRON 14-check error-validation constraint.
+- neural-harness (https://github.com/karun99/neural-harness): a validation engine that measures information-handling and neural-synthesis accuracy and emits evidence-first research reports.
+- ArthAI (https://github.com/karun99/arthai): an agentic commerce gateway for MSMEs with six-layer financial governance, built for the Razorpay Buildathon.
+- BuildBot (https://github.com/karun99/buildbot): a student AI coding assistant that walks a research paper through SRS, checklist and implementation to working code.
+- EdTech platforms: teddy-techlearn, HelixDB, ScholarSync, tut-hub, CodeQuest, PromptPro Challenge Arena and Health Quest.
+
+## Prompt tools
+
+- Sahaja Prompt: prompt generation and management tool — https://sahaja-prompt.netlify.app/
+- Study Bot NSK: AI study assistant for querying and revising course material — https://study-bot-nsk.netlify.app/
 
 ## Contact
 
@@ -58,7 +69,7 @@ The full catalog is at https://karun99.github.io/prompts-and-mcp.html
 - [Research Library (Works)](https://karun99.github.io/works.html)
 - [Projects](https://karun99.github.io/projects.html)
 - [Services](https://karun99.github.io/services.html)
-- [Learner Resources](https://karun99.github.io/learner-resources.html)
+- [Learner Resources](https://karun99.github.io/learner-resources.html) — live study portals: TechLearn and Teddy x TechLearn (M.Tech, JNTU Kakinada), IAI Notes (https://iai-notes.vercel.app), GENAI BCA, NSK CS Student Portal, and the BDA Code Lab commandline studio (https://bda-code-lac.vercel.app)
 - [Contact](https://karun99.github.io/contact.html)
 - [Complete site text (llms-full.txt)](https://karun99.github.io/llms-full.txt)
 

@@ -23,6 +23,7 @@
 
     <!-- Twitter -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -322,27 +323,11 @@
     <meta name="twitter:image" content="https://karun99.github.io/assets/img/og-image.png">
     <meta name="twitter:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebPage",
-          "@id": "https://karun99.github.io/works.html",
-          "url": "https://karun99.github.io/works.html",
-          "name": "Works & Publications | Sai Karun Nandipati",
-          "description": "Research library and publications by Sai Karun Nandipati: 40+ works on agentic AI, generative models, retrieval-augmented generation and fullstack engineering.",
-          "inLanguage": "en",
-          "isPartOf": {
-            "@id": "https://karun99.github.io/#website"
-          },
-          "about": {
-            "@id": "https://karun99.github.io/#person"
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- head-boot:start -->
+    <script>document.documentElement.classList.add('js');</script>
+    <meta name="theme-color" content="#020617">
+    <meta name="color-scheme" content="dark">
+    <!-- head-boot:end -->
 </head>
 
 <body class="selection:bg-gold-accent selection:text-black" onclick="closePopover(event)">
@@ -362,76 +347,95 @@
         </div>
     </div>
 
-    <!-- Navbar / Controls -->
-    <nav class="control-panel">
-        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-6">
-                <a href="index.html" class="flex items-center gap-4 group">
-                    <img src="/assets/img/profile.jpg" alt="Sai Karun Nandipati"
-                        class="w-12 h-12 rounded-full border-2 border-gold-accent shadow-md group-hover:scale-105 transition">
-                    <div>
-                        <h1 class="font-display text-xl text-gold-accent">Sai Karun <span
-                                class="text-white">Nandipati</span></h1>
-                        <p class="text-[10px] text-gray-400 font-sans tracking-[0.2em] uppercase">Research Library</p>
-                    </div>
-                </a>
+<!-- nav:start -->
+<a class="skip-link" href="#library-container">Skip to main content</a>
 
-                <!-- Main Nav -->
-                <div class="hidden md:flex items-center gap-6 ml-6 border-l border-gold-accent/20 pl-6 h-8">
-                    <a href="index.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Home</a>
-                    <a href="projects.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Projects</a>
-                    <a href="services.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Services</a>
+<header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+        <div class="container site-nav__inner">
+            <a class="site-nav__brand" href="index.html">S<span class="text-gold">AI</span>KARUN</a>
 
-                    <a href="learner-resources.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Resources</a>
-                    <a href="prompts-and-mcp.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">PROMPTS &amp; MCP</a>
-                        <a href="answers.html"
-                        class="text-xs font-bold text-gray-400 hover:text-gold-accent tracking-widest uppercase transition">Answers</a>
-                    <a href="works.html"
-                        class="text-xs font-bold text-gold-accent tracking-widest uppercase border-b border-gold-accent pb-0.5">Works</a>
-                </div>
+            <ul class="site-nav__list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="works.html" aria-current="page">Works</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="learner-resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="site-nav__more">
+                <button class="site-nav__more-btn" type="button" aria-expanded="false"
+                    aria-controls="site-nav-more">
+                    MORE<i class="fas fa-chevron-down site-nav__more-caret" aria-hidden="true"></i>
+                </button>
+                <ul class="site-nav__more-menu" id="site-nav-more" hidden>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
             </div>
 
-            <!-- Search & Filters -->
-            <div class="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
-                <div class="relative w-full md:w-64">
-                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gold-accent/50 text-xs"></i>
-                    <input type="text" id="searchInput" placeholder="Search titles..."
-                        class="w-full bg-black/30 border border-gold-accent/30 rounded-full py-1.5 pl-10 pr-4 text-xs text-white focus:border-gold-accent focus:outline-none transition">
-                </div>
-
-                <div class="flex bg-black/30 rounded-lg p-1 border border-gold-accent/20">
-                    <button onclick="filterBooks('all')"
-                        class="filter-btn active px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-white">ALL</button>
-                    <button onclick="filterBooks('Research Paper')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">PAPERS</button>
-                    <button onclick="filterBooks('Book')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">BOOKS</button>
-                    <button onclick="filterBooks('Peer Review')"
-                        class="filter-btn px-3 py-1.5 rounded text-[10px] font-bold tracking-wider hover:bg-gold-accent/10 transition text-gray-400">REVIEWS</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stats Bar -->
-        <div class="bg-[#1a110e] border-b border-gold-accent/20 py-1.5 text-center">
-            <div
-                class="container mx-auto flex justify-center gap-8 text-[10px] text-gray-500 font-sans tracking-widest uppercase">
-                <span id="total-works" class="text-gold-accent"><i class="fas fa-database mr-1"></i>0 Works Indexed</span>
-                <span><i class="fas fa-file-alt mr-1"></i> <span id="count-papers">0</span> Papers</span>
-                <span><i class="fas fa-book mr-1"></i> <span id="count-books">0</span> Books</span>
-                <span><i class="fas fa-star mr-1"></i> <span id="count-reviews">0</span> Reviews</span>
-                <span class="hidden md:inline-block"><a href="answers.html" class="hover:text-gold-accent transition-colors">AEO ANSWERS</a></span>
-                <span class="hidden md:inline-block"><a href="llms.txt" class="hover:text-gold-accent transition-colors">llms.txt</a></span>
-                <span class="hidden md:inline-block"><a href="sitemap.xml" class="hover:text-gold-accent transition-colors">SITEMAP</a></span>
-                <span class="hidden md:inline-block"><a href="robots.txt" class="hover:text-gold-accent transition-colors">ROBOTS</a></span>
-            </div>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                aria-label="Open main menu">
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
+
+    <div class="site-menu" id="site-menu" hidden>
+        <ul class="site-menu__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="works.html" aria-current="page">Works</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="learner-resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="site-menu__heading">More</li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+            <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+        </ul>
+    </div>
+</header>
+<!-- nav:end -->
+
+<!-- works-subbar:start -->
+<header class="container px-4 pt-32 pb-8 text-center relative z-20">
+    <h1 class="text-3xl md:text-5xl font-display tracking-wider mb-4">Works <span class="text-gold text-glow">Library</span></h1>
+    <p class="max-w-2xl mx-auto text-gray-400 font-light text-sm md:text-base leading-relaxed">
+        42 publications by Sai Karun Nandipati &mdash; 32 books, 9 research papers and 1 peer review &mdash;
+        on agentic AI, generative AI, retrieval-augmented generation, prompt engineering and
+        deep learning.
+    </p>
+</header>
+
+<div class="works-subbar">
+    <div class="container works-subbar__inner">
+        <div class="works-subbar__search">
+            <label class="sr-only" for="searchInput">Search publication titles</label>
+            <input type="search" id="searchInput" placeholder="Search titles...">
+            <i class="fas fa-search" aria-hidden="true"></i>
+        </div>
+
+        <div class="works-subbar__filters" role="group" aria-label="Filter works by category">
+            <button type="button" class="filter-btn active" onclick="filterBooks('all')">ALL</button>
+            <button type="button" class="filter-btn" onclick="filterBooks('Research Paper')">PAPERS</button>
+            <button type="button" class="filter-btn" onclick="filterBooks('Book')">BOOKS</button>
+            <button type="button" class="filter-btn" onclick="filterBooks('Peer Review')">REVIEWS</button>
+        </div>
+
+        <div class="works-subbar__stats">
+            <span id="total-works"><i class="fas fa-database" aria-hidden="true"></i> 0 Works Indexed</span>
+            <span><i class="fas fa-file-alt" aria-hidden="true"></i> <span id="count-papers">0</span> Papers</span>
+            <span><i class="fas fa-book" aria-hidden="true"></i> <span id="count-books">0</span> Books</span>
+            <span><i class="fas fa-star" aria-hidden="true"></i> <span id="count-reviews">0</span> Reviews</span>
+        </div>
+    </div>
+</div>
+<!-- works-subbar:end -->
 
     <!-- Main Library -->
     
@@ -459,6 +463,71 @@
         <h2 class="sr-only">Publications and Works by Sai Karun Nandipati</h2>
         <!-- Shelves injected by JS -->
     </main>
+
+<!-- WORKS INDEX: static text index, generated by tools/sync-content.py.
+     The shelf UI above is JavaScript-only, so without this block every
+     publication was invisible to crawlers and answer engines. -->
+<!-- works-index:start -->
+<section class="works-index container mx-auto px-4 pb-16" aria-labelledby="works-index-heading">
+<h2 id="works-index-heading" class="text-2xl font-display tracking-wider text-white mb-2">Complete publication index <span class="text-gold">(42 works)</span></h2>
+<p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-3xl">Every publication by Sai Karun Nandipati, in plain text so that search engines and AI answer engines can read it without running JavaScript. The interactive library above shows the same works as a visual shelf.</p>
+<h3 class="text-lg font-display text-white tracking-widest mt-8 mb-2">Research papers (9)</h3>
+<p class="text-sm text-gray-500 mb-4">Peer-reviewed papers, conference papers and journal articles.</p>
+<ol class="works-index__list grid gap-2 text-sm text-gray-300">
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Integrating Proximal Policy Optimization with Physically Realistic Simulation for Robust Autonomous Underwater Vehicle Control</cite> &mdash; Gazi University Journal of Science, 2026. Review</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">A REVIEW ON MACHINE LEARNING APPROACH FOR TRACKING AND PREDICTING STUDENT PERFORMANCE</cite> &mdash; UIJES, 2025. <span class="text-gray-500">identifier 10.53414.UIJES.5.2.21 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Quality of LLM-Mediated Communication in Disabled Learning</cite> &mdash; Google Scholar, 2025. Journal Article</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">An Analysis of Intrusion detection and penetration systems in the health care sector</cite> &mdash; ICRIT-2024, 2024. Conference</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Frontiers of Innovation in Deep Learning – Meta Learning</cite> &mdash; ICRIT-2024, 2024. Conference</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Local Language Model – Unveiling Potential of decentralized Intelligence</cite> &mdash; ICRIT-2024, 2024. Conference</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">WRNN-Driven Detection Mechanisms for Hairy Cell Leukemia</cite> &mdash; Unpublished, 2024. <a href="https://doi.org/10.13140/RG.2.2.28151.23202" target="_blank" rel="noopener noreferrer nofollow">doi:10.13140/RG.2.2.28151.23202</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Recent Trends in Deep Learning Algorithms and Their Applications</cite> &mdash; Emerging Trends, 2023. Conference</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">The Engineering Of AI- Enabled system is Distinct From Other Engineering Disciplines</cite> &mdash; Emerging Trends, 2023. Conference</li>
+</ol>
+<h3 class="text-lg font-display text-white tracking-widest mt-8 mb-2">Books (32)</h3>
+<p class="text-sm text-gray-500 mb-4">Books authored on artificial intelligence, agentic AI, RAG and prompt engineering.</p>
+<ol class="works-index__list grid gap-2 text-sm text-gray-300">
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Agentic AI: Understanding and Building Autonomous Intelligent Systems</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DV96JFYY" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">AI Education Strategies for Future-Proofing Curriculum Design</cite> &mdash; Book Chapter, 2025. Review</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">AI in Commerce: Transforming Business for the Digital Age</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F6VF52PS" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">AI in E-Commerce: Revolutionizing Online Shopping</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F6T38NNL" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">AI in Education: From Schooling to Research</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0FMR2VFV8" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">AI in the Classroom: From Chalkboards to Code</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DXVQFCP1" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Artificial Intelligence - Intellect Born from Intelligence</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier 978-81-983232-3-1 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Artificial Intelligence in Biomedical Research</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F4XTXTWN" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Augmented Creativity: The AI-Powered Revolution Reshaping the Next Generation</cite> &mdash; Amazon, 2025. Book</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Building Multi-Agent Systems using HuggingFace Models</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F2T9DXR3" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Data Mining: Concepts, Techniques, and Applications</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0FQT45KWF" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Digital Marketing Fundamentals</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier 978-81-980666-2-6 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Foundations of RAG: Retrieval-Augmented Generation with LLMs</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F61XXJX9" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Generative AI: Transforming Real-Life Applications Across Sectors</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DTJ17RML" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Human 2.0: The AI-Powered Evolution of Mind, Body, and Society</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F48LMTJW" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">JavaScript in Action: 100 Practical Projects</cite> &mdash; Pothi, 2025. <a href="https://www.amazon.com/dp/B0DVLMLVXR" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">JavaScript in Action: 100 Practical Projects (Var 2)</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DVLMLVXR" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Journey with Python: Core Programming to Data Science and Al</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier 978-81-980666-6-4 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Leveraging Consciousness-Based Chatbots to Support Students Through Loss and Trauma</cite> &mdash; Book Chapter, 2025. 9798337327525</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Linux Essentials 101: From Definition to Distribution Development</cite> &mdash; Amazon, 2025. 3639763718</li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">MASTERING FULL-STACK WEB DEVELOPMENT WITH MEAN STACK</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F3P9HBXN" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Mastering Java Programming: From Basics to Advanced Concepts</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier B0FBV64K8N (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Mastering UI Design: Principles, Practices, and Innovations</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DXVDY5DY" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Mini Projects Using Python</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0FWRXWQV2" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">No Code Development - Empowering Everyone to Build the Future</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier 978-81-983232-6-2 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Prompt Engineering</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier 978-81-980666-0-2 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Research Methodology and Intellectual Property Rights</cite> &mdash; Amazon, 2025. <span class="text-gray-500">identifier B0DWN7BRB1 (no working link)</span></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Social Network Analysis and Its Applications</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F8BPFKHY" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">The Complete Guide to Web 3.0</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DTN28ZBG" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Transform Ideas into AI Projects: A Google AI Studio Guide</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0F2GSWHSX" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Web Development Using HTML, CSS, and JavaScript</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DTHXGWGQ" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Mastering Object-Oriented Software Engineering with UML and PlantUML</cite> &mdash; Amazon, 2025. <a href="https://www.amazon.com/dp/B0DTTGBHZV" target="_blank" rel="noopener noreferrer nofollow">Amazon</a></li>
+</ol>
+<h3 class="text-lg font-display text-white tracking-widest mt-8 mb-2">Peer review (1)</h3>
+<p class="text-sm text-gray-500 mb-4">Peer review work for journals and conferences.</p>
+<ol class="works-index__list grid gap-2 text-sm text-gray-300">
+<li class="border-b border-white/5 pb-2"><cite class="not-italic text-gray-200">Peer review for IGI Global Book Chapter</cite> &mdash; IGI Global, 2025. Verification</li>
+</ol>
+</section>
+<!-- works-index:end -->
+<!-- works-index:end -->
 
     <!-- Contextual Popover -->
     <div id="popover" class="popover">
@@ -559,10 +628,19 @@
             const height = w.cat === 'Book' ? (240 + Math.random() * 40) : (220 + Math.random() * 20); // Books taller
             const thickness = w.cat === 'Book' ? 'thick' : 'thin';
 
-            // Generate Link
+            // Generate Link. Identifiers that returned 404 when checked
+            // (tools/check-links.py, 2026-10-05) are deliberately left
+            // unlinked rather than published as dead store links.
+            const DEAD_IDENTIFIERS = new Set([
+                '978-81-980666-0-2', '978-81-980666-2-6', '978-81-980666-6-4',
+                '978-81-983232-3-1', '978-81-983232-6-2',
+                'B0DWN7BRB1', 'B0FBV64K8N', '10.53414.UIJES.5.2.21'
+            ]);
             let link = "#";
-            if (w.doi.startsWith("B0") || w.doi.startsWith("978")) link = `https://www.amazon.com/dp/${w.doi}`;
-            else if (w.doi.includes("10.")) link = `https://doi.org/${w.doi}`;
+            if (!DEAD_IDENTIFIERS.has(w.doi)) {
+                if (w.doi.startsWith("B0") || w.doi.startsWith("978")) link = `https://www.amazon.com/dp/${w.doi}`;
+                else if (w.doi.includes("10.")) link = `https://doi.org/${w.doi}`;
+            }
 
             return { ...w, id: i, color, height, thickness, link };
         });
@@ -849,6 +927,63 @@
         document.getElementById('count-reviews').textContent = byCat('Peer Review');
 
     </script>
+<!-- footer:start -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__cols">
+            <div class="site-footer__col">
+                <h2>Profile</h2>
+                <ul>
+                    <li><a href="about.html">Biography</a></li>
+                    <li><a href="works.html">Books &amp; publications</a></li>
+                    <li><a href="projects.html">Open-source projects</a></li>
+                    <li><a href="services.html">Research &amp; tutoring</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Learn</h2>
+                <ul>
+                    <li><a href="learner-resources.html">Learner resources</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP servers</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li><a href="https://github.com/karun99" rel="me noopener" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank">ORCID</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" rel="me noopener" target="_blank">ResearchGate</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>For crawlers</h2>
+                <ul>
+                    <li><a href="llms.txt">llms.txt</a></li>
+                    <li><a href="llms-full.txt">llms-full.txt</a></li>
+                    <li><a href="sitemap.xml">sitemap.xml</a></li>
+                    <li><a href="robots.txt">robots.txt</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="site-footer__bar">
+            <span>&copy; 2026 Sai Karun Nandipati &middot; ORCID 0009-0007-9218-9750</span>
+            <span class="site-footer__social">
+                <a href="https://github.com/karun99" rel="me noopener" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+                <a href="mailto:saikarun085@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- footer:end -->
+
+<script src="assets/js/main.js" defer></script>
+
 </body>
 
 </html>

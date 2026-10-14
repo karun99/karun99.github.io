@@ -1,31 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Highlight Active Nav Link
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-links a');
+    // 1. Mark the current page in the nav.
+    //    Matching on the pathname keeps this correct for both the desktop list
+    //    and the mobile panel, which render the same links twice.
+    const navLinks = document.querySelectorAll('.site-nav a[href], .site-menu a[href]');
+    const path = window.location.pathname;
+    const currentPage = path === '/' || path === ''
+        ? 'index.html'
+        : path.split('/').pop();
 
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
+        const href = link.getAttribute('href');
+        // Compare basenames so /about.html and /about both resolve.
+        const target = href.split('/').pop();
+        if (target === currentPage) {
+            link.setAttribute('aria-current', 'page');
             link.classList.add('active-nav');
         }
     });
 
-    // Mobile Menu
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-links');
+    // 1b. Desktop "More" dropdown (Services, Prompts & MCP, Answers).
+    //     Same contract as the mobile panel: a real button wired to
+    //     aria-expanded, Escape closes it, an outside click closes it.
+    const moreBtn = document.querySelector('.site-nav__more-btn');
+    const moreMenu = document.getElementById('site-nav-more');
 
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-            const icon = menuBtn.querySelector('i');
-            if (navMenu.classList.contains('open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+    if (moreBtn && moreMenu) {
+        const setMoreOpen = (open) => {
+            moreBtn.setAttribute('aria-expanded', String(open));
+            moreMenu.hidden = !open;
+        };
+
+        moreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setMoreOpen(moreMenu.hidden);
+        });
+
+        moreMenu.addEventListener('click', (e) => {
+            if (e.target.closest('a')) setMoreOpen(false);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !moreMenu.hidden) {
+                setMoreOpen(false);
+                moreBtn.focus();
             }
         });
+
+        document.addEventListener('click', (e) => {
+            if (moreMenu.hidden) return;
+            if (moreMenu.contains(e.target) || moreBtn.contains(e.target)) return;
+            setMoreOpen(false);
+        });
+    }
+
+    // 2. Mobile menu. The toggle is a real <button> wired to aria-expanded, and
+    //    Escape or an outside click closes it.
+    const menuBtn = document.querySelector('.site-nav__toggle');
+    const navMenu = document.getElementById('site-menu');
+
+    if (menuBtn && navMenu) {
+        const setMenuOpen = (open) => {
+            menuBtn.setAttribute('aria-expanded', String(open));
+            menuBtn.setAttribute('aria-label', open ? 'Close main menu' : 'Open main menu');
+            navMenu.hidden = !open;
+            document.body.classList.toggle('menu-open', open);
+        };
+
+        const closeMenu = () => setMenuOpen(false);
+
+        menuBtn.addEventListener('click', () => {
+            setMenuOpen(navMenu.hidden);
+        });
+
+        // Escape closes and returns focus to the toggle.
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !navMenu.hidden) {
+                closeMenu();
+                menuBtn.focus();
+            }
+        });
+
+        // A click outside the panel closes it.
+        document.addEventListener('click', (e) => {
+            if (navMenu.hidden) return;
+            if (navMenu.contains(e.target) || menuBtn.contains(e.target)) return;
+            closeMenu();
+        });
+
+        // Following a link inside the panel should not leave it open behind
+        // the new page, which matters for same-page anchors.
+        navMenu.addEventListener('click', (e) => {
+            if (e.target.closest('a')) closeMenu();
+        });
+
+        // Rotating to a wide viewport reveals the desktop list, so drop the
+        // open state instead of leaving a hidden panel in the DOM.
+        window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => {
+            if (e.matches) closeMenu();
+        });
+
+        closeMenu();
     }
 
     // --- LOADER LOGIC ---
@@ -44,42 +119,53 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        let progress = 0;
-        const messages = ['LOADING CORE MODULES...', 'INITIALIZING NEURAL NET...', 'CONNECTING TO MAINFRAME...', 'SYSTEM READY'];
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        const interval = setInterval(() => {
-            progress += Math.random() * 5; // Faster loading
-            if (progress > 100) progress = 100;
+        if (prefersReducedMotion) {
+            // Honour the OS setting: reveal the page immediately rather than
+            // playing a staged boot animation.
+            hideLoader();
+        } else {
+            let progress = 0;
+            const messages = ['LOADING CORE MODULES...', 'INITIALIZING NEURAL NET...', 'CONNECTING TO MAINFRAME...', 'SYSTEM READY'];
 
-            if (loaderBar) loaderBar.style.width = `${progress}%`;
+            const interval = setInterval(() => {
+                // The bar is cosmetic, so drive it on a fixed short schedule
+                // instead of a random walk that could stall near the top.
+                progress = Math.min(100, progress + 12);
 
-            if (progress < 30) loaderText.innerText = messages[0];
-            else if (progress < 60) loaderText.innerText = messages[1];
-            else if (progress < 90) loaderText.innerText = messages[2];
-            else loaderText.innerText = messages[3];
+                if (loaderBar) loaderBar.style.width = `${progress}%`;
 
-            if (progress === 100) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                    // Cleanup 3D to save resources
-                    const canvas = document.getElementById('loader-canvas');
-                    if (canvas) canvas.remove();
-                }, 500); // 0.5s fade out
-            }
-        }, 50);
+                if (loaderText) {
+                    if (progress < 30) loaderText.innerText = messages[0];
+                    else if (progress < 60) loaderText.innerText = messages[1];
+                    else if (progress < 90) loaderText.innerText = messages[2];
+                    else loaderText.innerText = messages[3];
+                }
 
-        // Fail-safe: Force hide loader after 5 seconds if logic fails
-        setTimeout(() => {
-            if (!loader.classList.contains('hidden')) {
-                loader.classList.add('hidden');
-            }
-        }, 5000);
+                if (progress === 100) {
+                    clearInterval(interval);
+                    setTimeout(hideLoader, 250);
+                }
+            }, 40);
+        }
+
+        // Fail-safe: never let the loader outlive the page, whatever happens
+        // above. Without JavaScript the loader is hidden by CSS, so this only
+        // guards against a script error mid-boot.
+        setTimeout(hideLoader, 5000);
+
+        function hideLoader() {
+            loader.classList.add('hidden');
+            const canvas = document.getElementById('loader-canvas');
+            if (canvas) canvas.remove();
+        }
     }
 
-    // Global Animations (GSAP)
+    // Header entrance. Targets .site-nav because the markup is now shared
+    // across every page rather than a bare <nav>.
     if (typeof gsap !== 'undefined') {
-        gsap.from("nav", {
+        gsap.from(".site-nav", {
             y: -100,
             opacity: 0,
             duration: 1,
@@ -88,11 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Global Animations (if GSAP is loaded)
+    // Reveal sections on scroll. `immediateRender: false` matters here: without
+    // it GSAP writes opacity:0 onto every child straight away, so any section
+    // whose trigger never fires (already-scrolled past, or a trigger that fails
+    // to initialise) would stay permanently invisible.
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Reveal Sections
         gsap.utils.toArray('section').forEach(section => {
             gsap.from(section.children, {
                 scrollTrigger: {
@@ -103,7 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity: 0,
                 duration: 0.6,
                 stagger: 0.1,
-                ease: "power2.out"
+                ease: "power2.out",
+                immediateRender: false,
+                // Drop the inline styles once revealed so the elements fall back
+                // to their stylesheet values instead of staying mid-animation.
+                clearProps: "all"
             });
         });
     }
@@ -586,198 +678,302 @@ function createGlobe(parent, x, y, z, radius) {
 const PROJECT_STORAGE_KEY = 'sai_portfolio_projects';
 const AUTH_KEY = 'sai_portfolio_auth';
 
+/* default-projects:start */
+// Generated by tools/sync-content.py from tools/projects.json - do not edit by hand.
 const DEFAULT_PROJECTS = [
     {
-        id: 'p1',
-        title: 'S-AI — Multi-Agent Swarm Intelligence',
-        category: 'AGENTIC AI // SWARM',
-        description: 'A published npm multi-agent swarm system with neural Digital Twin persona adaptation, arXiv research mapping, Bhashini multilingual AI, MCP integration, and bias-reduced consensus across 6 specialized agents.',
-        link: 'https://www.npmjs.com/package/@saikarun/s-ai',
-        icon: 'fas fa-robot',
-        tags: ['TYPESCRIPT', 'LLM', 'AGENTIC', 'OPENSOURCE'],
+        id: "p3",
+        title: "Celebrum \u2014 Local-First Artificial Brain",
+        category: "AI INFRA // MCP",
+        description: "A local-first artificial brain combining a persona model, a neuron/synapse memory graph, a truth engine and a guardrail engine, shipped as CLI, GUI and an MCP server.",
+        link: "https://github.com/karun99/celebrum",
+        icon: "fas fa-brain",
+        tags: ["PYTHON", "MCP", "MEMORY GRAPH", "LOCAL-FIRST"],
         featured: true
     },
     {
-        id: 'p2',
-        title: 'Collabuild — Research-to-Prototype Pipeline',
-        category: 'MAS // RESEARCH',
-        description: 'A multi-agent system (MAS) implementation that turns research papers into working prototypes through an automated orchestrated pipeline of specialized research agents.',
-        link: 'https://github.com/karun99/Collabuild',
-        icon: 'fas fa-project-diagram',
-        tags: ['PYTHON', 'MULTI-AGENT', 'DOCKER'],
+        id: "p2",
+        title: "Collabuild \u2014 Paper-to-Prototype Pipeline",
+        category: "MAS // RESEARCH",
+        description: "A multi-agent system that turns a research paper into a working prototype through an orchestrated pipeline of specialised research agents, so a PDF becomes runnable code.",
+        link: "https://github.com/karun99/Collabuild",
+        icon: "fas fa-project-diagram",
+        tags: ["PYTHON", "MULTI-AGENT", "RESEARCH", "DOCKER"],
         featured: true
     },
     {
-        id: 'p3',
-        title: 'Duet AI Ecosystem',
-        category: 'DIGITAL TWIN // HCI',
-        description: 'An Agentic AI ecosystem investigating the fundamental process of Human-Computer Interaction and Parallel Consciousness through prompt architecture.',
-        link: 'https://github.com/nsktech994/Duet--Digital-Twin-Technology',
-        icon: 'fas fa-brain',
-        tags: ['PYTHON', 'LLM', 'AGENTIC'],
+        id: "p4",
+        title: "S-AI SoulBot \u2014 Consent-Gated Companion Harness",
+        category: "AGENTIC AI // SAFETY",
+        description: "A consent-gated AI companion harness with a Sentinel authorisation authority, a J\u0101taka behavioural guardrail registry, consent continuity and T0\u2013T6 conformance tiers.",
+        link: "https://github.com/karun99/s-ai-soulbot",
+        icon: "fas fa-user-shield",
+        tags: ["TYPESCRIPT", "CONSENT", "GUARDRAILS", "AGENTIC"],
         featured: true
     },
     {
-        id: 'p4',
-        title: 'AppIdea — Privacy-First Product Workspace',
-        category: 'DEV TOOLS // PRIVACY',
-        description: 'A client-side product workspace that turns raw ideas into professional documents (Charter, PRD, TDD, Pitch Deck) and exports PDF/PPTX — all data AES-256 encrypted and stored locally.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/appidea',
-        icon: 'fas fa-lightbulb',
-        tags: ['NEXT.JS', 'CRYPTOJS', 'PRIVACY'],
-        featured: false
-    },
-    {
-        id: 'p6',
-        title: 'LeadGen Agent — Multi-Agent Lead Generation',
-        category: 'AGENTIC AI // GTM',
-        description: 'A multi-agent lead generation system that validates, enriches and scores leads using OCR document parsing, Bhashini AI and web intelligence for high-conversion outreach.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/LeadGen%20Agent',
-        icon: 'fas fa-bullseye',
-        tags: ['TYPESCRIPT', 'OCR', 'BHASHINI'],
-        featured: false
-    },
-    {
-        id: 'p7',
-        title: 'Prompt-Code — Prompt Engineering Arena',
-        category: 'EDTECH // EVALUATION',
-        description: 'A prompt engineering challenge platform with AI-powered evaluation, leaderboards and peer review loops to sharpen LLM prompting craft.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/prompt-code',
-        icon: 'fas fa-code',
-        tags: ['EXPRESS', 'AI EVAL', 'NETLIFY'],
-        featured: false
-    },
-    {
-        id: 'p8',
-        title: 'Tut-Hub — Tutor & Learning Platform',
-        category: 'EDTECH // LMS',
-        description: 'A tutor and learning management platform enabling course delivery, student progress tracking and session management for modern educators.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/tut-hub',
-        icon: 'fas fa-graduation-cap',
-        tags: ['REACT', 'SUPABASE', 'LMS'],
-        featured: false
-    },
-    {
-        id: 'p9',
-        title: 'Study Buddy Next — AI Study Companion',
-        category: 'EDTECH // AI TUTOR',
-        description: 'An AI-powered study companion built on Next.js 16 and Tailwind CSS v4 that helps students query, summarize and retain course material interactively.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/study-buddy-next',
-        icon: 'fas fa-user-graduate',
-        tags: ['NEXT.JS', 'TAILWIND', 'AI'],
-        featured: false
-    },
-    {
-        id: 'p10',
-        title: 'Perspective AI — AI Backend Engine',
-        category: 'AI INFRA // BACKEND',
-        description: 'A TypeScript/Express backend engine for AI apps with AES-256 auth, project management, configurable content-generation agents and an admin dashboard.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/you-ai-engine',
-        icon: 'fas fa-server',
-        tags: ['TYPESCRIPT', 'EXPRESS', 'AUTH'],
-        featured: false
-    },
-    {
-        id: 'p11',
-        title: 'AI-CMS — AI Content Management',
-        category: 'AI INFRA // CMS',
-        description: 'An AI-assisted content management system pairing a React + Vite frontend with LLM generation for fast, structured content workflows.',
-        link: 'https://github.com/karun99/proto-collection/tree/main/ai-cms',
-        icon: 'fas fa-newspaper',
-        tags: ['REACT', 'VITE', 'AI'],
-        featured: false
-    },
-    {
-        id: 'p12',
-        title: 'Career Roadmap Generator',
-        category: 'DEV TOOLS // GENERATIVE',
-        description: 'AI-powered developer support tool that generates personalized career roadmaps and skill progression paths.',
-        link: 'https://carcan.created.app/',
-        icon: 'fas fa-map-signs',
-        tags: ['GENERATIVE AI', 'CAREER'],
-        featured: false
-    },
-    {
-        id: 'p13',
-        title: 'HCL Detector Prototype',
-        category: 'BIO-INFORMATICS // NO-CODE',
-        description: 'Hairy Cell Leukemia detector prototype built using advanced No-Code tools for rapid diagnostic visualization.',
-        link: 'https://hclproto.created.app/',
-        icon: 'fas fa-dna',
-        tags: ['NO-CODE', 'BIO-TECH'],
-        featured: false
-    },
-    {
-        id: 'p14',
-        title: 'Job Aggregator & Analytics Suite',
-        category: 'AUTOMATION // DATA',
-        description: 'A FastAPI job aggregation service feeding a Dash + Plotly analytics dashboard for lead validation, regional insights and market intelligence.',
-        link: 'https://github.com/karun99/proto-collection',
-        icon: 'fas fa-briefcase',
-        tags: ['FASTAPI', 'DASH', 'PLOTLY'],
-        featured: false
-    },
-    {
-        id: 'p15',
-        title: 'S-AI — Swarm Intelligence (Source)',
-        category: 'AGENTIC AI // SWARM',
-        description: 'S-AI v5.1 source — Multi-Agent Swarm Intelligence with MCP Builder, Skill Creator, Neural Mapping, and 20+ AI providers.',
-        link: 'https://github.com/karun99/s-ai',
-        icon: 'fas fa-robot',
-        tags: ['TYPESCRIPT', 'LLM', 'AGENTIC', 'OPENSOURCE'],
-        featured: false
-    },
-    {
-        id: 'p16',
-        title: 'S-AI Update — Synthetic Executive',
-        category: 'AGENTIC AI // SECURITY',
-        description: 'S-AI v6.1 — Synthetic Executive with security hardening, SSRF protection, sandboxing, and TRL/MRL/IRL readiness.',
-        link: 'https://github.com/karun99/s-ai-update',
-        icon: 'fas fa-shield-halved',
-        tags: ['TYPESCRIPT', 'SECURITY', 'AGENTIC'],
-        featured: false
-    },
-    {
-        id: 'p17',
-        title: 'neural-harness — Validation Harness Engine',
-        category: 'RESEARCH // VALIDATION',
-        description: 'A standard-library-only validation harness engine that measures neural software projects (information handling, neural synthesis, fused data-integration accuracy) and emits evidence-first, human-voiced reports. JOSS-track research software with an automated editorial bot.',
-        link: 'https://github.com/karun99/neural-harness',
-        icon: 'fas fa-dna',
-        tags: ['PYTHON', 'VALIDATION', 'JOSS', 'REPRODUCIBILITY'],
+        id: "p1",
+        title: "S-AI \u2014 Multi-Agent Swarm Intelligence",
+        category: "AGENTIC AI // SWARM",
+        description: "S-AI v5.1 is a TypeScript multi-agent swarm with an MCP server builder, skill creator, neural knowledge mapping and 20+ AI providers, published to npm as @saikarun/s-ai.",
+        link: "https://github.com/karun99/s-ai",
+        icon: "fas fa-robot",
+        tags: ["TYPESCRIPT", "LLM", "MCP", "MULTI-AGENT"],
         featured: true
     },
     {
-        id: 'p18',
-        title: 'Samvit — Local-First Personal AI',
-        category: 'RESEARCH // PERSONAL AI',
-        description: 'Local-first personal AI with one shared memory graph, five named profiles, a VISION accuracy marker and an ULTRON 14-check error-validation constraint. Standard library only, 80-test locked suite. JOSS-track research software.',
-        link: 'https://github.com/karun99/samvit',
-        icon: 'fas fa-brain',
-        tags: ['PYTHON', 'GUARDRAILS', 'JOSS', 'LOCAL-FIRST'],
+        id: "p5",
+        title: "Samvit \u2014 Local-First Personal AI",
+        category: "RESEARCH // PERSONAL AI",
+        description: "Samvit (\u0938\u0902\u0935\u093f\u0924\u094d) is a local-first personal AI with one shared memory graph, five named profiles, a VISION accuracy marker and a ULTRON 14-check error-validation constraint. Python 3.9+, standard library only.",
+        link: "https://github.com/karun99/samvit",
+        icon: "fas fa-user-graduate",
+        tags: ["PYTHON", "LOCAL-FIRST", "GUARDRAILS", "JOSS"],
         featured: true
     },
     {
-        id: 'p19',
-        title: 'glama-gateway-mcp — MCP Gateway Server',
-        category: 'INFRA // MCP',
-        description: 'Dependency-free MCP server exposing the Glama OpenAI-compatible AI gateway as four tools (list models, chat, stream, status). Dependency-free LLM gateway MCP server, JOSS-track.',
-        link: 'https://github.com/karun99/glama-mcp',
-        icon: 'fas fa-plug',
-        tags: ['PYTHON', 'MCP', 'LLM', 'JOSS'],
+        id: "p6",
+        title: "neural-harness \u2014 Validation Harness Engine",
+        category: "RESEARCH // VALIDATION",
+        description: "A standard-library-only validation engine that measures information-handling and neural-synthesis accuracy in data integration, and emits evidence-first research reports. JOSS-track research software.",
+        link: "https://github.com/karun99/neural-harness",
+        icon: "fas fa-dna",
+        tags: ["PYTHON", "VALIDATION", "JOSS", "REPRODUCIBILITY"],
         featured: true
     },
     {
-        id: 'p20',
-        title: 'Health Quest — Food-Literacy Game',
-        category: 'EDTECH // EDUCATION',
-        description: 'Ethics-first food-literacy game for school students with a transparent Michelin-style Health Score, consent-first OpenStreetMap eatery lookup, and IEEE alignment. Built with a student co-author — release-track educational software.',
-        link: 'https://github.com/karun99/health-quest',
-        icon: 'fas fa-apple-whole',
-        tags: ['HTML', 'EDUCATION', 'ETHICS', 'STUDENT'],
+        id: "p14",
+        title: "AI Content Studio",
+        category: "AI INFRA // CONTENT",
+        description: "A React and Vite platform backed by ChromaDB for content creation, AI generation, knowledge management and model operations in one workspace.",
+        link: "https://github.com/karun99/ai-content-studio",
+        icon: "fas fa-pen-nib",
+        tags: ["JAVASCRIPT", "REACT", "CHROMADB", "RAG"],
+        featured: false
+    },
+    {
+        id: "p16",
+        title: "AI Studio \u2014 Generative Video Studio",
+        category: "AI INFRA // GENERATIVE",
+        description: "An AI-powered video creation and media production studio: a Next.js application for generating AI video and media content.",
+        link: "https://github.com/karun99/aistudio",
+        icon: "fas fa-film",
+        tags: ["NEXT.JS", "GENERATIVE", "MEDIA"],
+        featured: false
+    },
+    {
+        id: "p12",
+        title: "Anvaya \u2014 Researcher-Controlled AI Memory",
+        category: "RESEARCH // MEMORY",
+        description: "Anvaya remembers the researcher, not just the research: a persistent, researcher-owned memory layer with personalised retrieval and evidence-backed RAG that cites its sources.",
+        link: "https://github.com/karun99/anvaya",
+        icon: "fas fa-layer-group",
+        tags: ["PYTHON", "RAG", "MEMORY", "RESEARCH"],
+        featured: false
+    },
+    {
+        id: "p18",
+        title: "AppIdea \u2014 Privacy-First Product Workspace",
+        category: "DEV TOOLS // PRIVACY",
+        description: "A browser-only product workspace that turns a raw idea into professional documents \u2014 Charter, PRD, TDD, roadmap and pitch deck \u2014 with AES-256 encrypted local storage and no backend.",
+        link: "https://github.com/karun99/appidea",
+        icon: "fas fa-lightbulb",
+        tags: ["TYPESCRIPT", "AES-256", "PRIVACY", "NO-BACKEND"],
+        featured: false
+    },
+    {
+        id: "p9",
+        title: "ArthAI \u2014 Agentic Commerce Gateway",
+        category: "AGENTIC AI // COMMERCE",
+        description: "An agentic commerce gateway for MSMEs built for the Razorpay Buildathon: AI-driven fiat and crypto commerce with a six-layer financial governance and adaptive security layer.",
+        link: "https://github.com/karun99/arthai",
+        icon: "fas fa-store",
+        tags: ["PYTHON", "RAZORPAY", "FINTECH", "AGENTIC"],
+        featured: false
+    },
+    {
+        id: "p21",
+        title: "Autonomous Hackathon Agent",
+        category: "AGENTIC AI // AUTONOMY",
+        description: "A cross-platform agent that runs on desktop, mobile and web, continuously discovering hackathons, generating project ideas and building prototypes with zero-cost AI inference.",
+        link: "https://github.com/karun99/autonomous-hackathon-agent",
+        icon: "fas fa-robot",
+        tags: ["PYTHON", "AUTONOMY", "PLAYWRIGHT", "AGENTIC"],
+        featured: false
+    },
+    {
+        id: "p19",
+        title: "BlogBot / BlogWriter \u2014 AI Blog Engine",
+        category: "AI INFRA // AUTOMATION",
+        description: "Automated AI blog content generation shipped in two deployable forms: a native WordPress plugin and a cloud-deployable Node.js and Express web app.",
+        link: "https://github.com/karun99/blogbot",
+        icon: "fas fa-feather-alt",
+        tags: ["PHP", "WORDPRESS", "NODE.JS", "AUTOMATION"],
+        featured: false
+    },
+    {
+        id: "p10",
+        title: "BuildBot \u2014 Research Paper to Working Code",
+        category: "EDTECH // AI TUTOR",
+        description: "A student AI coding assistant that walks a research paper through SRS, checklist and implementation stages until it produces working, runnable code.",
+        link: "https://github.com/karun99/buildbot",
+        icon: "fas fa-code",
+        tags: ["TYPESCRIPT", "NEXT.JS", "STUDENT", "AGENTIC"],
+        featured: false
+    },
+    {
+        id: "p26",
+        title: "CodeQuest \u2014 Coding Assessment Platform",
+        category: "EDTECH // ASSESSMENT",
+        description: "A LAN-deployable coding and debugging assessment system in PHP and MySQL with a three-tier model \u2014 aptitude, program writing, debugging \u2014 plus timed tests, automated scoring and anti-cheat controls.",
+        link: "https://github.com/karun99/CodeQuest",
+        icon: "fas fa-clipboard-check",
+        tags: ["PHP", "MYSQL", "ASSESSMENT", "ANTI-CHEAT"],
+        featured: false
+    },
+    {
+        id: "p22",
+        title: "DUET \u2014 Digital Twin Framework",
+        category: "DIGITAL TWIN // HCI",
+        description: "A digital twin framework with adaptive neural mirroring and parallel consciousness streams that uses the Gemini API to simulate a persona's cognitive structure, biases and worldview.",
+        link: "https://github.com/karun99/DUET--Digital-Twin-Technology-",
+        icon: "fas fa-user-astronaut",
+        tags: ["TYPESCRIPT", "DIGITAL TWIN", "GEMINI", "HCI"],
+        featured: false
+    },
+    {
+        id: "p17",
+        title: "Gemini AI Chatbot",
+        category: "AI APPS // CHAT",
+        description: "An open-source chatbot front-end built with Next.js App Router, the Vercel AI SDK for streaming chat, Google Gemini as the model provider and Vercel KV for storage.",
+        link: "https://github.com/karun99/gemini-ai-chatbot",
+        icon: "fas fa-comments",
+        tags: ["TYPESCRIPT", "NEXT.JS", "GEMINI", "CHAT"],
+        featured: false
+    },
+    {
+        id: "p7",
+        title: "Glama-MCP \u2014 AI Gateway MCP Server",
+        category: "INFRA // MCP",
+        description: "A dependency-free MCP server exposing the Glama OpenAI-compatible AI gateway as four tools: list models, chat, stream and request status.",
+        link: "https://github.com/karun99/glama-mcp",
+        icon: "fas fa-plug",
+        tags: ["PYTHON", "MCP", "LLM", "JOSS"],
+        featured: false
+    },
+    {
+        id: "p23",
+        title: "Health Quest \u2014 Food-Literacy Game",
+        category: "EDTECH // EDUCATION",
+        description: "An ethics-first food education game for school students with a transparent Michelin-style Health Score and consent-first OpenStreetMap eatery lookup. Built with a student co-author.",
+        link: "https://github.com/karun99/health-quest",
+        icon: "fas fa-apple-whole",
+        tags: ["HTML", "EDUCATION", "ETHICS", "GAME"],
+        featured: false
+    },
+    {
+        id: "p11",
+        title: "HelixDB \u2014 Research & Learning Companion",
+        category: "EDTECH // RAG",
+        description: "A retrieval-augmented research and learning companion that adapts explanation depth to each learner, so every subject can be studied in the approach that suits the student.",
+        link: "https://github.com/karun99/HelixDB",
+        icon: "fas fa-book-open",
+        tags: ["PYTHON", "RAG", "LEARNING", "RETRIEVAL"],
+        featured: false
+    },
+    {
+        id: "p15",
+        title: "Perspective AI Engine",
+        category: "AI INFRA // BACKEND",
+        description: "A TypeScript and Express backend engine for building and deploying AI applications, with configurable content-generation agents and an admin dashboard.",
+        link: "https://github.com/karun99/you-ai-engine",
+        icon: "fas fa-server",
+        tags: ["TYPESCRIPT", "EXPRESS", "BACKEND", "AGENTIC"],
+        featured: false
+    },
+    {
+        id: "p29",
+        title: "Plastic Waste Conservation Platform",
+        category: "EDTECH // EDUCATION",
+        description: "An education platform on plastic waste and conservation strategies with six real-world case studies and an OpenRouter AI tutor, built as a Class 9 project.",
+        link: "https://github.com/karun99/plastic-waste-conservation",
+        icon: "fas fa-leaf",
+        tags: ["JAVASCRIPT", "EDUCATION", "AI TUTOR", "CASE STUDIES"],
+        featured: false
+    },
+    {
+        id: "p28",
+        title: "PromptPro Challenge Arena",
+        category: "EDTECH // EVALUATION",
+        description: "A prompt engineering challenge and competition platform with AI-powered evaluation, leaderboards and peer review loops, on Express, Supabase and Vercel KV.",
+        link: "https://github.com/karun99/prompt-code",
+        icon: "fas fa-terminal",
+        tags: ["EXPRESS", "SUPABASE", "EVALUATION", "PROMPTS"],
+        featured: false
+    },
+    {
+        id: "p8",
+        title: "S-AI Update \u2014 Synthetic Executive",
+        category: "AGENTIC AI // SECURITY",
+        description: "S-AI v6.1, a synthetic executive layer with security hardening, SSRF protection, sandboxed execution and TRL/MRL/IRL readiness.",
+        link: "https://github.com/karun99/s-ai-update",
+        icon: "fas fa-shield-halved",
+        tags: ["TYPESCRIPT", "SECURITY", "SANDBOX", "AGENTIC"],
+        featured: false
+    },
+    {
+        id: "p20",
+        title: "SWOTIFY \u2014 Security Intelligence Platform",
+        category: "AI INFRA // SECURITY",
+        description: "A full-stack security and intelligence analysis platform pairing a Python agent backend with a Vite web frontend.",
+        link: "https://github.com/karun99/SWOTIFY",
+        icon: "fas fa-shield",
+        tags: ["PYTHON", "VITE", "SECURITY", "AGENTS"],
+        featured: false
+    },
+    {
+        id: "p13",
+        title: "ScholarSync \u2014 Research Data Portal",
+        category: "RESEARCH // WORKFLOW",
+        description: "A research data management portal with four-level role-based access control: researchers submit, department heads review, the research cell administers and the college gives final approval.",
+        link: "https://github.com/karun99/ScholarSync",
+        icon: "fas fa-users-cog",
+        tags: ["JAVASCRIPT", "REACT", "RBAC", "RESEARCH"],
+        featured: false
+    },
+    {
+        id: "p25",
+        title: "TechLearn \u2014 M.Tech CSE Syllabus Hub",
+        category: "EDTECH // M.TECH",
+        description: "A self-contained static learning web app built from the JNTU Kakinada M.Tech CSE syllabus: unit-wise theory pages, a repeated-question bank, interactive quizzes and progress tracking.",
+        link: "https://github.com/karun99/techlearn",
+        icon: "fas fa-book",
+        tags: ["HTML", "JNTU", "QUIZZES", "STUDY MATERIAL"],
+        featured: false
+    },
+    {
+        id: "p24",
+        title: "Teddy \u00d7 TechLearn \u2014 M.Tech Learning Hub",
+        category: "EDTECH // M.TECH",
+        description: "An AI-enhanced M.Tech CSE learning hub for JNTU Kakinada: the TechLearn static site plus Teddy, an AI study companion with chat, timed quizzes, notes and a persistent learner graph.",
+        link: "https://github.com/karun99/teddy-techlearn",
+        icon: "fas fa-graduation-cap",
+        tags: ["HTML", "M.TECH", "AI TUTOR", "JNTU"],
+        featured: false
+    },
+    {
+        id: "p27",
+        title: "TutHub \u2014 Tutor & LMS Platform",
+        category: "EDTECH // LMS",
+        description: "A tutor and learning management platform on React 19, Vite and Supabase with Drizzle ORM, covering course delivery, student progress tracking and session management.",
+        link: "https://github.com/karun99/tut-hub",
+        icon: "fas fa-chalkboard-teacher",
+        tags: ["REACT", "SUPABASE", "LMS", "DRIZZLE"],
         featured: false
     }
 ];
+/* default-projects:end */
+/* default-projects:end */
 
 function initProjectManager() {
     console.log(">> INITIALIZING PROJECT MANAGER SYSTEM...");
@@ -804,7 +1000,7 @@ function initProjectManager() {
     // Load Projects (versioned so updated defaults re-seed once per release)
     let projects = [];
     try {
-        const PROJECT_VERSION = 'v3';
+        const PROJECT_VERSION = 'v4';
         const versionKey = 'sai_portfolio_projects_version';
         if (localStorage.getItem(versionKey) !== PROJECT_VERSION) {
             projects = DEFAULT_PROJECTS;
@@ -989,8 +1185,8 @@ function renderProjects(grid, projects) {
 
         const adminControls = isLoggedIn ? `
             <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                <button class="bg-black/50 text-accent-primary hover:text-white p-2 rounded-full hover:bg-accent-primary/20 transition-all" onclick="editProject('${p.id}')" title="Edit"><i class="fas fa-edit"></i></button>
-                <button class="bg-black/50 text-red-400 hover:text-white p-2 rounded-full hover:bg-red-500/50 transition-all" onclick="deleteProject('${p.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+                <button type="button" class="bg-black/50 text-accent-primary hover:text-white p-2 rounded-full hover:bg-accent-primary/20 transition-all" onclick="editProject(this.dataset.id)" data-id="${esc(p.id)}" title="Edit"><i class="fas fa-edit" aria-hidden="true"></i><span class="sr-only">Edit</span></button>
+                <button type="button" class="bg-black/50 text-red-400 hover:text-white p-2 rounded-full hover:bg-red-500/50 transition-all" onclick="deleteProject(this.dataset.id, this.dataset.title)" data-id="${esc(p.id)}" data-title="${esc(p.title)}" title="Delete"><i class="fas fa-trash" aria-hidden="true"></i><span class="sr-only">Delete</span></button>
             </div>
         ` : '';
 
@@ -1000,10 +1196,16 @@ function renderProjects(grid, projects) {
         `;
 
         // Featured Icon (Crown) next to App Icon
-        const featuredIcon = p.featured ? `<i class="fas fa-star text-gold text-sm ml-3 animate-pulse" title="Featured System"></i>` : '';
+        const featuredIcon = p.featured ? `<i class="fas fa-star text-gold text-sm ml-3 animate-pulse" title="Featured System" aria-hidden="true"></i>` : '';
 
-        // Safety for tags
-        const tagsHtml = (p.tags || []).map(t => `<span class="bg-black/30 border border-white/10 px-2 py-1 rounded text-gray-400 group-hover:text-gray-300 transition-colors uppercase tracking-wider">${t}</span>`).join('');
+        // Tags and every other field are interpolated into innerHTML below, so
+        // they all go through esc(). Project records live in localStorage and
+        // can be edited by hand, so they must be treated as untrusted input.
+        const tagsHtml = (p.tags || []).map(t => `<span class="bg-black/30 border border-white/10 px-2 py-1 rounded text-gray-400 group-hover:text-gray-300 transition-colors uppercase tracking-wider">${esc(t)}</span>`).join('');
+
+        // Only allow hrefs that cannot execute script. A stored link of
+        // "javascript:..." would otherwise run on click.
+        const link = safeUrl(p.link);
 
         card.innerHTML = `
             ${interactiveBg}
@@ -1012,16 +1214,17 @@ function renderProjects(grid, projects) {
                 <div class="flex justify-between items-start mb-6">
                     <div class="text-4xl md:text-5xl text-accent-primary flex items-center drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]">
                         <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl bg-accent-primary/10 border border-accent-primary/20 group-hover:border-accent-primary/50 transition-all">
-                             <i class="${p.icon}"></i>
+                             <i class="${esc(p.icon)}" aria-hidden="true"></i>
                         </div>
                         ${featuredIcon}
                     </div>
-                    <a href="${p.link}" target="_blank" class="text-gray-500 hover:text-white transition transform hover:scale-110 p-2"><i class="fas fa-external-link-alt text-lg"></i></a>
+                    <a href="${esc(link)}" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition transform hover:scale-110 p-2" aria-label="Open ${esc(p.title)} in a new tab"><i class="fas fa-external-link-alt text-lg" aria-hidden="true"></i></a>
                 </div>
-                
-                <h3 class="text-xl md:text-2xl text-white mb-2 font-display tracking-wide group-hover:text-accent-primary transition-colors">${p.title}</h3>
-                <p class="text-[10px] text-gold/80 font-mono mb-4 tracking-widest border-b border-white/5 pb-3 inline-block uppercase">${p.category}</p>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light line-clamp-3">${p.description}</p>
+
+                <h3 class="text-xl md:text-2xl text-white mb-2 font-display tracking-wide group-hover:text-accent-primary transition-colors">${esc(p.title)}</h3>
+                <p class="text-[10px] text-gold/80 font-mono mb-4 tracking-widest border-b border-white/5 pb-3 inline-block uppercase">${esc(p.category)}</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4 font-light">${esc(p.description)}</p>
+                <p class="text-xs text-slate-500 font-mono"><a href="${esc(link)}" target="_blank" rel="noopener noreferrer" class="text-accent-primary hover:text-white transition">${esc(repoLabel(p.link))}</a></p>
             </div>
 
             <div class="relative z-10 flex gap-2 text-[10px] font-bold font-mono text-gray-500 flex-wrap mt-auto">
@@ -1150,19 +1353,48 @@ function editProject(id) {
     openModal(modal, form, project);
 }
 
-function deleteProject(id) {
+function deleteProject(id, title) {
     const grid = document.getElementById('projects-grid');
 
-    let projects = [];
-    try {
-        projects = JSON.parse(localStorage.getItem(PROJECT_STORAGE_KEY) || "[]");
-    } catch (e) {
-        projects = [];
-    }
-    projects = projects.filter(p => p.id !== id);
+    // Deleting is immediate and there is no undo, so confirm first.
+    const label = title ? `"${title}"` : 'this project';
+    if (!window.confirm(`Delete ${label}? This cannot be undone.`)) return;
+
+    const projects = readStoredProjects().filter(p => p.id !== id);
     localStorage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(projects));
     console.log(">> PROJECT DELETED: " + id);
     renderProjects(grid, projects);
+}
+
+// Escape a value for interpolation into an innerHTML template.
+function esc(value) {
+    return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+// Turn a project URL into the visible "github.com/owner/repo" style label.
+// Crawlers read link text, so an icon-only link carries no information.
+function repoLabel(url) {
+    const raw = String(url == null ? '' : url);
+    const m = raw.match(/^https?:\/\/([^/]+)\/(.+?)\/?$/i);
+    if (!m) return raw;
+    return m[1] + '/' + m[2];
+}
+
+// Allow only URLs that are safe to put in an href. Anything script-bearing
+// (javascript:, data:, vbscript:) collapses to an inert placeholder.
+function safeUrl(value) {
+    const raw = String(value == null ? '' : value).trim();
+    if (!raw) return '#';
+    // Strip whitespace and control characters, which can be used to smuggle
+    // a scheme past a naive check, e.g. "java\tscript:alert(1)".
+    const cleaned = raw.replace(/[\s\u0000-\u001f]/g, '');
+    if (!/^(https?:|mailto:|\/|#)/i.test(cleaned)) return '#';
+    return raw;
 }
 
 // --- MD5 Implementation ---

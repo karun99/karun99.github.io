@@ -2,21 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="canonical" content="https://karun99.github.io/answers.html">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Open Graph / Facebook -->
+    <title>Answers, Identity &amp; SEO/AEO — Sai Karun Nandipati</title>
+    <meta name="description"
+        content="Verified answers, identity record and SEO/AEO implementation for Sai Karun Nandipati, plus a free browser tool that detects SEO flaws in any URL.">
+    <meta name="author" content="Sai Karun Nandipati">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:updated_time" content="2026-10-03">
 
-    <!-- Twitter -->
+    <link rel="canonical" href="https://karun99.github.io/answers.html">
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary of this site">
 
-    <!-- Fonts & Icons -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sai Karun Nandipati">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://karun99.github.io/answers.html">
+    <meta property="og:title" content="Answers, Identity &amp; SEO/AEO — Sai Karun Nandipati">
+    <meta
+        content="Verified answers, identity record and SEO/AEO implementation for Sai Karun Nandipati, plus a free browser tool that detects SEO flaws in any URL."
+        property="og:description">
+    <meta property="og:image" content="https://karun99.github.io/assets/img/og-image.png">
+    <meta property="og:image:secure_url" content="https://karun99.github.io/assets/img/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@karun99">
+    <meta name="twitter:creator" content="@karun99">
+    <meta name="twitter:url" content="https://karun99.github.io/answers.html">
+    <meta name="twitter:title" content="Answers, Identity &amp; SEO/AEO — Sai Karun Nandipati">
+    <meta
+        content="Verified answers, identity record and SEO/AEO implementation for Sai Karun Nandipati, plus a free browser tool that detects SEO flaws in any URL."
+        name="twitter:description">
+    <meta name="twitter:image" content="https://karun99.github.io/assets/img/og-image.png">
+    <meta name="twitter:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Fonts & icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400;500&family=Lato:wght@300;400;700&family=Orbitron:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Optional dependency for the PDF export button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,49 +77,123 @@
             }
         }
     </script>
+
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/seo-optimiser.css">
+
     <style>
         .answer-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         .answer-card:hover {
             border-color: rgba(6, 182, 212, 0.4);
             box-shadow: 0 0 25px rgba(6, 182, 212, 0.12);
         }
+
         .glow-text {
             text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
         }
-        @media (max-width: 768px) {
-            .nav-links.open {
-                height: calc(100vh - var(--nav-height));
-            }
+
+        /* Compact page rhythm. The shared stylesheet gives sections a large
+           default padding meant for the marketing pages. */
+        section {
+            padding: 3.5rem 0;
         }
     </style>
 
-    <!-- JSON-LD: FAQPage for answer-engine visibility (all LLMs & Google) -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://karun99.github.io/#person",
+      "name": "Sai Karun Nandipati",
+      "alternateName": ["Sai Karun", "Saikarun", "Karun Nandipati"],
+      "url": "https://karun99.github.io/",
+      "jobTitle": "Assistant Professor & AI Architect",
+      "description": "Assistant Professor in the Department of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science, India, and author of more than 30 books on artificial intelligence.",
+      "image": "https://karun99.github.io/assets/img/profile.jpg",
+      "email": "mailto:saikarun085@gmail.com",
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "name": "PB Siddhartha College of Arts and Science"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "KBN College"
+      },
+      "knowsAbout": [
+        "Agentic AI",
+        "Multi-Agent Systems",
+        "Generative AI",
+        "Retrieval-Augmented Generation",
+        "Human-AI Symbiosis",
+        "AI Education",
+        "Fullstack Engineering"
+      ],
+      "sameAs": [
+        "https://orcid.org/0009-0007-9218-9750",
+        "https://github.com/karun99",
+        "https://www.linkedin.com/in/sai-karun-5a96a8b9",
+        "https://www.researchgate.net/profile/Sai-Karun-Nandipati"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://karun99.github.io/#website",
+      "url": "https://karun99.github.io/",
+      "name": "Sai Karun Nandipati",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://karun99.github.io/#person" }
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://karun99.github.io/answers.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "Who is Sai Karun Nandipati?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sai Karun Nandipati is an Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science and an AI Architect who researches Agentic AI, Human-AI Symbiosis, and generative models. He is the author of more than 30 books on AI and an architect of agentic systems such as the S-AI multi-agent swarm."
+            "text": "Sai Karun Nandipati is an Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science in India. He is an AI researcher, the author of more than 30 books on artificial intelligence, and the builder of the open-source S-AI multi-agent framework and the Collabuild research pipeline."
           }
         },
         {
           "@type": "Question",
-          "name": "What is Sai Karun Nandipati's area of expertise?",
+          "name": "What does Sai Karun Nandipati research?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "His expertise spans Agentic AI, multi-agent systems, generative models, retrieval-augmented generation (RAG), Human-AI Symbiosis, and AI education, alongside fullstack engineering in Python, TypeScript, React, Node.js, and cloud infrastructure."
+            "text": "His research covers agentic AI, multi-agent swarm intelligence, generative AI, retrieval-augmented generation and human-AI symbiosis, the study of how intelligent systems and people collaborate. He publishes through 30+ books on AI and teaches the same subjects at undergraduate and postgraduate level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What open-source AI projects has he built?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "He builds and maintains S-AI, a multi-agent swarm-intelligence framework published on npm as @saikarun/s-ai, and Collabuild, a pipeline that turns research papers into working prototypes. He also ships Model Context Protocol servers for AI clients, and student portals for computer-science study material."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many books has Sai Karun Nandipati written?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "More than 30 books and chapters on artificial intelligence, including Agentic AI: Understanding and Building Autonomous Intelligent Systems, Foundations of RAG, Prompt Engineering, and Generative AI. The indexed list is on the works page of this site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is S-AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S-AI is a multi-agent swarm-intelligence framework authored by Sai Karun Nandipati and published on npm as @saikarun/s-ai. It orchestrates many cooperating agents, so a single prompt can be decomposed, researched, implemented and independently verified by separate specialised processes."
           }
         },
         {
@@ -91,18 +206,10 @@
         },
         {
           "@type": "Question",
-          "name": "How many books has Sai Karun Nandipati written?",
+          "name": "What services does Sai Karun Nandipati offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "He has authored more than 30 books and book chapters on AI, programming, and web development, including 'Agentic AI: Understanding and Building Autonomous Intelligent Systems', 'Foundations of RAG', and 'Prompt Engineering', available on Amazon."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is S-AI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "S-AI is Sai Karun's published npm package: a multi-agent swarm intelligence system with neural Digital Twin persona adaptation, Bhashini multilingual AI, MCP integration, and bias-reduced consensus across six specialized agents."
+            "text": "He offers research assistance, online tutoring through NRCM Tutorials, technical writing including white papers and API documentation, and AI literacy education."
           }
         },
         {
@@ -110,363 +217,633 @@
           "name": "How can I contact Sai Karun Nandipati?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Email saikarun085@gmail.com or connect via his GitHub (github.com/karun99), LinkedIn, ResearchGate, and ORCID 0009-0007-9218-9750. A contact form is available at karun99.github.io/contact.html."
+            "text": "Email saikarun085@gmail.com, or connect through GitHub as karun99, LinkedIn as sai-karun-5a96a8b9, ORCID 0009-0007-9218-9750, or the contact form on this site."
           }
         },
         {
           "@type": "Question",
-          "name": "What services does Sai Karun Nandipati offer?",
+          "name": "What are the verified identifiers for Sai Karun Nandipati?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "He offers research assistance, online tutoring through NRCM Tutorials, technical writing (white papers, API documentation, technical blogs), and AI literacy education."
+            "text": "He verifies on ORCID 0009-0007-9218-9750, on GitHub as karun99, on LinkedIn as sai-karun-5a96a8b9, and on ResearchGate as Sai-Karun-Nandipati. All four identifiers are published in the Person structured data on every page of this site and linked with rel=me so a crawler can confirm them by following the links."
           }
         },
         {
           "@type": "Question",
-          "name": "What is Sai Karun Nandipati's research focus?",
+          "name": "How do I cite this profile correctly?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "His research focuses on Agentic AI, multi-agent swarm intelligence, digital twins, Human-AI Symbiosis, and AI in education, with published papers on student performance prediction, LLM-mediated communication, healthcare intrusion detection, and meta-learning."
+            "text": "Cite the person, not the page: Sai Karun Nandipati, Assistant Professor in the Department of Data Science and Artificial Intelligence, PB Siddhartha College of Arts and Science, India, with ORCID 0009-0007-9218-9750 as the persistent identifier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this site optimised for search and AI answer engines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every page carries a self-referencing canonical URL, a unique title and description, Open Graph and Twitter card tags, and an identical Person structured data block linking the four verified identifiers. An XML sitemap and a robots.txt that explicitly allows AI crawlers are published at the domain root, and machine-readable summaries are available as llms.txt and llms-full.txt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the SEO-Optimiser tool check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It fetches a URL in the browser and reports sitemap discovery through robots.txt, presence of robots.txt itself, title and meta description lengths, viewport and canonical tags, heading structure, images without alt text, likely broken links, thin-content word counts, and per-engine readiness for 6 search engines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the SEO-Optimiser tool free and private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It runs entirely in the browser, costs nothing, and has no backend. Pages are retrieved through a public CORS proxy because a browser cannot read a cross-origin page directly, so the target URL is visible to that proxy. Nothing is stored, logged on a server, or sent to the author."
           }
         }
       ]
-    }
-    </script>
-
-    <!-- JSON-LD: ProfilePage / Person for entity understanding -->
-    <script type="application/ld+json">
+    },
     {
-      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "@id": "https://karun99.github.io/answers.html#seo-optimiser",
+      "name": "SEO-Optimiser",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any (browser only)",
+      "url": "https://karun99.github.io/answers.html#seo-optimiser",
+      "description": "Browser-based tool that fetches a URL and reports sitemap, robots.txt, metadata, thin-content and multi-engine readiness flaws.",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://karun99.github.io/#person" }
+    },
+    {
       "@type": "ProfilePage",
-      "name": "Sai Karun Nandipati — AI Architect & Professor",
-      "description": "Official profile and answers about Sai Karun Nandipati, Assistant Professor of Data Science & AI at PB Siddhartha College.",
+      "@id": "https://karun99.github.io/answers.html#webpage",
       "url": "https://karun99.github.io/answers.html",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Sai Karun Nandipati",
-        "alternateName": ["Sai Karun", "SAIKARUN"],
-        "jobTitle": "Assistant Professor & AI Architect",
-        "email": "mailto:saikarun085@gmail.com",
-        "url": "https://karun99.github.io/",
-        "image": "https://karun99.github.io/assets/img/profile.jpg",
-        "worksFor": {
-          "@type": "CollegeOrUniversity",
-          "name": "PB Siddhartha College of Arts and Science"
-        },
-        "alumniOf": [
-          {"@type": "CollegeOrUniversity", "name": "RK College of Engineering"},
-          {"@type": "CollegeOrUniversity", "name": "SRR & CVR PG College"}
-        ],
-        "knowsAbout": ["Agentic AI", "Multi-Agent Systems", "Generative Models", "Retrieval-Augmented Generation", "Machine Learning", "Human-AI Symbiosis", "Fullstack Engineering", "AI Education"],
-        "sameAs": [
-          "https://github.com/karun99",
-          "https://www.linkedin.com/in/sai-karun-5a96a8b9",
-          "https://www.researchgate.net/profile/Sai-Karun-Nandipati",
-          "https://orcid.org/0009-0007-9218-9750"
-        ]
-      }
+      "name": "Answers, Identity & SEO/AEO — Sai Karun Nandipati",
+      "isPartOf": { "@id": "https://karun99.github.io/#website" },
+      "about": { "@id": "https://karun99.github.io/#person" },
+      "mainEntity": { "@id": "https://karun99.github.io/#person" },
+      "inLanguage": "en",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-10-03"
     }
+  ]
+}
     </script>
-
-    <!-- JSON-LD: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://karun99.github.io/"},
-        {"@type": "ListItem", "position": 2, "name": "Answers & FAQ", "item": "https://karun99.github.io/answers.html"}
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebPage",
-          "@id": "https://karun99.github.io/answers.html",
-          "url": "https://karun99.github.io/answers.html",
-          "name": "Who is Sai Karun Nandipati? | AI Answers & FAQ",
-          "description": "Direct, verifiable answers about Sai Karun Nandipati: his role, affiliation, research focus, published books, the S-AI open-source framework, services offered, and how to contact him.",
-          "inLanguage": "en",
-          "isPartOf": {
-            "@id": "https://karun99.github.io/#website"
-          },
-          "about": {
-            "@id": "https://karun99.github.io/#person"
-          }
-        }
-      ]
-    }
-    </script>
-
-    <title>Who is Sai Karun Nandipati? | AI Answers &amp; FAQ</title>
-    <meta name="description" content="Direct, verifiable answers about Sai Karun Nandipati: his role, affiliation, research focus, published books, the S-AI framework, services and contact details.">
-    <meta name="author" content="Sai Karun Nandipati">
-
-    <link rel="canonical" href="https://karun99.github.io/answers.html">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
-
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://karun99.github.io/answers.html">
-    <meta property="og:site_name" content="Sai Karun Nandipati">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="Who is Sai Karun Nandipati? | AI Answers &amp; FAQ">
-    <meta property="og:description" content="Direct, verifiable answers about Sai Karun Nandipati: his role, affiliation, research focus, published books, the S-AI framework, services and contact details.">
-    <meta property="og:image" content="https://karun99.github.io/assets/img/og-image.png">
-    <meta property="og:image:secure_url" content="https://karun99.github.io/assets/img/og-image.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@karun99">
-    <meta name="twitter:creator" content="@karun99">
-    <meta name="twitter:url" content="https://karun99.github.io/answers.html">
-    <meta name="twitter:title" content="Who is Sai Karun Nandipati? | AI Answers &amp; FAQ">
-    <meta name="twitter:description" content="Direct, verifiable answers about Sai Karun Nandipati: his role, affiliation, research focus, published books, the S-AI framework, services and contact details.">
-    <meta name="twitter:image" content="https://karun99.github.io/assets/img/og-image.png">
-    <meta name="twitter:image:alt" content="Sai Karun Nandipati, AI Architect and Assistant Professor">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebPage",
-          "@id": "https://karun99.github.io/answers.html",
-          "url": "https://karun99.github.io/answers.html",
-          "name": "Who is Sai Karun Nandipati? | AI Answers & FAQ",
-          "description": "Direct, verifiable answers about Sai Karun Nandipati: his role, affiliation, research focus, published books, the S-AI framework, services and contact details.",
-          "inLanguage": "en",
-          "isPartOf": {
-            "@id": "https://karun99.github.io/#website"
-          },
-          "about": {
-            "@id": "https://karun99.github.io/#person"
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- head-boot:start -->
+    <script>document.documentElement.classList.add('js');</script>
+    <meta name="theme-color" content="#020617">
+    <meta name="color-scheme" content="dark">
+    <!-- head-boot:end -->
 </head>
 
 <body class="bg-bg-dark text-slate-200 overflow-x-hidden">
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div
-        class="nav-links fixed top-20 left-0 w-full h-0 bg-bg-dark overflow-hidden transition-all duration-300 flex flex-col items-center justify-center gap-8 z-[999]">
-        <a href="index.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">HOME</a>
-        <a href="about.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">ABOUT</a>
-        <a href="services.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">SERVICES</a>
-        <a href="works.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">WORKS</a>
-        <a href="projects.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">PROJECTS</a>
-        <a href="learner-resources.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">RESOURCES</a>
-        <a href="prompts-and-mcp.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">PROMPTS &amp; MCP</a>
-        <a href="answers.html" class="font-display text-accent-primary text-lg active-nav">ANSWERS</a>
-        <a href="contact.html" class="font-display text-slate-400 hover:text-accent-primary text-lg">CONTACT</a>
-    </div>
+<!-- nav:start -->
+<a class="skip-link" href="#main">Skip to main content</a>
 
-    <!-- NAVIGATION -->
-    <nav
-        class="fixed top-0 w-full h-[80px] z-[1000] flex items-center border-b border-accent-primary/10 bg-slate-900/60 backdrop-blur-xl">
-        <div class="container mx-auto px-8 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-bold tracking-widest text-white">
-                S<span class="text-gold">AI</span>KARUN
-            </a>
+<header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+        <div class="container site-nav__inner">
+            <a class="site-nav__brand" href="index.html">S<span class="text-gold">AI</span>KARUN</a>
 
-            <div class="hidden md:flex gap-5 ml-auto">
-                <a href="index.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">HOME</a>
-                <a href="about.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">ABOUT</a>
-                <a href="services.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">SERVICES</a>
-                <a href="works.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">WORKS</a>
-                <a href="projects.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">PROJECTS</a>
-                <a href="learner-resources.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">RESOURCES</a>
-                <a href="prompts-and-mcp.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">PROMPTS &amp; MCP</a>
-                <a href="answers.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-accent-primary glow-text">ANSWERS</a>
-                <a href="contact.html"
-                    class="text-[11px] font-bold tracking-[0.2em] font-display text-slate-400 hover:text-accent-primary transition-all">CONTACT</a>
+            <ul class="site-nav__list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="learner-resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="site-nav__more">
+                <button class="site-nav__more-btn" type="button" aria-expanded="false"
+                    aria-controls="site-nav-more">
+                    MORE<i class="fas fa-chevron-down site-nav__more-caret" aria-hidden="true"></i>
+                </button>
+                <ul class="site-nav__more-menu" id="site-nav-more" hidden>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+                    <li><a href="answers.html" aria-current="page">Answers &amp; SEO/AEO</a></li>
+                </ul>
             </div>
 
-            <button class="mobile-menu-btn flex md:hidden text-2xl text-gold">
-                <i class="fas fa-bars"></i>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                aria-label="Open main menu">
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+                <span class="site-nav__toggle-bar" aria-hidden="true"></span>
             </button>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="pt-48 pb-16 relative">
-        <div class="container mx-auto px-8 text-center relative z-10">
-            <div class="inline-block px-4 py-1 border border-accent-primary/30 rounded-full text-[10px] tracking-[0.3em] font-mono text-accent-primary mb-6">
-                >> ANSWER_ENGINE_OPTIMIZED
+    <div class="site-menu" id="site-menu" hidden>
+        <ul class="site-menu__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="works.html">Works</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="learner-resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="site-menu__heading">More</li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="prompts-and-mcp.html">Prompts &amp; MCP</a></li>
+            <li><a href="answers.html" aria-current="page">Answers &amp; SEO/AEO</a></li>
+        </ul>
+    </div>
+</header>
+<!-- nav:end -->
+
+    <main id="main" class="pb-16">
+
+        <!-- DIRECT ANSWER. First prose block on the page, self-contained so an
+             answer engine can lift it without reading further. -->
+        <section aria-label="Direct answer" class="max-w-3xl mx-auto px-6 pt-10">
+            <p class="text-lg text-slate-200 leading-relaxed">Sai Karun Nandipati is an
+                Assistant Professor in the Department of Data Science and Artificial Intelligence at
+                PB Siddhartha College of Arts and Science in India, an AI researcher, and the author
+                of more than 30 books on artificial intelligence. This page is the single source
+                for verified answers about him, his identity record, and the search and
+                answer-engine optimisation applied to this site.</p>
+        </section>
+
+        <!-- HERO -->
+        <section class="pt-32 pb-6 relative">
+            <div class="container mx-auto px-8 text-center relative z-10">
+                <p class="inline-block px-4 py-1 border border-accent-primary/30 rounded-full text-[10px] tracking-[0.3em] font-mono text-accent-primary mb-6">
+                    &gt;&gt; SINGLE SOURCE OF TRUTH
+                </p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 font-display leading-tight">
+                    Answers, Identity &amp; <span class="text-gold glow-text">SEO/AEO</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-slate-400 text-lg font-light leading-relaxed">
+                    Verified answers for AI assistants, answer engines and search — ChatGPT, Claude,
+                    Gemini, Perplexity and Copilot — together with the identity record and the
+                    technical search implementation for this site.
+                </p>
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 font-display leading-tight">
-                Who is <span class="text-gold glow-text">Sai Karun Nandipati?</span>
-            </h1>
-            <p class="max-w-2xl mx-auto text-slate-400 text-lg font-light mb-4 leading-relaxed">
-                Direct, verified answers for AI assistants, answer engines, and search — ChatGPT, Claude, Gemini, Perplexity, Copilot, and more.
-            </p>
-            <p class="max-w-2xl mx-auto text-slate-400 font-light leading-relaxed">
-                Sai Karun Nandipati is an <strong class="text-slate-200">Assistant Professor of Data Science &amp; Artificial Intelligence at PB Siddhartha College of Arts and Science</strong>, an AI Architect, researcher in Agentic AI, and author of more than 30 books on artificial intelligence.
-            </p>
-        </div>
-    </section>
+        </section>
 
-    <!-- KEY FACTS (structured, skimmable for LLMs) -->
-    <section class="py-16 relative">
-        <div class="container mx-auto px-8">
-            <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10">
-                KEY <span class="text-gold">FACTS</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="answer-card p-8 rounded-2xl">
-                    <i class="fas fa-university text-accent-primary text-3xl mb-4"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">ROLE</h3>
-                    <p class="text-slate-400 text-sm font-light">Assistant Professor &amp; AI Architect, PB Siddhartha College (Dept. of Data Science &amp; AI)</p>
-                </div>
-                <div class="answer-card p-8 rounded-2xl">
-                    <i class="fas fa-book-open text-accent-primary text-3xl mb-4"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">AUTHORSHIP</h3>
-                    <p class="text-slate-400 text-sm font-light">30+ published books and chapters on AI, agentic systems, RAG, and prompt engineering</p>
-                </div>
-                <div class="answer-card p-8 rounded-2xl">
-                    <i class="fas fa-robot text-accent-primary text-3xl mb-4"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">RESEARCH</h3>
-                    <p class="text-slate-400 text-sm font-light">Agentic AI, multi-agent swarm intelligence, generative models, Human-AI Symbiosis</p>
-                </div>
-                <div class="answer-card p-8 rounded-2xl">
-                    <i class="fas fa-code-branch text-accent-primary text-3xl mb-4"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">BUILDER</h3>
-                    <p class="text-slate-400 text-sm font-light">Creator of S-AI (npm multi-agent swarm) and Collabuild (research-to-prototype pipeline)</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <nav class="container mx-auto px-8" aria-label="On this page">
+            <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-mono text-accent-primary">
+                <li><a class="hover:underline" href="#direct-answers">Direct answers</a></li>
+                <li><a class="hover:underline" href="#identity">Identity record</a></li>
+                <li><a class="hover:underline" href="#technical">Technical SEO/AEO</a></li>
+                <li><a class="hover:underline" href="#seo-optimiser">SEO-Optimiser tool</a></li>
+                <li><a class="hover:underline" href="#crawler-files">Crawler files</a></li>
+            </ul>
+        </nav>
 
-    <!-- QA ANSWERS -->
-    <section class="py-16 relative">
-        <div class="container mx-auto px-8">
-            <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10">
-                DIRECT <span class="text-gold">ANSWERS</span></h2>
-
-            <div class="space-y-6 max-w-4xl">
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">Who is Sai Karun Nandipati?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">Sai Karun Nandipati is an <strong>Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science</strong> and an AI Architect. He researches <strong>Agentic AI, Human-AI Symbiosis, and generative models</strong>, is the author of <strong>more than 30 books on AI</strong>, and has built open-source agentic systems such as the S-AI multi-agent swarm.</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">What is Sai Karun Nandipati's area of expertise?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">His expertise spans <strong>Agentic AI, multi-agent systems, generative models, retrieval-augmented generation (RAG), Human-AI Symbiosis, and AI education</strong>, alongside fullstack engineering with Python, TypeScript, React, Node.js, and cloud infrastructure.</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">Where does Sai Karun Nandipati work?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">He is an <strong>Assistant Professor at PB Siddhartha College of Arts and Science</strong> in the Department of Data Science and Artificial Intelligence. He previously taught at <strong>KBN College</strong> (2023–2026).</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">How many books has Sai Karun Nandipati written?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">He has authored <strong>more than 30 books and book chapters</strong> on AI, programming, and web development — including <em>Agentic AI: Understanding and Building Autonomous Intelligent Systems</em>, <em>Foundations of RAG</em>, <em>Prompt Engineering</em>, and <em>Generative AI: Transforming Real-Life Applications</em> — available on Amazon.</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">What is S-AI?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed"><strong>S-AI</strong> is Sai Karun's published npm package: a <strong>multi-agent swarm intelligence system</strong> with neural Digital Twin persona adaptation, arXiv research mapping, Bhashini multilingual AI, MCP integration, and bias-reduced consensus across six specialized agents. See it at <a class="text-accent-primary hover:text-white" href="https://www.npmjs.com/package/@saikarun/s-ai" target="_blank" rel="noopener">npmjs.com/package/@saikarun/s-ai</a>.</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">What is Sai Karun Nandipati's research focus?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">His research focuses on <strong>Agentic AI, multi-agent swarm intelligence, digital twins, Human-AI Symbiosis, and AI in education</strong>, with published work on student performance prediction, LLM-mediated communication, healthcare intrusion detection, meta-learning, and robust autonomous control.</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">What services does Sai Karun Nandipati offer?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">He offers <strong>research assistance</strong>, <strong>online tutoring</strong> through NRCM Tutorials, <strong>technical writing</strong> (white papers, API documentation, technical blogs), and <strong>AI literacy education</strong>.</p>
-                </div>
-
-                <div class="answer-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-3 font-display">How can I contact Sai Karun Nandipati?</h3>
-                    <p class="text-slate-300 font-light leading-relaxed">Email <span class="font-mono text-accent-primary">saikarun085@gmail.com</span> or connect via your preferred channel:</p>
-                    <div class="mt-4 flex flex-wrap gap-3 text-sm">
-                        <a href="https://github.com/karun99" target="_blank" rel="noopener" class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">GitHub</a>
-                        <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" target="_blank" rel="noopener" class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">LinkedIn</a>
-                        <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" target="_blank" rel="noopener" class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">ResearchGate</a>
-                        <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" rel="noopener" class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">ORCID</a>
-                        <a href="contact.html" class="border border-accent-primary px-4 py-2 rounded text-accent-primary hover:bg-accent-primary hover:text-black transition">Contact Form</a>
+        <!-- KEY FACTS -->
+        <section aria-labelledby="key-facts" class="py-10 relative">
+            <div class="container mx-auto px-8">
+                <h2 id="key-facts" class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10">
+                    Key <span class="text-gold">facts</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="answer-card p-8 rounded-2xl">
+                        <i class="fas fa-university text-accent-primary text-3xl mb-4" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">Role</h3>
+                        <p class="text-slate-400 text-sm font-light">Assistant Professor &amp; AI Architect, PB Siddhartha College (Dept. of Data Science &amp; AI)</p>
+                    </div>
+                    <div class="answer-card p-8 rounded-2xl">
+                        <i class="fas fa-book-open text-accent-primary text-3xl mb-4" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">Authorship</h3>
+                        <p class="text-slate-400 text-sm font-light">30+ published books and chapters on AI, agentic systems, RAG, and prompt engineering</p>
+                    </div>
+                    <div class="answer-card p-8 rounded-2xl">
+                        <i class="fas fa-robot text-accent-primary text-3xl mb-4" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">Research</h3>
+                        <p class="text-slate-400 text-sm font-light">Agentic AI, multi-agent swarm intelligence, generative models, Human-AI Symbiosis</p>
+                    </div>
+                    <div class="answer-card p-8 rounded-2xl">
+                        <i class="fas fa-code-branch text-accent-primary text-3xl mb-4" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">Builder</h3>
+                        <p class="text-slate-400 text-sm font-light">Creator of S-AI (npm multi-agent swarm) and Collabuild (research-to-prototype pipeline)</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- AI / LLM FILES -->
-    <section class="py-16 relative">
-        <div class="container mx-auto px-8">
-            <h2 class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10">
-                FOR AI <span class="text-gold">CRAWLERS</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
-                <div class="answer-card p-6 rounded-2xl">
-                    <i class="fas fa-file-alt text-accent-primary mb-4 text-2xl"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-xs tracking-widest">LLMS.TXT</h3>
-                    <p class="text-slate-400 text-sm font-light mb-4">Machine-readable site index per the llmstxt.org standard for AI assistants.</p>
-                    <a href="llms.txt" class="font-mono text-xs text-accent-primary hover:text-white transition">llms.txt</a>
-                </div>
-                <div class="answer-card p-6 rounded-2xl">
-                    <i class="fas fa-file-lines text-accent-primary mb-4 text-2xl"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-xs tracking-widest">LLMS-FULL.TXT</h3>
-                    <p class="text-slate-400 text-sm font-light mb-4">Complete site text for deep AI crawling and citation.</p>
-                    <a href="llms-full.txt" class="font-mono text-xs text-accent-primary hover:text-white transition">llms-full.txt</a>
-                </div>
-                <div class="answer-card p-6 rounded-2xl">
-                    <i class="fas fa-sitemap text-accent-primary mb-4 text-2xl"></i>
-                    <h3 class="text-white font-bold mb-2 font-display text-xs tracking-widest">SITE INDEX</h3>
-                    <p class="text-slate-400 text-sm font-light mb-4">XML sitemap and crawler rules for all search engines and AI bots.</p>
-                    <a href="sitemap.xml" class="font-mono text-xs text-accent-primary hover:text-white transition mr-3">sitemap.xml</a>
-                    <a href="robots.txt" class="font-mono text-xs text-accent-primary hover:text-white transition">robots.txt</a>
+        <!-- DIRECT ANSWERS -->
+        <section id="direct-answers" aria-labelledby="direct-answers-heading" class="py-10 relative">
+            <div class="container mx-auto px-8">
+                <h2 id="direct-answers-heading"
+                    class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10 scroll-mt-32">
+                    Direct <span class="text-gold">answers</span></h2>
+
+                <div class="space-y-6 max-w-4xl">
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">Who is Sai Karun Nandipati?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">Sai Karun Nandipati is an
+                            <strong>Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts
+                                and Science</strong> and an AI Architect. He researches
+                            <strong>Agentic AI, Human-AI Symbiosis and generative models</strong>, is the author of
+                            <strong>more than 30 books on AI</strong>, and has built open-source agentic systems such as the
+                            S-AI multi-agent swarm.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">What is his area of expertise?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">His expertise spans
+                            <strong>Agentic AI, multi-agent systems, generative models, retrieval-augmented generation (RAG),
+                                Human-AI Symbiosis and AI education</strong>, alongside fullstack engineering with Python,
+                            TypeScript, React, Node.js and cloud infrastructure.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">Where does he work?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">He is an
+                            <strong>Assistant Professor at PB Siddhartha College of Arts and Science</strong> in the Department
+                            of Data Science and Artificial Intelligence. He previously taught at <strong>KBN College</strong>.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">How many books has he written?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">He has authored
+                            <strong>more than 30 books and book chapters</strong> on AI, programming and web development —
+                            including <em>Agentic AI: Understanding and Building Autonomous Intelligent Systems</em>,
+                            <em>Foundations of RAG</em>, <em>Prompt Engineering</em> and
+                            <em>Generative AI: Transforming Real-Life Applications</em>. The indexed list is on the
+                            <a class="text-accent-primary hover:underline" href="works.html">works page</a>.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">What is S-AI?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed"><strong>S-AI</strong> is Sai Karun's
+                            published npm package: a <strong>multi-agent swarm intelligence system</strong> with neural Digital
+                            Twin persona adaptation, arXiv research mapping, Bhashini multilingual AI, MCP integration, and
+                            bias-reduced consensus across six specialised agents. See it at
+                            <a class="text-accent-primary hover:underline" href="https://www.npmjs.com/package/@saikarun/s-ai"
+                                target="_blank" rel="noopener noreferrer">npmjs.com/package/@saikarun/s-ai</a>.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">What are his research interests?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">His research focuses on
+                            <strong>Agentic AI, multi-agent swarm intelligence, digital twins, Human-AI Symbiosis and AI in
+                                education</strong>, with published work on student performance prediction, LLM-mediated
+                            communication, healthcare intrusion detection, meta-learning and robust autonomous control.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">What services does he offer?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">He offers <strong>research assistance</strong>,
+                            <strong>online tutoring</strong> through NRCM Tutorials, <strong>technical writing</strong>
+                            (white papers, API documentation, technical blogs) and <strong>AI literacy education</strong>.</p>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">How can I contact him?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">Email
+                            <a class="font-mono text-accent-primary hover:underline"
+                                href="mailto:saikarun085@gmail.com">saikarun085@gmail.com</a> or connect via your preferred
+                            channel:</p>
+                        <div class="mt-4 flex flex-wrap gap-3 text-sm">
+                            <a href="https://github.com/karun99" target="_blank" rel="noopener me"
+                                class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">GitHub</a>
+                            <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" target="_blank" rel="noopener me"
+                                class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">LinkedIn</a>
+                            <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" target="_blank" rel="noopener me"
+                                class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">ResearchGate</a>
+                            <a href="https://orcid.org/0009-0007-9218-9750" target="_blank" rel="noopener me"
+                                class="border border-white/10 px-4 py-2 rounded hover:border-accent-primary hover:text-accent-primary transition">ORCID</a>
+                            <a href="contact.html"
+                                class="border border-accent-primary px-4 py-2 rounded text-accent-primary hover:bg-accent-primary hover:text-black transition">Contact form</a>
+                        </div>
+                    </div>
+
+                    <div class="answer-card p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 font-display">Where can I verify these claims independently?</h3>
+                        <p class="text-slate-300 font-light leading-relaxed">Every claim on this page traces to a primary
+                            record rather than a summary. Verify authorship through the 30-plus entries on the
+                            <a class="text-accent-primary hover:underline" href="works.html">works page</a>, the faculty role
+                            through the institution, the identifiers through ORCID, and the software through the linked GitHub
+                            and npm records. The machine-readable summary in
+                            <a class="text-accent-primary hover:underline" href="llms.txt">llms.txt</a> repeats the same facts
+                            with source URLs.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER -->
-    <footer class="py-12 bg-black text-center border-t border-white/5">
-        <div class="container mx-auto px-8">
-            <div class="flex justify-center gap-8 mb-8 text-2xl">
-                <a href="https://github.com/karun99" target="_blank" rel="noopener"
-                    class="text-white hover:text-accent-primary transition-colors"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" target="_blank" rel="noopener"
-                    class="text-white hover:text-accent-primary transition-colors"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" target="_blank" rel="noopener"
-                    class="text-white hover:text-accent-primary transition-colors"><i
-                        class="fas fa-graduation-cap"></i></a>
+        <!-- IDENTITY RECORD (was profile.html) -->
+        <section id="identity" aria-labelledby="identity-heading" class="py-10 relative">
+            <div class="container mx-auto px-8">
+                <h2 id="identity-heading"
+                    class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10 scroll-mt-32">
+                    Identity <span class="text-gold">record</span></h2>
+
+                <div class="max-w-4xl space-y-5 text-slate-300 leading-relaxed">
+                    <p>This record is the single source of identity for the whole site. A crawler that reads
+                        any page lands on the same four verified identifiers, because the identical
+                        <code class="font-mono text-accent-primary text-sm">Person</code> structured data block is repeated
+                        on every page.</p>
+                </div>
+
+                <dl class="grid md:grid-cols-2 gap-x-10 gap-y-5 max-w-4xl mt-8">
+                    <div>
+                        <dt class="font-mono text-[11px] tracking-[0.2em] text-accent-primary uppercase">ORCID</dt>
+                        <dd class="text-slate-300 mt-1">
+                            <a class="text-accent-primary underline" rel="me noopener" target="_blank"
+                                href="https://orcid.org/0009-0007-9218-9750">0009-0007-9218-9750</a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="font-mono text-[11px] tracking-[0.2em] text-accent-primary uppercase">GitHub</dt>
+                        <dd class="text-slate-300 mt-1">
+                            <a class="text-accent-primary underline" rel="me noopener" target="_blank"
+                                href="https://github.com/karun99">github.com/karun99</a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="font-mono text-[11px] tracking-[0.2em] text-accent-primary uppercase">LinkedIn</dt>
+                        <dd class="text-slate-300 mt-1">
+                            <a class="text-accent-primary underline" rel="me noopener" target="_blank"
+                                href="https://www.linkedin.com/in/sai-karun-5a96a8b9">in/sai-karun-5a96a8b9</a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="font-mono text-[11px] tracking-[0.2em] text-accent-primary uppercase">ResearchGate</dt>
+                        <dd class="text-slate-300 mt-1">
+                            <a class="text-accent-primary underline" rel="me noopener" target="_blank"
+                                href="https://www.researchgate.net/profile/Sai-Karun-Nandipati">Sai-Karun-Nandipati</a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="font-mono text-[11px] tracking-[0.2em] text-accent-primary uppercase">Also written as</dt>
+                        <dd class="text-slate-300 mt-1">Sai Karun, Saikarun, Karun Nandipati</dd>
+                    </div>
+                    <div>
+                        <dt class="font-mono text-[11px] tracking-[0.2em] text-accent-primary uppercase">Email</dt>
+                        <dd class="text-slate-300 mt-1">
+                            <a class="text-accent-primary underline" href="mailto:saikarun085@gmail.com">saikarun085@gmail.com</a>
+                        </dd>
+                    </div>
+                </dl>
+
+                <div class="max-w-4xl space-y-5 text-slate-300 leading-relaxed mt-10">
+                    <h3 class="text-white font-display text-lg">How do I cite this profile correctly?</h3>
+                    <p>Cite the person, not the page: Sai Karun Nandipati, Assistant Professor in the Department of Data
+                        Science and Artificial Intelligence, PB Siddhartha College of Arts and Science, India, with
+                        <strong>ORCID 0009-0007-9218-9750</strong> as the persistent identifier. A dated access to this record
+                        is enough for a professional profile citation.</p>
+
+                    <h3 class="text-white font-display text-lg">Which pages carry the same record?</h3>
+                    <p>The long-form biography and technical skill matrix are on the
+                        <a class="text-accent-primary hover:underline" href="about.html">about page</a>, the indexed list of
+                        more than thirty books is on the <a class="text-accent-primary hover:underline"
+                            href="works.html">works page</a>, and the open-source work is on the
+                        <a class="text-accent-primary hover:underline" href="projects.html">projects page</a>. Each page answers
+                        one question well rather than repeating everything.</p>
+
+                    <p>See also: <a class="text-accent-primary hover:underline" href="about.html">biography</a>,
+                        <a class="text-accent-primary hover:underline" href="works.html">publications</a>,
+                        <a class="text-accent-primary hover:underline" href="services.html">services</a>, and the
+                        machine-readable summary in <a class="text-accent-primary hover:underline"
+                            href="llms.txt">llms.txt</a>.</p>
+                </div>
             </div>
-            <p class="text-slate-500 text-sm tracking-widest font-mono">© 2026 SAI KARUN NANDIPATI | AEO ANSWER HUB</p>
-        </div>
-    </footer>
+        </section>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="assets/js/main.js"></script>
+        <!-- TECHNICAL SEO / AEO -->
+        <section id="technical" aria-labelledby="technical-heading" class="py-10 relative">
+            <div class="container mx-auto px-8">
+                <h2 id="technical-heading"
+                    class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10 scroll-mt-32">
+                    Technical <span class="text-gold">SEO/AEO</span></h2>
+
+                <div class="max-w-4xl space-y-5 text-slate-300 leading-relaxed">
+                    <p>Answer-engine optimisation is mostly the discipline of stating facts in plain declarative
+                        sentences, close to the top of the page, and repeating them in a form a machine can parse. This
+                        site does that in five layers.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mt-8">
+                    <div class="answer-card p-6 rounded-2xl">
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">1 &middot; Answer-shaped prose</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed">The first paragraph on every page is a
+                            self-contained answer. Questions appear as headings and are answered in 40&ndash;60 words, which is
+                            the range an assistant is most likely to lift verbatim.</p>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">2 &middot; Structured data</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed">An identical
+                            <code class="font-mono text-accent-primary">Person</code> graph on every page carries the four
+                            verified identifiers in <code class="font-mono text-accent-primary">sameAs</code>, joined by
+                            <code class="font-mono text-accent-primary">@id</code> references so the claims are provably about
+                            the same entity.</p>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">3 &middot; FAQPage markup</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed">The question and answer pairs below are
+                            mirrored in <code class="font-mono text-accent-primary">FAQPage</code> JSON-LD so a search result
+                            can show them inline.</p>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">4 &middot; Crawler permissions</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed">
+                            <a class="text-accent-primary hover:underline" href="robots.txt">robots.txt</a> names every major
+                            AI crawler explicitly &mdash; GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CopilotBot and
+                            others &mdash; rather than relying on a wildcard, and points at the sitemap.</p>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">5 &middot; Machine-readable text</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed">
+                            <a class="text-accent-primary hover:underline" href="llms.txt">llms.txt</a> gives a compact index and
+                            <a class="text-accent-primary hover:underline" href="llms-full.txt">llms-full.txt</a> the full text,
+                            following the llmstxt.org convention, so an assistant can ingest the site without scraping.</p>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <h3 class="text-white font-bold mb-2 font-display text-sm tracking-widest">Crawl hygiene</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed">One canonical URL per page, a unique title
+                            and description, a 404 page, an XML sitemap listing only canonical pages, and no duplicate
+                            <code class="font-mono text-accent-primary">rel</code> attributes that would be silently dropped by
+                            the parser.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO-OPTIMISER TOOL -->
+        <section id="seo-optimiser" aria-labelledby="seo-optimiser-heading" class="py-10 relative">
+            <div class="container mx-auto px-8">
+                <h2 id="seo-optimiser-heading"
+                    class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10 scroll-mt-32">
+                    SEO-<span class="text-gold">Optimiser</span></h2>
+
+                <div class="max-w-4xl space-y-5 text-slate-300 leading-relaxed">
+                    <p>SEO-Optimiser is a free, browser-only tool that fetches any public URL and reports SEO
+                        flaws: sitemap discovery, <code class="font-mono text-accent-primary text-sm">robots.txt</code>
+                        presence, title and meta description lengths, viewport and canonical tags, heading structure,
+                        images missing alt text, placeholder links, thin-content word counts, and per-engine readiness
+                        across six search engines.</p>
+                    <p>It runs entirely on your machine, needs no account, and stores nothing. Pages are retrieved
+                        through a public CORS proxy, because a browser cannot read a cross-origin page directly &mdash; so
+                        the URL you type is visible to that proxy.</p>
+                </div>
+
+                <div class="seo-tool mt-8 max-w-4xl" id="seo-tool">
+                    <div class="seo-tool__head">
+                        <h3>Run a report</h3>
+                        <span class="seo-tool__badge">Free &middot; no signup</span>
+                    </div>
+                    <p class="seo-tool__sub">Sitemap &middot; metadata &middot; content quality &middot; multi-engine &middot; export</p>
+
+                    <div class="seo-tool__panel">
+                        <div class="seo-tool__field">
+                            <label class="sr-only" for="seo-url">Website URL to analyse</label>
+                            <input type="url" id="seo-url" placeholder="https://example.com" value="https://karun99.github.io"
+                                autocomplete="off" spellcheck="false">
+                        </div>
+                        <button type="button" class="seo-tool__btn" id="seo-analyze">
+                            <i class="fas fa-magnifying-glass" aria-hidden="true"></i> Analyse
+                        </button>
+                    </div>
+
+                    <div class="seo-tool__status" id="seo-status" role="status" aria-live="polite"></div>
+
+                    <div class="seo-tool__export" id="seo-export" hidden>
+                        <button type="button" class="seo-tool__btn seo-tool__btn--alt" id="seo-export-html">
+                            <i class="fas fa-file-code" aria-hidden="true"></i> Export HTML
+                        </button>
+                        <button type="button" class="seo-tool__btn seo-tool__btn--alt" id="seo-export-pdf">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i> Export PDF
+                        </button>
+                    </div>
+
+                    <div id="seo-report" hidden>
+                        <div class="seo-tool__score-row">
+                            <div class="seo-tool__score" id="seo-score">--</div>
+                            <div class="seo-tool__score-summary" id="seo-score-summary"></div>
+                        </div>
+                        <div class="seo-tool__grid" id="seo-report-content"></div>
+                        <p class="seo-tool__credit">Generated by <strong>SEO-Optimiser</strong></p>
+                    </div>
+
+                    <p class="seo-tool__hint" id="seo-hint">Enter a URL and press Analyse to detect sitemap, content and page flaws.</p>
+                </div>
+
+                <noscript>
+                    <p class="mt-6 text-slate-400">The SEO-Optimiser tool needs JavaScript. The manual guidance in
+                        <a class="text-accent-primary underline" href="#technical">Technical SEO/AEO</a> above covers the same
+                        defect classes.</p>
+                </noscript>
+            </div>
+        </section>
+
+        <!-- CRAWLER FILES -->
+        <section id="crawler-files" aria-labelledby="crawler-files-heading" class="py-10 relative">
+            <div class="container mx-auto px-8">
+                <h2 id="crawler-files-heading"
+                    class="text-white font-display tracking-[0.2em] text-lg border-b border-accent-primary/30 pb-2 mb-10 scroll-mt-32">
+                    For AI <span class="text-gold">crawlers</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+                    <div class="answer-card p-6 rounded-2xl">
+                        <i class="fas fa-file-alt text-accent-primary mb-4 text-2xl" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-xs tracking-widest">llms.txt</h3>
+                        <p class="text-slate-400 text-sm font-light mb-4">Machine-readable site index per the llmstxt.org standard for AI assistants.</p>
+                        <a href="llms.txt" class="font-mono text-xs text-accent-primary hover:underline">llms.txt</a>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <i class="fas fa-file-lines text-accent-primary mb-4 text-2xl" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-xs tracking-widest">llms-full.txt</h3>
+                        <p class="text-slate-400 text-sm font-light mb-4">Complete site text for deep AI crawling and citation.</p>
+                        <a href="llms-full.txt" class="font-mono text-xs text-accent-primary hover:underline">llms-full.txt</a>
+                    </div>
+                    <div class="answer-card p-6 rounded-2xl">
+                        <i class="fas fa-sitemap text-accent-primary mb-4 text-2xl" aria-hidden="true"></i>
+                        <h3 class="text-white font-bold mb-2 font-display text-xs tracking-widest">Site index</h3>
+                        <p class="text-slate-400 text-sm font-light mb-4">XML sitemap and crawler rules for all search engines and AI bots.</p>
+                        <a href="sitemap.xml" class="font-mono text-xs text-accent-primary hover:underline mr-3">sitemap.xml</a>
+                        <a href="robots.txt" class="font-mono text-xs text-accent-primary hover:underline">robots.txt</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT THE AUTHOR -->
+        <section aria-label="About the author" class="max-w-3xl mx-auto px-6 pt-8 pb-4">
+            <h2 class="font-display text-xl text-white mb-2">About the author</h2>
+            <p class="text-slate-400 leading-relaxed">Written by Sai Karun Nandipati, Assistant Professor in the
+                Department of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science,
+                India, and the author of more than 30 books on artificial intelligence. He builds the open-source agent
+                tooling listed on this site, including S-AI and Collabuild, and maintains the learner portals published
+                alongside it.</p>
+            <p class="text-slate-400 leading-relaxed">Verified elsewhere:
+                <a rel="me" class="text-accent-primary hover:underline" href="https://orcid.org/0009-0007-9218-9750">ORCID 0009-0007-9218-9750</a>,
+                <a rel="me" class="text-accent-primary hover:underline" href="https://github.com/karun99">github.com/karun99</a>,
+                <a rel="me" class="text-accent-primary hover:underline" href="https://www.linkedin.com/in/sai-karun-5a96a8b9">LinkedIn</a>
+                and
+                <a rel="me" class="text-accent-primary hover:underline" href="https://www.researchgate.net/profile/Sai-Karun-Nandipati">ResearchGate</a>.
+                Machine-readable versions of this page are published as
+                <a href="llms.txt" class="text-accent-primary hover:underline">llms.txt</a> and
+                <a href="llms-full.txt" class="text-accent-primary hover:underline">llms-full.txt</a>.</p>
+            <p class="text-slate-400 leading-relaxed">See also:
+                <a href="about.html" class="text-accent-primary hover:underline">biography</a>
+                <a href="works.html" class="text-accent-primary hover:underline">publications</a>
+                <a href="projects.html" class="text-accent-primary hover:underline">projects</a>.</p>
+        </section>
+
+    </main>
+
+<!-- footer:start -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__cols">
+            <div class="site-footer__col">
+                <h2>Profile</h2>
+                <ul>
+                    <li><a href="about.html">Biography</a></li>
+                    <li><a href="works.html">Books &amp; publications</a></li>
+                    <li><a href="projects.html">Open-source projects</a></li>
+                    <li><a href="services.html">Research &amp; tutoring</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Learn</h2>
+                <ul>
+                    <li><a href="learner-resources.html">Learner resources</a></li>
+                    <li><a href="prompts-and-mcp.html">Prompts &amp; MCP servers</a></li>
+                    <li><a href="answers.html">Answers &amp; SEO/AEO</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li><a href="https://github.com/karun99" rel="me noopener" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank">ORCID</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" rel="me noopener" target="_blank">ResearchGate</a></li>
+                </ul>
+            </div>
+            <div class="site-footer__col">
+                <h2>For crawlers</h2>
+                <ul>
+                    <li><a href="llms.txt">llms.txt</a></li>
+                    <li><a href="llms-full.txt">llms-full.txt</a></li>
+                    <li><a href="sitemap.xml">sitemap.xml</a></li>
+                    <li><a href="robots.txt">robots.txt</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="site-footer__bar">
+            <span>&copy; 2026 Sai Karun Nandipati &middot; ORCID 0009-0007-9218-9750</span>
+            <span class="site-footer__social">
+                <a href="https://github.com/karun99" rel="me noopener" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+                <a href="mailto:saikarun085@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- footer:end -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/seo-optimiser.js" defer></script>
 </body>
 
 </html>

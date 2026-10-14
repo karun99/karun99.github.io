@@ -7,3 +7,7 @@
 .DS_Store
 Thumbs.db
 *.swp
+
+# Python cache from the tools/ scripts
+__pycache__/
+*.pyc

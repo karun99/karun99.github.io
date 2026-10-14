@@ -1,8 +1,9 @@
 # Sai Karun Nandipati — AI Architect & Professor (complete site text)
 
 > Full plain-text rendering of https://karun99.github.io/ for AI assistants and
-> answer engines. Auto-generated from the live pages, so it cannot drift from them.
-> For the concise machine-readable index, see https://karun99.github.io/llms.txt
+> answer engines. Auto-generated from the live pages by tools/sync-llms.py, so it
+> cannot drift from them. For the concise machine-readable index, see
+> https://karun99.github.io/llms.txt
 
 ---
 
@@ -11,34 +12,11 @@
 Source: https://karun99.github.io/
 Canonical home page. Start here.
 
+Sai Karun Nandipati | AI Architect & Professor
+
 SYSTEM BOOT
 
 INITIALIZING...
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
 
 >> SYSTEM_STATUS: ONLINE
 
@@ -52,10 +30,8 @@ Fullstack Architect
 
 Architecting Intelligence.
 
-[works.html]
 EXPLORE LIBRARY
 
-[projects.html]
 VIEW PROJECTS
 
 Who is Sai Karun Nandipati ?
@@ -82,22 +58,19 @@ Generative AI .
 He builds open-source software, including
 S-AI , a multi-agent swarm-intelligence framework
 published on npm as
-[https://www.npmjs.com/package/@saikarun/s-ai] @saikarun/s-ai , and
+@saikarun/s-ai , and
 Collabuild , a pipeline that turns research papers
 into working prototypes. He also builds live web applications used by students.
 
 Key facts about Sai Karun Nandipati
 
 Full name
-
 Sai Karun Nandipati
 
 Also written as
-
 Sai Karun, Saikarun, Karun Nandipati
 
 Role
-
 Assistant Professor & AI Architect
 
 Affiliation
@@ -106,12 +79,10 @@ Department of Data Science and Artificial Intelligence,
 PB Siddhartha College of Arts and Science, India
 
 Research areas
-
 Agentic AI, Multi-Agent Systems, Generative AI, RAG,
 Human-AI Symbiosis, AI Education
 
 Published
-
 30+ books on artificial intelligence
 
 Open source
@@ -120,23 +91,20 @@ S-AI (npm: @saikarun/s-ai), Collabuild, S-AI SoulBot
 
 Contact
 
-[mailto:saikarun085@gmail.com] saikarun085@gmail.com
+saikarun085@gmail.com
 
 Profiles
 
-[https://github.com/karun99] GitHub ·
-[https://www.linkedin.com/in/sai-karun-5a96a8b9] LinkedIn ·
-[https://orcid.org/0009-0007-9218-9750] ORCID ·
-[https://www.researchgate.net/profile/Sai-Karun-Nandipati] ResearchGate
+GitHub ·
+LinkedIn ·
+ORCID ·
+ResearchGate
 
 This site
-
 https://karun99.github.io/
 
-[about.html]
 FULL BIOGRAPHY
 
-[answers.html]
 WHO IS SAI KARUN? (AEO ANSWERS)
 
 The Philosophy
@@ -144,7 +112,6 @@ The Philosophy
 Research is not just about discovery; it's about translating intelligence into pedagogy.
 I bridge the gap between complex Neural Logic and accessible Human Knowledge.
 
-[about.html]
 Read Full Bio
 
 Agentic AI
@@ -152,466 +119,13 @@ Agentic AI
 Building autonomous systems that can reason, plan,
 and execute with precision.
 
-[https://github.com/karun99]
-[https://www.linkedin.com/in/sai-karun-5a96a8b9]
-[https://www.researchgate.net/profile/Sai-Karun-Nandipati]
-
-© 2026 SAI KARUN NANDIPATI | PROFILE 2.0
-
-[answers.html] ANSWERS / AEO
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
-
----
-
-## Answers & FAQ (AEO hub)
-
-Source: https://karun99.github.io/answers.html
-Direct question-and-answer facts.
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
->> ANSWER_ENGINE_OPTIMIZED
-
-Who is Sai Karun Nandipati?
-
-Direct, verified answers for AI assistants, answer engines, and search — ChatGPT, Claude, Gemini, Perplexity, Copilot, and more.
-
-Sai Karun Nandipati is an Assistant Professor of Data Science & Artificial Intelligence at PB Siddhartha College of Arts and Science , an AI Architect, researcher in Agentic AI, and author of more than 30 books on artificial intelligence.
-
-KEY FACTS
-
-ROLE
-
-Assistant Professor & AI Architect, PB Siddhartha College (Dept. of Data Science & AI)
-
-AUTHORSHIP
-
-30+ published books and chapters on AI, agentic systems, RAG, and prompt engineering
-
-RESEARCH
-
-Agentic AI, multi-agent swarm intelligence, generative models, Human-AI Symbiosis
-
-BUILDER
-
-Creator of S-AI (npm multi-agent swarm) and Collabuild (research-to-prototype pipeline)
-
-DIRECT ANSWERS
-
-Who is Sai Karun Nandipati?
-
-Sai Karun Nandipati is an Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science and an AI Architect. He researches Agentic AI, Human-AI Symbiosis, and generative models , is the author of more than 30 books on AI , and has built open-source agentic systems such as the S-AI multi-agent swarm.
-
-What is Sai Karun Nandipati's area of expertise?
-
-His expertise spans Agentic AI, multi-agent systems, generative models, retrieval-augmented generation (RAG), Human-AI Symbiosis, and AI education , alongside fullstack engineering with Python, TypeScript, React, Node.js, and cloud infrastructure.
-
-Where does Sai Karun Nandipati work?
-
-He is an Assistant Professor at PB Siddhartha College of Arts and Science in the Department of Data Science and Artificial Intelligence. He previously taught at KBN College (2023–2026).
-
-How many books has Sai Karun Nandipati written?
-
-He has authored more than 30 books and book chapters on AI, programming, and web development — including Agentic AI: Understanding and Building Autonomous Intelligent Systems , Foundations of RAG , Prompt Engineering , and Generative AI: Transforming Real-Life Applications — available on Amazon.
-
-What is S-AI?
-
-S-AI is Sai Karun's published npm package: a multi-agent swarm intelligence system with neural Digital Twin persona adaptation, arXiv research mapping, Bhashini multilingual AI, MCP integration, and bias-reduced consensus across six specialized agents. See it at [https://www.npmjs.com/package/@saikarun/s-ai] npmjs.com/package/@saikarun/s-ai .
-
-What is Sai Karun Nandipati's research focus?
-
-His research focuses on Agentic AI, multi-agent swarm intelligence, digital twins, Human-AI Symbiosis, and AI in education , with published work on student performance prediction, LLM-mediated communication, healthcare intrusion detection, meta-learning, and robust autonomous control.
-
-What services does Sai Karun Nandipati offer?
-
-He offers research assistance , online tutoring through NRCM Tutorials, technical writing (white papers, API documentation, technical blogs), and AI literacy education .
-
-How can I contact Sai Karun Nandipati?
-
-Email saikarun085@gmail.com or connect via your preferred channel:
-
-[https://github.com/karun99] GitHub
-[https://www.linkedin.com/in/sai-karun-5a96a8b9] LinkedIn
-[https://www.researchgate.net/profile/Sai-Karun-Nandipati] ResearchGate
-[https://orcid.org/0009-0007-9218-9750] ORCID
-[contact.html] Contact Form
-
-FOR AI CRAWLERS
-
-LLMS.TXT
-
-Machine-readable site index per the llmstxt.org standard for AI assistants.
-
-[llms.txt] llms.txt
-
-LLMS-FULL.TXT
-
-Complete site text for deep AI crawling and citation.
-
-[llms-full.txt] llms-full.txt
-
-SITE INDEX
-
-XML sitemap and crawler rules for all search engines and AI bots.
-
-[sitemap.xml] sitemap.xml
-[robots.txt] robots.txt
-
-[https://github.com/karun99]
-[https://www.linkedin.com/in/sai-karun-5a96a8b9]
-[https://www.researchgate.net/profile/Sai-Karun-Nandipati]
-
-© 2026 SAI KARUN NANDIPATI | AEO ANSWER HUB
-
----
-
-## Prompts & MCP Servers
-
-Source: https://karun99.github.io/prompts-and-mcp.html
-Model Context Protocol servers published by Sai Karun Nandipati.
-
-PROMPTS & MCP
-
-CONNECTING SYSTEMS...
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
-Prompts & MCP
-
-Model Context Protocol (MCP) server listings for my neural network projects — published on Glama.ai.
-
-MCP servers published by Sai Karun Nandipati.
-—
-This page is part of the official site of
-Sai Karun Nandipati , Assistant Professor in the
-Department of Data Science and Artificial Intelligence at
-PB Siddhartha College of Arts and Science , India;
-an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
-Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
-artificial intelligence.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
-
-MCP SERVERS
-
-Sai Karun Nandipati publishes 18 Model Context
-Protocol servers for AI applications. MCP is the open standard that lets
-Claude, Cursor, ChatGPT and other AI clients call external tools and data sources
-over a single local interface. 2 of these
-are published and reachable on Glama today; the remainder are built and awaiting
-publication.
-
-Published now
-
-[https://glama.ai/mcp/servers/karun99/celebrum]
-
-CELEBRUM
-
-LIVE — PUBLISHED
-
-Local-first artificial brain — persona, memory graph, and truth engine.
-
-PERSONA MEMORY GRAPH TRUTH ENGINE
-
-[https://glama.ai/mcp/servers/karun99/celebrum] glama.ai listing · [https://github.com/karun99/celebrum] source on GitHub
-
-[https://glama.ai/mcp/servers/karun99/glama-mcp]
-
-GLAMA-MCP
-
-LIVE — PUBLISHED
-
-Hub MCP gateway exposing the Glama OpenAI-compatible gateway to local clients.
-
-MCP GATEWAY STDIO GLAMA
-
-[https://glama.ai/mcp/servers/karun99/glama-mcp] glama.ai listing · [https://github.com/karun99/glama-mcp] source on GitHub
-
-Built, awaiting publication
-
-S-AI
-
-PENDING — NOT PUBLISHED YET
-
-Multi-agent swarm intelligence — vision, memory, and shared cognition.
-
-MULTI-AGENT SWARM COGNITION
-
-[https://github.com/karun99/s-ai] source on GitHub
-
-S-AI-UPDATE
-
-PENDING — NOT PUBLISHED YET
-
-S-AI synthetic executive with security hardening and guardrails.
-
-SECURITY GUARDRAILS EXECUTIVE
-
-[https://github.com/karun99/s-ai-update] source on GitHub
-
-S-AI-SOULBOT
-
-PENDING — NOT PUBLISHED YET
-
-S-AI SoulBot v3.0 — AI companion with Jātaka-aligned behavioral guardrails.
-
-V3.0 GUARDRAILS SRS
-
-[https://github.com/karun99/s-ai-soulbot] source on GitHub
-
-NEURAL-HARNESS
-
-PENDING — NOT PUBLISHED YET
-
-Shared validation engine measuring information-handling capacity across models.
-
-VALIDATION BENCHMARK ENGINE
-
-[https://github.com/karun99/neural-harness] source on GitHub
-
-SAMVIT
-
-PENDING — NOT PUBLISHED YET
-
-Local-first personal AI (संवित्) with trusted knowledge retrieval.
-
-LOCAL-FIRST PRIVACY RAG
-
-[https://github.com/karun99/samvit] source on GitHub
-
-COLLABUILD
-
-PENDING — NOT PUBLISHED YET
-
-Multi-agent system pipeline from research paper to working prototype.
-
-MAS PAPER-TO-CODE PIPELINE
-
-[https://github.com/karun99/Collabuild] source on GitHub
-
-AI-CONTENT-STUDIO
-
-PENDING — NOT PUBLISHED YET
-
-Content generation platform on React + Vite + ChromaDB.
-
-CONTENT REACT CHROMADB
-
-TEDDY-TECHLEARN
-
-PENDING — NOT PUBLISHED YET
-
-AI-enhanced M.Tech CSE learning companion with course intelligence.
-
-EDTECH MTECH COURSE
-
-HEALTH-QUEST
-
-PENDING — NOT PUBLISHED YET
-
-Ethics-first food education companion for healthy living habits.
-
-HEALTH ETHICS-FIRST EDUCATION
-
-HELIXDB
-
-PENDING — NOT PUBLISHED YET
-
-Research and learning companion for students and research scholars.
-
-RESEARCH LEARNING COMPANION
-
-YOU-AI-ENGINE
-
-PENDING — NOT PUBLISHED YET
-
-Engine to build your own AI — configurable model orchestration.
-
-ENGINE ORCHESTRATION CONFIGURABLE
-
-GEMINI-AI-CHATBOT
-
-PENDING — NOT PUBLISHED YET
-
-Chatbot front-end powered by the Gemini API.
-
-GEMINI CHATBOT LLM
-
-AISTUDIO
-
-PENDING — NOT PUBLISHED YET
-
-AI prototyping and experimentation studio.
-
-STUDIO PROTOTYPE EXPERIMENT
-
-BLOGBOT
-
-PENDING — NOT PUBLISHED YET
-
-Automated blog generation and publishing agent.
-
-BLOG AGENT AUTOMATION
-
-BUILDBOT
-
-PENDING — NOT PUBLISHED YET
-
-Student AI coding assistant — from research paper to working code.
-
-CODER STUDENT ASSISTANT
-
-ARTHAI
-
-PENDING — NOT PUBLISHED YET
-
-Agentic commerce gateway for MSMEs — Razorpay-integrated agents.
-
-COMMERCE MSME AGENTIC
-
-© 2026 Sai Karun Nandipati | PROMPTS & MCP INDEX
-
-MODEL CONTEXT
-PROTOCOL
-
-[answers.html] ANSWERS
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
-
----
 
 ## About & Journey
 
 Source: https://karun99.github.io/about.html
-Academic background and technical philosophy.
+Biography, academic career and technical philosophy.
 
-NEURAL CONNECT
-
-ESTABLISHING UPLINK...
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
-Identity & Origin
-
-"My words are prompts to AI systems, lessons to students, and code for the future."
-
-Biography of Sai Karun Nandipati.
-—
-Sai Karun Nandipati is an Assistant Professor in the Department of Data
-Science and Artificial Intelligence at
-PB Siddhartha College of Arts and Science , India;
-an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
-Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
-artificial intelligence. He previously taught at KBN College.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
-
-System_Profile
-
-I am an Assistant Professor and AI Architect dedicated to
-bridging the gap between theoretical computer science and practical, agentic applications.
-
-Currently at PB Siddhartha College , I spearhead research in Neural
-Architectures while mentoring the next generation of fullstack developers. My work focuses on
-Human-AI Symbiosis —creating systems where biological intuition and digital
-logic amplify one another—alongside teaching Generative AI and Big Data Analytics to students.
-
-Timeline_Data
-
-2026 - PRESENT
-
-Project Manager
-
-Guiding Key Technologies
-
-Assisting Project Team in creating digital profiling and content creation
-
-2026 - PRESENT
-
-Assistant Professor
-
-PB Siddhartha College
-
-Leading AI research initiatives and curriculum development.
-
-2023 - 2026
-
-Assistant Professor
-
-KBN College
-
-Leading AI research initiatives and curriculum development.
-
-2023 - 2025
-
-M.Tech (Computer Science)
-
-RK College of Engineering
-
-2016 - 2018
-
-M.Sc (Computer Science)
-
-SRR & CVR PG College
+About Sai Karun Nandipati | AI Architect & Professor
 
 TECHNICAL_DNA
 
@@ -631,52 +145,13 @@ SKILL_MATRIX
 
 > DRAG MOUSE FOR PARALLAX
 
-© 2026 Sai Karun Nandipati | About Module
-
-[answers.html] ANSWERS
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
-
----
 
 ## Research Library
 
 Source: https://karun99.github.io/works.html
-Publications and written works.
+Books, research papers and peer review, with a full text index.
 
-WORKS LIBRARY
-
-LOADING DATABASE...
-
-[index.html]
-
-Sai Karun Nandipati
-
-Research Library
-
-[index.html] Home
-[projects.html] Projects
-[services.html] Services
-
-[learner-resources.html] Resources
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] Answers
-[works.html] Works
-
-ALL
-PAPERS
-BOOKS
-REVIEWS
-
-0 Works Indexed
-0 Papers
-0 Books
-0 Reviews
-[answers.html] AEO ANSWERS
-[llms.txt] llms.txt
-[sitemap.xml] SITEMAP
-[robots.txt] ROBOTS
+Works & Publications | Sai Karun Nandipati
 
 Research library and publications by Sai Karun Nandipati.
 —
@@ -687,50 +162,118 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He is the author of more than 30 books on AI, including Agentic AI, Foundations of RAG, Prompt Engineering and Generative AI.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
+More about Sai Karun Nandipati
+· AI answers & FAQ
 
-×
+Publications and Works by Sai Karun Nandipati
 
-Type
+Complete publication index (42 works)
 
-Title
+Every publication by Sai Karun Nandipati, in plain text so that search engines and AI answer engines can read it without running JavaScript. The interactive library above shows the same works as a visual shelf.
 
-Year
-•
-Source
+Research papers (9)
 
-Reference DOI
+Peer-reviewed papers, conference papers and journal articles.
 
-10.1234/5678
+Integrating Proximal Policy Optimization with Physically Realistic Simulation for Robust Autonomous Underwater Vehicle Control — Gazi University Journal of Science, 2026. Review
 
-[#]
-View Work
+A REVIEW ON MACHINE LEARNING APPROACH FOR TRACKING AND PREDICTING STUDENT PERFORMANCE — UIJES, 2025. identifier 10.53414.UIJES.5.2.21 (no working link)
 
----
+Quality of LLM-Mediated Communication in Disabled Learning — Google Scholar, 2025. Journal Article
+
+An Analysis of Intrusion detection and penetration systems in the health care sector — ICRIT-2024, 2024. Conference
+
+Frontiers of Innovation in Deep Learning – Meta Learning — ICRIT-2024, 2024. Conference
+
+Local Language Model – Unveiling Potential of decentralized Intelligence — ICRIT-2024, 2024. Conference
+
+WRNN-Driven Detection Mechanisms for Hairy Cell Leukemia — Unpublished, 2024. doi:10.13140/RG.2.2.28151.23202
+
+Recent Trends in Deep Learning Algorithms and Their Applications — Emerging Trends, 2023. Conference
+
+The Engineering Of AI- Enabled system is Distinct From Other Engineering Disciplines — Emerging Trends, 2023. Conference
+
+Books (32)
+
+Books authored on artificial intelligence, agentic AI, RAG and prompt engineering.
+
+Agentic AI: Understanding and Building Autonomous Intelligent Systems — Amazon, 2025. Amazon
+
+AI Education Strategies for Future-Proofing Curriculum Design — Book Chapter, 2025. Review
+
+AI in Commerce: Transforming Business for the Digital Age — Amazon, 2025. Amazon
+
+AI in E-Commerce: Revolutionizing Online Shopping — Amazon, 2025. Amazon
+
+AI in Education: From Schooling to Research — Amazon, 2025. Amazon
+
+AI in the Classroom: From Chalkboards to Code — Amazon, 2025. Amazon
+
+Artificial Intelligence - Intellect Born from Intelligence — Amazon, 2025. identifier 978-81-983232-3-1 (no working link)
+
+Artificial Intelligence in Biomedical Research — Amazon, 2025. Amazon
+
+Augmented Creativity: The AI-Powered Revolution Reshaping the Next Generation — Amazon, 2025. Book
+
+Building Multi-Agent Systems using HuggingFace Models — Amazon, 2025. Amazon
+
+Data Mining: Concepts, Techniques, and Applications — Amazon, 2025. Amazon
+
+Digital Marketing Fundamentals — Amazon, 2025. identifier 978-81-980666-2-6 (no working link)
+
+Foundations of RAG: Retrieval-Augmented Generation with LLMs — Amazon, 2025. Amazon
+
+Generative AI: Transforming Real-Life Applications Across Sectors — Amazon, 2025. Amazon
+
+Human 2.0: The AI-Powered Evolution of Mind, Body, and Society — Amazon, 2025. Amazon
+
+JavaScript in Action: 100 Practical Projects — Pothi, 2025. Amazon
+
+JavaScript in Action: 100 Practical Projects (Var 2) — Amazon, 2025. Amazon
+
+Journey with Python: Core Programming to Data Science and Al — Amazon, 2025. identifier 978-81-980666-6-4 (no working link)
+
+Leveraging Consciousness-Based Chatbots to Support Students Through Loss and Trauma — Book Chapter, 2025. 9798337327525
+
+Linux Essentials 101: From Definition to Distribution Development — Amazon, 2025. 3639763718
+
+MASTERING FULL-STACK WEB DEVELOPMENT WITH MEAN STACK — Amazon, 2025. Amazon
+
+Mastering Java Programming: From Basics to Advanced Concepts — Amazon, 2025. identifier B0FBV64K8N (no working link)
+
+Mastering UI Design: Principles, Practices, and Innovations — Amazon, 2025. Amazon
+
+Mini Projects Using Python — Amazon, 2025. Amazon
+
+No Code Development - Empowering Everyone to Build the Future — Amazon, 2025. identifier 978-81-983232-6-2 (no working link)
+
+Prompt Engineering — Amazon, 2025. identifier 978-81-980666-0-2 (no working link)
+
+Research Methodology and Intellectual Property Rights — Amazon, 2025. identifier B0DWN7BRB1 (no working link)
+
+Social Network Analysis and Its Applications — Amazon, 2025. Amazon
+
+The Complete Guide to Web 3.0 — Amazon, 2025. Amazon
+
+Transform Ideas into AI Projects: A Google AI Studio Guide — Amazon, 2025. Amazon
+
+Web Development Using HTML, CSS, and JavaScript — Amazon, 2025. Amazon
+
+Mastering Object-Oriented Software Engineering with UML and PlantUML — Amazon, 2025. Amazon
+
+Peer review (1)
+
+Peer review work for journals and conferences.
+
+Peer review for IGI Global Book Chapter — IGI Global, 2025. Verification
+
 
 ## Projects
 
 Source: https://karun99.github.io/projects.html
-Open-source AI systems and live web applications.
+Open-source AI systems published on GitHub, with source links.
 
-PROJECT ARCHIVE
-
-LOADING PROJECTS...
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
+29 Open-Source AI Projects by Sai Karun Nandipati | GitHub
 
 System Architecture
 
@@ -745,8 +288,8 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. His projects include S-AI, a multi-agent swarm framework published on npm as @saikarun/s-ai, and Collabuild, a research-paper-to-prototype pipeline.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
+More about Sai Karun Nandipati
+· AI answers & FAQ
 
 PORTFOLIO INDEX
 
@@ -754,131 +297,336 @@ LOGOUT
 
 NEW SYSTEM
 
-INITIATE PROJECT
+Celebrum — Local-First Artificial Brain
 
-Project
-Identity
+AI INFRA // MCP
 
-Classification
+A local-first artificial brain combining a persona model, a neuron/synapse memory graph, a truth engine and a guardrail engine, shipped as CLI, GUI and an MCP server.
 
-System
-Abstract
+github.com/celebrum
 
-Access
-Node (URL)
+PYTHON MCP MEMORY GRAPH LOCAL-FIRST
 
-Visual
-Identifier (FontAwesome)
+Collabuild — Paper-to-Prototype Pipeline
 
-Tech
-Stack Tags
+MAS // RESEARCH
 
-Priority
-Assignment (Featured)
+A multi-agent system that turns a research paper into a working prototype through an orchestrated pipeline of specialised research agents, so a PDF becomes runnable code.
 
-CANCEL
+github.com/Collabuild
 
-DEPLOY SYSTEM
+PYTHON MULTI-AGENT RESEARCH DOCKER
 
-SYSTEM ACCESS
+S-AI SoulBot — Consent-Gated Companion Harness
 
-RESTRICTED AREA // AUTHORIZED PERSONNEL ONLY
+AGENTIC AI // SAFETY
 
-Identity
-Hash
+A consent-gated AI companion harness with a Sentinel authorisation authority, a Jātaka behavioural guardrail registry, consent continuity and T0–T6 conformance tiers.
 
-Security
-Token
+github.com/s-ai-soulbot
 
-AUTHENTICATE
+TYPESCRIPT CONSENT GUARDRAILS AGENTIC
 
-ACCESS DENIED: INVALID CREDENTIALS
+S-AI — Multi-Agent Swarm Intelligence
+
+AGENTIC AI // SWARM
+
+S-AI v5.1 is a TypeScript multi-agent swarm with an MCP server builder, skill creator, neural knowledge mapping and 20+ AI providers, published to npm as @saikarun/s-ai.
+
+github.com/s-ai
+
+TYPESCRIPT LLM MCP MULTI-AGENT
+
+Samvit — Local-First Personal AI
+
+RESEARCH // PERSONAL AI
+
+Samvit (संवित्) is a local-first personal AI with one shared memory graph, five named profiles, a VISION accuracy marker and a ULTRON 14-check error-validation constraint. Python 3.9+, standard library only.
+
+github.com/samvit
+
+PYTHON LOCAL-FIRST GUARDRAILS JOSS
+
+neural-harness — Validation Harness Engine
+
+RESEARCH // VALIDATION
+
+A standard-library-only validation engine that measures information-handling and neural-synthesis accuracy in data integration, and emits evidence-first research reports. JOSS-track research software.
+
+github.com/neural-harness
+
+PYTHON VALIDATION JOSS REPRODUCIBILITY
+
+AI Content Studio
+
+AI INFRA // CONTENT
+
+A React and Vite platform backed by ChromaDB for content creation, AI generation, knowledge management and model operations in one workspace.
+
+github.com/ai-content-studio
+
+JAVASCRIPT REACT CHROMADB RAG
+
+AI Studio — Generative Video Studio
+
+AI INFRA // GENERATIVE
+
+An AI-powered video creation and media production studio: a Next.js application for generating AI video and media content.
+
+github.com/aistudio
+
+NEXT.JS GENERATIVE MEDIA
+
+Anvaya — Researcher-Controlled AI Memory
+
+RESEARCH // MEMORY
+
+Anvaya remembers the researcher, not just the research: a persistent, researcher-owned memory layer with personalised retrieval and evidence-backed RAG that cites its sources.
+
+github.com/anvaya
+
+PYTHON RAG MEMORY RESEARCH
+
+AppIdea — Privacy-First Product Workspace
+
+DEV TOOLS // PRIVACY
+
+A browser-only product workspace that turns a raw idea into professional documents — Charter, PRD, TDD, roadmap and pitch deck — with AES-256 encrypted local storage and no backend.
+
+github.com/appidea
+
+TYPESCRIPT AES-256 PRIVACY NO-BACKEND
+
+ArthAI — Agentic Commerce Gateway
+
+AGENTIC AI // COMMERCE
+
+An agentic commerce gateway for MSMEs built for the Razorpay Buildathon: AI-driven fiat and crypto commerce with a six-layer financial governance and adaptive security layer.
+
+github.com/arthai
+
+PYTHON RAZORPAY FINTECH AGENTIC
+
+Autonomous Hackathon Agent
+
+AGENTIC AI // AUTONOMY
+
+A cross-platform agent that runs on desktop, mobile and web, continuously discovering hackathons, generating project ideas and building prototypes with zero-cost AI inference.
+
+github.com/autonomous-hackathon-agent
+
+PYTHON AUTONOMY PLAYWRIGHT AGENTIC
+
+BlogBot / BlogWriter — AI Blog Engine
+
+AI INFRA // AUTOMATION
+
+Automated AI blog content generation shipped in two deployable forms: a native WordPress plugin and a cloud-deployable Node.js and Express web app.
+
+github.com/blogbot
+
+PHP WORDPRESS NODE.JS AUTOMATION
+
+BuildBot — Research Paper to Working Code
+
+EDTECH // AI TUTOR
+
+A student AI coding assistant that walks a research paper through SRS, checklist and implementation stages until it produces working, runnable code.
+
+github.com/buildbot
+
+TYPESCRIPT NEXT.JS STUDENT AGENTIC
+
+CodeQuest — Coding Assessment Platform
+
+EDTECH // ASSESSMENT
+
+A LAN-deployable coding and debugging assessment system in PHP and MySQL with a three-tier model — aptitude, program writing, debugging — plus timed tests, automated scoring and anti-cheat controls.
+
+github.com/CodeQuest
+
+PHP MYSQL ASSESSMENT ANTI-CHEAT
+
+DUET — Digital Twin Framework
+
+DIGITAL TWIN // HCI
+
+A digital twin framework with adaptive neural mirroring and parallel consciousness streams that uses the Gemini API to simulate a persona's cognitive structure, biases and worldview.
+
+github.com/DUET--Digital-Twin-Technology-
+
+TYPESCRIPT DIGITAL TWIN GEMINI HCI
+
+Gemini AI Chatbot
+
+AI APPS // CHAT
+
+An open-source chatbot front-end built with Next.js App Router, the Vercel AI SDK for streaming chat, Google Gemini as the model provider and Vercel KV for storage.
+
+github.com/gemini-ai-chatbot
+
+TYPESCRIPT NEXT.JS GEMINI CHAT
+
+Glama-MCP — AI Gateway MCP Server
+
+INFRA // MCP
+
+A dependency-free MCP server exposing the Glama OpenAI-compatible AI gateway as four tools: list models, chat, stream and request status.
+
+github.com/glama-mcp
+
+PYTHON MCP LLM JOSS
+
+Health Quest — Food-Literacy Game
+
+EDTECH // EDUCATION
+
+An ethics-first food education game for school students with a transparent Michelin-style Health Score and consent-first OpenStreetMap eatery lookup. Built with a student co-author.
+
+github.com/health-quest
+
+HTML EDUCATION ETHICS GAME
+
+HelixDB — Research & Learning Companion
+
+EDTECH // RAG
+
+A retrieval-augmented research and learning companion that adapts explanation depth to each learner, so every subject can be studied in the approach that suits the student.
+
+github.com/HelixDB
+
+PYTHON RAG LEARNING RETRIEVAL
+
+Perspective AI Engine
+
+AI INFRA // BACKEND
+
+A TypeScript and Express backend engine for building and deploying AI applications, with configurable content-generation agents and an admin dashboard.
+
+github.com/you-ai-engine
+
+TYPESCRIPT EXPRESS BACKEND AGENTIC
+
+Plastic Waste Conservation Platform
+
+EDTECH // EDUCATION
+
+An education platform on plastic waste and conservation strategies with six real-world case studies and an OpenRouter AI tutor, built as a Class 9 project.
+
+github.com/plastic-waste-conservation
+
+JAVASCRIPT EDUCATION AI TUTOR CASE STUDIES
+
+PromptPro Challenge Arena
+
+EDTECH // EVALUATION
+
+A prompt engineering challenge and competition platform with AI-powered evaluation, leaderboards and peer review loops, on Express, Supabase and Vercel KV.
+
+github.com/prompt-code
+
+EXPRESS SUPABASE EVALUATION PROMPTS
+
+S-AI Update — Synthetic Executive
+
+AGENTIC AI // SECURITY
+
+S-AI v6.1, a synthetic executive layer with security hardening, SSRF protection, sandboxed execution and TRL/MRL/IRL readiness.
+
+github.com/s-ai-update
+
+TYPESCRIPT SECURITY SANDBOX AGENTIC
+
+SWOTIFY — Security Intelligence Platform
+
+AI INFRA // SECURITY
+
+A full-stack security and intelligence analysis platform pairing a Python agent backend with a Vite web frontend.
+
+github.com/SWOTIFY
+
+PYTHON VITE SECURITY AGENTS
+
+ScholarSync — Research Data Portal
+
+RESEARCH // WORKFLOW
+
+A research data management portal with four-level role-based access control: researchers submit, department heads review, the research cell administers and the college gives final approval.
+
+github.com/ScholarSync
+
+JAVASCRIPT REACT RBAC RESEARCH
+
+TechLearn — M.Tech CSE Syllabus Hub
+
+EDTECH // M.TECH
+
+A self-contained static learning web app built from the JNTU Kakinada M.Tech CSE syllabus: unit-wise theory pages, a repeated-question bank, interactive quizzes and progress tracking.
+
+github.com/techlearn
+
+HTML JNTU QUIZZES STUDY MATERIAL
+
+Teddy × TechLearn — M.Tech Learning Hub
+
+EDTECH // M.TECH
+
+An AI-enhanced M.Tech CSE learning hub for JNTU Kakinada: the TechLearn static site plus Teddy, an AI study companion with chat, timed quizzes, notes and a persistent learner graph.
+
+github.com/teddy-techlearn
+
+HTML M.TECH AI TUTOR JNTU
+
+TutHub — Tutor & LMS Platform
+
+EDTECH // LMS
+
+A tutor and learning management platform on React 19, Vite and Supabase with Drizzle ORM, covering course delivery, student progress tracking and session management.
+
+github.com/tut-hub
+
+REACT SUPABASE LMS DRIZZLE
 
 LEARNER RESOURCES
 
-[learner-resources.html]
 VIEW ALL
-
-[https://nskcs.glide.page]
 
 NSK CS STUDENT PORTAL
 
 Computer science portal with student-facing resources and updates.
-
 nskcs.glide.page
 
 M-REDUCE
 
 Machine learning research and reduced computation learning hub.
-
 mreduce.netlify.app
 OFFLINE — DEPLOYMENT RETIRED
 
 BDA MODULE 1
 
 Big Data Analytics — module one study material and notes.
-
 bda-m1.netlify.app
 OFFLINE — DEPLOYMENT RETIRED
-
-[https://genaibca.netlify.app]
 
 GENAI BCA
 
 Generative AI for BCA learners — concepts, prompts, and labs.
-
 genaibca.netlify.app
 
 IAI NOTES
 
 Intro to Artificial Intelligence — study notes and exam prep material.
+iai-notes.vercel.app
 
-iai-notes.netlify.app
-OFFLINE — DEPLOYMENT RETIRED
-
-© 2026 Sai Karun Nandipati | System
-Ver. 2.1.0
-
-ADMIN CONSOLE
-
-[answers.html] ANSWERS
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
-
----
 
 ## Services
 
 Source: https://karun99.github.io/services.html
-Research assistance, tutoring, technical writing.
+Research assistance, tutoring and technical writing.
+
+Services | Sai Karun Nandipati — AI Research & Tutoring
 
 DATA SYNC
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
 
 Professional services offered by Sai Karun Nandipati.
 —
@@ -889,14 +637,16 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He works at PB Siddhartha College of Arts and Science, India, and offers AI research assistance, agentic AI and fullstack engineering, academic tutoring, and technical writing.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
+More about Sai Karun Nandipati
+· AI answers & FAQ
 
 >> EXPERTISE_&_SOLUTIONS
 
 Our Services
 
 Empowering individuals and organizations through hands-on project assistance, cutting-edge AI research, personalized education, and precise technical documentation.
+
+Available research, project, tutoring and writing services
 
 Research
 Assistance
@@ -911,7 +661,6 @@ Data Analysis & Visualization
 
 Implementation of AI Models
 
-[works.html]
 Explore Research
 
 Project
@@ -928,7 +677,6 @@ CI/CD, Tests, Docs & Dependabot Setup
 
 JOSS / Open-Source Publication Support
 
-[projects.html]
 View Project Work
 
 OFFICIAL PARTNER
@@ -946,7 +694,6 @@ Hands-on Coding Projects
 
 Interview Preparation
 
-[https://nrcmtut.glide.page/]
 Visit Platform
 
 Technical
@@ -962,44 +709,15 @@ Technical Blog Writing
 
 Case Studies
 
-[https://nskp.carrd.co]
 View Portfolio
 
-[https://github.com/karun99]
-[https://www.linkedin.com/in/sai-karun-5a96a8b9]
-[https://www.researchgate.net/profile/Sai-Karun-Nandipati]
-
-© 2026 SAI KARUN NANDIPATI | PROFILE 2.0
-
-[answers.html] ANSWERS / AEO
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
-
----
 
 ## Learner Resources
 
 Source: https://karun99.github.io/learner-resources.html
-Curated AI study material.
+Live study portals and web apps for students.
 
-LEARNER RESOURCES
-
-OPENING LEARNING VAULT...
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
+Learner Resources | Sai Karun Nandipati — AI Study Material
 
 Learner Resources
 
@@ -1014,83 +732,656 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He teaches Generative AI, Agentic AI and fullstack engineering, and has written more than 30 books on artificial intelligence.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
+More about Sai Karun Nandipati
+· AI answers & FAQ
 
 RESOURCE PORTALS
-
-[https://nskcs.glide.page]
 
 NSK CS STUDENT PORTAL
 
 Computer science portal with student-facing resources and updates.
-
 nskcs.glide.page
 
 M-REDUCE
 
 Machine learning research and reduced computation learning hub.
-
 mreduce.netlify.app
 OFFLINE — DEPLOYMENT RETIRED
 
 BDA MODULE 1
 
 Big Data Analytics — module one study material and notes.
-
 bda-m1.netlify.app
 OFFLINE — DEPLOYMENT RETIRED
-
-[https://genaibca.netlify.app]
 
 GENAI BCA
 
 Generative AI for BCA learners — concepts, prompts, and labs.
-
 genaibca.netlify.app
 
 IAI NOTES
 
 Intro to Artificial Intelligence — study notes and exam prep material.
+iai-notes.vercel.app
 
-iai-notes.netlify.app
-OFFLINE — DEPLOYMENT RETIRED
+BDA CODE LAB
 
-© 2026 Sai Karun Nandipati | Learner
-Resources Ver. 1.2.0
+BDA code lab — commandline studio for practising shell and command-line skills in the browser.
+bda-code-lac.vercel.app
 
-KNOWLEDGE
-FOR LEARNERS
 
-[answers.html] ANSWERS
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
+## Prompts & MCP Servers
 
----
+Source: https://karun99.github.io/prompts-and-mcp.html
+AI prompt tools and Model Context Protocol servers.
+
+AI Prompts & MCP Servers by Sai Karun Nandipati | Live Apps
+
+Prompts & MCP
+
+Live AI prompt tools and Model Context Protocol (MCP) server listings for my neural network projects —
+prompt apps first, then the MCP servers published on Glama.ai.
+
+MCP servers published by Sai Karun Nandipati.
+—
+This page is part of the official site of
+Sai Karun Nandipati , Assistant Professor in the
+Department of Data Science and Artificial Intelligence at
+PB Siddhartha College of Arts and Science , India;
+an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
+Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
+artificial intelligence.
+More about Sai Karun Nandipati
+· AI answers & FAQ
+
+PROMPT RESOURCES
+
+Prompt tools and applications by Sai Karun Nandipati.
+
+SAHAJA PROMPT
+LIVE
+
+Sahaja Prompt - AI prompt generation and management tool.
+
+Visit site
+
+STUDY BOT NSK
+LIVE
+
+AI-powered study assistant for enhanced learning.
+
+Visit site
+
+MCP SERVERS
+
+Sai Karun Nandipati publishes 19 Model Context
+Protocol servers for AI applications. MCP is the open standard that lets
+Claude, Cursor, ChatGPT and other AI clients call external tools and data sources
+over a single local interface. All 19 are
+submitted to both the Glama.ai registry and the
+M8ven Trust Index ; 2
+are live on Glama and 4 are live-verified on
+M8ven today — see the indexing table below.
+
+Published now
+
+CELEBRUM
+LIVE — PUBLISHED
+
+Local-first artificial brain — persona, memory graph, and truth engine.
+
+PERSONA MEMORY GRAPH TRUTH ENGINE
+
+glama.ai listing · source on GitHub
+
+GLAMA-MCP
+LIVE — PUBLISHED
+
+Hub MCP gateway exposing the Glama OpenAI-compatible gateway to local clients.
+
+MCP GATEWAY STDIO GLAMA
+
+glama.ai listing · source on GitHub
+
+Built, awaiting publication
+
+S-AI
+PENDING — NOT PUBLISHED YET
+
+Multi-agent swarm intelligence — vision, memory, and shared cognition.
+
+MULTI-AGENT SWARM COGNITION
+
+source on GitHub
+
+S-AI-UPDATE
+PENDING — NOT PUBLISHED YET
+
+S-AI synthetic executive with security hardening and guardrails.
+
+SECURITY GUARDRAILS EXECUTIVE
+
+source on GitHub
+
+S-AI-SOULBOT
+PENDING — NOT PUBLISHED YET
+
+S-AI SoulBot v3.0 — AI companion with Jātaka-aligned behavioral guardrails.
+
+V3.0 GUARDRAILS SRS
+
+source on GitHub
+
+NEURAL-HARNESS
+PENDING — NOT PUBLISHED YET
+
+Shared validation engine measuring information-handling capacity across models.
+
+VALIDATION BENCHMARK ENGINE
+
+source on GitHub
+
+SAMVIT
+PENDING — NOT PUBLISHED YET
+
+Local-first personal AI (संवित्) with trusted knowledge retrieval.
+
+LOCAL-FIRST PRIVACY RAG
+
+source on GitHub
+
+COLLABUILD
+PENDING — NOT PUBLISHED YET
+
+Multi-agent system pipeline from research paper to working prototype.
+
+MAS PAPER-TO-CODE PIPELINE
+
+source on GitHub
+
+AI-CONTENT-STUDIO
+PENDING — NOT PUBLISHED YET
+
+Content generation platform on React + Vite + ChromaDB.
+
+CONTENT REACT CHROMADB
+
+TEDDY-TECHLEARN
+PENDING — NOT PUBLISHED YET
+
+AI-enhanced M.Tech CSE learning companion with course intelligence.
+
+EDTECH MTECH COURSE
+
+HEALTH-QUEST
+PENDING — NOT PUBLISHED YET
+
+Ethics-first food education companion for healthy living habits.
+
+HEALTH ETHICS-FIRST EDUCATION
+
+HELIXDB
+PENDING — NOT PUBLISHED YET
+
+Research and learning companion for students and research scholars.
+
+RESEARCH LEARNING COMPANION
+
+YOU-AI-ENGINE
+PENDING — NOT PUBLISHED YET
+
+Engine to build your own AI — configurable model orchestration.
+
+ENGINE ORCHESTRATION CONFIGURABLE
+
+GEMINI-AI-CHATBOT
+PENDING — NOT PUBLISHED YET
+
+Chatbot front-end powered by the Gemini API.
+
+GEMINI CHATBOT LLM
+
+AISTUDIO
+PENDING — NOT PUBLISHED YET
+
+AI prototyping and experimentation studio.
+
+STUDIO PROTOTYPE EXPERIMENT
+
+BLOGBOT
+PENDING — NOT PUBLISHED YET
+
+Automated blog generation and publishing agent.
+
+BLOG AGENT AUTOMATION
+
+BUILDBOT
+PENDING — NOT PUBLISHED YET
+
+Student AI coding assistant — from research paper to working code.
+
+CODER STUDENT ASSISTANT
+
+ARTHAI
+PENDING — NOT PUBLISHED YET
+
+Agentic commerce gateway for MSMEs — Razorpay-integrated agents.
+
+COMMERCE MSME AGENTIC
+
+ZOE
+PENDING — NOT PUBLISHED YET
+
+Project Zoe — connectome-based reservoir-computing companion: 11 biologically-inspired layers with a local MCP tool surface.
+
+CONNECTOME COMPANION MCP
+
+INDEXING & TRUST
+
+Every server above is submitted to both independent registries, and discovery is automated straight from the repository: each project carries a committed glama.json ownership claim plus the GitHub topics mcp and model-context-protocol , so both directories index the server from the source itself.
+
+Server
+Glama.ai
+M8ven Trust Index
+
+Celebrum
+6 tools
+yes · A/B/A
+B · 89 ⚡ live
+
+glama-gateway
+4 tools
+yes · A/B/C
+C · 74
+
+S-AI
+63 tools
+submitted
+B · 89 ⚡ live
+
+s-ai-swarm
+62 tools
+submitted
+B · 89 ⚡ live
+
+S-AI SoulBot
+5 tools
+submitted
+C · 74
+
+neural-harness
+4 tools
+submitted
+B · 89 ⚡ live
+
+Samvit
+5 tools
+submitted
+C · 71
+
+Collabuild
+5 tools
+submitted
+C · 74
+
+AI Content Studio
+—
+submitted
+F · 16
+
+Teddy x TechLearn
+5 tools
+submitted
+C · 72
+
+Health Quest
+5 tools
+submitted
+C · 74
+
+HelixDB
+5 tools
+submitted
+C · 71
+
+You AI Engine
+—
+submitted
+D · 56
+
+Gemini AI Chatbot
+7 tools
+submitted
+D · 48
+
+AI Studio
+99 tools
+submitted
+C · 71
+
+Blogbot
+—
+submitted
+D · 58
+
+Buildbot
+—
+submitted
+F · 20
+
+ArthAI
+5 tools
+submitted
+C · 71
+
+Zoe
+4 tools
+submitted
+C · 74
+
+Glama.ai indexes from the repository and captures the tool schema plus license/quality/maintenance grades. M8ven independently scans each repo ( Code Verified ) and re-verifies connected repos on every change ( ⚡ live ); four servers hold Verified-Publisher status (B · 89/100). A “—” tools entry means M8ven has not yet detected an MCP tool surface. Live index: m8ven.ai/publisher/karun99 .
+
+
+## Answers & FAQ (AEO hub)
+
+Source: https://karun99.github.io/answers.html
+Identity record, verified answers and the free SEO-Optimiser tool.
+
+Answers, Identity & SEO/AEO — Sai Karun Nandipati
+
+Sai Karun Nandipati is an
+Assistant Professor in the Department of Data Science and Artificial Intelligence at
+PB Siddhartha College of Arts and Science in India, an AI researcher, and the author
+of more than 30 books on artificial intelligence. This page is the single source
+for verified answers about him, his identity record, and the search and
+answer-engine optimisation applied to this site.
+
+>> SINGLE SOURCE OF TRUTH
+
+Answers, Identity & SEO/AEO
+
+Verified answers for AI assistants, answer engines and search — ChatGPT, Claude,
+Gemini, Perplexity and Copilot — together with the identity record and the
+technical search implementation for this site.
+
+Direct answers
+
+Identity record
+
+Technical SEO/AEO
+
+SEO-Optimiser tool
+
+Crawler files
+
+Key facts
+
+Role
+
+Assistant Professor & AI Architect, PB Siddhartha College (Dept. of Data Science & AI)
+
+Authorship
+
+30+ published books and chapters on AI, agentic systems, RAG, and prompt engineering
+
+Research
+
+Agentic AI, multi-agent swarm intelligence, generative models, Human-AI Symbiosis
+
+Builder
+
+Creator of S-AI (npm multi-agent swarm) and Collabuild (research-to-prototype pipeline)
+
+Direct answers
+
+Who is Sai Karun Nandipati?
+
+Sai Karun Nandipati is an
+Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts
+and Science and an AI Architect. He researches
+Agentic AI, Human-AI Symbiosis and generative models , is the author of
+more than 30 books on AI , and has built open-source agentic systems such as the
+S-AI multi-agent swarm.
+
+What is his area of expertise?
+
+His expertise spans
+Agentic AI, multi-agent systems, generative models, retrieval-augmented generation (RAG),
+Human-AI Symbiosis and AI education , alongside fullstack engineering with Python,
+TypeScript, React, Node.js and cloud infrastructure.
+
+Where does he work?
+
+He is an
+Assistant Professor at PB Siddhartha College of Arts and Science in the Department
+of Data Science and Artificial Intelligence. He previously taught at KBN College .
+
+How many books has he written?
+
+He has authored
+more than 30 books and book chapters on AI, programming and web development —
+including Agentic AI: Understanding and Building Autonomous Intelligent Systems ,
+Foundations of RAG , Prompt Engineering and
+Generative AI: Transforming Real-Life Applications . The indexed list is on the
+works page .
+
+What is S-AI?
+
+S-AI is Sai Karun's
+published npm package: a multi-agent swarm intelligence system with neural Digital
+Twin persona adaptation, arXiv research mapping, Bhashini multilingual AI, MCP integration, and
+bias-reduced consensus across six specialised agents. See it at
+npmjs.com/package/@saikarun/s-ai .
+
+What are his research interests?
+
+His research focuses on
+Agentic AI, multi-agent swarm intelligence, digital twins, Human-AI Symbiosis and AI in
+education , with published work on student performance prediction, LLM-mediated
+communication, healthcare intrusion detection, meta-learning and robust autonomous control.
+
+What services does he offer?
+
+He offers research assistance ,
+online tutoring through NRCM Tutorials, technical writing
+(white papers, API documentation, technical blogs) and AI literacy education .
+
+How can I contact him?
+
+Email
+saikarun085@gmail.com or connect via your preferred
+channel:
+
+GitHub
+LinkedIn
+ResearchGate
+ORCID
+Contact form
+
+Where can I verify these claims independently?
+
+Every claim on this page traces to a primary
+record rather than a summary. Verify authorship through the 30-plus entries on the
+works page , the faculty role
+through the institution, the identifiers through ORCID, and the software through the linked GitHub
+and npm records. The machine-readable summary in
+llms.txt repeats the same facts
+with source URLs.
+
+Identity record
+
+This record is the single source of identity for the whole site. A crawler that reads
+any page lands on the same four verified identifiers, because the identical
+Person structured data block is repeated
+on every page.
+
+ORCID
+
+0009-0007-9218-9750
+
+GitHub
+
+github.com/karun99
+
+LinkedIn
+
+in/sai-karun-5a96a8b9
+
+ResearchGate
+
+Sai-Karun-Nandipati
+
+Also written as
+Sai Karun, Saikarun, Karun Nandipati
+
+Email
+
+saikarun085@gmail.com
+
+How do I cite this profile correctly?
+
+Cite the person, not the page: Sai Karun Nandipati, Assistant Professor in the Department of Data
+Science and Artificial Intelligence, PB Siddhartha College of Arts and Science, India, with
+ORCID 0009-0007-9218-9750 as the persistent identifier. A dated access to this record
+is enough for a professional profile citation.
+
+Which pages carry the same record?
+
+The long-form biography and technical skill matrix are on the
+about page , the indexed list of
+more than thirty books is on the works page , and the open-source work is on the
+projects page . Each page answers
+one question well rather than repeating everything.
+
+See also: biography ,
+publications ,
+services , and the
+machine-readable summary in llms.txt .
+
+Technical SEO/AEO
+
+Answer-engine optimisation is mostly the discipline of stating facts in plain declarative
+sentences, close to the top of the page, and repeating them in a form a machine can parse. This
+site does that in five layers.
+
+1 · Answer-shaped prose
+
+The first paragraph on every page is a
+self-contained answer. Questions appear as headings and are answered in 40–60 words, which is
+the range an assistant is most likely to lift verbatim.
+
+2 · Structured data
+
+An identical
+Person graph on every page carries the four
+verified identifiers in sameAs , joined by
+@id references so the claims are provably about
+the same entity.
+
+3 · FAQPage markup
+
+The question and answer pairs below are
+mirrored in FAQPage JSON-LD so a search result
+can show them inline.
+
+4 · Crawler permissions
+
+robots.txt names every major
+AI crawler explicitly — GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CopilotBot and
+others — rather than relying on a wildcard, and points at the sitemap.
+
+5 · Machine-readable text
+
+llms.txt gives a compact index and
+llms-full.txt the full text,
+following the llmstxt.org convention, so an assistant can ingest the site without scraping.
+
+Crawl hygiene
+
+One canonical URL per page, a unique title
+and description, a 404 page, an XML sitemap listing only canonical pages, and no duplicate
+rel attributes that would be silently dropped by
+the parser.
+
+SEO- Optimiser
+
+SEO-Optimiser is a free, browser-only tool that fetches any public URL and reports SEO
+flaws: sitemap discovery, robots.txt
+presence, title and meta description lengths, viewport and canonical tags, heading structure,
+images missing alt text, placeholder links, thin-content word counts, and per-engine readiness
+across six search engines.
+
+It runs entirely on your machine, needs no account, and stores nothing. Pages are retrieved
+through a public CORS proxy, because a browser cannot read a cross-origin page directly — so
+the URL you type is visible to that proxy.
+
+Run a report
+Free · no signup
+
+Sitemap · metadata · content quality · multi-engine · export
+
+Website URL to analyse
+
+Analyse
+
+Export HTML
+
+Export PDF
+
+--
+
+Generated by SEO-Optimiser
+
+Enter a URL and press Analyse to detect sitemap, content and page flaws.
+
+For AI crawlers
+
+llms.txt
+
+Machine-readable site index per the llmstxt.org standard for AI assistants.
+llms.txt
+
+llms-full.txt
+
+Complete site text for deep AI crawling and citation.
+llms-full.txt
+
+Site index
+
+XML sitemap and crawler rules for all search engines and AI bots.
+sitemap.xml
+robots.txt
+
+About the author
+
+Written by Sai Karun Nandipati, Assistant Professor in the
+Department of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science,
+India, and the author of more than 30 books on artificial intelligence. He builds the open-source agent
+tooling listed on this site, including S-AI and Collabuild, and maintains the learner portals published
+alongside it.
+
+Verified elsewhere:
+ORCID 0009-0007-9218-9750 ,
+github.com/karun99 ,
+LinkedIn
+and
+ResearchGate .
+Machine-readable versions of this page are published as
+llms.txt and
+llms-full.txt .
+
+See also:
+biography
+publications
+projects .
+
 
 ## Contact
 
 Source: https://karun99.github.io/contact.html
-Email, GitHub, LinkedIn, ORCID, project channels.
+Collaboration, tutoring and project channels.
 
-COMMS UPLINK
-
-ESTABLISHING CONNECTION...
-
-[index.html]
-S AI KARUN
-
-[index.html] HOME
-[about.html] ABOUT
-[services.html] SERVICES
-[works.html] WORKS
-[projects.html] PROJECTS
-
-[learner-resources.html] RESOURCES
-[prompts-and-mcp.html] PROMPTS & MCP
-[answers.html] ANSWERS
-[contact.html] CONTACT
+Contact Sai Karun Nandipati | Research & Collaboration
 
 Contact details for Sai Karun Nandipati.
 —
@@ -1101,8 +1392,8 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He can be reached by email at saikarun085@gmail.com, or on GitHub at github.com/karun99, LinkedIn, ORCID 0009-0007-9218-9750, and ResearchGate.
-[/index.html] More about Sai Karun Nandipati
-· [/answers.html] AI answers & FAQ
+More about Sai Karun Nandipati
+· AI answers & FAQ
 
 Initialize Uplink
 
@@ -1111,42 +1402,30 @@ collaborations , tutoring, and speaking opportunities in Agentic AI,
 multi-agent systems, digital twins, and AI education.
 
 AFFILIATION
-
 Assistant Professor, Department of Data Science and Artificial Intelligence,
 PB Siddhartha College of Arts and Science · Vijayawada
 
 RESPONSE
-
 Replies within 2 business days. For project/research requests, open a GitHub Discussion on the
 relevant repository for the fastest turnaround.
 
-[mailto:saikarun085@gmail.com]
-
 saikarun085@gmail.com
-
-[https://github.com/karun99]
 
 github.com/karun99
 
-[https://www.linkedin.com/in/sai-karun-5a96a8b9]
-
 LinkedIn Profile
 
-[https://www.researchgate.net/profile/Sai-Karun-Nandipati]
-
 ResearchGate Profile
-
-[https://orcid.org/0009-0007-9218-9750]
 
 ORCID 0009-0007-9218-9750
 
 PROJECT CHANNELS
 
-[https://github.com/karun99/neural-harness/discussions] neural-harness
-[https://github.com/karun99/samvit/discussions] samvit
-[https://github.com/karun99/s-ai/discussions] s-ai
-[https://github.com/karun99/glama-mcp/discussions] glama-mcp
-[https://github.com/karun99/Collabuild/discussions] Collabuild
+neural-harness
+samvit
+s-ai
+glama-mcp
+Collabuild
 
 INQUIRY TYPE
 
@@ -1169,11 +1448,3 @@ TRANSMIT DATA
 Opens your email client — replies within 2
 business days.
 
-© 2026 Sai Karun Nandipati | Comms Module
-
-[answers.html] ANSWERS
-[llms.txt] llms.txt
-[sitemap.xml] sitemap
-[robots.txt] robots.txt
-
----

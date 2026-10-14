@@ -1,3 +1,11 @@
+/* ==========================================================================
+   karun99.github.io — shared stylesheet
+   Single source of truth for the site chrome (header nav + footer) and the
+   theme tokens. Nav and footer are styled here in plain CSS rather than with
+   Tailwind utilities so they render correctly even if the Tailwind CDN is
+   blocked, slow, or fails outright.
+   ========================================================================== */
+
 /* --- VARIABLES & THEME --- */
 :root {
     /* Colors - Cyberpunk Academic */
@@ -19,6 +27,9 @@
     /* Spacing */
     --nav-height: 80px;
     --section-spacing: 120px;
+
+    --header-bg: rgba(15, 23, 42, 0.72);
+    --header-border: rgba(6, 182, 212, 0.12);
 }
 
 /* --- RESET & BASE --- */
@@ -30,6 +41,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* The fixed header is 80px tall; keep anchored sections clear of it. */
+    scroll-padding-top: calc(var(--nav-height) + 16px);
 }
 
 body {
@@ -67,7 +80,37 @@ h4,
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- FOCUS VISIBILITY ---
+   The palette is dark on dark, so keyboard focus needs an explicit high
+   contrast ring rather than the browser default. */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* --- A11Y: SKIP LINK --- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 3000;
+    padding: 0.75rem 1.25rem;
+    background: var(--accent-primary);
+    color: #020617;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
 }
 
 /* --- UTILITIES --- */
@@ -111,7 +154,8 @@ a {
     box-shadow: 0 0 20px var(--accent-glow);
 }
 
-.active-nav {
+.active-nav,
+.site-nav__list a[aria-current="page"] {
     color: var(--accent-primary) !important;
     text-shadow: 0 0 8px var(--accent-glow);
 }
@@ -128,85 +172,461 @@ section {
     position: relative;
 }
 
-/* --- NAVIGATION --- */
-nav {
+/* ==========================================================================
+   SITE HEADER + NAVIGATION
+   Identical markup on every page. tools/sync-chrome.py keeps it in sync.
+   ========================================================================== */
+
+.site-header {
     position: fixed;
     top: 0;
-    width: 100%;
-    height: var(--nav-height);
+    left: 0;
+    right: 0;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(6, 182, 212, 0.1);
 }
 
-.nav-logo {
+.site-nav {
+    height: var(--nav-height);
+    border-bottom: 1px solid var(--header-border);
+    background: var(--header-bg);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+.site-nav__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.site-nav__brand {
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.1em;
+    color: #fff;
+    text-transform: uppercase;
+    flex-shrink: 0;
 }
 
-.nav-links {
-    display: flex;
-    gap: 3rem;
-    margin-left: auto;
-}
-
-.nav-links a {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
-}
-
-.nav-links a:hover {
+.site-nav__brand:hover {
     color: var(--accent-primary);
 }
 
-/* Mobile Nav */
-.mobile-menu-btn {
-    display: none;
-    font-size: 1.5rem;
-    color: var(--accent-secondary);
+.site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+    margin-left: auto;
+}
+
+.site-nav__list a {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.site-nav__list a:hover {
+    color: var(--accent-primary);
+}
+
+.site-nav__list a[aria-current="page"] {
+    border-bottom-color: var(--accent-primary);
+}
+
+/* "More" dropdown. Services, Prompts & MCP and Answers live here so they are
+   reachable from the header on desktop, not only from the mobile panel and the
+   footer. Collapsed by [hidden]; assets/js/main.js toggles aria-expanded. */
+.site-nav__more {
+    position: relative;
+    margin-left: 0;
+}
+
+.site-nav__more-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem 0;
     cursor: pointer;
 }
 
-/* --- FOOTER --- */
-footer {
-    padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    background: #000;
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+.site-nav__more-btn:hover,
+.site-nav__more-btn[aria-expanded="true"] {
+    color: var(--accent-primary);
 }
 
-/* --- LOADER --- */
-#loader {
+.site-nav__more-btn[aria-expanded="true"] {
+    border-bottom-color: var(--accent-primary);
+}
+
+.site-nav__more-caret {
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+}
+
+.site-nav__more-btn[aria-expanded="true"] .site-nav__more-caret {
+    transform: rotate(180deg);
+}
+
+.site-nav__more-menu {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    z-index: 60;
+    min-width: 15rem;
+    list-style: none;
+    padding: 0.5rem 0;
+    background: var(--bg-dark);
+    border: 1px solid var(--header-border);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.site-nav__more-menu[hidden] {
+    display: none;
+}
+
+.site-nav__more-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-left: 2px solid transparent;
+}
+
+.site-nav__more-menu a:hover {
+    color: var(--accent-primary);
+    background: rgba(6, 182, 212, 0.08);
+    border-left-color: var(--accent-primary);
+}
+
+.site-nav__more-menu a[aria-current="page"] {
+    color: var(--accent-primary);
+    border-left-color: var(--accent-primary);
+}
+
+/* Hamburger. Three bars, animated into an X by [aria-expanded="true"]. */
+.site-nav__toggle {
+    display: none;
+    position: relative;
+    width: 44px;
+    /* 44px is the minimum comfortable touch target. */
+    height: 44px;
+    margin-right: -10px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--accent-secondary);
+}
+
+.site-nav__toggle-bar {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.site-nav__toggle-bar:nth-child(1) {
+    top: 15px;
+}
+
+.site-nav__toggle-bar:nth-child(2) {
+    top: 21px;
+}
+
+.site-nav__toggle-bar:nth-child(3) {
+    top: 27px;
+}
+
+.site-nav__toggle[aria-expanded="true"] .site-nav__toggle-bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.site-nav__toggle[aria-expanded="true"] .site-nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.site-nav__toggle[aria-expanded="true"] .site-nav__toggle-bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --- MOBILE MENU PANEL ---
+   The previous overlay was a fixed 300px tall, which clipped the link list on
+   short screens. It now fills the remaining viewport height and scrolls. */
+.site-menu {
     position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background-color: transparent;
-    /* Changed from var(--bg-dark) to show canvas */
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--header-border);
+    padding: 2rem 1.5rem 3rem;
+}
+
+.site-menu[hidden] {
+    display: none;
+}
+
+.site-menu__list {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    gap: 0.25rem;
+}
+
+.site-menu__list a {
+    display: block;
+    padding: 0.9rem 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-menu__list a:hover,
+.site-menu__list a[aria-current="page"] {
+    color: var(--accent-primary);
+}
+
+.site-menu__heading {
+    margin: 1.75rem 0 0.5rem 0.5rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(148, 163, 184, 0.6);
+    list-style: none;
+}
+
+/* Lock page scroll while the overlay is open so the page cannot scroll behind
+   it. Applied by main.js alongside the panel's own overflow. */
+body.menu-open {
     overflow: hidden;
 }
 
-#loader .text-center {
-    z-index: 10;
-    background: rgba(2, 6, 23, 0.3);
-    /* More transparent */
-    padding: 3rem;
-    border-radius: 1rem;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(6, 182, 212, 0.1);
-    /* Subtle Cyan Border */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    min-width: 300px;
+/* --- WORKS SUB-HEADER ---
+   works.html used to host its search box, category filters and live counters
+   inside the nav element. They now sit in their own bar below the shared
+   header so the nav can be identical on every page. */
+.works-subbar {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    z-index: 900;
+    background: rgba(15, 23, 42, 0.92);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.works-subbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.works-subbar__search {
+    position: relative;
+    flex: 1 1 240px;
+    min-width: 200px;
+}
+
+.works-subbar__search i {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-secondary);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.works-subbar__search input {
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 2.4rem;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 999px;
+    color: #fff;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+}
+
+.works-subbar__search input:focus {
+    border-color: var(--accent-secondary);
+}
+
+.works-subbar__filters {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 0.5rem;
+}
+
+.works-subbar__filters button {
+    padding: 0.35rem 0.7rem;
+    background: none;
+    border: 0;
+    border-radius: 0.35rem;
+    color: var(--text-muted);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+}
+
+.works-subbar__filters button:hover {
+    color: var(--accent-secondary);
+}
+
+.works-subbar__filters button.active {
+    background: var(--accent-secondary);
+    color: #000;
+}
+
+.works-subbar__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.works-subbar__stats span {
+    white-space: nowrap;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    padding: 3.5rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: #000;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.site-footer__cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+}
+
+.site-footer__col h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.9rem;
+}
+
+.site-footer__col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.site-footer__col a {
+    color: var(--text-muted);
+}
+
+.site-footer__col a:hover {
+    color: var(--accent-primary);
+}
+
+.site-footer__bar {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(148, 163, 184, 0.65);
+}
+
+.site-footer__social {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.site-footer__social a:hover {
+    color: var(--accent-primary);
+}
+
+/* ==========================================================================
+   LOADER
+   The loader is decorative. Without JavaScript nothing ever hides it, so it
+   must never be able to cover the page: the `js` class is added by an inline
+   script in <head>, and the loader only renders when that class is present.
+   ========================================================================== */
+
+#loader {
+    display: none;
+}
+
+.js #loader {
+    display: flex;
+}
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background-color: var(--bg-dark);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+    overflow: hidden;
 }
 
 #loader.hidden {
@@ -214,68 +634,50 @@ footer {
     visibility: hidden;
 }
 
-.loader-bar {
-    width: 0%;
-    transition: width 0.2s linear;
-}
-
-.glitch-text {
-    animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .site-nav__list {
+        display: none;
     }
 
-    2% {
-        opacity: 0.8;
-        transform: translateX(2px);
+    /* Below this width the hamburger panel already lists every page, so the
+       dropdown would be a second copy of the same links. */
+    .site-nav__more {
+        display: none;
     }
 
-    4% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: var(--nav-height);
-        left: 0;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        background: var(--bg-dark);
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding-top: 0;
-        transition: 0.4s ease;
-        border-bottom: 1px solid rgba(6, 182, 212, 0.1);
-    }
-
-    .nav-links.open {
-        height: 300px;
-        padding-top: 2rem;
-    }
-
-    .mobile-menu-btn {
+    .site-nav__toggle {
         display: block;
-        margin-left: auto;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+}
+
+/* --- REDUCED MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* --- A11Y: VISUALLY HIDDEN ---
-   Used for section headings that carry structure for screen readers and
-   answer engines but should not be painted. Defined here (not just via the
-   Tailwind CDN) so headings stay hidden if the CDN fails to load. */
+   Used for section headings that carry structure for screen readers and answer
+   engines but should not be painted. Defined here rather than only via the
+   Tailwind CDN so headings stay hidden if the CDN fails to load. */
 .sr-only {
     position: absolute;
     width: 1px;
