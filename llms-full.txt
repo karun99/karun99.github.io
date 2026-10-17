@@ -25,8 +25,9 @@ Sai Karun
 Nandipati
 
 Assistant Professor •
-AI Researcher •
-Fullstack Architect
+AI Systems Engineer •
+Multi-Agent Architect •
+Researcher
 
 Architecting Intelligence.
 
@@ -71,7 +72,7 @@ Also written as
 Sai Karun, Saikarun, Karun Nandipati
 
 Role
-Assistant Professor & AI Architect
+Assistant Professor (Data Science & AI), AI Systems Engineer & Multi-Agent Architect
 
 Affiliation
 
@@ -1118,7 +1119,7 @@ Key facts
 
 Role
 
-Assistant Professor & AI Architect, PB Siddhartha College (Dept. of Data Science & AI)
+Assistant Professor (Data Science & AI), PB Siddhartha College (Dept. of Data Science & AI)
 
 Authorship
 
