@@ -146,6 +146,14 @@ def build_footer() -> str:
                     <li><a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank">LinkedIn</a></li>
                     <li><a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank">ORCID</a></li>
                     <li><a href="https://www.researchgate.net/profile/Sai-Karun-Nandipati" rel="me noopener" target="_blank">ResearchGate</a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&amp;user=qD-LRh4AAAAJ" rel="me noopener" target="_blank">Google Scholar</a></li>
+                    <li><a href="https://twitter.com/saikarun" rel="me noopener" target="_blank">X / Twitter</a></li>
+                    <li><a href="https://www.youtube.com/@techuniverse7631" rel="me noopener" target="_blank">YouTube</a></li>
+                    <li><a href="https://www.npmjs.com/package/@saikarun/s-ai" rel="me noopener" target="_blank">npm</a></li>
+                    <li><a href="https://nskp.carrd.co" rel="me noopener" target="_blank">Carrd &mdash; writing</a></li>
+                    <li><a href="https://nskprofile.vercel.app" rel="me noopener" target="_blank">Digital twin</a></li>
+                    <li><a href="https://nrcm.netlify.app" rel="me noopener" target="_blank">NRCM tutorials</a></li>
+                    <li><a href="https://nskcs.glide.page" rel="me noopener" target="_blank">Student portal</a></li>
                 </ul>
             </div>
             <div class="site-footer__col">
@@ -165,6 +173,9 @@ def build_footer() -> str:
                 <a href="https://github.com/karun99" rel="me noopener" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                 <a href="https://www.linkedin.com/in/sai-karun-5a96a8b9" rel="me noopener" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 <a href="https://orcid.org/0009-0007-9218-9750" rel="me noopener" target="_blank" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/saikarun" rel="me noopener" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/@techuniverse7631" rel="me noopener" target="_blank" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="https://www.npmjs.com/package/@saikarun/s-ai" rel="me noopener" target="_blank" aria-label="npm"><i class="fab fa-npm" aria-hidden="true"></i></a>
                 <a href="mailto:saikarun085@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
             </span>
         </div>
