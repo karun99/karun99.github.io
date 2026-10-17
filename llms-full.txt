@@ -458,6 +458,16 @@ github.com/DUET--Digital-Twin-Technology-
 
 TYPESCRIPT DIGITAL TWIN GEMINI HCI
 
+FRND4U — Private AI Companion Chat
+
+COMPANION // CHAT
+
+An AI companion chat app that runs entirely on free OpenRouter models: private by design, with a keyless backend and Jātaka guardrails in every prompt.
+
+github.com/FRND4U
+
+COMPANION CHAT OPENROUTER PRIVACY
+
 Gemini AI Chatbot
 
 AI APPS // CHAT
@@ -587,6 +597,16 @@ A tutor and learning management platform on React 19, Vite and Supabase with Dri
 github.com/tut-hub
 
 REACT SUPABASE LMS DRIZZLE
+
+Zoe — Connectome Reservoir-Computing Companion
+
+COMPANION // RESERVOIR COMPUTING
+
+Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM and a companion mode (SRS v4.0 MVP).
+
+github.com/zoe
+
+COMPANION RESERVOIR COMPUTING PYTHON AI
 
 LEARNER RESOURCES
 

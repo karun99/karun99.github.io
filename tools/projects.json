@@ -1,7 +1,7 @@
 {
   "_comment": "Single source of truth for the project archive. Synced from github.com/karun99 (API: /users/karun99/repos). tools/sync-content.py writes this into projects.html (static, crawler-visible cards + ItemList JSON-LD) and into assets/js/main.js (DEFAULT_PROJECTS). Only repos with a verified README and a real description are listed; stub repos with no README are deliberately omitted.",
   "source": "https://github.com/karun99?tab=repositories",
-  "synced": "2026-10-05",
+  "synced": "2026-10-17",
   "projects": [
     {
       "id": "p1",
@@ -320,6 +320,28 @@
       "link": "https://github.com/karun99/plastic-waste-conservation",
       "icon": "fas fa-leaf",
       "tags": ["JAVASCRIPT", "EDUCATION", "AI TUTOR", "CASE STUDIES"],
+      "featured": false
+    },
+    {
+      "id": "p30",
+      "repo": "zoe",
+      "title": "Zoe — Connectome Reservoir-Computing Companion",
+      "category": "COMPANION // RESERVOIR COMPUTING",
+      "description": "Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM and a companion mode (SRS v4.0 MVP).",
+      "link": "https://github.com/karun99/zoe",
+      "icon": "fas fa-heart-pulse",
+      "tags": ["COMPANION", "RESERVOIR COMPUTING", "PYTHON", "AI"],
+      "featured": false
+    },
+    {
+      "id": "p31",
+      "repo": "FRND4U",
+      "title": "FRND4U — Private AI Companion Chat",
+      "category": "COMPANION // CHAT",
+      "description": "An AI companion chat app that runs entirely on free OpenRouter models: private by design, with a keyless backend and Jātaka guardrails in every prompt.",
+      "link": "https://github.com/karun99/FRND4U",
+      "icon": "fas fa-comments",
+      "tags": ["COMPANION", "CHAT", "OPENROUTER", "PRIVACY"],
       "featured": false
     }
   ]

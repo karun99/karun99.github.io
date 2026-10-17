@@ -842,6 +842,16 @@ const DEFAULT_PROJECTS = [
         featured: false
     },
     {
+        id: "p31",
+        title: "FRND4U \u2014 Private AI Companion Chat",
+        category: "COMPANION // CHAT",
+        description: "An AI companion chat app that runs entirely on free OpenRouter models: private by design, with a keyless backend and J\u0101taka guardrails in every prompt.",
+        link: "https://github.com/karun99/FRND4U",
+        icon: "fas fa-comments",
+        tags: ["COMPANION", "CHAT", "OPENROUTER", "PRIVACY"],
+        featured: false
+    },
+    {
         id: "p17",
         title: "Gemini AI Chatbot",
         category: "AI APPS // CHAT",
@@ -969,6 +979,16 @@ const DEFAULT_PROJECTS = [
         link: "https://github.com/karun99/tut-hub",
         icon: "fas fa-chalkboard-teacher",
         tags: ["REACT", "SUPABASE", "LMS", "DRIZZLE"],
+        featured: false
+    },
+    {
+        id: "p30",
+        title: "Zoe \u2014 Connectome Reservoir-Computing Companion",
+        category: "COMPANION // RESERVOIR COMPUTING",
+        description: "Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM and a companion mode (SRS v4.0 MVP).",
+        link: "https://github.com/karun99/zoe",
+        icon: "fas fa-heart-pulse",
+        tags: ["COMPANION", "RESERVOIR COMPUTING", "PYTHON", "AI"],
         featured: false
     }
 ];
