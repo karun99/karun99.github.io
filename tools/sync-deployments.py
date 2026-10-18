@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Render the deployed-apps registry (tools/deployments.json) into the pages.
+"""Render the tracked web-app registry (tools/deployments.json) into pages.
 
-The registry lists every live website deployed by Sai Karun Nandipati: name,
-description, URL and hosting platform. It used to exist only in chat logs and
-deployment dashboards, so neither crawlers nor answer engines could see it.
+The registry lists website deployments attributed to Sai Karun Nandipati: name,
+description, URL, hosting platform and last-checked status. Some deployments
+may be offline between checks.
 
 The block is written as static HTML (not JavaScript) on purpose: GPTBot,
 ClaudeBot and PerplexityBot read the markup, not the renderer.
@@ -77,7 +77,7 @@ def card(d: dict) -> str:
             {close_tag}"""
 
 
-def block(deployments: list[dict]) -> str:
+def block(deployments: list[dict], verified_on: str) -> str:
     netlify = sum(1 for d in deployments if d["platform"] == "Netlify")
     vercel = sum(1 for d in deployments if d["platform"] == "Vercel")
     live = sum(1 for d in deployments if d.get("status") != "offline")
@@ -103,7 +103,6 @@ def block(deployments: list[dict]) -> str:
                     "url": d["url"],
                     "applicationCategory": "WebApplication",
                     "operatingSystem": "Web",
-                    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
                 },
             }
             for i, d in enumerate(deployments)
@@ -116,9 +115,9 @@ def block(deployments: list[dict]) -> str:
         <div class="container relative z-10 px-4">
             <h2 class="text-3xl font-display tracking-wider mb-4">DEPLOYED <span class="text-gold">WEB APPS</span></h2>
             <p class="text-gray-400 max-w-3xl leading-relaxed mb-8">
-                <strong class="text-white">{len(deployments)}</strong> live websites and web
-                apps by Sai Karun Nandipati &mdash; <strong class="text-white">{live}</strong>
-                online today ({netlify} on Netlify, {vercel} on Vercel): AI assistants,
+                <strong class="text-white">{len(deployments)}</strong> tracked website deployments by
+                Sai Karun Nandipati &mdash; <strong class="text-white">{live}</strong> were
+                verified online on {e(verified_on)} ({netlify} on Netlify, {vercel} on Vercel): AI assistants,
                 study tools, prompt libraries, research workspaces and student resources.
             </p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -153,7 +152,7 @@ def main() -> None:
     check = "--check" in sys.argv[1:]
     data = json.loads(DATA.read_text())
     deployments = data["deployments"]
-    markup = block(deployments)
+    markup = block(deployments, data["synced"])
     stale = []
     for rel, anchor in TARGETS:
         path = ROOT / rel

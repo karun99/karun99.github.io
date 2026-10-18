@@ -608,15 +608,15 @@ COMPANION RESERVOIR COMPUTING PYTHON AI
 
 DEPLOYED WEB APPS
 
-71 live websites and web
-apps by Sai Karun Nandipati — 70
-online today (61 on Netlify, 10 on Vercel): AI assistants,
+71 tracked website deployments by
+Sai Karun Nandipati — 70 were
+verified online on 2026-10-17 (61 on Netlify, 10 on Vercel): AI assistants,
 study tools, prompt libraries, research workspaces and student resources.
 
 ENGERS
 LIVE
 
-Research/engineering resources or collaboration tool
+A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification.
 
 Netlify
 researchengers.netlify.app
@@ -646,7 +646,7 @@ Visit site
 PROJECT ZOE
 LIVE
 
-Personal/experimental AI or learning project
+A self-hosted, bio-inspired AI agent built on a Drosophila connectome reservoir.
 
 Netlify
 project-zoe.netlify.app
@@ -656,7 +656,7 @@ Visit site
 PBSC 1410 EVENT
 LIVE
 
-Event landing page for PBSC 1410
+FutureProof orientation attendance sheet for PBSC 1410.
 
 Netlify
 pbsc1410event.netlify.app
@@ -686,7 +686,7 @@ Visit site
 BHOMI AI
 LIVE
 
-Land/property or geospatial AI tool
+Gujarati autonomous farming agent with satellite, weather and market-price information plus voice interaction.
 
 Netlify
 bhomi-ai.netlify.app
@@ -766,7 +766,7 @@ Visit site
 LEARN BOT
 LIVE
 
-Educational chatbot for learning
+Open the deployed application for current feature details.
 
 Netlify
 learn-bot.netlify.app
@@ -886,7 +886,7 @@ Visit site
 MATRUSWARA
 LIVE
 
-Maternal health/voice or cultural project
+Multi-agent comic generator.
 
 Netlify
 matruswara.netlify.app
@@ -916,7 +916,7 @@ Visit site
 AI HW
 LIVE
 
-AI homework or hardware project
+Open the deployed application for current feature details.
 
 Netlify
 ai-hw.netlify.app
@@ -1036,7 +1036,7 @@ Visit site
 MREDUCE
 LIVE
 
-MapReduce/data reduction tool or demo
+Browser-based MapReduce word-count educational simulator.
 
 Netlify
 mreduce.netlify.app
@@ -1046,7 +1046,7 @@ Visit site
 GENAI BCA
 LIVE
 
-Generative AI project for BCA studies
+Teaching and learning materials for the BCA Generative AI course.
 
 Netlify
 genaibca.netlify.app
@@ -1096,7 +1096,7 @@ Visit site
 README PRO
 LIVE
 
-README/profile generator project
+Open the deployed application for current feature details.
 
 Netlify
 readme-proj.netlify.app
@@ -1146,7 +1146,7 @@ Visit site
 SOUL PROMPT
 LIVE
 
-AI persona/personality discovery or prompt-layer identity project
+Open the deployed application for current feature details.
 
 Netlify
 soul-prompt.netlify.app
@@ -1156,7 +1156,7 @@ Visit site
 SRS PBSC
 LIVE
 
-Documentation or project site for PBSC (organization/institution)
+Open the deployed application for current feature details.
 
 Netlify
 srs-pbsc.netlify.app
@@ -1176,7 +1176,7 @@ Visit site
 OBSIDOI
 LIVE
 
-Obsidian-to-static-site bridge or knowledge base publishing tool
+Open the deployed application for current feature details.
 
 Netlify
 obsidoi.netlify.app
@@ -1196,7 +1196,7 @@ Visit site
 CARBREP
 LIVE
 
-Carbon reporting or similar domain tool
+Website carbon-footprint analyser.
 
 Netlify
 carbrep.netlify.app
@@ -1306,7 +1306,7 @@ Visit site
 PROMPT CODE
 LIVE
 
-Prompt-to-code or prompt/code utility project
+PromptPro Challenge Arena.
 
 Vercel
 prompt-code-one.vercel.app
@@ -1325,21 +1325,21 @@ Visit site
 
 PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
 
-Engers — Research/engineering resources or collaboration tool (Netlify)
+Engers — A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification. (Netlify)
 
 WorkWrite — Writing/work productivity tool (Netlify)
 
 Krew — Team collaboration / Miro-style workspace (Netlify)
 
-Project Zoe — Personal/experimental AI or learning project (Netlify)
+Project Zoe — A self-hosted, bio-inspired AI agent built on a Drosophila connectome reservoir. (Netlify)
 
-PBSC 1410 Event — Event landing page for PBSC 1410 (Netlify)
+PBSC 1410 Event — FutureProof orientation attendance sheet for PBSC 1410. (Netlify)
 
 Vaidyanath Prompt — Cultural/spiritual AI prompt library (Netlify)
 
 KathaSastra — Stories/scripture learning platform (Netlify)
 
-Bhomi AI — Land/property or geospatial AI tool (Netlify)
+Bhomi AI — Gujarati autonomous farming agent with satellite, weather and market-price information plus voice interaction. (Netlify)
 
 Sahaja Prompt — Natural-language AI prompt library/marketplace (Netlify)
 
@@ -1355,7 +1355,7 @@ You AI Project — Personalized AI tools/search project (Netlify)
 
 AI Tact — AI interaction/contact tool (Netlify)
 
-Learn Bot — Educational chatbot for learning (Netlify)
+Learn Bot — Open the deployed application for current feature details. (Netlify)
 
 Bio AI Assist — Biology manuscript/research assistant (Netlify)
 
@@ -1379,13 +1379,13 @@ BrandBot AI — Brand/marketing automation chatbot (Netlify)
 
 Med Triage AI — Emergency clinical triage assistant (Netlify)
 
-Matruswara — Maternal health/voice or cultural project (Netlify)
+Matruswara — Multi-agent comic generator. (Netlify)
 
 MLDat — ML datasets/data tools (Netlify)
 
 EduRead — Educational reading/aptitude platform (Netlify)
 
-AI HW — AI homework or hardware project (Netlify)
+AI HW — Open the deployed application for current feature details. (Netlify)
 
 AI Data Studio — AI data engineering/analytics studio (Netlify)
 
@@ -1409,9 +1409,9 @@ Compliance Assessor — Compliance/security assessment tool (Netlify)
 
 BDA M1 — Big Data Analytics Module 1 project (Netlify)
 
-mReduce — MapReduce/data reduction tool or demo (Netlify)
+mReduce — Browser-based MapReduce word-count educational simulator. (Netlify)
 
-GenAI BCA — Generative AI project for BCA studies (Netlify)
+GenAI BCA — Teaching and learning materials for the BCA Generative AI course. (Netlify)
 
 Data Process — Data processing/form-handling project (Netlify)
 
@@ -1421,7 +1421,7 @@ Duncey — Playful experimental AI/study bot (Netlify)
 
 ImgEnu3 — Image-related tool/generator (Netlify)
 
-Readme Pro — README/profile generator project (Netlify)
+Readme Pro — Open the deployed application for current feature details. (Netlify)
 
 GenAI Blog — AI-generated blog platform (Netlify)
 
@@ -1431,17 +1431,17 @@ AI Prompt Pro — Professional AI prompt management tool (Netlify)
 
 AI Pragya — AI literacy/education-related project (Netlify)
 
-Soul Prompt — AI persona/personality discovery or prompt-layer identity project (Netlify)
+Soul Prompt — Open the deployed application for current feature details. (Netlify)
 
-SRS PBSC — Documentation or project site for PBSC (organization/institution) (Netlify)
+SRS PBSC — Open the deployed application for current feature details. (Netlify)
 
 PrepBot AI — AI-powered interview preparation and quiz chatbot (Netlify)
 
-Obsidoi — Obsidian-to-static-site bridge or knowledge base publishing tool (Netlify)
+Obsidoi — Open the deployed application for current feature details. (Netlify)
 
 AI Research Panel — Browser-based AI research workspace/notebook interface (Netlify)
 
-Carbrep — Carbon reporting or similar domain tool (Netlify)
+Carbrep — Website carbon-footprint analyser. (Netlify)
 
 Medi Triage — AI health triage assistant supporting multiple languages (Netlify)
 
@@ -1463,7 +1463,7 @@ Duet Digital Twin Technology — Digital twin technology platform/project (Verce
 
 ProfileRank — Profile/portfolio ranking tool (Vercel)
 
-Prompt Code — Prompt-to-code or prompt/code utility project (Vercel)
+Prompt Code — PromptPro Challenge Arena. (Vercel)
 
 You AI Engine — Personalized AI/search engine-style project (Vercel)
 
@@ -1647,15 +1647,15 @@ bda-code-lac.vercel.app
 
 DEPLOYED WEB APPS
 
-71 live websites and web
-apps by Sai Karun Nandipati — 70
-online today (61 on Netlify, 10 on Vercel): AI assistants,
+71 tracked website deployments by
+Sai Karun Nandipati — 70 were
+verified online on 2026-10-17 (61 on Netlify, 10 on Vercel): AI assistants,
 study tools, prompt libraries, research workspaces and student resources.
 
 ENGERS
 LIVE
 
-Research/engineering resources or collaboration tool
+A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification.
 
 Netlify
 researchengers.netlify.app
@@ -1685,7 +1685,7 @@ Visit site
 PROJECT ZOE
 LIVE
 
-Personal/experimental AI or learning project
+A self-hosted, bio-inspired AI agent built on a Drosophila connectome reservoir.
 
 Netlify
 project-zoe.netlify.app
@@ -1695,7 +1695,7 @@ Visit site
 PBSC 1410 EVENT
 LIVE
 
-Event landing page for PBSC 1410
+FutureProof orientation attendance sheet for PBSC 1410.
 
 Netlify
 pbsc1410event.netlify.app
@@ -1725,7 +1725,7 @@ Visit site
 BHOMI AI
 LIVE
 
-Land/property or geospatial AI tool
+Gujarati autonomous farming agent with satellite, weather and market-price information plus voice interaction.
 
 Netlify
 bhomi-ai.netlify.app
@@ -1805,7 +1805,7 @@ Visit site
 LEARN BOT
 LIVE
 
-Educational chatbot for learning
+Open the deployed application for current feature details.
 
 Netlify
 learn-bot.netlify.app
@@ -1925,7 +1925,7 @@ Visit site
 MATRUSWARA
 LIVE
 
-Maternal health/voice or cultural project
+Multi-agent comic generator.
 
 Netlify
 matruswara.netlify.app
@@ -1955,7 +1955,7 @@ Visit site
 AI HW
 LIVE
 
-AI homework or hardware project
+Open the deployed application for current feature details.
 
 Netlify
 ai-hw.netlify.app
@@ -2075,7 +2075,7 @@ Visit site
 MREDUCE
 LIVE
 
-MapReduce/data reduction tool or demo
+Browser-based MapReduce word-count educational simulator.
 
 Netlify
 mreduce.netlify.app
@@ -2085,7 +2085,7 @@ Visit site
 GENAI BCA
 LIVE
 
-Generative AI project for BCA studies
+Teaching and learning materials for the BCA Generative AI course.
 
 Netlify
 genaibca.netlify.app
@@ -2135,7 +2135,7 @@ Visit site
 README PRO
 LIVE
 
-README/profile generator project
+Open the deployed application for current feature details.
 
 Netlify
 readme-proj.netlify.app
@@ -2185,7 +2185,7 @@ Visit site
 SOUL PROMPT
 LIVE
 
-AI persona/personality discovery or prompt-layer identity project
+Open the deployed application for current feature details.
 
 Netlify
 soul-prompt.netlify.app
@@ -2195,7 +2195,7 @@ Visit site
 SRS PBSC
 LIVE
 
-Documentation or project site for PBSC (organization/institution)
+Open the deployed application for current feature details.
 
 Netlify
 srs-pbsc.netlify.app
@@ -2215,7 +2215,7 @@ Visit site
 OBSIDOI
 LIVE
 
-Obsidian-to-static-site bridge or knowledge base publishing tool
+Open the deployed application for current feature details.
 
 Netlify
 obsidoi.netlify.app
@@ -2235,7 +2235,7 @@ Visit site
 CARBREP
 LIVE
 
-Carbon reporting or similar domain tool
+Website carbon-footprint analyser.
 
 Netlify
 carbrep.netlify.app
@@ -2345,7 +2345,7 @@ Visit site
 PROMPT CODE
 LIVE
 
-Prompt-to-code or prompt/code utility project
+PromptPro Challenge Arena.
 
 Vercel
 prompt-code-one.vercel.app
@@ -2364,21 +2364,21 @@ Visit site
 
 PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
 
-Engers — Research/engineering resources or collaboration tool (Netlify)
+Engers — A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification. (Netlify)
 
 WorkWrite — Writing/work productivity tool (Netlify)
 
 Krew — Team collaboration / Miro-style workspace (Netlify)
 
-Project Zoe — Personal/experimental AI or learning project (Netlify)
+Project Zoe — A self-hosted, bio-inspired AI agent built on a Drosophila connectome reservoir. (Netlify)
 
-PBSC 1410 Event — Event landing page for PBSC 1410 (Netlify)
+PBSC 1410 Event — FutureProof orientation attendance sheet for PBSC 1410. (Netlify)
 
 Vaidyanath Prompt — Cultural/spiritual AI prompt library (Netlify)
 
 KathaSastra — Stories/scripture learning platform (Netlify)
 
-Bhomi AI — Land/property or geospatial AI tool (Netlify)
+Bhomi AI — Gujarati autonomous farming agent with satellite, weather and market-price information plus voice interaction. (Netlify)
 
 Sahaja Prompt — Natural-language AI prompt library/marketplace (Netlify)
 
@@ -2394,7 +2394,7 @@ You AI Project — Personalized AI tools/search project (Netlify)
 
 AI Tact — AI interaction/contact tool (Netlify)
 
-Learn Bot — Educational chatbot for learning (Netlify)
+Learn Bot — Open the deployed application for current feature details. (Netlify)
 
 Bio AI Assist — Biology manuscript/research assistant (Netlify)
 
@@ -2418,13 +2418,13 @@ BrandBot AI — Brand/marketing automation chatbot (Netlify)
 
 Med Triage AI — Emergency clinical triage assistant (Netlify)
 
-Matruswara — Maternal health/voice or cultural project (Netlify)
+Matruswara — Multi-agent comic generator. (Netlify)
 
 MLDat — ML datasets/data tools (Netlify)
 
 EduRead — Educational reading/aptitude platform (Netlify)
 
-AI HW — AI homework or hardware project (Netlify)
+AI HW — Open the deployed application for current feature details. (Netlify)
 
 AI Data Studio — AI data engineering/analytics studio (Netlify)
 
@@ -2448,9 +2448,9 @@ Compliance Assessor — Compliance/security assessment tool (Netlify)
 
 BDA M1 — Big Data Analytics Module 1 project (Netlify)
 
-mReduce — MapReduce/data reduction tool or demo (Netlify)
+mReduce — Browser-based MapReduce word-count educational simulator. (Netlify)
 
-GenAI BCA — Generative AI project for BCA studies (Netlify)
+GenAI BCA — Teaching and learning materials for the BCA Generative AI course. (Netlify)
 
 Data Process — Data processing/form-handling project (Netlify)
 
@@ -2460,7 +2460,7 @@ Duncey — Playful experimental AI/study bot (Netlify)
 
 ImgEnu3 — Image-related tool/generator (Netlify)
 
-Readme Pro — README/profile generator project (Netlify)
+Readme Pro — Open the deployed application for current feature details. (Netlify)
 
 GenAI Blog — AI-generated blog platform (Netlify)
 
@@ -2470,17 +2470,17 @@ AI Prompt Pro — Professional AI prompt management tool (Netlify)
 
 AI Pragya — AI literacy/education-related project (Netlify)
 
-Soul Prompt — AI persona/personality discovery or prompt-layer identity project (Netlify)
+Soul Prompt — Open the deployed application for current feature details. (Netlify)
 
-SRS PBSC — Documentation or project site for PBSC (organization/institution) (Netlify)
+SRS PBSC — Open the deployed application for current feature details. (Netlify)
 
 PrepBot AI — AI-powered interview preparation and quiz chatbot (Netlify)
 
-Obsidoi — Obsidian-to-static-site bridge or knowledge base publishing tool (Netlify)
+Obsidoi — Open the deployed application for current feature details. (Netlify)
 
 AI Research Panel — Browser-based AI research workspace/notebook interface (Netlify)
 
-Carbrep — Carbon reporting or similar domain tool (Netlify)
+Carbrep — Website carbon-footprint analyser. (Netlify)
 
 Medi Triage — AI health triage assistant supporting multiple languages (Netlify)
 
@@ -2502,7 +2502,7 @@ Duet Digital Twin Technology — Digital twin technology platform/project (Verce
 
 ProfileRank — Profile/portfolio ranking tool (Vercel)
 
-Prompt Code — Prompt-to-code or prompt/code utility project (Vercel)
+Prompt Code — PromptPro Challenge Arena. (Vercel)
 
 You AI Engine — Personalized AI/search engine-style project (Vercel)
 
@@ -2551,15 +2551,15 @@ Visit site
 
 DEPLOYED WEB APPS
 
-71 live websites and web
-apps by Sai Karun Nandipati — 70
-online today (61 on Netlify, 10 on Vercel): AI assistants,
+71 tracked website deployments by
+Sai Karun Nandipati — 70 were
+verified online on 2026-10-17 (61 on Netlify, 10 on Vercel): AI assistants,
 study tools, prompt libraries, research workspaces and student resources.
 
 ENGERS
 LIVE
 
-Research/engineering resources or collaboration tool
+A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification.
 
 Netlify
 researchengers.netlify.app
@@ -2589,7 +2589,7 @@ Visit site
 PROJECT ZOE
 LIVE
 
-Personal/experimental AI or learning project
+A self-hosted, bio-inspired AI agent built on a Drosophila connectome reservoir.
 
 Netlify
 project-zoe.netlify.app
@@ -2599,7 +2599,7 @@ Visit site
 PBSC 1410 EVENT
 LIVE
 
-Event landing page for PBSC 1410
+FutureProof orientation attendance sheet for PBSC 1410.
 
 Netlify
 pbsc1410event.netlify.app
@@ -2629,7 +2629,7 @@ Visit site
 BHOMI AI
 LIVE
 
-Land/property or geospatial AI tool
+Gujarati autonomous farming agent with satellite, weather and market-price information plus voice interaction.
 
 Netlify
 bhomi-ai.netlify.app
@@ -2709,7 +2709,7 @@ Visit site
 LEARN BOT
 LIVE
 
-Educational chatbot for learning
+Open the deployed application for current feature details.
 
 Netlify
 learn-bot.netlify.app
@@ -2829,7 +2829,7 @@ Visit site
 MATRUSWARA
 LIVE
 
-Maternal health/voice or cultural project
+Multi-agent comic generator.
 
 Netlify
 matruswara.netlify.app
@@ -2859,7 +2859,7 @@ Visit site
 AI HW
 LIVE
 
-AI homework or hardware project
+Open the deployed application for current feature details.
 
 Netlify
 ai-hw.netlify.app
@@ -2979,7 +2979,7 @@ Visit site
 MREDUCE
 LIVE
 
-MapReduce/data reduction tool or demo
+Browser-based MapReduce word-count educational simulator.
 
 Netlify
 mreduce.netlify.app
@@ -2989,7 +2989,7 @@ Visit site
 GENAI BCA
 LIVE
 
-Generative AI project for BCA studies
+Teaching and learning materials for the BCA Generative AI course.
 
 Netlify
 genaibca.netlify.app
@@ -3039,7 +3039,7 @@ Visit site
 README PRO
 LIVE
 
-README/profile generator project
+Open the deployed application for current feature details.
 
 Netlify
 readme-proj.netlify.app
@@ -3089,7 +3089,7 @@ Visit site
 SOUL PROMPT
 LIVE
 
-AI persona/personality discovery or prompt-layer identity project
+Open the deployed application for current feature details.
 
 Netlify
 soul-prompt.netlify.app
@@ -3099,7 +3099,7 @@ Visit site
 SRS PBSC
 LIVE
 
-Documentation or project site for PBSC (organization/institution)
+Open the deployed application for current feature details.
 
 Netlify
 srs-pbsc.netlify.app
@@ -3119,7 +3119,7 @@ Visit site
 OBSIDOI
 LIVE
 
-Obsidian-to-static-site bridge or knowledge base publishing tool
+Open the deployed application for current feature details.
 
 Netlify
 obsidoi.netlify.app
@@ -3139,7 +3139,7 @@ Visit site
 CARBREP
 LIVE
 
-Carbon reporting or similar domain tool
+Website carbon-footprint analyser.
 
 Netlify
 carbrep.netlify.app
@@ -3249,7 +3249,7 @@ Visit site
 PROMPT CODE
 LIVE
 
-Prompt-to-code or prompt/code utility project
+PromptPro Challenge Arena.
 
 Vercel
 prompt-code-one.vercel.app
@@ -3268,21 +3268,21 @@ Visit site
 
 PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
 
-Engers — Research/engineering resources or collaboration tool (Netlify)
+Engers — A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification. (Netlify)
 
 WorkWrite — Writing/work productivity tool (Netlify)
 
 Krew — Team collaboration / Miro-style workspace (Netlify)
 
-Project Zoe — Personal/experimental AI or learning project (Netlify)
+Project Zoe — A self-hosted, bio-inspired AI agent built on a Drosophila connectome reservoir. (Netlify)
 
-PBSC 1410 Event — Event landing page for PBSC 1410 (Netlify)
+PBSC 1410 Event — FutureProof orientation attendance sheet for PBSC 1410. (Netlify)
 
 Vaidyanath Prompt — Cultural/spiritual AI prompt library (Netlify)
 
 KathaSastra — Stories/scripture learning platform (Netlify)
 
-Bhomi AI — Land/property or geospatial AI tool (Netlify)
+Bhomi AI — Gujarati autonomous farming agent with satellite, weather and market-price information plus voice interaction. (Netlify)
 
 Sahaja Prompt — Natural-language AI prompt library/marketplace (Netlify)
 
@@ -3298,7 +3298,7 @@ You AI Project — Personalized AI tools/search project (Netlify)
 
 AI Tact — AI interaction/contact tool (Netlify)
 
-Learn Bot — Educational chatbot for learning (Netlify)
+Learn Bot — Open the deployed application for current feature details. (Netlify)
 
 Bio AI Assist — Biology manuscript/research assistant (Netlify)
 
@@ -3322,13 +3322,13 @@ BrandBot AI — Brand/marketing automation chatbot (Netlify)
 
 Med Triage AI — Emergency clinical triage assistant (Netlify)
 
-Matruswara — Maternal health/voice or cultural project (Netlify)
+Matruswara — Multi-agent comic generator. (Netlify)
 
 MLDat — ML datasets/data tools (Netlify)
 
 EduRead — Educational reading/aptitude platform (Netlify)
 
-AI HW — AI homework or hardware project (Netlify)
+AI HW — Open the deployed application for current feature details. (Netlify)
 
 AI Data Studio — AI data engineering/analytics studio (Netlify)
 
@@ -3352,9 +3352,9 @@ Compliance Assessor — Compliance/security assessment tool (Netlify)
 
 BDA M1 — Big Data Analytics Module 1 project (Netlify)
 
-mReduce — MapReduce/data reduction tool or demo (Netlify)
+mReduce — Browser-based MapReduce word-count educational simulator. (Netlify)
 
-GenAI BCA — Generative AI project for BCA studies (Netlify)
+GenAI BCA — Teaching and learning materials for the BCA Generative AI course. (Netlify)
 
 Data Process — Data processing/form-handling project (Netlify)
 
@@ -3364,7 +3364,7 @@ Duncey — Playful experimental AI/study bot (Netlify)
 
 ImgEnu3 — Image-related tool/generator (Netlify)
 
-Readme Pro — README/profile generator project (Netlify)
+Readme Pro — Open the deployed application for current feature details. (Netlify)
 
 GenAI Blog — AI-generated blog platform (Netlify)
 
@@ -3374,17 +3374,17 @@ AI Prompt Pro — Professional AI prompt management tool (Netlify)
 
 AI Pragya — AI literacy/education-related project (Netlify)
 
-Soul Prompt — AI persona/personality discovery or prompt-layer identity project (Netlify)
+Soul Prompt — Open the deployed application for current feature details. (Netlify)
 
-SRS PBSC — Documentation or project site for PBSC (organization/institution) (Netlify)
+SRS PBSC — Open the deployed application for current feature details. (Netlify)
 
 PrepBot AI — AI-powered interview preparation and quiz chatbot (Netlify)
 
-Obsidoi — Obsidian-to-static-site bridge or knowledge base publishing tool (Netlify)
+Obsidoi — Open the deployed application for current feature details. (Netlify)
 
 AI Research Panel — Browser-based AI research workspace/notebook interface (Netlify)
 
-Carbrep — Carbon reporting or similar domain tool (Netlify)
+Carbrep — Website carbon-footprint analyser. (Netlify)
 
 Medi Triage — AI health triage assistant supporting multiple languages (Netlify)
 
@@ -3406,7 +3406,7 @@ Duet Digital Twin Technology — Digital twin technology platform/project (Verce
 
 ProfileRank — Profile/portfolio ranking tool (Vercel)
 
-Prompt Code — Prompt-to-code or prompt/code utility project (Vercel)
+Prompt Code — PromptPro Challenge Arena. (Vercel)
 
 You AI Engine — Personalized AI/search engine-style project (Vercel)
 
