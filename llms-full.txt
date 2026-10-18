@@ -168,7 +168,7 @@ More about Sai Karun Nandipati
 
 Publications and Works by Sai Karun Nandipati
 
-Complete publication index (42 works)
+Complete publication index (41 works)
 
 Every publication by Sai Karun Nandipati, in plain text so that search engines and AI answer engines can read it without running JavaScript. The interactive library above shows the same works as a visual shelf.
 
@@ -194,7 +194,7 @@ Recent Trends in Deep Learning Algorithms and Their Applications — Emerging Tr
 
 The Engineering Of AI- Enabled system is Distinct From Other Engineering Disciplines — Emerging Trends, 2023. Conference
 
-Books (32)
+Books (31)
 
 Books authored on artificial intelligence, agentic AI, RAG and prompt engineering.
 
@@ -228,9 +228,7 @@ Generative AI: Transforming Real-Life Applications Across Sectors — Amazon, 20
 
 Human 2.0: The AI-Powered Evolution of Mind, Body, and Society — Amazon, 2025. Amazon
 
-JavaScript in Action: 100 Practical Projects — Pothi, 2025. Amazon
-
-JavaScript in Action: 100 Practical Projects (Var 2) — Amazon, 2025. Amazon
+JavaScript in Action: 100 Practical Projects — Amazon, 2025. Amazon
 
 Journey with Python: Core Programming to Data Science and Al — Amazon, 2025. identifier 978-81-980666-6-4 (no working link)
 
@@ -274,7 +272,7 @@ Peer review for IGI Global Book Chapter — IGI Global, 2025. Verification
 Source: https://karun99.github.io/projects.html
 Open-source AI systems published on GitHub, with source links.
 
-29 Open-Source AI Projects by Sai Karun Nandipati | GitHub
+31 Open-Source AI Projects by Sai Karun Nandipati | GitHub
 
 System Architecture
 
