@@ -608,6 +608,867 @@ github.com/zoe
 
 COMPANION RESERVOIR COMPUTING PYTHON AI
 
+DEPLOYED WEB APPS
+
+71 live websites and web
+apps by Sai Karun Nandipati — 70
+online today (61 on Netlify, 10 on Vercel): AI assistants,
+study tools, prompt libraries, research workspaces and student resources.
+
+ENGERS
+LIVE
+
+Research/engineering resources or collaboration tool
+
+Netlify
+researchengers.netlify.app
+
+Visit site
+
+WORKWRITE
+LIVE
+
+Writing/work productivity tool
+
+Netlify
+workwrite.netlify.app
+
+Visit site
+
+KREW
+LIVE
+
+Team collaboration / Miro-style workspace
+
+Netlify
+krew-miro.netlify.app
+
+Visit site
+
+PROJECT ZOE
+LIVE
+
+Personal/experimental AI or learning project
+
+Netlify
+project-zoe.netlify.app
+
+Visit site
+
+PBSC 1410 EVENT
+LIVE
+
+Event landing page for PBSC 1410
+
+Netlify
+pbsc1410event.netlify.app
+
+Visit site
+
+VAIDYANATH PROMPT
+LIVE
+
+Cultural/spiritual AI prompt library
+
+Netlify
+vaidyanath-prompt.netlify.app
+
+Visit site
+
+KATHASASTRA
+LIVE
+
+Stories/scripture learning platform
+
+Netlify
+kathasastra.netlify.app
+
+Visit site
+
+BHOMI AI
+LIVE
+
+Land/property or geospatial AI tool
+
+Netlify
+bhomi-ai.netlify.app
+
+Visit site
+
+SAHAJA PROMPT
+LIVE
+
+Natural-language AI prompt library/marketplace
+
+Netlify
+sahaja-prompt.netlify.app
+
+Visit site
+
+STUDY BOT NSK
+LIVE
+
+Study assistant chatbot
+
+Netlify
+study-bot-nsk.netlify.app
+
+Visit site
+
+HEALTH QT
+LIVE
+
+Quick health assessment/questionnaire tool
+
+Netlify
+health-qt.netlify.app
+
+Visit site
+
+CELEBRUM
+LIVE
+
+Local-first AI memory/brain for agents
+
+Netlify
+celebrum.netlify.app
+
+Visit site
+
+AI HMATE
+LIVE
+
+AI assistant/housemate helper
+
+Netlify
+ai-hmate.netlify.app
+
+Visit site
+
+YOU AI PROJECT
+LIVE
+
+Personalized AI tools/search project
+
+Netlify
+you-ai-project.netlify.app
+
+Visit site
+
+AI TACT
+LIVE
+
+AI interaction/contact tool
+
+Netlify
+aitact.netlify.app
+
+Visit site
+
+LEARN BOT
+LIVE
+
+Educational chatbot for learning
+
+Netlify
+learn-bot.netlify.app
+
+Visit site
+
+BIO AI ASSIST
+LIVE
+
+Biology manuscript/research assistant
+
+Netlify
+bio-ai-assist.netlify.app
+
+Visit site
+
+SIDDHA MARGA
+LIVE
+
+Spiritual/philosophical path website
+
+Netlify
+siddhamarga.netlify.app
+
+Visit site
+
+WTUT AI
+LIVE
+
+AI study/fact-check/flashcard tool
+
+Netlify
+wtut-ai.netlify.app
+
+Visit site
+
+SHERLOCK BOT
+LIVE
+
+Username/social-media OSINT bot
+
+Netlify
+sherlock-bot.netlify.app
+
+Visit site
+
+HACK BOT AI
+LIVE
+
+Cybersecurity/CTF AI assistant
+
+Netlify
+hack-bot-ai.netlify.app
+
+Visit site
+
+YOURSWARM
+LIVE
+
+Multi-agent/swarm AI platform
+
+Netlify
+yourswarm.netlify.app
+
+Visit site
+
+DUNCE AI
+LIVE
+
+Experimental learning/AI bot
+
+Netlify
+dunce-ai.netlify.app
+
+Visit site
+
+AI EDUBOT
+LIVE
+
+AI education/study chatbot
+
+Netlify
+ai-edubot.netlify.app
+
+Visit site
+
+AGNANVESHAKA
+LIVE
+
+AI research/learning explorer
+
+Netlify
+agnanveshaka.netlify.app
+
+Visit site
+
+BRANDBOT AI
+LIVE
+
+Brand/marketing automation chatbot
+
+Netlify
+brandbot-ai.netlify.app
+
+Visit site
+
+MED TRIAGE AI
+LIVE
+
+Emergency clinical triage assistant
+
+Netlify
+med-triage-ai.netlify.app
+
+Visit site
+
+MATRUSWARA
+LIVE
+
+Maternal health/voice or cultural project
+
+Netlify
+matruswara.netlify.app
+
+Visit site
+
+MLDAT
+LIVE
+
+ML datasets/data tools
+
+Netlify
+mldat.netlify.app
+
+Visit site
+
+EDUREAD
+LIVE
+
+Educational reading/aptitude platform
+
+Netlify
+eduread.netlify.app
+
+Visit site
+
+AI HW
+LIVE
+
+AI homework or hardware project
+
+Netlify
+ai-hw.netlify.app
+
+Visit site
+
+AI DATA STUDIO
+LIVE
+
+AI data engineering/analytics studio
+
+Netlify
+ai-data-studio.netlify.app
+
+Visit site
+
+EDUWIND AI
+LIVE
+
+AI STEM/education learning platform
+
+Netlify
+eduwindai.netlify.app
+
+Visit site
+
+COSMIC VISION
+LIVE
+
+Astronomy/space visualization project
+
+Netlify
+cosmic-vision.netlify.app
+
+Visit site
+
+APPIDEA
+LIVE
+
+App idea brainstorming/sharing platform
+
+Netlify
+appidea.netlify.app
+
+Visit site
+
+LECIRCLE
+LIVE
+
+Lifestyle/hospitality membership club
+
+Netlify
+lecircle.netlify.app
+
+Visit site
+
+VIBETUT
+LIVE
+
+Vibe-coding/haptics tutorial project
+
+Netlify
+vibetut.netlify.app
+
+Visit site
+
+MBRIDGE
+LIVE
+
+Cross-border CBDC payments platform
+
+Netlify
+mbridge.netlify.app
+
+Visit site
+
+IDEATION HACKATHON
+LIVE
+
+Hackathon ideation/brainstorming project
+
+Netlify
+ideation-hackathon.netlify.app
+
+Visit site
+
+NSK AI TASK 1
+LIVE
+
+First AI task/assignment project
+
+Netlify
+nsk-ai-task1.netlify.app
+
+Visit site
+
+COMPLIANCE ASSESSOR
+LIVE
+
+Compliance/security assessment tool
+
+Netlify
+compliance-assessor.netlify.app
+
+Visit site
+
+BDA M1
+LIVE
+
+Big Data Analytics Module 1 project
+
+Netlify
+bda-m1.netlify.app
+
+Visit site
+
+MREDUCE
+LIVE
+
+MapReduce/data reduction tool or demo
+
+Netlify
+mreduce.netlify.app
+
+Visit site
+
+GENAI BCA
+LIVE
+
+Generative AI project for BCA studies
+
+Netlify
+genaibca.netlify.app
+
+Visit site
+
+DATA PROCESS
+LIVE
+
+Data processing/form-handling project
+
+Netlify
+data-process.netlify.app
+
+Visit site
+
+IAI NOTES
+LIVE
+
+Intro to AI notes/study materials
+
+Netlify
+iai-notes.netlify.app
+
+Visit site
+
+DUNCEY
+LIVE
+
+Playful experimental AI/study bot
+
+Netlify
+duncey.netlify.app
+
+Visit site
+
+IMGENU3
+LIVE
+
+Image-related tool/generator
+
+Netlify
+imgenu3.netlify.app
+
+Visit site
+
+README PRO
+LIVE
+
+README/profile generator project
+
+Netlify
+readme-proj.netlify.app
+
+Visit site
+
+GENAI BLOG
+LIVE
+
+AI-generated blog platform
+
+Netlify
+genai-blog.netlify.app
+
+Visit site
+
+COLLAB BUILD
+LIVE
+
+Collaborative build/project tool
+
+Netlify
+col-labuild.netlify.app
+
+Visit site
+
+AI PROMPT PRO
+LIVE
+
+Professional AI prompt management tool
+
+Netlify
+ai-prompt-pro.netlify.app
+
+Visit site
+
+AI PRAGYA
+LIVE
+
+AI literacy/education-related project
+
+Netlify
+ai-pragya.netlify.app
+
+Visit site
+
+SOUL PROMPT
+LIVE
+
+AI persona/personality discovery or prompt-layer identity project
+
+Netlify
+soul-prompt.netlify.app
+
+Visit site
+
+SRS PBSC
+LIVE
+
+Documentation or project site for PBSC (organization/institution)
+
+Netlify
+srs-pbsc.netlify.app
+
+Visit site
+
+PREPBOT AI
+LIVE
+
+AI-powered interview preparation and quiz chatbot
+
+Netlify
+prepbot-ai.netlify.app
+
+Visit site
+
+OBSIDOI
+LIVE
+
+Obsidian-to-static-site bridge or knowledge base publishing tool
+
+Netlify
+obsidoi.netlify.app
+
+Visit site
+
+AI RESEARCH PANEL
+LIVE
+
+Browser-based AI research workspace/notebook interface
+
+Netlify
+ai-research-panel.netlify.app
+
+Visit site
+
+CARBREP
+LIVE
+
+Carbon reporting or similar domain tool
+
+Netlify
+carbrep.netlify.app
+
+Visit site
+
+MEDI TRIAGE
+LIVE
+
+AI health triage assistant supporting multiple languages
+
+Netlify
+medi-triage.netlify.app
+
+Visit site
+
+FINALGO
+LIVE
+
+Financial/loan management software
+
+Netlify
+finalgo.netlify.app
+
+Visit site
+
+NSK PROFILE
+LIVE
+
+Personal profile/portfolio site synced with GitHub karun99/nskprofile
+
+Vercel
+nskprofile.vercel.app
+
+Visit site
+
+HEALTH QUEST
+LIVE
+
+Health/wellness quest app; repo has Dependabot and security updates
+
+Vercel
+health-quest-wheat.vercel.app
+
+Visit site
+
+TECHLEARN
+LIVE
+
+Tech learning platform with MCP server and TRL hardening
+
+Vercel
+techlearn-xi.vercel.app
+
+Visit site
+
+PLASTIC WASTE CONSERVATION
+LIVE
+
+Plastic waste conservation strategy platform
+
+Vercel
+plastic-waste-conservation.vercel.app
+
+Visit site
+
+GEMINI AI CHATBOT
+LIVE
+
+Gemini-powered AI chatbot app
+
+Vercel
+gemini-ai-chatbot-seven-delta.vercel.app
+
+Visit site
+
+DUET AI
+LIVE
+
+Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology
+
+Vercel
+duet-ai-ivory.vercel.app
+
+Visit site
+
+DUET DIGITAL TWIN TECHNOLOGY
+LIVE
+
+Digital twin technology platform/project
+
+Vercel
+duet-digital-twin-technology.vercel.app
+
+Visit site
+
+PROFILERANK
+LIVE
+
+Profile/portfolio ranking tool
+
+Vercel
+profilerank-phi.vercel.app
+
+Visit site
+
+PROMPT CODE
+LIVE
+
+Prompt-to-code or prompt/code utility project
+
+Vercel
+prompt-code-one.vercel.app
+
+Visit site
+
+YOU AI ENGINE
+OFFLINE — DEPLOYMENT RETIRED
+
+Personalized AI/search engine-style project
+
+Vercel
+you-ai-engine.vercel.app
+
+Visit site
+
+PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
+
+Engers — Research/engineering resources or collaboration tool (Netlify)
+
+WorkWrite — Writing/work productivity tool (Netlify)
+
+Krew — Team collaboration / Miro-style workspace (Netlify)
+
+Project Zoe — Personal/experimental AI or learning project (Netlify)
+
+PBSC 1410 Event — Event landing page for PBSC 1410 (Netlify)
+
+Vaidyanath Prompt — Cultural/spiritual AI prompt library (Netlify)
+
+KathaSastra — Stories/scripture learning platform (Netlify)
+
+Bhomi AI — Land/property or geospatial AI tool (Netlify)
+
+Sahaja Prompt — Natural-language AI prompt library/marketplace (Netlify)
+
+Study Bot NSK — Study assistant chatbot (Netlify)
+
+Health QT — Quick health assessment/questionnaire tool (Netlify)
+
+Celebrum — Local-first AI memory/brain for agents (Netlify)
+
+AI Hmate — AI assistant/housemate helper (Netlify)
+
+You AI Project — Personalized AI tools/search project (Netlify)
+
+AI Tact — AI interaction/contact tool (Netlify)
+
+Learn Bot — Educational chatbot for learning (Netlify)
+
+Bio AI Assist — Biology manuscript/research assistant (Netlify)
+
+Siddha Marga — Spiritual/philosophical path website (Netlify)
+
+WTUT AI — AI study/fact-check/flashcard tool (Netlify)
+
+Sherlock Bot — Username/social-media OSINT bot (Netlify)
+
+Hack Bot AI — Cybersecurity/CTF AI assistant (Netlify)
+
+YourSwarm — Multi-agent/swarm AI platform (Netlify)
+
+Dunce AI — Experimental learning/AI bot (Netlify)
+
+AI EduBot — AI education/study chatbot (Netlify)
+
+Agnanveshaka — AI research/learning explorer (Netlify)
+
+BrandBot AI — Brand/marketing automation chatbot (Netlify)
+
+Med Triage AI — Emergency clinical triage assistant (Netlify)
+
+Matruswara — Maternal health/voice or cultural project (Netlify)
+
+MLDat — ML datasets/data tools (Netlify)
+
+EduRead — Educational reading/aptitude platform (Netlify)
+
+AI HW — AI homework or hardware project (Netlify)
+
+AI Data Studio — AI data engineering/analytics studio (Netlify)
+
+EduWind AI — AI STEM/education learning platform (Netlify)
+
+Cosmic Vision — Astronomy/space visualization project (Netlify)
+
+AppIdea — App idea brainstorming/sharing platform (Netlify)
+
+LeCircle — Lifestyle/hospitality membership club (Netlify)
+
+VibeTut — Vibe-coding/haptics tutorial project (Netlify)
+
+mBridge — Cross-border CBDC payments platform (Netlify)
+
+Ideation Hackathon — Hackathon ideation/brainstorming project (Netlify)
+
+NSK AI Task 1 — First AI task/assignment project (Netlify)
+
+Compliance Assessor — Compliance/security assessment tool (Netlify)
+
+BDA M1 — Big Data Analytics Module 1 project (Netlify)
+
+mReduce — MapReduce/data reduction tool or demo (Netlify)
+
+GenAI BCA — Generative AI project for BCA studies (Netlify)
+
+Data Process — Data processing/form-handling project (Netlify)
+
+IAI Notes — Intro to AI notes/study materials (Netlify)
+
+Duncey — Playful experimental AI/study bot (Netlify)
+
+ImgEnu3 — Image-related tool/generator (Netlify)
+
+Readme Pro — README/profile generator project (Netlify)
+
+GenAI Blog — AI-generated blog platform (Netlify)
+
+Collab Build — Collaborative build/project tool (Netlify)
+
+AI Prompt Pro — Professional AI prompt management tool (Netlify)
+
+AI Pragya — AI literacy/education-related project (Netlify)
+
+Soul Prompt — AI persona/personality discovery or prompt-layer identity project (Netlify)
+
+SRS PBSC — Documentation or project site for PBSC (organization/institution) (Netlify)
+
+PrepBot AI — AI-powered interview preparation and quiz chatbot (Netlify)
+
+Obsidoi — Obsidian-to-static-site bridge or knowledge base publishing tool (Netlify)
+
+AI Research Panel — Browser-based AI research workspace/notebook interface (Netlify)
+
+Carbrep — Carbon reporting or similar domain tool (Netlify)
+
+Medi Triage — AI health triage assistant supporting multiple languages (Netlify)
+
+Finalgo — Financial/loan management software (Netlify)
+
+NSK Profile — Personal profile/portfolio site synced with GitHub karun99/nskprofile (Vercel)
+
+Health Quest — Health/wellness quest app; repo has Dependabot and security updates (Vercel)
+
+TechLearn — Tech learning platform with MCP server and TRL hardening (Vercel)
+
+Plastic Waste Conservation — Plastic waste conservation strategy platform (Vercel)
+
+Gemini AI Chatbot — Gemini-powered AI chatbot app (Vercel)
+
+Duet AI — Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology (Vercel)
+
+Duet Digital Twin Technology — Digital twin technology platform/project (Vercel)
+
+ProfileRank — Profile/portfolio ranking tool (Vercel)
+
+Prompt Code — Prompt-to-code or prompt/code utility project (Vercel)
+
+You AI Engine — Personalized AI/search engine-style project (Vercel)
+
 LEARNER RESOURCES
 
 VIEW ALL
@@ -619,15 +1480,13 @@ nskcs.glide.page
 
 M-REDUCE
 
-Machine learning research and reduced computation learning hub.
+MapReduce word-count educational simulator — practice map and reduce steps in the browser.
 mreduce.netlify.app
-OFFLINE — DEPLOYMENT RETIRED
 
 BDA MODULE 1
 
-Big Data Analytics — module one study material and notes.
+Big Data Analytics — TLM dashboard and module one study material.
 bda-m1.netlify.app
-OFFLINE — DEPLOYMENT RETIRED
 
 GENAI BCA
 
@@ -765,15 +1624,13 @@ nskcs.glide.page
 
 M-REDUCE
 
-Machine learning research and reduced computation learning hub.
+MapReduce word-count educational simulator — practice map and reduce steps in the browser.
 mreduce.netlify.app
-OFFLINE — DEPLOYMENT RETIRED
 
 BDA MODULE 1
 
-Big Data Analytics — module one study material and notes.
+Big Data Analytics — TLM dashboard and module one study material.
 bda-m1.netlify.app
-OFFLINE — DEPLOYMENT RETIRED
 
 GENAI BCA
 
@@ -789,6 +1646,867 @@ BDA CODE LAB
 
 BDA code lab — commandline studio for practising shell and command-line skills in the browser.
 bda-code-lac.vercel.app
+
+DEPLOYED WEB APPS
+
+71 live websites and web
+apps by Sai Karun Nandipati — 70
+online today (61 on Netlify, 10 on Vercel): AI assistants,
+study tools, prompt libraries, research workspaces and student resources.
+
+ENGERS
+LIVE
+
+Research/engineering resources or collaboration tool
+
+Netlify
+researchengers.netlify.app
+
+Visit site
+
+WORKWRITE
+LIVE
+
+Writing/work productivity tool
+
+Netlify
+workwrite.netlify.app
+
+Visit site
+
+KREW
+LIVE
+
+Team collaboration / Miro-style workspace
+
+Netlify
+krew-miro.netlify.app
+
+Visit site
+
+PROJECT ZOE
+LIVE
+
+Personal/experimental AI or learning project
+
+Netlify
+project-zoe.netlify.app
+
+Visit site
+
+PBSC 1410 EVENT
+LIVE
+
+Event landing page for PBSC 1410
+
+Netlify
+pbsc1410event.netlify.app
+
+Visit site
+
+VAIDYANATH PROMPT
+LIVE
+
+Cultural/spiritual AI prompt library
+
+Netlify
+vaidyanath-prompt.netlify.app
+
+Visit site
+
+KATHASASTRA
+LIVE
+
+Stories/scripture learning platform
+
+Netlify
+kathasastra.netlify.app
+
+Visit site
+
+BHOMI AI
+LIVE
+
+Land/property or geospatial AI tool
+
+Netlify
+bhomi-ai.netlify.app
+
+Visit site
+
+SAHAJA PROMPT
+LIVE
+
+Natural-language AI prompt library/marketplace
+
+Netlify
+sahaja-prompt.netlify.app
+
+Visit site
+
+STUDY BOT NSK
+LIVE
+
+Study assistant chatbot
+
+Netlify
+study-bot-nsk.netlify.app
+
+Visit site
+
+HEALTH QT
+LIVE
+
+Quick health assessment/questionnaire tool
+
+Netlify
+health-qt.netlify.app
+
+Visit site
+
+CELEBRUM
+LIVE
+
+Local-first AI memory/brain for agents
+
+Netlify
+celebrum.netlify.app
+
+Visit site
+
+AI HMATE
+LIVE
+
+AI assistant/housemate helper
+
+Netlify
+ai-hmate.netlify.app
+
+Visit site
+
+YOU AI PROJECT
+LIVE
+
+Personalized AI tools/search project
+
+Netlify
+you-ai-project.netlify.app
+
+Visit site
+
+AI TACT
+LIVE
+
+AI interaction/contact tool
+
+Netlify
+aitact.netlify.app
+
+Visit site
+
+LEARN BOT
+LIVE
+
+Educational chatbot for learning
+
+Netlify
+learn-bot.netlify.app
+
+Visit site
+
+BIO AI ASSIST
+LIVE
+
+Biology manuscript/research assistant
+
+Netlify
+bio-ai-assist.netlify.app
+
+Visit site
+
+SIDDHA MARGA
+LIVE
+
+Spiritual/philosophical path website
+
+Netlify
+siddhamarga.netlify.app
+
+Visit site
+
+WTUT AI
+LIVE
+
+AI study/fact-check/flashcard tool
+
+Netlify
+wtut-ai.netlify.app
+
+Visit site
+
+SHERLOCK BOT
+LIVE
+
+Username/social-media OSINT bot
+
+Netlify
+sherlock-bot.netlify.app
+
+Visit site
+
+HACK BOT AI
+LIVE
+
+Cybersecurity/CTF AI assistant
+
+Netlify
+hack-bot-ai.netlify.app
+
+Visit site
+
+YOURSWARM
+LIVE
+
+Multi-agent/swarm AI platform
+
+Netlify
+yourswarm.netlify.app
+
+Visit site
+
+DUNCE AI
+LIVE
+
+Experimental learning/AI bot
+
+Netlify
+dunce-ai.netlify.app
+
+Visit site
+
+AI EDUBOT
+LIVE
+
+AI education/study chatbot
+
+Netlify
+ai-edubot.netlify.app
+
+Visit site
+
+AGNANVESHAKA
+LIVE
+
+AI research/learning explorer
+
+Netlify
+agnanveshaka.netlify.app
+
+Visit site
+
+BRANDBOT AI
+LIVE
+
+Brand/marketing automation chatbot
+
+Netlify
+brandbot-ai.netlify.app
+
+Visit site
+
+MED TRIAGE AI
+LIVE
+
+Emergency clinical triage assistant
+
+Netlify
+med-triage-ai.netlify.app
+
+Visit site
+
+MATRUSWARA
+LIVE
+
+Maternal health/voice or cultural project
+
+Netlify
+matruswara.netlify.app
+
+Visit site
+
+MLDAT
+LIVE
+
+ML datasets/data tools
+
+Netlify
+mldat.netlify.app
+
+Visit site
+
+EDUREAD
+LIVE
+
+Educational reading/aptitude platform
+
+Netlify
+eduread.netlify.app
+
+Visit site
+
+AI HW
+LIVE
+
+AI homework or hardware project
+
+Netlify
+ai-hw.netlify.app
+
+Visit site
+
+AI DATA STUDIO
+LIVE
+
+AI data engineering/analytics studio
+
+Netlify
+ai-data-studio.netlify.app
+
+Visit site
+
+EDUWIND AI
+LIVE
+
+AI STEM/education learning platform
+
+Netlify
+eduwindai.netlify.app
+
+Visit site
+
+COSMIC VISION
+LIVE
+
+Astronomy/space visualization project
+
+Netlify
+cosmic-vision.netlify.app
+
+Visit site
+
+APPIDEA
+LIVE
+
+App idea brainstorming/sharing platform
+
+Netlify
+appidea.netlify.app
+
+Visit site
+
+LECIRCLE
+LIVE
+
+Lifestyle/hospitality membership club
+
+Netlify
+lecircle.netlify.app
+
+Visit site
+
+VIBETUT
+LIVE
+
+Vibe-coding/haptics tutorial project
+
+Netlify
+vibetut.netlify.app
+
+Visit site
+
+MBRIDGE
+LIVE
+
+Cross-border CBDC payments platform
+
+Netlify
+mbridge.netlify.app
+
+Visit site
+
+IDEATION HACKATHON
+LIVE
+
+Hackathon ideation/brainstorming project
+
+Netlify
+ideation-hackathon.netlify.app
+
+Visit site
+
+NSK AI TASK 1
+LIVE
+
+First AI task/assignment project
+
+Netlify
+nsk-ai-task1.netlify.app
+
+Visit site
+
+COMPLIANCE ASSESSOR
+LIVE
+
+Compliance/security assessment tool
+
+Netlify
+compliance-assessor.netlify.app
+
+Visit site
+
+BDA M1
+LIVE
+
+Big Data Analytics Module 1 project
+
+Netlify
+bda-m1.netlify.app
+
+Visit site
+
+MREDUCE
+LIVE
+
+MapReduce/data reduction tool or demo
+
+Netlify
+mreduce.netlify.app
+
+Visit site
+
+GENAI BCA
+LIVE
+
+Generative AI project for BCA studies
+
+Netlify
+genaibca.netlify.app
+
+Visit site
+
+DATA PROCESS
+LIVE
+
+Data processing/form-handling project
+
+Netlify
+data-process.netlify.app
+
+Visit site
+
+IAI NOTES
+LIVE
+
+Intro to AI notes/study materials
+
+Netlify
+iai-notes.netlify.app
+
+Visit site
+
+DUNCEY
+LIVE
+
+Playful experimental AI/study bot
+
+Netlify
+duncey.netlify.app
+
+Visit site
+
+IMGENU3
+LIVE
+
+Image-related tool/generator
+
+Netlify
+imgenu3.netlify.app
+
+Visit site
+
+README PRO
+LIVE
+
+README/profile generator project
+
+Netlify
+readme-proj.netlify.app
+
+Visit site
+
+GENAI BLOG
+LIVE
+
+AI-generated blog platform
+
+Netlify
+genai-blog.netlify.app
+
+Visit site
+
+COLLAB BUILD
+LIVE
+
+Collaborative build/project tool
+
+Netlify
+col-labuild.netlify.app
+
+Visit site
+
+AI PROMPT PRO
+LIVE
+
+Professional AI prompt management tool
+
+Netlify
+ai-prompt-pro.netlify.app
+
+Visit site
+
+AI PRAGYA
+LIVE
+
+AI literacy/education-related project
+
+Netlify
+ai-pragya.netlify.app
+
+Visit site
+
+SOUL PROMPT
+LIVE
+
+AI persona/personality discovery or prompt-layer identity project
+
+Netlify
+soul-prompt.netlify.app
+
+Visit site
+
+SRS PBSC
+LIVE
+
+Documentation or project site for PBSC (organization/institution)
+
+Netlify
+srs-pbsc.netlify.app
+
+Visit site
+
+PREPBOT AI
+LIVE
+
+AI-powered interview preparation and quiz chatbot
+
+Netlify
+prepbot-ai.netlify.app
+
+Visit site
+
+OBSIDOI
+LIVE
+
+Obsidian-to-static-site bridge or knowledge base publishing tool
+
+Netlify
+obsidoi.netlify.app
+
+Visit site
+
+AI RESEARCH PANEL
+LIVE
+
+Browser-based AI research workspace/notebook interface
+
+Netlify
+ai-research-panel.netlify.app
+
+Visit site
+
+CARBREP
+LIVE
+
+Carbon reporting or similar domain tool
+
+Netlify
+carbrep.netlify.app
+
+Visit site
+
+MEDI TRIAGE
+LIVE
+
+AI health triage assistant supporting multiple languages
+
+Netlify
+medi-triage.netlify.app
+
+Visit site
+
+FINALGO
+LIVE
+
+Financial/loan management software
+
+Netlify
+finalgo.netlify.app
+
+Visit site
+
+NSK PROFILE
+LIVE
+
+Personal profile/portfolio site synced with GitHub karun99/nskprofile
+
+Vercel
+nskprofile.vercel.app
+
+Visit site
+
+HEALTH QUEST
+LIVE
+
+Health/wellness quest app; repo has Dependabot and security updates
+
+Vercel
+health-quest-wheat.vercel.app
+
+Visit site
+
+TECHLEARN
+LIVE
+
+Tech learning platform with MCP server and TRL hardening
+
+Vercel
+techlearn-xi.vercel.app
+
+Visit site
+
+PLASTIC WASTE CONSERVATION
+LIVE
+
+Plastic waste conservation strategy platform
+
+Vercel
+plastic-waste-conservation.vercel.app
+
+Visit site
+
+GEMINI AI CHATBOT
+LIVE
+
+Gemini-powered AI chatbot app
+
+Vercel
+gemini-ai-chatbot-seven-delta.vercel.app
+
+Visit site
+
+DUET AI
+LIVE
+
+Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology
+
+Vercel
+duet-ai-ivory.vercel.app
+
+Visit site
+
+DUET DIGITAL TWIN TECHNOLOGY
+LIVE
+
+Digital twin technology platform/project
+
+Vercel
+duet-digital-twin-technology.vercel.app
+
+Visit site
+
+PROFILERANK
+LIVE
+
+Profile/portfolio ranking tool
+
+Vercel
+profilerank-phi.vercel.app
+
+Visit site
+
+PROMPT CODE
+LIVE
+
+Prompt-to-code or prompt/code utility project
+
+Vercel
+prompt-code-one.vercel.app
+
+Visit site
+
+YOU AI ENGINE
+OFFLINE — DEPLOYMENT RETIRED
+
+Personalized AI/search engine-style project
+
+Vercel
+you-ai-engine.vercel.app
+
+Visit site
+
+PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
+
+Engers — Research/engineering resources or collaboration tool (Netlify)
+
+WorkWrite — Writing/work productivity tool (Netlify)
+
+Krew — Team collaboration / Miro-style workspace (Netlify)
+
+Project Zoe — Personal/experimental AI or learning project (Netlify)
+
+PBSC 1410 Event — Event landing page for PBSC 1410 (Netlify)
+
+Vaidyanath Prompt — Cultural/spiritual AI prompt library (Netlify)
+
+KathaSastra — Stories/scripture learning platform (Netlify)
+
+Bhomi AI — Land/property or geospatial AI tool (Netlify)
+
+Sahaja Prompt — Natural-language AI prompt library/marketplace (Netlify)
+
+Study Bot NSK — Study assistant chatbot (Netlify)
+
+Health QT — Quick health assessment/questionnaire tool (Netlify)
+
+Celebrum — Local-first AI memory/brain for agents (Netlify)
+
+AI Hmate — AI assistant/housemate helper (Netlify)
+
+You AI Project — Personalized AI tools/search project (Netlify)
+
+AI Tact — AI interaction/contact tool (Netlify)
+
+Learn Bot — Educational chatbot for learning (Netlify)
+
+Bio AI Assist — Biology manuscript/research assistant (Netlify)
+
+Siddha Marga — Spiritual/philosophical path website (Netlify)
+
+WTUT AI — AI study/fact-check/flashcard tool (Netlify)
+
+Sherlock Bot — Username/social-media OSINT bot (Netlify)
+
+Hack Bot AI — Cybersecurity/CTF AI assistant (Netlify)
+
+YourSwarm — Multi-agent/swarm AI platform (Netlify)
+
+Dunce AI — Experimental learning/AI bot (Netlify)
+
+AI EduBot — AI education/study chatbot (Netlify)
+
+Agnanveshaka — AI research/learning explorer (Netlify)
+
+BrandBot AI — Brand/marketing automation chatbot (Netlify)
+
+Med Triage AI — Emergency clinical triage assistant (Netlify)
+
+Matruswara — Maternal health/voice or cultural project (Netlify)
+
+MLDat — ML datasets/data tools (Netlify)
+
+EduRead — Educational reading/aptitude platform (Netlify)
+
+AI HW — AI homework or hardware project (Netlify)
+
+AI Data Studio — AI data engineering/analytics studio (Netlify)
+
+EduWind AI — AI STEM/education learning platform (Netlify)
+
+Cosmic Vision — Astronomy/space visualization project (Netlify)
+
+AppIdea — App idea brainstorming/sharing platform (Netlify)
+
+LeCircle — Lifestyle/hospitality membership club (Netlify)
+
+VibeTut — Vibe-coding/haptics tutorial project (Netlify)
+
+mBridge — Cross-border CBDC payments platform (Netlify)
+
+Ideation Hackathon — Hackathon ideation/brainstorming project (Netlify)
+
+NSK AI Task 1 — First AI task/assignment project (Netlify)
+
+Compliance Assessor — Compliance/security assessment tool (Netlify)
+
+BDA M1 — Big Data Analytics Module 1 project (Netlify)
+
+mReduce — MapReduce/data reduction tool or demo (Netlify)
+
+GenAI BCA — Generative AI project for BCA studies (Netlify)
+
+Data Process — Data processing/form-handling project (Netlify)
+
+IAI Notes — Intro to AI notes/study materials (Netlify)
+
+Duncey — Playful experimental AI/study bot (Netlify)
+
+ImgEnu3 — Image-related tool/generator (Netlify)
+
+Readme Pro — README/profile generator project (Netlify)
+
+GenAI Blog — AI-generated blog platform (Netlify)
+
+Collab Build — Collaborative build/project tool (Netlify)
+
+AI Prompt Pro — Professional AI prompt management tool (Netlify)
+
+AI Pragya — AI literacy/education-related project (Netlify)
+
+Soul Prompt — AI persona/personality discovery or prompt-layer identity project (Netlify)
+
+SRS PBSC — Documentation or project site for PBSC (organization/institution) (Netlify)
+
+PrepBot AI — AI-powered interview preparation and quiz chatbot (Netlify)
+
+Obsidoi — Obsidian-to-static-site bridge or knowledge base publishing tool (Netlify)
+
+AI Research Panel — Browser-based AI research workspace/notebook interface (Netlify)
+
+Carbrep — Carbon reporting or similar domain tool (Netlify)
+
+Medi Triage — AI health triage assistant supporting multiple languages (Netlify)
+
+Finalgo — Financial/loan management software (Netlify)
+
+NSK Profile — Personal profile/portfolio site synced with GitHub karun99/nskprofile (Vercel)
+
+Health Quest — Health/wellness quest app; repo has Dependabot and security updates (Vercel)
+
+TechLearn — Tech learning platform with MCP server and TRL hardening (Vercel)
+
+Plastic Waste Conservation — Plastic waste conservation strategy platform (Vercel)
+
+Gemini AI Chatbot — Gemini-powered AI chatbot app (Vercel)
+
+Duet AI — Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology (Vercel)
+
+Duet Digital Twin Technology — Digital twin technology platform/project (Vercel)
+
+ProfileRank — Profile/portfolio ranking tool (Vercel)
+
+Prompt Code — Prompt-to-code or prompt/code utility project (Vercel)
+
+You AI Engine — Personalized AI/search engine-style project (Vercel)
 
 
 ## Prompts & MCP Servers
@@ -832,6 +2550,867 @@ LIVE
 AI-powered study assistant for enhanced learning.
 
 Visit site
+
+DEPLOYED WEB APPS
+
+71 live websites and web
+apps by Sai Karun Nandipati — 70
+online today (61 on Netlify, 10 on Vercel): AI assistants,
+study tools, prompt libraries, research workspaces and student resources.
+
+ENGERS
+LIVE
+
+Research/engineering resources or collaboration tool
+
+Netlify
+researchengers.netlify.app
+
+Visit site
+
+WORKWRITE
+LIVE
+
+Writing/work productivity tool
+
+Netlify
+workwrite.netlify.app
+
+Visit site
+
+KREW
+LIVE
+
+Team collaboration / Miro-style workspace
+
+Netlify
+krew-miro.netlify.app
+
+Visit site
+
+PROJECT ZOE
+LIVE
+
+Personal/experimental AI or learning project
+
+Netlify
+project-zoe.netlify.app
+
+Visit site
+
+PBSC 1410 EVENT
+LIVE
+
+Event landing page for PBSC 1410
+
+Netlify
+pbsc1410event.netlify.app
+
+Visit site
+
+VAIDYANATH PROMPT
+LIVE
+
+Cultural/spiritual AI prompt library
+
+Netlify
+vaidyanath-prompt.netlify.app
+
+Visit site
+
+KATHASASTRA
+LIVE
+
+Stories/scripture learning platform
+
+Netlify
+kathasastra.netlify.app
+
+Visit site
+
+BHOMI AI
+LIVE
+
+Land/property or geospatial AI tool
+
+Netlify
+bhomi-ai.netlify.app
+
+Visit site
+
+SAHAJA PROMPT
+LIVE
+
+Natural-language AI prompt library/marketplace
+
+Netlify
+sahaja-prompt.netlify.app
+
+Visit site
+
+STUDY BOT NSK
+LIVE
+
+Study assistant chatbot
+
+Netlify
+study-bot-nsk.netlify.app
+
+Visit site
+
+HEALTH QT
+LIVE
+
+Quick health assessment/questionnaire tool
+
+Netlify
+health-qt.netlify.app
+
+Visit site
+
+CELEBRUM
+LIVE
+
+Local-first AI memory/brain for agents
+
+Netlify
+celebrum.netlify.app
+
+Visit site
+
+AI HMATE
+LIVE
+
+AI assistant/housemate helper
+
+Netlify
+ai-hmate.netlify.app
+
+Visit site
+
+YOU AI PROJECT
+LIVE
+
+Personalized AI tools/search project
+
+Netlify
+you-ai-project.netlify.app
+
+Visit site
+
+AI TACT
+LIVE
+
+AI interaction/contact tool
+
+Netlify
+aitact.netlify.app
+
+Visit site
+
+LEARN BOT
+LIVE
+
+Educational chatbot for learning
+
+Netlify
+learn-bot.netlify.app
+
+Visit site
+
+BIO AI ASSIST
+LIVE
+
+Biology manuscript/research assistant
+
+Netlify
+bio-ai-assist.netlify.app
+
+Visit site
+
+SIDDHA MARGA
+LIVE
+
+Spiritual/philosophical path website
+
+Netlify
+siddhamarga.netlify.app
+
+Visit site
+
+WTUT AI
+LIVE
+
+AI study/fact-check/flashcard tool
+
+Netlify
+wtut-ai.netlify.app
+
+Visit site
+
+SHERLOCK BOT
+LIVE
+
+Username/social-media OSINT bot
+
+Netlify
+sherlock-bot.netlify.app
+
+Visit site
+
+HACK BOT AI
+LIVE
+
+Cybersecurity/CTF AI assistant
+
+Netlify
+hack-bot-ai.netlify.app
+
+Visit site
+
+YOURSWARM
+LIVE
+
+Multi-agent/swarm AI platform
+
+Netlify
+yourswarm.netlify.app
+
+Visit site
+
+DUNCE AI
+LIVE
+
+Experimental learning/AI bot
+
+Netlify
+dunce-ai.netlify.app
+
+Visit site
+
+AI EDUBOT
+LIVE
+
+AI education/study chatbot
+
+Netlify
+ai-edubot.netlify.app
+
+Visit site
+
+AGNANVESHAKA
+LIVE
+
+AI research/learning explorer
+
+Netlify
+agnanveshaka.netlify.app
+
+Visit site
+
+BRANDBOT AI
+LIVE
+
+Brand/marketing automation chatbot
+
+Netlify
+brandbot-ai.netlify.app
+
+Visit site
+
+MED TRIAGE AI
+LIVE
+
+Emergency clinical triage assistant
+
+Netlify
+med-triage-ai.netlify.app
+
+Visit site
+
+MATRUSWARA
+LIVE
+
+Maternal health/voice or cultural project
+
+Netlify
+matruswara.netlify.app
+
+Visit site
+
+MLDAT
+LIVE
+
+ML datasets/data tools
+
+Netlify
+mldat.netlify.app
+
+Visit site
+
+EDUREAD
+LIVE
+
+Educational reading/aptitude platform
+
+Netlify
+eduread.netlify.app
+
+Visit site
+
+AI HW
+LIVE
+
+AI homework or hardware project
+
+Netlify
+ai-hw.netlify.app
+
+Visit site
+
+AI DATA STUDIO
+LIVE
+
+AI data engineering/analytics studio
+
+Netlify
+ai-data-studio.netlify.app
+
+Visit site
+
+EDUWIND AI
+LIVE
+
+AI STEM/education learning platform
+
+Netlify
+eduwindai.netlify.app
+
+Visit site
+
+COSMIC VISION
+LIVE
+
+Astronomy/space visualization project
+
+Netlify
+cosmic-vision.netlify.app
+
+Visit site
+
+APPIDEA
+LIVE
+
+App idea brainstorming/sharing platform
+
+Netlify
+appidea.netlify.app
+
+Visit site
+
+LECIRCLE
+LIVE
+
+Lifestyle/hospitality membership club
+
+Netlify
+lecircle.netlify.app
+
+Visit site
+
+VIBETUT
+LIVE
+
+Vibe-coding/haptics tutorial project
+
+Netlify
+vibetut.netlify.app
+
+Visit site
+
+MBRIDGE
+LIVE
+
+Cross-border CBDC payments platform
+
+Netlify
+mbridge.netlify.app
+
+Visit site
+
+IDEATION HACKATHON
+LIVE
+
+Hackathon ideation/brainstorming project
+
+Netlify
+ideation-hackathon.netlify.app
+
+Visit site
+
+NSK AI TASK 1
+LIVE
+
+First AI task/assignment project
+
+Netlify
+nsk-ai-task1.netlify.app
+
+Visit site
+
+COMPLIANCE ASSESSOR
+LIVE
+
+Compliance/security assessment tool
+
+Netlify
+compliance-assessor.netlify.app
+
+Visit site
+
+BDA M1
+LIVE
+
+Big Data Analytics Module 1 project
+
+Netlify
+bda-m1.netlify.app
+
+Visit site
+
+MREDUCE
+LIVE
+
+MapReduce/data reduction tool or demo
+
+Netlify
+mreduce.netlify.app
+
+Visit site
+
+GENAI BCA
+LIVE
+
+Generative AI project for BCA studies
+
+Netlify
+genaibca.netlify.app
+
+Visit site
+
+DATA PROCESS
+LIVE
+
+Data processing/form-handling project
+
+Netlify
+data-process.netlify.app
+
+Visit site
+
+IAI NOTES
+LIVE
+
+Intro to AI notes/study materials
+
+Netlify
+iai-notes.netlify.app
+
+Visit site
+
+DUNCEY
+LIVE
+
+Playful experimental AI/study bot
+
+Netlify
+duncey.netlify.app
+
+Visit site
+
+IMGENU3
+LIVE
+
+Image-related tool/generator
+
+Netlify
+imgenu3.netlify.app
+
+Visit site
+
+README PRO
+LIVE
+
+README/profile generator project
+
+Netlify
+readme-proj.netlify.app
+
+Visit site
+
+GENAI BLOG
+LIVE
+
+AI-generated blog platform
+
+Netlify
+genai-blog.netlify.app
+
+Visit site
+
+COLLAB BUILD
+LIVE
+
+Collaborative build/project tool
+
+Netlify
+col-labuild.netlify.app
+
+Visit site
+
+AI PROMPT PRO
+LIVE
+
+Professional AI prompt management tool
+
+Netlify
+ai-prompt-pro.netlify.app
+
+Visit site
+
+AI PRAGYA
+LIVE
+
+AI literacy/education-related project
+
+Netlify
+ai-pragya.netlify.app
+
+Visit site
+
+SOUL PROMPT
+LIVE
+
+AI persona/personality discovery or prompt-layer identity project
+
+Netlify
+soul-prompt.netlify.app
+
+Visit site
+
+SRS PBSC
+LIVE
+
+Documentation or project site for PBSC (organization/institution)
+
+Netlify
+srs-pbsc.netlify.app
+
+Visit site
+
+PREPBOT AI
+LIVE
+
+AI-powered interview preparation and quiz chatbot
+
+Netlify
+prepbot-ai.netlify.app
+
+Visit site
+
+OBSIDOI
+LIVE
+
+Obsidian-to-static-site bridge or knowledge base publishing tool
+
+Netlify
+obsidoi.netlify.app
+
+Visit site
+
+AI RESEARCH PANEL
+LIVE
+
+Browser-based AI research workspace/notebook interface
+
+Netlify
+ai-research-panel.netlify.app
+
+Visit site
+
+CARBREP
+LIVE
+
+Carbon reporting or similar domain tool
+
+Netlify
+carbrep.netlify.app
+
+Visit site
+
+MEDI TRIAGE
+LIVE
+
+AI health triage assistant supporting multiple languages
+
+Netlify
+medi-triage.netlify.app
+
+Visit site
+
+FINALGO
+LIVE
+
+Financial/loan management software
+
+Netlify
+finalgo.netlify.app
+
+Visit site
+
+NSK PROFILE
+LIVE
+
+Personal profile/portfolio site synced with GitHub karun99/nskprofile
+
+Vercel
+nskprofile.vercel.app
+
+Visit site
+
+HEALTH QUEST
+LIVE
+
+Health/wellness quest app; repo has Dependabot and security updates
+
+Vercel
+health-quest-wheat.vercel.app
+
+Visit site
+
+TECHLEARN
+LIVE
+
+Tech learning platform with MCP server and TRL hardening
+
+Vercel
+techlearn-xi.vercel.app
+
+Visit site
+
+PLASTIC WASTE CONSERVATION
+LIVE
+
+Plastic waste conservation strategy platform
+
+Vercel
+plastic-waste-conservation.vercel.app
+
+Visit site
+
+GEMINI AI CHATBOT
+LIVE
+
+Gemini-powered AI chatbot app
+
+Vercel
+gemini-ai-chatbot-seven-delta.vercel.app
+
+Visit site
+
+DUET AI
+LIVE
+
+Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology
+
+Vercel
+duet-ai-ivory.vercel.app
+
+Visit site
+
+DUET DIGITAL TWIN TECHNOLOGY
+LIVE
+
+Digital twin technology platform/project
+
+Vercel
+duet-digital-twin-technology.vercel.app
+
+Visit site
+
+PROFILERANK
+LIVE
+
+Profile/portfolio ranking tool
+
+Vercel
+profilerank-phi.vercel.app
+
+Visit site
+
+PROMPT CODE
+LIVE
+
+Prompt-to-code or prompt/code utility project
+
+Vercel
+prompt-code-one.vercel.app
+
+Visit site
+
+YOU AI ENGINE
+OFFLINE — DEPLOYMENT RETIRED
+
+Personalized AI/search engine-style project
+
+Vercel
+you-ai-engine.vercel.app
+
+Visit site
+
+PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
+
+Engers — Research/engineering resources or collaboration tool (Netlify)
+
+WorkWrite — Writing/work productivity tool (Netlify)
+
+Krew — Team collaboration / Miro-style workspace (Netlify)
+
+Project Zoe — Personal/experimental AI or learning project (Netlify)
+
+PBSC 1410 Event — Event landing page for PBSC 1410 (Netlify)
+
+Vaidyanath Prompt — Cultural/spiritual AI prompt library (Netlify)
+
+KathaSastra — Stories/scripture learning platform (Netlify)
+
+Bhomi AI — Land/property or geospatial AI tool (Netlify)
+
+Sahaja Prompt — Natural-language AI prompt library/marketplace (Netlify)
+
+Study Bot NSK — Study assistant chatbot (Netlify)
+
+Health QT — Quick health assessment/questionnaire tool (Netlify)
+
+Celebrum — Local-first AI memory/brain for agents (Netlify)
+
+AI Hmate — AI assistant/housemate helper (Netlify)
+
+You AI Project — Personalized AI tools/search project (Netlify)
+
+AI Tact — AI interaction/contact tool (Netlify)
+
+Learn Bot — Educational chatbot for learning (Netlify)
+
+Bio AI Assist — Biology manuscript/research assistant (Netlify)
+
+Siddha Marga — Spiritual/philosophical path website (Netlify)
+
+WTUT AI — AI study/fact-check/flashcard tool (Netlify)
+
+Sherlock Bot — Username/social-media OSINT bot (Netlify)
+
+Hack Bot AI — Cybersecurity/CTF AI assistant (Netlify)
+
+YourSwarm — Multi-agent/swarm AI platform (Netlify)
+
+Dunce AI — Experimental learning/AI bot (Netlify)
+
+AI EduBot — AI education/study chatbot (Netlify)
+
+Agnanveshaka — AI research/learning explorer (Netlify)
+
+BrandBot AI — Brand/marketing automation chatbot (Netlify)
+
+Med Triage AI — Emergency clinical triage assistant (Netlify)
+
+Matruswara — Maternal health/voice or cultural project (Netlify)
+
+MLDat — ML datasets/data tools (Netlify)
+
+EduRead — Educational reading/aptitude platform (Netlify)
+
+AI HW — AI homework or hardware project (Netlify)
+
+AI Data Studio — AI data engineering/analytics studio (Netlify)
+
+EduWind AI — AI STEM/education learning platform (Netlify)
+
+Cosmic Vision — Astronomy/space visualization project (Netlify)
+
+AppIdea — App idea brainstorming/sharing platform (Netlify)
+
+LeCircle — Lifestyle/hospitality membership club (Netlify)
+
+VibeTut — Vibe-coding/haptics tutorial project (Netlify)
+
+mBridge — Cross-border CBDC payments platform (Netlify)
+
+Ideation Hackathon — Hackathon ideation/brainstorming project (Netlify)
+
+NSK AI Task 1 — First AI task/assignment project (Netlify)
+
+Compliance Assessor — Compliance/security assessment tool (Netlify)
+
+BDA M1 — Big Data Analytics Module 1 project (Netlify)
+
+mReduce — MapReduce/data reduction tool or demo (Netlify)
+
+GenAI BCA — Generative AI project for BCA studies (Netlify)
+
+Data Process — Data processing/form-handling project (Netlify)
+
+IAI Notes — Intro to AI notes/study materials (Netlify)
+
+Duncey — Playful experimental AI/study bot (Netlify)
+
+ImgEnu3 — Image-related tool/generator (Netlify)
+
+Readme Pro — README/profile generator project (Netlify)
+
+GenAI Blog — AI-generated blog platform (Netlify)
+
+Collab Build — Collaborative build/project tool (Netlify)
+
+AI Prompt Pro — Professional AI prompt management tool (Netlify)
+
+AI Pragya — AI literacy/education-related project (Netlify)
+
+Soul Prompt — AI persona/personality discovery or prompt-layer identity project (Netlify)
+
+SRS PBSC — Documentation or project site for PBSC (organization/institution) (Netlify)
+
+PrepBot AI — AI-powered interview preparation and quiz chatbot (Netlify)
+
+Obsidoi — Obsidian-to-static-site bridge or knowledge base publishing tool (Netlify)
+
+AI Research Panel — Browser-based AI research workspace/notebook interface (Netlify)
+
+Carbrep — Carbon reporting or similar domain tool (Netlify)
+
+Medi Triage — AI health triage assistant supporting multiple languages (Netlify)
+
+Finalgo — Financial/loan management software (Netlify)
+
+NSK Profile — Personal profile/portfolio site synced with GitHub karun99/nskprofile (Vercel)
+
+Health Quest — Health/wellness quest app; repo has Dependabot and security updates (Vercel)
+
+TechLearn — Tech learning platform with MCP server and TRL hardening (Vercel)
+
+Plastic Waste Conservation — Plastic waste conservation strategy platform (Vercel)
+
+Gemini AI Chatbot — Gemini-powered AI chatbot app (Vercel)
+
+Duet AI — Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology (Vercel)
+
+Duet Digital Twin Technology — Digital twin technology platform/project (Vercel)
+
+ProfileRank — Profile/portfolio ranking tool (Vercel)
+
+Prompt Code — Prompt-to-code or prompt/code utility project (Vercel)
+
+You AI Engine — Personalized AI/search engine-style project (Vercel)
 
 MCP SERVERS
 

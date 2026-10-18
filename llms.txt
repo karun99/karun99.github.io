@@ -52,6 +52,81 @@ The full catalog is at https://karun99.github.io/prompts-and-mcp.html
 - Sahaja Prompt: prompt generation and management tool — https://sahaja-prompt.netlify.app/
 - Study Bot NSK: AI study assistant for querying and revising course material — https://study-bot-nsk.netlify.app/
 
+## Deployed apps
+
+71 live websites deployed by Sai Karun Nandipati (61 Netlify, 10 Vercel; 70 verified online on 2026-10-17). Full registry with cards: https://karun99.github.io/projects.html#deployed-apps
+
+- Engers: Research/engineering resources or collaboration tool — https://researchengers.netlify.app
+- WorkWrite: Writing/work productivity tool — https://workwrite.netlify.app
+- Krew: Team collaboration / Miro-style workspace — https://krew-miro.netlify.app
+- Project Zoe: Personal/experimental AI or learning project — https://project-zoe.netlify.app
+- PBSC 1410 Event: Event landing page for PBSC 1410 — https://pbsc1410event.netlify.app
+- Vaidyanath Prompt: Cultural/spiritual AI prompt library — https://vaidyanath-prompt.netlify.app
+- KathaSastra: Stories/scripture learning platform — https://kathasastra.netlify.app
+- Bhomi AI: Land/property or geospatial AI tool — https://bhomi-ai.netlify.app
+- Sahaja Prompt: Natural-language AI prompt library/marketplace — https://sahaja-prompt.netlify.app
+- Study Bot NSK: Study assistant chatbot — https://study-bot-nsk.netlify.app
+- Health QT: Quick health assessment/questionnaire tool — https://health-qt.netlify.app
+- Celebrum: Local-first AI memory/brain for agents — https://celebrum.netlify.app
+- AI Hmate: AI assistant/housemate helper — https://ai-hmate.netlify.app
+- You AI Project: Personalized AI tools/search project — https://you-ai-project.netlify.app
+- AI Tact: AI interaction/contact tool — https://aitact.netlify.app
+- Learn Bot: Educational chatbot for learning — https://learn-bot.netlify.app
+- Bio AI Assist: Biology manuscript/research assistant — https://bio-ai-assist.netlify.app
+- Siddha Marga: Spiritual/philosophical path website — https://siddhamarga.netlify.app
+- WTUT AI: AI study/fact-check/flashcard tool — https://wtut-ai.netlify.app
+- Sherlock Bot: Username/social-media OSINT bot — https://sherlock-bot.netlify.app
+- Hack Bot AI: Cybersecurity/CTF AI assistant — https://hack-bot-ai.netlify.app
+- YourSwarm: Multi-agent/swarm AI platform — https://yourswarm.netlify.app
+- Dunce AI: Experimental learning/AI bot — https://dunce-ai.netlify.app
+- AI EduBot: AI education/study chatbot — https://ai-edubot.netlify.app
+- Agnanveshaka: AI research/learning explorer — https://agnanveshaka.netlify.app
+- BrandBot AI: Brand/marketing automation chatbot — https://brandbot-ai.netlify.app
+- Med Triage AI: Emergency clinical triage assistant — https://med-triage-ai.netlify.app
+- Matruswara: Maternal health/voice or cultural project — https://matruswara.netlify.app
+- MLDat: ML datasets/data tools — https://mldat.netlify.app
+- EduRead: Educational reading/aptitude platform — https://eduread.netlify.app
+- AI HW: AI homework or hardware project — https://ai-hw.netlify.app
+- AI Data Studio: AI data engineering/analytics studio — https://ai-data-studio.netlify.app
+- EduWind AI: AI STEM/education learning platform — https://eduwindai.netlify.app
+- Cosmic Vision: Astronomy/space visualization project — https://cosmic-vision.netlify.app
+- AppIdea: App idea brainstorming/sharing platform — https://appidea.netlify.app
+- LeCircle: Lifestyle/hospitality membership club — https://lecircle.netlify.app
+- VibeTut: Vibe-coding/haptics tutorial project — https://vibetut.netlify.app
+- mBridge: Cross-border CBDC payments platform — https://mbridge.netlify.app
+- Ideation Hackathon: Hackathon ideation/brainstorming project — https://ideation-hackathon.netlify.app
+- NSK AI Task 1: First AI task/assignment project — https://nsk-ai-task1.netlify.app
+- Compliance Assessor: Compliance/security assessment tool — https://compliance-assessor.netlify.app
+- BDA M1: Big Data Analytics Module 1 project — https://bda-m1.netlify.app
+- mReduce: MapReduce/data reduction tool or demo — https://mreduce.netlify.app
+- GenAI BCA: Generative AI project for BCA studies — https://genaibca.netlify.app
+- Data Process: Data processing/form-handling project — https://data-process.netlify.app
+- IAI Notes: Intro to AI notes/study materials — https://iai-notes.netlify.app
+- Duncey: Playful experimental AI/study bot — https://duncey.netlify.app
+- ImgEnu3: Image-related tool/generator — https://imgenu3.netlify.app
+- Readme Pro: README/profile generator project — https://readme-proj.netlify.app
+- GenAI Blog: AI-generated blog platform — https://genai-blog.netlify.app
+- Collab Build: Collaborative build/project tool — https://col-labuild.netlify.app
+- AI Prompt Pro: Professional AI prompt management tool — https://ai-prompt-pro.netlify.app
+- AI Pragya: AI literacy/education-related project — https://ai-pragya.netlify.app
+- Soul Prompt: AI persona/personality discovery or prompt-layer identity project — https://soul-prompt.netlify.app
+- SRS PBSC: Documentation or project site for PBSC (organization/institution) — https://srs-pbsc.netlify.app
+- PrepBot AI: AI-powered interview preparation and quiz chatbot — https://prepbot-ai.netlify.app
+- Obsidoi: Obsidian-to-static-site bridge or knowledge base publishing tool — https://obsidoi.netlify.app
+- AI Research Panel: Browser-based AI research workspace/notebook interface — https://ai-research-panel.netlify.app
+- Carbrep: Carbon reporting or similar domain tool — https://carbrep.netlify.app
+- Medi Triage: AI health triage assistant supporting multiple languages — https://medi-triage.netlify.app
+- Finalgo: Financial/loan management software — https://finalgo.netlify.app
+- NSK Profile: Personal profile/portfolio site synced with GitHub karun99/nskprofile — https://nskprofile.vercel.app
+- Health Quest: Health/wellness quest app; repo has Dependabot and security updates — https://health-quest-wheat.vercel.app
+- TechLearn: Tech learning platform with MCP server and TRL hardening — https://techlearn-xi.vercel.app
+- Plastic Waste Conservation: Plastic waste conservation strategy platform — https://plastic-waste-conservation.vercel.app
+- Gemini AI Chatbot: Gemini-powered AI chatbot app — https://gemini-ai-chatbot-seven-delta.vercel.app
+- Duet AI: Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology — https://duet-ai-ivory.vercel.app
+- Duet Digital Twin Technology: Digital twin technology platform/project — https://duet-digital-twin-technology.vercel.app
+- ProfileRank: Profile/portfolio ranking tool — https://profilerank-phi.vercel.app
+- Prompt Code: Prompt-to-code or prompt/code utility project — https://prompt-code-one.vercel.app
+- You AI Engine: Personalized AI/search engine-style project — https://you-ai-engine.vercel.app (deployment retired — currently offline)
 ## Contact
 
 - Email: saikarun085@gmail.com
