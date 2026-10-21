@@ -285,27 +285,75 @@ function initLoader3D(container) {
 }
 
 // --- 5. ABOUT PAGE SPECIFIC: INTERACTIVE SKILLS GENOME (IMPROVED DNA) ---
+/* profile-skill-categories:start */
 const SKILL_CATEGORIES = [
     {
-        key: 'AI_ML', label: 'AI & ML ENGINEERING', color: 0x06b6d4, desc: 'Neural architectures, LLMs & agentic systems',
-        skills: ['Python', 'TensorFlow', 'Deep Learning', 'LLM', 'RAG', 'Agentic AI', 'Gen AI', 'Big Data']
+        "key": "AI_ML",
+        "label": "AI & ML ENGINEERING",
+        "color": 440020,
+        "desc": "Neural architectures, LLMs and agentic systems",
+        "skills": [
+            "Python",
+            "TensorFlow",
+            "Deep Learning",
+            "LLM",
+            "RAG",
+            "Agentic AI",
+            "Gen AI",
+            "Big Data"
+        ]
     },
     {
-        key: 'WEB', label: 'WEB & FULLSTACK', color: 0xd4af37, desc: 'Modern interfaces & server systems',
-        skills: ['React', 'Next.js', 'Node.js', 'TypeScript', 'JavaScript', 'Three.js', 'Tailwind', 'MEAN Stack']
+        "key": "WEB",
+        "label": "WEB & FULLSTACK",
+        "color": 13938487,
+        "desc": "Modern interfaces and server systems",
+        "skills": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "TypeScript",
+            "JavaScript",
+            "Three.js",
+            "Tailwind",
+            "MEAN Stack"
+        ]
     },
     {
-        key: 'DATA', label: 'DATA & INFRA', color: 0x22c55e, desc: 'Storage, pipelines & deployment',
-        skills: ['MongoDB', 'SQL', 'Docker', 'Git', 'AWS', 'FastAPI', 'Power BI', 'Linux']
+        "key": "DATA",
+        "label": "DATA & INFRASTRUCTURE",
+        "color": 2278750,
+        "desc": "Storage, pipelines and deployment",
+        "skills": [
+            "MongoDB",
+            "SQL",
+            "Docker",
+            "Git",
+            "AWS",
+            "FastAPI",
+            "Power BI",
+            "Linux"
+        ]
     },
     {
-        key: 'RESEARCH', label: 'RESEARCH & AI LITERACY', color: 0xf472b6, desc: 'Scholarship, writing & IPR',
-        skills: ['Prompt Engineering', 'Research Methodology', 'Technical Writing', 'IPR & Patents', 'Machine Learning', 'NLP']
+        "key": "RESEARCH",
+        "label": "RESEARCH & AI LITERACY",
+        "color": 16020150,
+        "desc": "Scholarship, writing and intellectual property",
+        "skills": [
+            "Prompt Engineering",
+            "Research Methodology",
+            "Technical Writing",
+            "IPR & Patents",
+            "Machine Learning",
+            "NLP"
+        ]
     }
 ];
+/* profile-skill-categories:end */
 
 function initAboutVisuals(container) {
-    if (!container) return;
+    if (!container || typeof THREE === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x020617, 0.014);
@@ -315,7 +363,13 @@ function initAboutVisuals(container) {
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
     camera.position.set(0, 0, 46);
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    let renderer;
+    try {
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    } catch (error) {
+        console.warn('Technical DNA visualization is unavailable; the skill list remains available.', error);
+        return;
+    }
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);

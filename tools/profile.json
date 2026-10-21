@@ -1,0 +1,50 @@
+{
+  "roles": [
+    {
+      "title": "Assistant Professor",
+      "organization": "PB Siddhartha College of Arts and Science",
+      "department": "Department of Data Science and Artificial Intelligence",
+      "responsibilities": []
+    },
+    {
+      "title": "Content Writer",
+      "organization": "Yes&Yes Publications",
+      "department": "",
+      "responsibilities": [
+        "Content drafting",
+        "Data writing",
+        "Ensuring data accuracy"
+      ]
+    }
+  ],
+  "technical_dna": [
+    {
+      "key": "AI_ML",
+      "label": "AI & ML Engineering",
+      "color": 440020,
+      "description": "Neural architectures, LLMs and agentic systems",
+      "skills": ["Python", "TensorFlow", "Deep Learning", "LLM", "RAG", "Agentic AI", "Gen AI", "Big Data"]
+    },
+    {
+      "key": "WEB",
+      "label": "Web & Fullstack",
+      "color": 13938487,
+      "description": "Modern interfaces and server systems",
+      "skills": ["React", "Next.js", "Node.js", "TypeScript", "JavaScript", "Three.js", "Tailwind", "MEAN Stack"]
+    },
+    {
+      "key": "DATA",
+      "label": "Data & Infrastructure",
+      "color": 2278750,
+      "description": "Storage, pipelines and deployment",
+      "skills": ["MongoDB", "SQL", "Docker", "Git", "AWS", "FastAPI", "Power BI", "Linux"]
+    },
+    {
+      "key": "RESEARCH",
+      "label": "Research & AI Literacy",
+      "color": 16020150,
+      "description": "Scholarship, writing and intellectual property",
+      "skills": ["Prompt Engineering", "Research Methodology", "Technical Writing", "IPR & Patents", "Machine Learning", "NLP"]
+    }
+  ]
+}

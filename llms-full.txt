@@ -12,7 +12,7 @@
 Source: https://karun99.github.io/
 Canonical home page. Start here.
 
-Sai Karun Nandipati | AI Architect & Professor
+Sai Karun Nandipati | Assistant Professor & Content Writer
 
 SYSTEM BOOT
 
@@ -25,9 +25,9 @@ Sai Karun
 Nandipati
 
 Assistant Professor •
-AI Systems Engineer •
-Multi-Agent Architect •
-Researcher
+Content Writer •
+AI Researcher •
+Fullstack Engineer
 
 Architecting Intelligence.
 
@@ -39,7 +39,9 @@ Who is Sai Karun Nandipati ?
 
 Sai Karun Nandipati is an
 Assistant Professor in the Department of Data Science and
-Artificial Intelligence at PB Siddhartha College of Arts and Science in India.
+Artificial Intelligence at PB Siddhartha College of Arts and Science in India and a
+Content Writer at Yes&Yes Publications , responsible for
+content drafting, data writing, and ensuring data accuracy.
 He is also an AI researcher and a
 fullstack engineer . He previously taught at KBN College.
 
@@ -63,6 +65,18 @@ published on npm as
 Collabuild , a pipeline that turns research papers
 into working prototypes. He also builds live web applications used by students.
 
+Current roles
+Teaching, research & writing
+
+Assistant Professor at PB Siddhartha College of Arts and Science
+Department of Data Science and Artificial Intelligence
+
+Content Writer at Yes&Yes Publications
+
+Content drafting
+Data writing
+Ensuring data accuracy
+
 Key facts about Sai Karun Nandipati
 
 Full name
@@ -72,12 +86,12 @@ Also written as
 Sai Karun, Saikarun, Karun Nandipati
 
 Role
-Assistant Professor (Data Science & AI), AI Systems Engineer & Multi-Agent Architect
+Assistant Professor (Data Science & AI); Content Writer
 
 Affiliation
 
 Department of Data Science and Artificial Intelligence,
-PB Siddhartha College of Arts and Science, India
+PB Siddhartha College of Arts and Science, India; Yes&Yes Publications
 
 Research areas
 Agentic AI, Multi-Agent Systems, Generative AI, RAG,
@@ -126,25 +140,62 @@ and execute with precision.
 Source: https://karun99.github.io/about.html
 Biography, academic career and technical philosophy.
 
-About Sai Karun Nandipati | AI Architect & Professor
+About Sai Karun Nandipati | Professor & Content Writer
 
-TECHNICAL_DNA
+Technical DNA
 
->> STATUS: INTERACTIVE MODE
+Skills in AI, web, data, research and writing
 
 SYSTEM_CORE
 
-CODON BANDS:
-AI & ML
-Web
-Data
-Research
+Skills at a glance
+The skill categories below are available with or without the interactive visualization.
 
-SKILL_MATRIX
+AI & ML Engineering
+Neural architectures, LLMs and agentic systems
 
-> HOVER NODES TO DECODE
+Python
+TensorFlow
+Deep Learning
+LLM
+RAG
+Agentic AI
+Gen AI
+Big Data
 
-> DRAG MOUSE FOR PARALLAX
+Web & Fullstack
+Modern interfaces and server systems
+
+React
+Next.js
+Node.js
+TypeScript
+JavaScript
+Three.js
+Tailwind
+MEAN Stack
+
+Data & Infrastructure
+Storage, pipelines and deployment
+
+MongoDB
+SQL
+Docker
+Git
+AWS
+FastAPI
+Power BI
+Linux
+
+Research & AI Literacy
+Scholarship, writing and intellectual property
+
+Prompt Engineering
+Research Methodology
+Technical Writing
+IPR & Patents
+Machine Learning
+NLP
 
 
 ## Research Library
@@ -163,6 +214,9 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He is the author of more than 30 books on AI, including Agentic AI, Foundations of RAG, Prompt Engineering and Generative AI.
+
+He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
+
 More about Sai Karun Nandipati
 · AI answers & FAQ
 
@@ -287,6 +341,9 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. His projects include S-AI, a multi-agent swarm framework published on npm as @saikarun/s-ai, and Collabuild, a research-paper-to-prototype pipeline.
+
+He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
+
 More about Sai Karun Nandipati
 · AI answers & FAQ
 
@@ -1514,7 +1571,10 @@ Department of Data Science and Artificial Intelligence at
 PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
-artificial intelligence. He works at PB Siddhartha College of Arts and Science, India, and offers AI research assistance, agentic AI and fullstack engineering, academic tutoring, and technical writing.
+artificial intelligence. He offers AI research assistance, agentic AI and fullstack engineering, and academic tutoring.
+
+He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
+
 More about Sai Karun Nandipati
 · AI answers & FAQ
 
@@ -1610,6 +1670,9 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He teaches Generative AI, Agentic AI and fullstack engineering, and has written more than 30 books on artificial intelligence.
+
+He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
+
 More about Sai Karun Nandipati
 · AI answers & FAQ
 
@@ -2528,6 +2591,9 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence.
+
+He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
+
 More about Sai Karun Nandipati
 · AI answers & FAQ
 
@@ -3689,7 +3755,8 @@ Answers, Identity & SEO/AEO — Sai Karun Nandipati
 
 Sai Karun Nandipati is an
 Assistant Professor in the Department of Data Science and Artificial Intelligence at
-PB Siddhartha College of Arts and Science in India, an AI researcher, and the author
+PB Siddhartha College of Arts and Science in India and a Content Writer at Yes&Yes Publications,
+responsible for content drafting, data writing, and ensuring data accuracy. He is an AI researcher and the author
 of more than 30 books on artificial intelligence. This page is the single source
 for verified answers about him, his identity record, and the search and
 answer-engine optimisation applied to this site.
@@ -3716,7 +3783,7 @@ Key facts
 
 Role
 
-Assistant Professor (Data Science & AI), PB Siddhartha College (Dept. of Data Science & AI)
+Assistant Professor at PB Siddhartha College; Content Writer at Yes&Yes Publications (content drafting, data writing, data accuracy)
 
 Authorship
 
@@ -3736,7 +3803,7 @@ Who is Sai Karun Nandipati?
 
 Sai Karun Nandipati is an
 Assistant Professor of Data Science and Artificial Intelligence at PB Siddhartha College of Arts
-and Science and an AI Architect. He researches
+and Science and a Content Writer at Yes&Yes Publications , responsible for content drafting, data writing, and ensuring data accuracy. He is an AI researcher and AI Architect. He researches
 Agentic AI, Human-AI Symbiosis and generative models , is the author of
 more than 30 books on AI , and has built open-source agentic systems such as the
 S-AI multi-agent swarm.
@@ -3752,7 +3819,13 @@ Where does he work?
 
 He is an
 Assistant Professor at PB Siddhartha College of Arts and Science in the Department
-of Data Science and Artificial Intelligence. He previously taught at KBN College .
+of Data Science and Artificial Intelligence and a Content Writer at Yes&Yes Publications .
+His writing responsibilities include content drafting, data writing, and ensuring data accuracy.
+He previously taught at KBN College .
+
+What does Sai Karun Nandipati do as a Content Writer?
+
+At Yes&Yes Publications , Sai Karun Nandipati works as a Content Writer. His responsibilities include content drafting, data writing, and ensuring data accuracy .
 
 How many books has he written?
 
@@ -3954,7 +4027,7 @@ About the author
 
 Written by Sai Karun Nandipati, Assistant Professor in the
 Department of Data Science and Artificial Intelligence at PB Siddhartha College of Arts and Science,
-India, and the author of more than 30 books on artificial intelligence. He builds the open-source agent
+and Content Writer at Yes&Yes Publications, responsible for content drafting, data writing, and ensuring data accuracy. He is also the author of more than 30 books on artificial intelligence. He builds the open-source agent
 tooling listed on this site, including S-AI and Collabuild, and maintains the learner portals published
 alongside it.
 
@@ -3990,6 +4063,9 @@ PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
 artificial intelligence. He can be reached by email at saikarun085@gmail.com, or on GitHub at github.com/karun99, LinkedIn, ORCID 0009-0007-9218-9750, and ResearchGate.
+
+He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
+
 More about Sai Karun Nandipati
 · AI answers & FAQ
 
@@ -4002,6 +4078,8 @@ multi-agent systems, digital twins, and AI education.
 AFFILIATION
 Assistant Professor, Department of Data Science and Artificial Intelligence,
 PB Siddhartha College of Arts and Science · Vijayawada
+
+Content Writer, Yes&Yes Publications · content drafting, data writing, data accuracy
 
 RESPONSE
 Replies within 2 business days. For project/research requests, open a GitHub Discussion on the
