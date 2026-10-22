@@ -32,7 +32,7 @@ User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
-Allow: /logo.jpg
+Allow: /
 
 # Google's AI / Gemini crawler
 User-agent: Google-Extended
