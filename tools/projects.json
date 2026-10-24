@@ -1,7 +1,7 @@
 {
   "_comment": "Single source of truth for the project archive. Synced from github.com/karun99 (API: /users/karun99/repos). tools/sync-content.py writes this into projects.html (static, crawler-visible cards + ItemList JSON-LD) and into assets/js/main.js (DEFAULT_PROJECTS). Only repos with a verified README and a real description are listed; stub repos with no README are deliberately omitted.",
   "source": "https://github.com/karun99?tab=repositories",
-  "synced": "2026-10-17",
+  "synced": "2026-10-24",
   "projects": [
     {
       "id": "p1",
@@ -342,6 +342,17 @@
       "link": "https://github.com/karun99/FRND4U",
       "icon": "fas fa-comments",
       "tags": ["COMPANION", "CHAT", "OPENROUTER", "PRIVACY"],
+      "featured": false
+    },
+    {
+      "id": "p32",
+      "repo": "minibot",
+      "title": "minibot — Ollama Terminal Bot",
+      "category": "DEV TOOLS // TERMINAL BOT",
+      "description": "A locally-hosted terminal bot powered by Ollama tool calling: feed and care for it, and let it read and write code files inside a strict sandbox. Ships an MCP server, a write journal with undo, and a stats history chart. Pure Python stdlib, so it runs on Termux, Linux, macOS and Windows.",
+      "link": "https://github.com/karun99/minibot",
+      "icon": "fas fa-gamepad",
+      "tags": ["PYTHON", "OLLAMA", "MCP", "TOOL CALLING"],
       "featured": false
     }
   ]

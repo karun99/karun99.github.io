@@ -1044,6 +1044,16 @@ const DEFAULT_PROJECTS = [
         icon: "fas fa-heart-pulse",
         tags: ["COMPANION", "RESERVOIR COMPUTING", "PYTHON", "AI"],
         featured: false
+    },
+    {
+        id: "p32",
+        title: "minibot \u2014 Ollama Terminal Bot",
+        category: "DEV TOOLS // TERMINAL BOT",
+        description: "A locally-hosted terminal bot powered by Ollama tool calling: feed and care for it, and let it read and write code files inside a strict sandbox. Ships an MCP server, a write journal with undo, and a stats history chart. Pure Python stdlib, so it runs on Termux, Linux, macOS and Windows.",
+        link: "https://github.com/karun99/minibot",
+        icon: "fas fa-gamepad",
+        tags: ["PYTHON", "OLLAMA", "MCP", "TOOL CALLING"],
+        featured: false
     }
 ];
 /* default-projects:end */
