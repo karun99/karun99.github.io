@@ -3745,6 +3745,92 @@ C · 74
 
 Glama.ai indexes from the repository and captures the tool schema plus license/quality/maintenance grades. M8ven independently scans each repo ( Code Verified ) and re-verifies connected repos on every change ( ⚡ live ); four servers hold Verified-Publisher status (B · 89/100). A “—” tools entry means M8ven has not yet detected an MCP tool surface. Live index: m8ven.ai/publisher/karun99 .
 
+Skill files (download)
+
+Each MCP server has a SKILL.md — a
+plain-text guide describing what the app does, the tools it exposes, and the exact
+commands to run it. Download one and paste it into any AI tool
+(Claude, ChatGPT, Cursor, opencode) as context, and that tool can drive the server.
+
+celebrum.md
+Local-first artificial brain — memory, persona, truth engine
+Download ↓
+
+glama-mcp.md
+Gateway to 100+ models over one API key
+Download ↓
+
+s-ai.md
+Multi-agent swarm intelligence with bias detection
+Download ↓
+
+s-ai-soulbot.md
+Consent-gated companion harness with guardrails
+Download ↓
+
+s-ai-update.md
+Security-hardened synthetic executive
+Download ↓
+
+neural-harness.md
+Validation engine for evidence-backed output
+Download ↓
+
+samvit.md
+Local-first personal AI with 14-check quality gate
+Download ↓
+
+collabuild.md
+Research paper to working prototype
+Download ↓
+
+zoe.md
+Connectome reservoir companion with 11 layers
+Download ↓
+
+teddy-techlearn.md
+M.Tech study companion with learner graph
+Download ↓
+
+health-quest.md
+Ethics-first food education game
+Download ↓
+
+helixdb.md
+Research and learning companion
+Download ↓
+
+you-ai-engine.md
+Build your own AI with model orchestration
+Download ↓
+
+gemini-ai-chatbot.md
+Chatbot front-end on the Gemini API
+Download ↓
+
+aistudio.md
+AI prototyping and experimentation studio
+Download ↓
+
+blogbot.md
+Automated blog generation and publishing agent
+Download ↓
+
+buildbot.md
+Student coding assistant: paper to working code
+Download ↓
+
+arthai.md
+Agentic commerce gateway for MSMEs
+Download ↓
+
+ai-content-studio.md
+Content creation and model ops (ChromaDB)
+Download ↓
+
+All 19 files are also available directly under
+/assets/skills/<name>.md .
+
 
 ## Answers & FAQ (AEO hub)
 

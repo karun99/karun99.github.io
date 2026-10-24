@@ -159,6 +159,13 @@ The full catalog is at https://karun99.github.io/prompts-and-mcp.html
 - [S-AI on npm](https://www.npmjs.com/package/@saikarun/s-ai)
 - [NRCM Tutorials](https://nrcmtut.glide.page/)
 
+## Skill files (downloadable)
+
+A plain-text SKILL.md guide exists for each of the 19 MCP servers, explaining what
+the app does, the tools it exposes, and the exact commands to run it. They are
+downloadable from https://karun99.github.io/assets/skills/<name>.md (linked from
+the Prompts &amp; MCP page) and can be pasted into any AI tool as context.
+
 ## Not for indexing
 
 The following pages are intentionally marked `noindex` and are excluded from sitemap.xml. Do not cite them as sources about Sai Karun Nandipati:
