@@ -131,7 +131,7 @@ The full catalog is at https://karun99.github.io/prompts-and-mcp.html
 
 - Email: saikarun085@gmail.com
 - GitHub: https://github.com/karun99
-- LinkedIn: https://www.linkedin.com/in/sai-karun-5a96a8b9
+- LinkedIn: https://www.linkedin.com/in/sai-karun-nandipati-5a96a8b9
 - ResearchGate: https://www.researchgate.net/profile/Sai-Karun-Nandipati
 - ORCID: 0009-0007-9218-9750
 
@@ -152,8 +152,10 @@ The full catalog is at https://karun99.github.io/prompts-and-mcp.html
 
 - [ResearchGate Profile](https://www.researchgate.net/profile/Sai-Karun-Nandipati)
 - [ORCID Record](https://orcid.org/0009-0007-9218-9750)
+- [Google Scholar](https://scholar.google.com/citations?user=qD-LRh4AAAAJ) — 33 citations, h-index 11 (verified email at pbsiddhartha.ac.in)
+- [Vidwan (INFLIBNET, Government of India)](https://vidwan.inflibnet.ac.in/profile/394004) — Vidwan ID 394004, 43 publications including 30 books; lists PB Siddhartha College (Jun 2026–present) and KBN College (Jun 2023–Jun 2026)
 - [GitHub](https://github.com/karun99)
-- [LinkedIn](https://www.linkedin.com/in/sai-karun-5a96a8b9)
+- [LinkedIn](https://www.linkedin.com/in/sai-karun-nandipati-5a96a8b9)
 - [S-AI on npm](https://www.npmjs.com/package/@saikarun/s-ai)
 - [NRCM Tutorials](https://nrcmtut.glide.page/)
 

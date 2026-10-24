@@ -78,6 +78,6 @@
 200	https://www.amazon.com/dp/B0FMR2VFV8
 200	https://www.amazon.com/dp/B0FQT45KWF
 200	https://www.amazon.com/dp/B0FWRXWQV2
-999	https://www.linkedin.com/in/sai-karun-5a96a8b9
+999	https://www.linkedin.com/in/sai-karun-nandipati-5a96a8b9
 403	https://www.npmjs.com/package/@saikarun/s-ai
 403	https://www.researchgate.net/profile/Sai-Karun-Nandipati

@@ -140,7 +140,7 @@ and execute with precision.
 Source: https://karun99.github.io/about.html
 Biography, academic career and technical philosophy.
 
-About Sai Karun Nandipati | Professor & Content Writer
+About Sai Karun Nandipati | Assistant Professor & Content Writer
 
 Technical DNA
 
@@ -3896,7 +3896,7 @@ github.com/karun99
 
 LinkedIn
 
-in/sai-karun-5a96a8b9
+in/sai-karun-nandipati-5a96a8b9
 
 ResearchGate
 
