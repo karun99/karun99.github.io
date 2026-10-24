@@ -140,7 +140,7 @@ and execute with precision.
 Source: https://karun99.github.io/about.html
 Biography, academic career and technical philosophy.
 
-About Sai Karun Nandipati | Assistant Professor & Content Writer
+About Sai Karun Nandipati | Professor & Content Writer
 
 Technical DNA
 
@@ -662,6 +662,16 @@ Project Zoe is a connectome-based reservoir-computing companion built on eleven 
 github.com/zoe
 
 COMPANION RESERVOIR COMPUTING PYTHON AI
+
+minibot — Ollama Terminal Bot
+
+DEV TOOLS // TERMINAL BOT
+
+A locally-hosted terminal bot powered by Ollama tool calling: feed and care for it, and let it read and write code files inside a strict sandbox. Ships an MCP server, a write journal with undo, and a stats history chart. Pure Python stdlib, so it runs on Termux, Linux, macOS and Windows.
+
+github.com/minibot
+
+PYTHON OLLAMA MCP TOOL CALLING
 
 DEPLOYED WEB APPS
 
