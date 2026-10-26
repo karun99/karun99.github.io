@@ -3,6 +3,13 @@
 # inline a real key into it.
 .mcp.json
 
+# Environment / credentials — never commit
+.env
+.env.*
+*.pem
+*.key
+.git-credentials
+
 # OS / editor noise
 .DS_Store
 Thumbs.db

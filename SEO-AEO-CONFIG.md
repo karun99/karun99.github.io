@@ -1,6 +1,6 @@
 # SEO / AEO Configuration — karun99.github.io
 
-**Last updated:** 2026-10-24  
+**Last updated:** 2026-10-26  
 **Site:** https://karun99.github.io  
 **Primary target query:** "Sai Karun Nandipati" / "who is Sai Karun Nandipati"
 
@@ -48,12 +48,23 @@
 |----------|-----|---------|-------------------|
 | 1.0 | / | Homepage / Identity | weekly |
 | 0.9 | /answers.html | AEO hub + FAQ | monthly |
+| 0.9 | /prompts-and-mcp.html | MCP catalog + downloadable skill guides | weekly |
 | 0.9 | /about.html | Full biography | monthly |
 | 0.9 | /works.html | Publications | weekly |
 | 0.9 | /projects.html | Open-source work | weekly |
 | 0.8 | /services.html | Services | monthly |
 | 0.8 | /learner-resources.html | Learning resources | monthly |
 | 0.8 | /contact.html | Contact | monthly |
+
+**Non-indexed pages (must stay `noindex, follow` and must NOT appear in `sitemap.xml`):**
+
+| URL | Why |
+|-----|-----|
+| /profile.html | Duplicate resume view → canonicalized to `/` |
+| /seoreport.html | Internal audit report → canonicalized to `/answers.html` |
+
+> Rule: every page in `sitemap.xml` must be `index, follow`. Every `noindex` page must
+> declare a canonical pointing at the page that should rank instead.
 
 ---
 
@@ -97,6 +108,36 @@
 | Every content change | Regenerate llms-full.txt + validate JSON-LD |
 | Monthly | Re-check external profiles for consistency |
 | After job/publication change | Update identity facts across site + external profiles together |
+
+---
+
+## 8. Static Asset Serving (GitHub Pages)
+
+- `.nojekyll` **must exist at repo root** so GitHub Pages serves `assets/skills/*.md` as
+  raw `text/markdown` instead of running them through Jekyll.
+- `assets/skills/` holds the 19 agent-skill downloads linked from
+  `/prompts-and-mcp.html#skill-downloads`. These are documentation files only — no
+  executable code, no credentials.
+- Verify after deploy:
+  `curl -sI https://karun99.github.io/assets/skills/<slug>.md` → `200`, not `404`.
+- `llms.txt` and `llms-full.txt` reference the downloads so answer engines can find them.
+
+---
+
+## 9. Security & Secrets Policy
+
+- **No secrets in the repo, ever.** This is a public GitHub Pages site.
+- `.mcp.json` is git-ignored because it references developer-machine commands and
+  `${GLAMA_API_KEY}`. Never commit it, and never inline a real key into it.
+- API keys are supplied at runtime via environment variables; nothing is committed.
+- `.gitignore` must keep covering `.mcp.json`, `.env*`, editor/OS noise, and Python caches.
+- History has been scanned for `ghp_`, `github_pat_`, `AKIA`, `sk-`, `glpat-` and private-key
+  blocks — all clear as of 2026-10-26. Re-run the scan before any large publish:
+  `git grep -nIE "(ghp_|github_pat_|AKIA|sk-|glpat-|BEGIN .*PRIVATE KEY)"`
+- Credentials live only in `~/.git-credentials` on the authoring machine (mode `0600`),
+  never in the working tree.
+- Any accidental secret commit is treated as a rotation event: revoke, rotate, then rewrite
+  history — deleting the file alone is not sufficient.
 
 ---
 
