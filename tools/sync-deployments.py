@@ -73,7 +73,7 @@ def card(d: dict) -> str:
                     <span class="font-mono text-[10px] tracking-widest text-accent-primary border border-accent-primary/30 rounded px-2 py-1">{platform}</span>
                     <span class="font-mono text-[10px] tracking-widest text-slate-400 border border-white/10 rounded px-2 py-1 break-all">{host}</span>
                 </div>
-                <p class="mt-4 text-xs text-slate-500"><a href="{url}" target="_blank" rel="noopener nofollow" class="text-accent-primary underline">Visit site</a></p>
+                <p class="mt-4 text-xs text-slate-500"><span class="text-accent-primary underline">Visit site</span></p>
             {close_tag}"""
 
 

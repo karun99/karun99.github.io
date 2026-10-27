@@ -133,6 +133,38 @@ a {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* --- CARD GRIDS ---
+   Cards are grid items, so they already stretch to the row height. Making
+   each card a flex column keeps its CTA/footer on a shared baseline instead
+   of letting it float after variable-length copy. Element + class selectors
+   are used so these rules win over Tailwind's .block utility regardless of
+   stylesheet order. */
+a.resource-card,
+div.resource-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.resource-card > :last-child {
+    margin-top: auto;
+}
+
+.resource-card > p:last-child {
+    padding-top: 1rem;
+}
+
+/* Long app names and status badges share one row; let the badge drop to its
+   own line instead of squeezing the title in narrow grid columns. */
+.resource-card .flex.items-start.justify-between {
+    flex-wrap: wrap;
+}
+
+.resource-card h3 {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
 .btn-neon {
     display: inline-block;
     padding: 12px 32px;
