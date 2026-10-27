@@ -165,6 +165,17 @@ div.resource-card {
     overflow-wrap: break-word;
 }
 
+/* --- GRID SAFETY ---
+   Grid items default to min-width: auto, so one long URL or unbreakable
+   token can force a track wider than the viewport. Let every grid cell
+   shrink and wrap instead. */
+.grid > *,
+.site-footer__cols > *,
+.profile-current-work__grid > *,
+.technical-skills__grid > * {
+    min-width: 0;
+}
+
 .btn-neon {
     display: inline-block;
     padding: 12px 32px;
