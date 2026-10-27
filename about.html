@@ -17,6 +17,31 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <!-- Tailwind CSS (same config as the rest of the site) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        'accent-primary': '#06b6d4',
+                        'bg-dark': '#020617',
+                    },
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Shared site chrome (nav, footer, loader). Must load before the
+         page-specific <style> below so local overrides still win. -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- JSON-LD: ProfilePage / Person for answer-engine & search understanding -->
     <script type="application/ld+json">
     {
@@ -108,6 +133,10 @@
 
         .text-gold {
             color: var(--accent-secondary);
+        }
+
+        .text-main {
+            color: var(--text-main);
         }
 
         .text-xl {
@@ -331,41 +360,8 @@
             box-shadow: 0 0 6px currentColor;
         }
 
-        /* Loader */
-        #loader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-dark);
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        #loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .loader-bar {
-            width: 0%;
-            transition: width 0.1s linear;
-            box-shadow: 0 0 10px var(--accent-primary);
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: #000;
-            text-align: center;
-            color: var(--text-muted);
-            margin-top: 4rem;
-            font-size: 0.8rem;
-        }
+        /* Loader and footer chrome are defined once in assets/css/style.css so
+           they behave identically on every page. */
     </style>
 
     <script type="application/ld+json">
@@ -436,9 +432,9 @@
 
     <!-- LOADER -->
     <div id="loader">
-        <h2 class="font-display text-2xl text-white tracking-widest mb-4 text-glow">
+        <div class="font-display text-2xl text-white tracking-widest mb-4 text-glow">
             NEURAL <span class="text-accent-primary">CONNECT</span>
-        </h2>
+        </div>
         <div
             style="width: 250px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
             <div id="loader-bar" class="loader-bar" style="height: 100%; background: var(--accent-primary);"></div>
@@ -648,7 +644,7 @@
                     ">SYSTEM_CORE</div>
                 </div>
 
-                </div></div>
+                </div>
                 <!-- technical-dna-list:start -->
 <div class="technical-skills" id="technical-skills"><div class="technical-skills__heading"><h4>Skills at a glance</h4><p>The skill categories below are available with or without the interactive visualization.</p></div><div class="technical-skills__grid"><section class="technical-skill-card" style="--skill-color:#06b6d4" aria-labelledby="skill-category-AI_ML"><h4 id="skill-category-AI_ML">AI &amp; ML Engineering</h4><p>Neural architectures, LLMs and agentic systems</p><ul><li>Python</li><li>TensorFlow</li><li>Deep Learning</li><li>LLM</li><li>RAG</li><li>Agentic AI</li><li>Gen AI</li><li>Big Data</li></ul></section><section class="technical-skill-card" style="--skill-color:#d4af37" aria-labelledby="skill-category-WEB"><h4 id="skill-category-WEB">Web &amp; Fullstack</h4><p>Modern interfaces and server systems</p><ul><li>React</li><li>Next.js</li><li>Node.js</li><li>TypeScript</li><li>JavaScript</li><li>Three.js</li><li>Tailwind</li><li>MEAN Stack</li></ul></section><section class="technical-skill-card" style="--skill-color:#22c55e" aria-labelledby="skill-category-DATA"><h4 id="skill-category-DATA">Data &amp; Infrastructure</h4><p>Storage, pipelines and deployment</p><ul><li>MongoDB</li><li>SQL</li><li>Docker</li><li>Git</li><li>AWS</li><li>FastAPI</li><li>Power BI</li><li>Linux</li></ul></section><section class="technical-skill-card" style="--skill-color:#f472b6" aria-labelledby="skill-category-RESEARCH"><h4 id="skill-category-RESEARCH">Research &amp; AI Literacy</h4><p>Scholarship, writing and intellectual property</p><ul><li>Prompt Engineering</li><li>Research Methodology</li><li>Technical Writing</li><li>IPR &amp; Patents</li><li>Machine Learning</li><li>NLP</li></ul></section></div></div>
 <!-- technical-dna-list:end -->
