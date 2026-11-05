@@ -1039,7 +1039,7 @@ const DEFAULT_PROJECTS = [
         id: "p30",
         title: "Zoe \u2014 Connectome Reservoir-Computing Companion",
         category: "COMPANION // RESERVOIR COMPUTING",
-        description: "Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM and a companion mode (SRS v4.0 MVP).",
+        description: "Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM, companion mode, and Emoja — its consented, non-diagnostic reflection layer (SRS v4.0 MVP).",
         link: "https://github.com/karun99/zoe",
         icon: "fas fa-heart-pulse",
         tags: ["COMPANION", "RESERVOIR COMPUTING", "PYTHON", "AI"],
