@@ -1,86 +1,73 @@
 # Security Policy
 
-## Supported Versions
+This repository hosts **karun99.github.io**, a static website published with
+GitHub Pages. It contains HTML, CSS, and client-side JavaScript. It has no
+first-party server, database, login, or user-account system.
 
-Only the latest release of this project is actively supported with security updates. Older versions may receive security fixes on a best-effort basis.
+## Supported versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| latest  | :white_check_mark: |
-| < latest | :x:                |
+| Version | Supported |
+| --- | --- |
+| Latest commit on `main` (the deployed site) | :white_check_mark: |
+| Older commits, forks, and archived copies | :x: — best effort only |
 
-## Incident Response Mechanism (Dependabot)
+## Scope
 
-This repository uses **Dependabot** to monitor dependencies, raise security alerts, and open version-update PRs. The following incident-response process applies to every Dependabot alert.
+**In scope:** vulnerabilities in this repository's own HTML, CSS, JavaScript,
+build/deploy configuration, and GitHub Actions workflows — for example
+cross-site scripting in first-party code, secret exposure, unsafe third-party
+embeds, and supply-chain issues in the workflows.
 
-### 1. Triage & Severity Classification
+**Out of scope:** the projects and external sites this website links to. Each
+has its own security policy; report issues there. Also out of scope are
+content-accuracy disputes, broken links with no security impact, and
+denial-of-service against GitHub Pages itself.
 
-| Severity  | CVSS Range | Example                    |
-| --------- | ---------- | -------------------------- |
-| Critical  | 9.0–10.0   | RCE, auth bypass           |
-| High      | 7.0–8.9    | SQLi, XSS, SSRF            |
-| Medium    | 4.0–6.9    | DoS, info disclosure       |
-| Low       | 0.1–3.9    | Linting, best-practice     |
+## Dependency and supply-chain hygiene
 
-Every new alert is triaged within **24 hours**. Alerts are confirmed, reproduced, or dismissed with justification in the Dependabot dashboard.
+- The site is static and has no npm/package manifest. Its main executable
+  dependency surface is the **GitHub Actions** used for deployment and
+  maintenance.
+- Dependabot monitors GitHub Actions in this repository (see
+  `.github/dependabot.yml`) and opens grouped, reviewable update PRs. Updates
+  are not auto-merged.
+- Workflow changes are reviewed before merge. Third-party actions should be
+  pinned to a commit SHA where practical.
+- No credentials, tokens, or private keys are committed. Deployment uses
+  GitHub's scoped `GITHUB_TOKEN`.
 
-### 2. Remediation SLA
+## Incident response
 
-| Severity  | Remediation SLA    | Action                                                                |
-| --------- | ------------------ | --------------------------------------------------------------------- |
-| Critical  | 48 hours           | Patch immediately, pin exact fixed version, release hotfix, redeploy  |
-| High      | 7 days             | Patch in next release, no workaround required to be documented        |
-| Medium    | 30 days            | Patch in next scheduled release                                       |
-| Low       | 90 days            | Schedule with regular maintenance                                     |
+1. **Triage:** every security alert or report is reviewed within 24 hours and
+   classified Critical / High / Medium / Low.
+2. **Remediation:** Critical within 48 hours, High within 7 days, Medium within
+   30 days, Low within 90 days.
+3. **Containment:** if a secret is exposed, revoke and rotate it first, then
+   remove it from the repository and history.
+4. **Verification:** confirm the fix on the deployed site and, where relevant,
+   ask the reporter to retest.
+5. **Post-incident review:** a short post-mortem is written for every
+   Critical/High incident covering root cause, timeline, and preventive action.
 
-### 3. Dependabot Version-Updates Workflow
+## Reporting a vulnerability
 
-1. Dependabot opens a PR for the vulnerable dependency.
-2. CI runs the test suite against the updated dependency — the PR must pass all checks.
-3. A maintainer reviews the diff (changelog, breaking changes, licenses).
-4. Merged PRs are deployed per the documented release process.
-5. The alert is automatically closed once the fixed version is merged.
+Use GitHub's private security advisory flow:
 
-### 4. Escalation & Contact
+1. Open the **Security** tab of
+   [karun99/karun99.github.io](https://github.com/karun99/karun99.github.io).
+2. Choose **Report a vulnerability**.
+3. Include the affected URL or commit, impact, and reproduction steps.
 
-- **Security contact:** `karun99` via GitHub.
-- **Critical incidents:** open an advisory or contact maintainers immediately; do not wait for the weekly review.
-- **Downtime / exploit in the wild:** immediate hotfix branch + backport to supported releases.
+**Acknowledgement:** within 3 business days. Please do **not** open a public
+issue for secret exposure, cross-site scripting, or data-leak reports.
 
-### 5. Public Disclosure
+For issues in a linked project rather than this website, use that project's
+repository and its own security policy.
 
-- Patches are released **before** public disclosure.
-- Advisory details are published through GitHub Security Advisories and/or OsVDB-compatible channels after the fix is deployed.
-- 90 days of responsible disclosure applies for third-party reports (Coordinated Disclosure).
+## Disclosure policy
 
-### 6. Post-Incident Review
-
-After every Critical/High incident a post-mortem is written covering:
-- Root cause and affected dependency versions
-- Detection and response timeline (when alert opened → patched → deployed)
-- Preventive measures (dependency pinning, CI gates, runtime monitoring)
-- Lessons learned and process changes
-
-## Reporting a Vulnerability
-
-Use the GitHub private security advisory feature:
-
-1. Open the **Security** tab of this repository.
-2. Click **Report a vulnerability**.
-3. Provide a description, affected dependency/version, and proof-of-concept if available.
-4. Expected acknowledgment: within **3 business days**.
-
-You will receive a response with next steps and a timeline. Please do **not** disclose the issue publicly until it has been addressed.
-
-## Disclosure Policy
-
-- Reports are kept confidential and only shared with maintainers.
-- Credit is given to reporters in release notes/advisories unless anonymity is requested.
-- Malware, abuse, or spam reports are outside the scope of this policy.
-
-## Dependency Hygiene
-
-- Direct dependencies are pinned or semver-locked in manifests (`package.json`, `requirements.txt`, `pyproject.toml`, etc.).
-- Lockfiles are kept in-repo for reproducible builds.
-- PRs that introduce known-vulnerable packages are blocked by Dependabot and CI.
-- Deprecated or unmaintained packages are migrated at least twice a year.
+- We aim to fix the issue before public disclosure.
+- Coordinated disclosure window: **90 days**, or sooner by mutual agreement.
+- Credit is given in the advisory or release notes unless you ask to remain
+  anonymous.
+- Reports are kept confidential and shared only with the maintainers.
