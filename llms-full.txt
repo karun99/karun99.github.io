@@ -140,8 +140,6 @@ and execute with precision.
 Source: https://karun99.github.io/about.html
 Biography, academic career and technical philosophy.
 
-About Sai Karun Nandipati | Professor & Content Writer
-
 Technical DNA
 
 Skills in AI, web, data, research and writing
@@ -503,15 +501,15 @@ github.com/CodeQuest
 
 PHP MYSQL ASSESSMENT ANTI-CHEAT
 
-DUET — Digital Twin Framework
+DUET — Digital Twin + MAS
 
-DIGITAL TWIN // HCI
+DIGITAL TWIN // MAS // HCI
 
-A digital twin framework with adaptive neural mirroring and parallel consciousness streams that uses the Gemini API to simulate a persona's cognitive structure, biases and worldview.
+A private-by-design AI twin in the browser with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA. Runs free on OpenRouter, with personal information off by default and local-only consent controls.
 
-github.com/DUET--Digital-Twin-Technology-
+github.com/Duet--Digital-Twin-Technology
 
-TYPESCRIPT DIGITAL TWIN GEMINI HCI
+TYPESCRIPT DIGITAL TWIN MAS OPENROUTER HCI
 
 FRND4U — Private AI Companion Chat
 
@@ -657,7 +655,7 @@ Zoe — Connectome Reservoir-Computing Companion
 
 COMPANION // RESERVOIR COMPUTING
 
-Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM and a companion mode (SRS v4.0 MVP).
+Project Zoe is a connectome-based reservoir-computing companion built on eleven biologically-inspired layers, with an evolving LoRA, a virtual avatar, a sandboxed MicroVM, companion mode, and Emoja — its consented, non-diagnostic reflection layer (SRS v4.0 MVP).
 
 github.com/zoe
 
@@ -675,9 +673,9 @@ PYTHON OLLAMA MCP TOOL CALLING
 
 DEPLOYED WEB APPS
 
-71 tracked website deployments by
-Sai Karun Nandipati — 70 were
-verified online on 2026-10-17 (61 on Netlify, 10 on Vercel): AI assistants,
+78 tracked website deployments by
+Sai Karun Nandipati — 77 were
+verified online on 2026-11-07 (66 on Netlify, 12 on Vercel): AI assistants,
 study tools, prompt libraries, research workspaces and student resources.
 
 ENGERS
@@ -1290,6 +1288,56 @@ finalgo.netlify.app
 
 Visit site
 
+EDA PY
+LIVE
+
+Exploratory data analysis in Python
+
+Netlify
+eda-py.netlify.app
+
+Visit site
+
+AI APP TLM
+LIVE
+
+Simulation of applications of AI
+
+Netlify
+ai-app-tlm.netlify.app
+
+Visit site
+
+VOYANT TLM
+LIVE
+
+Simulation of Voyant Tools
+
+Netlify
+voyant-tlm.netlify.app
+
+Visit site
+
+DWINIT
+LIVE
+
+Interactive learning app (description coming soon)
+
+Netlify
+dwinit.netlify.app
+
+Visit site
+
+WEKA SIM
+LIVE
+
+Simulation of Weka software for data mining
+
+Netlify
+weka-sim.netlify.app
+
+Visit site
+
 NSK PROFILE
 LIVE
 
@@ -1343,7 +1391,7 @@ Visit site
 DUET AI
 LIVE
 
-Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology
+Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology
 
 Vercel
 duet-ai-ivory.vercel.app
@@ -1353,7 +1401,7 @@ Visit site
 DUET DIGITAL TWIN TECHNOLOGY
 LIVE
 
-Digital twin technology platform/project
+Digital twin platform with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default
 
 Vercel
 duet-digital-twin-technology.vercel.app
@@ -1380,6 +1428,26 @@ prompt-code-one.vercel.app
 
 Visit site
 
+DATA MINING TLM
+LIVE
+
+Data Mining & Data Warehousing — a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator
+
+Vercel
+data-mining-tlm.vercel.app
+
+Visit site
+
+POWER BI TLM
+LIVE
+
+Power BI — Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service
+
+Vercel
+power-bi-tlm.vercel.app
+
+Visit site
+
 YOU AI ENGINE
 OFFLINE — DEPLOYMENT RETIRED
 
@@ -1390,7 +1458,7 @@ you-ai-engine.vercel.app
 
 Visit site
 
-PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
+PLAIN-TEXT INDEX (78 APPS — FOR AI ASSISTANTS)
 
 Engers — A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification. (Netlify)
 
@@ -1514,6 +1582,16 @@ Medi Triage — AI health triage assistant supporting multiple languages (Netlif
 
 Finalgo — Financial/loan management software (Netlify)
 
+EDA Py — Exploratory data analysis in Python (Netlify)
+
+AI App TLM — Simulation of applications of AI (Netlify)
+
+Voyant TLM — Simulation of Voyant Tools (Netlify)
+
+Dwinit — Interactive learning app (description coming soon) (Netlify)
+
+Weka Sim — Simulation of Weka software for data mining (Netlify)
+
 NSK Profile — Personal profile/portfolio site synced with GitHub karun99/nskprofile (Vercel)
 
 Health Quest — Health/wellness quest app; repo has Dependabot and security updates (Vercel)
@@ -1524,13 +1602,17 @@ Plastic Waste Conservation — Plastic waste conservation strategy platform (Ver
 
 Gemini AI Chatbot — Gemini-powered AI chatbot app (Vercel)
 
-Duet AI — Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology (Vercel)
+Duet AI — Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology (Vercel)
 
-Duet Digital Twin Technology — Digital twin technology platform/project (Vercel)
+Duet Digital Twin Technology — Digital twin platform with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default (Vercel)
 
 ProfileRank — Profile/portfolio ranking tool (Vercel)
 
 Prompt Code — PromptPro Challenge Arena. (Vercel)
+
+Data Mining TLM — Data Mining & Data Warehousing — a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator (Vercel)
+
+Power BI TLM — Power BI — Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service (Vercel)
 
 You AI Engine — Personalized AI/search engine-style project (Vercel)
 
@@ -1679,7 +1761,7 @@ Department of Data Science and Artificial Intelligence at
 PB Siddhartha College of Arts and Science , India;
 an AI researcher and fullstack engineer working on Agentic AI, multi-agent systems,
 Generative AI, RAG and Human-AI Symbiosis, and the author of more than 30 books on
-artificial intelligence. He teaches Generative AI, Agentic AI and fullstack engineering, and has written more than 30 books on artificial intelligence.
+artificial intelligence. He teaches Generative AI, Agentic AI and fullstack engineering.
 
 He also works as a Content Writer at Yes&Yes Publications; responsibilities include content drafting, data writing, ensuring data accuracy.
 
@@ -1720,9 +1802,9 @@ bda-code-lac.vercel.app
 
 DEPLOYED WEB APPS
 
-71 tracked website deployments by
-Sai Karun Nandipati — 70 were
-verified online on 2026-10-17 (61 on Netlify, 10 on Vercel): AI assistants,
+78 tracked website deployments by
+Sai Karun Nandipati — 77 were
+verified online on 2026-11-07 (66 on Netlify, 12 on Vercel): AI assistants,
 study tools, prompt libraries, research workspaces and student resources.
 
 ENGERS
@@ -2335,6 +2417,56 @@ finalgo.netlify.app
 
 Visit site
 
+EDA PY
+LIVE
+
+Exploratory data analysis in Python
+
+Netlify
+eda-py.netlify.app
+
+Visit site
+
+AI APP TLM
+LIVE
+
+Simulation of applications of AI
+
+Netlify
+ai-app-tlm.netlify.app
+
+Visit site
+
+VOYANT TLM
+LIVE
+
+Simulation of Voyant Tools
+
+Netlify
+voyant-tlm.netlify.app
+
+Visit site
+
+DWINIT
+LIVE
+
+Interactive learning app (description coming soon)
+
+Netlify
+dwinit.netlify.app
+
+Visit site
+
+WEKA SIM
+LIVE
+
+Simulation of Weka software for data mining
+
+Netlify
+weka-sim.netlify.app
+
+Visit site
+
 NSK PROFILE
 LIVE
 
@@ -2388,7 +2520,7 @@ Visit site
 DUET AI
 LIVE
 
-Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology
+Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology
 
 Vercel
 duet-ai-ivory.vercel.app
@@ -2398,7 +2530,7 @@ Visit site
 DUET DIGITAL TWIN TECHNOLOGY
 LIVE
 
-Digital twin technology platform/project
+Digital twin platform with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default
 
 Vercel
 duet-digital-twin-technology.vercel.app
@@ -2425,6 +2557,26 @@ prompt-code-one.vercel.app
 
 Visit site
 
+DATA MINING TLM
+LIVE
+
+Data Mining & Data Warehousing — a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator
+
+Vercel
+data-mining-tlm.vercel.app
+
+Visit site
+
+POWER BI TLM
+LIVE
+
+Power BI — Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service
+
+Vercel
+power-bi-tlm.vercel.app
+
+Visit site
+
 YOU AI ENGINE
 OFFLINE — DEPLOYMENT RETIRED
 
@@ -2435,7 +2587,7 @@ you-ai-engine.vercel.app
 
 Visit site
 
-PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
+PLAIN-TEXT INDEX (78 APPS — FOR AI ASSISTANTS)
 
 Engers — A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification. (Netlify)
 
@@ -2559,6 +2711,16 @@ Medi Triage — AI health triage assistant supporting multiple languages (Netlif
 
 Finalgo — Financial/loan management software (Netlify)
 
+EDA Py — Exploratory data analysis in Python (Netlify)
+
+AI App TLM — Simulation of applications of AI (Netlify)
+
+Voyant TLM — Simulation of Voyant Tools (Netlify)
+
+Dwinit — Interactive learning app (description coming soon) (Netlify)
+
+Weka Sim — Simulation of Weka software for data mining (Netlify)
+
 NSK Profile — Personal profile/portfolio site synced with GitHub karun99/nskprofile (Vercel)
 
 Health Quest — Health/wellness quest app; repo has Dependabot and security updates (Vercel)
@@ -2569,13 +2731,17 @@ Plastic Waste Conservation — Plastic waste conservation strategy platform (Ver
 
 Gemini AI Chatbot — Gemini-powered AI chatbot app (Vercel)
 
-Duet AI — Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology (Vercel)
+Duet AI — Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology (Vercel)
 
-Duet Digital Twin Technology — Digital twin technology platform/project (Vercel)
+Duet Digital Twin Technology — Digital twin platform with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default (Vercel)
 
 ProfileRank — Profile/portfolio ranking tool (Vercel)
 
 Prompt Code — PromptPro Challenge Arena. (Vercel)
+
+Data Mining TLM — Data Mining & Data Warehousing — a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator (Vercel)
+
+Power BI TLM — Power BI — Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service (Vercel)
 
 You AI Engine — Personalized AI/search engine-style project (Vercel)
 
@@ -2627,9 +2793,9 @@ Visit site
 
 DEPLOYED WEB APPS
 
-71 tracked website deployments by
-Sai Karun Nandipati — 70 were
-verified online on 2026-10-17 (61 on Netlify, 10 on Vercel): AI assistants,
+78 tracked website deployments by
+Sai Karun Nandipati — 77 were
+verified online on 2026-11-07 (66 on Netlify, 12 on Vercel): AI assistants,
 study tools, prompt libraries, research workspaces and student resources.
 
 ENGERS
@@ -3242,6 +3408,56 @@ finalgo.netlify.app
 
 Visit site
 
+EDA PY
+LIVE
+
+Exploratory data analysis in Python
+
+Netlify
+eda-py.netlify.app
+
+Visit site
+
+AI APP TLM
+LIVE
+
+Simulation of applications of AI
+
+Netlify
+ai-app-tlm.netlify.app
+
+Visit site
+
+VOYANT TLM
+LIVE
+
+Simulation of Voyant Tools
+
+Netlify
+voyant-tlm.netlify.app
+
+Visit site
+
+DWINIT
+LIVE
+
+Interactive learning app (description coming soon)
+
+Netlify
+dwinit.netlify.app
+
+Visit site
+
+WEKA SIM
+LIVE
+
+Simulation of Weka software for data mining
+
+Netlify
+weka-sim.netlify.app
+
+Visit site
+
 NSK PROFILE
 LIVE
 
@@ -3295,7 +3511,7 @@ Visit site
 DUET AI
 LIVE
 
-Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology
+Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology
 
 Vercel
 duet-ai-ivory.vercel.app
@@ -3305,7 +3521,7 @@ Visit site
 DUET DIGITAL TWIN TECHNOLOGY
 LIVE
 
-Digital twin technology platform/project
+Digital twin platform with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default
 
 Vercel
 duet-digital-twin-technology.vercel.app
@@ -3332,6 +3548,26 @@ prompt-code-one.vercel.app
 
 Visit site
 
+DATA MINING TLM
+LIVE
+
+Data Mining & Data Warehousing — a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator
+
+Vercel
+data-mining-tlm.vercel.app
+
+Visit site
+
+POWER BI TLM
+LIVE
+
+Power BI — Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service
+
+Vercel
+power-bi-tlm.vercel.app
+
+Visit site
+
 YOU AI ENGINE
 OFFLINE — DEPLOYMENT RETIRED
 
@@ -3342,7 +3578,7 @@ you-ai-engine.vercel.app
 
 Visit site
 
-PLAIN-TEXT INDEX (71 APPS — FOR AI ASSISTANTS)
+PLAIN-TEXT INDEX (78 APPS — FOR AI ASSISTANTS)
 
 Engers — A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification. (Netlify)
 
@@ -3466,6 +3702,16 @@ Medi Triage — AI health triage assistant supporting multiple languages (Netlif
 
 Finalgo — Financial/loan management software (Netlify)
 
+EDA Py — Exploratory data analysis in Python (Netlify)
+
+AI App TLM — Simulation of applications of AI (Netlify)
+
+Voyant TLM — Simulation of Voyant Tools (Netlify)
+
+Dwinit — Interactive learning app (description coming soon) (Netlify)
+
+Weka Sim — Simulation of Weka software for data mining (Netlify)
+
 NSK Profile — Personal profile/portfolio site synced with GitHub karun99/nskprofile (Vercel)
 
 Health Quest — Health/wellness quest app; repo has Dependabot and security updates (Vercel)
@@ -3476,13 +3722,17 @@ Plastic Waste Conservation — Plastic waste conservation strategy platform (Ver
 
 Gemini AI Chatbot — Gemini-powered AI chatbot app (Vercel)
 
-Duet AI — Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology (Vercel)
+Duet AI — Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology (Vercel)
 
-Duet Digital Twin Technology — Digital twin technology platform/project (Vercel)
+Duet Digital Twin Technology — Digital twin platform with a local MAS operating protocol — Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default (Vercel)
 
 ProfileRank — Profile/portfolio ranking tool (Vercel)
 
 Prompt Code — PromptPro Challenge Arena. (Vercel)
+
+Data Mining TLM — Data Mining & Data Warehousing — a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator (Vercel)
+
+Power BI TLM — Power BI — Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service (Vercel)
 
 You AI Engine — Personalized AI/search engine-style project (Vercel)
 
@@ -3646,7 +3896,7 @@ COMMERCE MSME AGENTIC
 ZOE
 PENDING — NOT PUBLISHED YET
 
-Project Zoe — connectome-based reservoir-computing companion: 11 biologically-inspired layers with a local MCP tool surface.
+Project Zoe — connectome-based reservoir-computing companion: 11 biologically-inspired layers with a local MCP tool surface, plus Emoja, its consented non-diagnostic reflection layer.
 
 CONNECTOME COMPANION MCP
 
@@ -3749,7 +3999,7 @@ submitted
 C · 71
 
 Zoe
-4 tools
+7 tools
 submitted
 C · 74
 

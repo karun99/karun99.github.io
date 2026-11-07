@@ -1,7 +1,7 @@
 {
-  "_comment": "Single source of truth for tracked website deployments by Sai Karun Nandipati, with descriptions, hosting platforms and last-checked status. Synced by hand from deployment dashboards on 2026-10-17. tools/sync-deployments.py renders this into projects.html, learner-resources.html and prompts-and-mcp.html (static, crawler-visible cards + ItemList JSON-LD).",
+  "_comment": "Single source of truth for tracked website deployments by Sai Karun Nandipati, with descriptions, hosting platforms and last-checked status. Synced by hand from deployment dashboards on 2026-11-07. tools/sync-deployments.py renders this into projects.html, learner-resources.html and prompts-and-mcp.html (static, crawler-visible cards + ItemList JSON-LD).",
   "source": "https://github.com/karun99",
-  "synced": "2026-10-17",
+  "synced": "2026-11-07",
   "deployments": [
     { "name": "Engers", "description": "A Power Rangers-style text adventure where bugs are villains, fixes are Ranger moves, and each episode writes an IEEE 830 software requirements specification.", "url": "https://researchengers.netlify.app", "platform": "Netlify" },
     { "name": "WorkWrite", "description": "Writing/work productivity tool", "url": "https://workwrite.netlify.app", "platform": "Netlify" },
@@ -64,15 +64,22 @@
     { "name": "Carbrep", "description": "Website carbon-footprint analyser.", "url": "https://carbrep.netlify.app", "platform": "Netlify" },
     { "name": "Medi Triage", "description": "AI health triage assistant supporting multiple languages", "url": "https://medi-triage.netlify.app", "platform": "Netlify" },
     { "name": "Finalgo", "description": "Financial/loan management software", "url": "https://finalgo.netlify.app", "platform": "Netlify" },
+    { "name": "EDA Py", "description": "Exploratory data analysis in Python", "url": "https://eda-py.netlify.app", "platform": "Netlify" },
+    { "name": "AI App TLM", "description": "Simulation of applications of AI", "url": "https://ai-app-tlm.netlify.app", "platform": "Netlify" },
+    { "name": "Voyant TLM", "description": "Simulation of Voyant Tools", "url": "https://voyant-tlm.netlify.app", "platform": "Netlify" },
+    { "name": "Dwinit", "description": "Interactive learning app (description coming soon)", "url": "https://dwinit.netlify.app", "platform": "Netlify" },
+    { "name": "Weka Sim", "description": "Simulation of Weka software for data mining", "url": "https://weka-sim.netlify.app", "platform": "Netlify" },
     { "name": "NSK Profile", "description": "Personal profile/portfolio site synced with GitHub karun99/nskprofile", "url": "https://nskprofile.vercel.app", "platform": "Vercel" },
     { "name": "Health Quest", "description": "Health/wellness quest app; repo has Dependabot and security updates", "url": "https://health-quest-wheat.vercel.app", "platform": "Vercel" },
     { "name": "TechLearn", "description": "Tech learning platform with MCP server and TRL hardening", "url": "https://techlearn-xi.vercel.app", "platform": "Vercel" },
     { "name": "Plastic Waste Conservation", "description": "Plastic waste conservation strategy platform", "url": "https://plastic-waste-conservation.vercel.app", "platform": "Vercel" },
     { "name": "Gemini AI Chatbot", "description": "Gemini-powered AI chatbot app", "url": "https://gemini-ai-chatbot-seven-delta.vercel.app", "platform": "Vercel" },
-    { "name": "Duet AI", "description": "Digital twin AI project built with Vite; same repo as Duet Digital Twin Technology", "url": "https://duet-ai-ivory.vercel.app", "platform": "Vercel" },
-    { "name": "Duet Digital Twin Technology", "description": "Digital twin technology platform/project", "url": "https://duet-digital-twin-technology.vercel.app", "platform": "Vercel" },
+    { "name": "Duet AI", "description": "Private-by-design AI twin with a local MAS operating protocol (Six Hats, EMOJA, DUNCE, KUNDALINI, JATAKA); same repo as Duet Digital Twin Technology", "url": "https://duet-ai-ivory.vercel.app", "platform": "Vercel" },
+    { "name": "Duet Digital Twin Technology", "description": "Digital twin platform with a local MAS operating protocol \u2014 Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA; personal information off by default", "url": "https://duet-digital-twin-technology.vercel.app", "platform": "Vercel" },
     { "name": "ProfileRank", "description": "Profile/portfolio ranking tool", "url": "https://profilerank-phi.vercel.app", "platform": "Vercel" },
     { "name": "Prompt Code", "description": "PromptPro Challenge Arena.", "url": "https://prompt-code-one.vercel.app", "platform": "Vercel" },
+    { "name": "Data Mining TLM", "description": "Data Mining & Data Warehousing \u2014 a 60-hour course (5 units) covering warehousing, preprocessing, association analysis, classification and clustering, with 15 WEKA labs, interactive topic simulations and a Weka Explorer simulator", "url": "https://data-mining-tlm.vercel.app", "platform": "Vercel" },
+    { "name": "Power BI TLM", "description": "Power BI \u2014 Data Analysis & Business Intelligence course (B.Sc. Hons AI, Semester V) covering data import, Power Query, star-schema data models, DAX, time intelligence, visualizations and publishing dashboards to the Power BI Service", "url": "https://power-bi-tlm.vercel.app", "platform": "Vercel" },
     { "name": "You AI Engine", "description": "Personalized AI/search engine-style project", "url": "https://you-ai-engine.vercel.app", "platform": "Vercel", "status": "offline", "checked": "2026-10-17" }
   ]
 }
