@@ -10,10 +10,18 @@ from __future__ import annotations
 import html.parser
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGES = sorted(p for p in ROOT.glob("*.html"))
+# Ownership-proof files (e.g. google-site-verification) are plain text served
+# with an .html name, not documents. Skip them: they have no <html> element and
+# would otherwise be reported as broken pages.
+PAGES = sorted(
+    p
+    for p in ROOT.glob("*.html")
+    if "<html" in p.read_text(encoding="utf-8", errors="ignore")[:2048].lower()
+)
 SKIP_LINKS = {"sitemap.xml", "robots.txt", "llms.txt", "llms-full.txt"}
 
 ATTR_SPLIT = re.compile(r"([A-Za-z_:][-A-Za-z0-9_:.]*)\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+)")
@@ -94,7 +102,7 @@ def main() -> int:
         for tag, attr in d.dup_attrs:
             add(f"duplicate attribute {attr!r} on <{tag}> (browser keeps the first)")
 
-        dup_ids = {i for i in d.ids if d.ids.count(i) > 1}
+        dup_ids = {i for i, n in Counter(d.ids).items() if n > 1}
         for i in sorted(dup_ids):
             add(f"duplicate id {i!r}")
 
