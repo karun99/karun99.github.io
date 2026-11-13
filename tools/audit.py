@@ -84,7 +84,6 @@ def parse(text: str) -> Doc:
 
 def main() -> int:
     problems: list[str] = []
-    exists = {p.name for p in PAGES} | {p.name for p in ROOT.iterdir() if p.is_file()}
 
     for page in PAGES:
         text = page.read_text(encoding="utf-8")
@@ -132,7 +131,13 @@ def main() -> int:
                 target = target.lstrip("/")
             if target in SKIP_LINKS:
                 continue
-            if target not in exists:
+            # Resolve through subdirectories: links such as assets/skills/x.md
+            # are real files, not root-level names. Also refuse anything that
+            # escapes the site root.
+            candidate = (ROOT / target).resolve()
+            if ROOT.resolve() not in candidate.parents:
+                add(f"link escapes site root: {href}")
+            elif not candidate.is_file():
                 add(f"dead internal link: {href}")
 
         for anchor in set(re.findall(r'href="#([A-Za-z][-\w]*)"', text)):

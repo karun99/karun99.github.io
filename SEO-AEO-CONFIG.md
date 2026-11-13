@@ -70,7 +70,12 @@
 
 ## 4. Indexing Checklist (Owner Action)
 
-- [ ] Verify property in **Google Search Console**
+> Step-by-step instructions and the `github.io` DNS caveat: **`GSC-SETUP.md`**.
+> Use a **URL-prefix** property + HTML-tag verification
+> (`python3 tools/gsc-verify.py --token "…"`). A Domain property cannot be
+> verified because the `github.io` DNS zone is not yours.
+
+- [ ] Verify property in **Google Search Console** (URL prefix, HTML tag)
 - [ ] Submit `https://karun99.github.io/sitemap.xml`
 - [ ] Request indexing for `/`, `/answers.html`, `/about.html`
 - [ ] Verify property in **Bing Webmaster Tools**
