@@ -887,12 +887,12 @@ const DEFAULT_PROJECTS = [
     },
     {
         id: "p22",
-        title: "DUET \u2014 Digital Twin Framework",
-        category: "DIGITAL TWIN // HCI",
-        description: "A digital twin framework with adaptive neural mirroring and parallel consciousness streams that uses the Gemini API to simulate a persona's cognitive structure, biases and worldview.",
-        link: "https://github.com/karun99/DUET--Digital-Twin-Technology-",
+        title: "DUET \u2014 Digital Twin + MAS Operating Protocol",
+        category: "DIGITAL TWIN // MAS // HCI",
+        description: "A private-by-design AI twin in the browser with a local MAS operating protocol: Six Hats, EMOJA, DUNCE, KUNDALINI and JATAKA. Runs free on OpenRouter with opt-in, local-only personalisation.",
+        link: "https://github.com/karun99/Duet--Digital-Twin-Technology",
         icon: "fas fa-user-astronaut",
-        tags: ["TYPESCRIPT", "DIGITAL TWIN", "GEMINI", "HCI"],
+        tags: ["TYPESCRIPT", "DIGITAL TWIN", "MAS", "OPENROUTER", "HCI"],
         featured: false
     },
     {
